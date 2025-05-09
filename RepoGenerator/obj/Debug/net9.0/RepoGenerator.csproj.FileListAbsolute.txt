@@ -1,0 +1,14 @@
+D:\studying\FPT-lessons\EXE202\EXE202_BE\RepoGenerator\bin\Debug\net9.0\RepoGenerator.exe
+D:\studying\FPT-lessons\EXE202\EXE202_BE\RepoGenerator\bin\Debug\net9.0\RepoGenerator.deps.json
+D:\studying\FPT-lessons\EXE202\EXE202_BE\RepoGenerator\bin\Debug\net9.0\RepoGenerator.runtimeconfig.json
+D:\studying\FPT-lessons\EXE202\EXE202_BE\RepoGenerator\bin\Debug\net9.0\RepoGenerator.dll
+D:\studying\FPT-lessons\EXE202\EXE202_BE\RepoGenerator\bin\Debug\net9.0\RepoGenerator.pdb
+D:\studying\FPT-lessons\EXE202\EXE202_BE\RepoGenerator\obj\Debug\net9.0\RepoGenerator.GeneratedMSBuildEditorConfig.editorconfig
+D:\studying\FPT-lessons\EXE202\EXE202_BE\RepoGenerator\obj\Debug\net9.0\RepoGenerator.AssemblyInfoInputs.cache
+D:\studying\FPT-lessons\EXE202\EXE202_BE\RepoGenerator\obj\Debug\net9.0\RepoGenerator.AssemblyInfo.cs
+D:\studying\FPT-lessons\EXE202\EXE202_BE\RepoGenerator\obj\Debug\net9.0\RepoGenerator.csproj.CoreCompileInputs.cache
+D:\studying\FPT-lessons\EXE202\EXE202_BE\RepoGenerator\obj\Debug\net9.0\RepoGenerator.dll
+D:\studying\FPT-lessons\EXE202\EXE202_BE\RepoGenerator\obj\Debug\net9.0\refint\RepoGenerator.dll
+D:\studying\FPT-lessons\EXE202\EXE202_BE\RepoGenerator\obj\Debug\net9.0\RepoGenerator.pdb
+D:\studying\FPT-lessons\EXE202\EXE202_BE\RepoGenerator\obj\Debug\net9.0\RepoGenerator.genruntimeconfig.cache
+D:\studying\FPT-lessons\EXE202\EXE202_BE\RepoGenerator\obj\Debug\net9.0\ref\RepoGenerator.dll

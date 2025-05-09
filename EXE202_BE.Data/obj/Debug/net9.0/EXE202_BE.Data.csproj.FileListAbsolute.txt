@@ -1,0 +1,14 @@
+D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE.Data\bin\Debug\net9.0\EXE202_BE.Data.deps.json
+D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE.Data\bin\Debug\net9.0\EXE202_BE.Data.runtimeconfig.json
+D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE.Data\bin\Debug\net9.0\EXE202_BE.Data.dll
+D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE.Data\bin\Debug\net9.0\EXE202_BE.Data.pdb
+D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE.Data\obj\Debug\net9.0\EXE202_BE.Data.csproj.AssemblyReference.cache
+D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE.Data\obj\Debug\net9.0\EXE202_BE.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE.Data\obj\Debug\net9.0\EXE202_BE.Data.AssemblyInfoInputs.cache
+D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE.Data\obj\Debug\net9.0\EXE202_BE.Data.AssemblyInfo.cs
+D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE.Data\obj\Debug\net9.0\EXE202_BE.Data.csproj.CoreCompileInputs.cache
+D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE.Data\obj\Debug\net9.0\EXE202_BE.Data.dll
+D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE.Data\obj\Debug\net9.0\refint\EXE202_BE.Data.dll
+D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE.Data\obj\Debug\net9.0\EXE202_BE.Data.pdb
+D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE.Data\obj\Debug\net9.0\EXE202_BE.Data.genruntimeconfig.cache
+D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE.Data\obj\Debug\net9.0\ref\EXE202_BE.Data.dll

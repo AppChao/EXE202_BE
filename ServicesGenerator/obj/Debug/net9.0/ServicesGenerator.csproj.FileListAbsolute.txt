@@ -1,0 +1,14 @@
+D:\studying\FPT-lessons\EXE202\EXE202_BE\ServicesGenerator\bin\Debug\net9.0\ServicesGenerator.exe
+D:\studying\FPT-lessons\EXE202\EXE202_BE\ServicesGenerator\bin\Debug\net9.0\ServicesGenerator.deps.json
+D:\studying\FPT-lessons\EXE202\EXE202_BE\ServicesGenerator\bin\Debug\net9.0\ServicesGenerator.runtimeconfig.json
+D:\studying\FPT-lessons\EXE202\EXE202_BE\ServicesGenerator\bin\Debug\net9.0\ServicesGenerator.dll
+D:\studying\FPT-lessons\EXE202\EXE202_BE\ServicesGenerator\bin\Debug\net9.0\ServicesGenerator.pdb
+D:\studying\FPT-lessons\EXE202\EXE202_BE\ServicesGenerator\obj\Debug\net9.0\ServicesGenerator.GeneratedMSBuildEditorConfig.editorconfig
+D:\studying\FPT-lessons\EXE202\EXE202_BE\ServicesGenerator\obj\Debug\net9.0\ServicesGenerator.AssemblyInfoInputs.cache
+D:\studying\FPT-lessons\EXE202\EXE202_BE\ServicesGenerator\obj\Debug\net9.0\ServicesGenerator.AssemblyInfo.cs
+D:\studying\FPT-lessons\EXE202\EXE202_BE\ServicesGenerator\obj\Debug\net9.0\ServicesGenerator.csproj.CoreCompileInputs.cache
+D:\studying\FPT-lessons\EXE202\EXE202_BE\ServicesGenerator\obj\Debug\net9.0\ServicesGenerator.dll
+D:\studying\FPT-lessons\EXE202\EXE202_BE\ServicesGenerator\obj\Debug\net9.0\refint\ServicesGenerator.dll
+D:\studying\FPT-lessons\EXE202\EXE202_BE\ServicesGenerator\obj\Debug\net9.0\ServicesGenerator.pdb
+D:\studying\FPT-lessons\EXE202\EXE202_BE\ServicesGenerator\obj\Debug\net9.0\ServicesGenerator.genruntimeconfig.cache
+D:\studying\FPT-lessons\EXE202\EXE202_BE\ServicesGenerator\obj\Debug\net9.0\ref\ServicesGenerator.dll
