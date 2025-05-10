@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\studying\\FPT-lessons\\EXE202\\EXE202_BE\\EXE202_BE\\EXE202_BE.csproj": {}
+    "C:\\Users\\Lenovo\\Downloads\\FPT\\EXE2\\BE_EXE202\\EXE202_BE\\EXE202_BE\\EXE202_BE.csproj": {}
   },
   "projects": {
-    "D:\\studying\\FPT-lessons\\EXE202\\EXE202_BE\\EXE202_BE.Data\\EXE202_BE.Data.csproj": {
+    "C:\\Users\\Lenovo\\Downloads\\FPT\\EXE2\\BE_EXE202\\EXE202_BE\\EXE202_BE.Data\\EXE202_BE.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\studying\\FPT-lessons\\EXE202\\EXE202_BE\\EXE202_BE.Data\\EXE202_BE.Data.csproj",
+        "projectUniqueName": "C:\\Users\\Lenovo\\Downloads\\FPT\\EXE2\\BE_EXE202\\EXE202_BE\\EXE202_BE.Data\\EXE202_BE.Data.csproj",
         "projectName": "EXE202_BE.Data",
-        "projectPath": "D:\\studying\\FPT-lessons\\EXE202\\EXE202_BE\\EXE202_BE.Data\\EXE202_BE.Data.csproj",
-        "packagesPath": "C:\\Users\\truon\\.nuget\\packages\\",
-        "outputPath": "D:\\studying\\FPT-lessons\\EXE202\\EXE202_BE\\EXE202_BE.Data\\obj\\",
+        "projectPath": "C:\\Users\\Lenovo\\Downloads\\FPT\\EXE2\\BE_EXE202\\EXE202_BE\\EXE202_BE.Data\\EXE202_BE.Data.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Lenovo\\Downloads\\FPT\\EXE2\\BE_EXE202\\EXE202_BE\\EXE202_BE.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\Code IDE\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\truon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -45,12 +44,16 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[14.0.0, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[9.0.4, )"
@@ -82,24 +85,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\studying\\FPT-lessons\\EXE202\\EXE202_BE\\EXE202_BE.Repository\\EXE202_BE.Repository.csproj": {
+    "C:\\Users\\Lenovo\\Downloads\\FPT\\EXE2\\BE_EXE202\\EXE202_BE\\EXE202_BE.Repository\\EXE202_BE.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\studying\\FPT-lessons\\EXE202\\EXE202_BE\\EXE202_BE.Repository\\EXE202_BE.Repository.csproj",
+        "projectUniqueName": "C:\\Users\\Lenovo\\Downloads\\FPT\\EXE2\\BE_EXE202\\EXE202_BE\\EXE202_BE.Repository\\EXE202_BE.Repository.csproj",
         "projectName": "EXE202_BE.Repository",
-        "projectPath": "D:\\studying\\FPT-lessons\\EXE202\\EXE202_BE\\EXE202_BE.Repository\\EXE202_BE.Repository.csproj",
-        "packagesPath": "C:\\Users\\truon\\.nuget\\packages\\",
-        "outputPath": "D:\\studying\\FPT-lessons\\EXE202\\EXE202_BE\\EXE202_BE.Repository\\obj\\",
+        "projectPath": "C:\\Users\\Lenovo\\Downloads\\FPT\\EXE2\\BE_EXE202\\EXE202_BE\\EXE202_BE.Repository\\EXE202_BE.Repository.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Lenovo\\Downloads\\FPT\\EXE2\\BE_EXE202\\EXE202_BE\\EXE202_BE.Repository\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\Code IDE\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\truon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -108,15 +111,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\studying\\FPT-lessons\\EXE202\\EXE202_BE\\EXE202_BE.Data\\EXE202_BE.Data.csproj": {
-                "projectPath": "D:\\studying\\FPT-lessons\\EXE202\\EXE202_BE\\EXE202_BE.Data\\EXE202_BE.Data.csproj"
+              "C:\\Users\\Lenovo\\Downloads\\FPT\\EXE2\\BE_EXE202\\EXE202_BE\\EXE202_BE.Data\\EXE202_BE.Data.csproj": {
+                "projectPath": "C:\\Users\\Lenovo\\Downloads\\FPT\\EXE2\\BE_EXE202\\EXE202_BE\\EXE202_BE.Data\\EXE202_BE.Data.csproj"
               }
             }
           }
@@ -131,7 +133,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
@@ -152,24 +154,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\studying\\FPT-lessons\\EXE202\\EXE202_BE\\EXE202_BE.Service\\EXE202_BE.Service.csproj": {
+    "C:\\Users\\Lenovo\\Downloads\\FPT\\EXE2\\BE_EXE202\\EXE202_BE\\EXE202_BE.Service\\EXE202_BE.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\studying\\FPT-lessons\\EXE202\\EXE202_BE\\EXE202_BE.Service\\EXE202_BE.Service.csproj",
+        "projectUniqueName": "C:\\Users\\Lenovo\\Downloads\\FPT\\EXE2\\BE_EXE202\\EXE202_BE\\EXE202_BE.Service\\EXE202_BE.Service.csproj",
         "projectName": "EXE202_BE.Service",
-        "projectPath": "D:\\studying\\FPT-lessons\\EXE202\\EXE202_BE\\EXE202_BE.Service\\EXE202_BE.Service.csproj",
-        "packagesPath": "C:\\Users\\truon\\.nuget\\packages\\",
-        "outputPath": "D:\\studying\\FPT-lessons\\EXE202\\EXE202_BE\\EXE202_BE.Service\\obj\\",
+        "projectPath": "C:\\Users\\Lenovo\\Downloads\\FPT\\EXE2\\BE_EXE202\\EXE202_BE\\EXE202_BE.Service\\EXE202_BE.Service.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Lenovo\\Downloads\\FPT\\EXE2\\BE_EXE202\\EXE202_BE\\EXE202_BE.Service\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\Code IDE\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\truon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -178,15 +180,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\studying\\FPT-lessons\\EXE202\\EXE202_BE\\EXE202_BE.Repository\\EXE202_BE.Repository.csproj": {
-                "projectPath": "D:\\studying\\FPT-lessons\\EXE202\\EXE202_BE\\EXE202_BE.Repository\\EXE202_BE.Repository.csproj"
+              "C:\\Users\\Lenovo\\Downloads\\FPT\\EXE2\\BE_EXE202\\EXE202_BE\\EXE202_BE.Repository\\EXE202_BE.Repository.csproj": {
+                "projectPath": "C:\\Users\\Lenovo\\Downloads\\FPT\\EXE2\\BE_EXE202\\EXE202_BE\\EXE202_BE.Repository\\EXE202_BE.Repository.csproj"
               }
             }
           }
@@ -201,7 +202,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
@@ -222,24 +223,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\studying\\FPT-lessons\\EXE202\\EXE202_BE\\EXE202_BE\\EXE202_BE.csproj": {
+    "C:\\Users\\Lenovo\\Downloads\\FPT\\EXE2\\BE_EXE202\\EXE202_BE\\EXE202_BE\\EXE202_BE.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\studying\\FPT-lessons\\EXE202\\EXE202_BE\\EXE202_BE\\EXE202_BE.csproj",
+        "projectUniqueName": "C:\\Users\\Lenovo\\Downloads\\FPT\\EXE2\\BE_EXE202\\EXE202_BE\\EXE202_BE\\EXE202_BE.csproj",
         "projectName": "EXE202_BE",
-        "projectPath": "D:\\studying\\FPT-lessons\\EXE202\\EXE202_BE\\EXE202_BE\\EXE202_BE.csproj",
-        "packagesPath": "C:\\Users\\truon\\.nuget\\packages\\",
-        "outputPath": "D:\\studying\\FPT-lessons\\EXE202\\EXE202_BE\\EXE202_BE\\obj\\",
+        "projectPath": "C:\\Users\\Lenovo\\Downloads\\FPT\\EXE2\\BE_EXE202\\EXE202_BE\\EXE202_BE\\EXE202_BE.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Lenovo\\Downloads\\FPT\\EXE2\\BE_EXE202\\EXE202_BE\\EXE202_BE\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\Code IDE\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\truon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -248,15 +249,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\studying\\FPT-lessons\\EXE202\\EXE202_BE\\EXE202_BE.Service\\EXE202_BE.Service.csproj": {
-                "projectPath": "D:\\studying\\FPT-lessons\\EXE202\\EXE202_BE\\EXE202_BE.Service\\EXE202_BE.Service.csproj"
+              "C:\\Users\\Lenovo\\Downloads\\FPT\\EXE2\\BE_EXE202\\EXE202_BE\\EXE202_BE.Service\\EXE202_BE.Service.csproj": {
+                "projectPath": "C:\\Users\\Lenovo\\Downloads\\FPT\\EXE2\\BE_EXE202\\EXE202_BE\\EXE202_BE.Service\\EXE202_BE.Service.csproj"
               }
             }
           }
@@ -271,12 +271,16 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[9.0.0, )"
@@ -286,6 +290,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[9.0.4, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[8.1.1, )"
             }
           },
           "imports": [
@@ -307,7 +315,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

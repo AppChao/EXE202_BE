@@ -19,6 +19,7 @@ public static class DependencyInjection
         services.AddTransient<IRecipesService, RecipesService>();
         services.AddTransient<IServingsService, ServingsService>();
         services.AddTransient<IUserProfilesService, UserProfilesService>();
+        services.AddTransient<IAuthService, AuthService>();
         
         return services;
     }
