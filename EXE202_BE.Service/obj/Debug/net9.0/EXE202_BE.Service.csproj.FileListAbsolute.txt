@@ -33,3 +33,4 @@ C:\Users\Lenovo\Downloads\FPT\EXE2\BE_EXE202\EXE202_BE\EXE202_BE.Service\obj\Deb
 C:\Users\Lenovo\Downloads\FPT\EXE2\BE_EXE202\EXE202_BE\EXE202_BE.Service\obj\Debug\net9.0\refint\EXE202_BE.Service.dll
 C:\Users\Lenovo\Downloads\FPT\EXE2\BE_EXE202\EXE202_BE\EXE202_BE.Service\obj\Debug\net9.0\EXE202_BE.Service.pdb
 C:\Users\Lenovo\Downloads\FPT\EXE2\BE_EXE202\EXE202_BE\EXE202_BE.Service\obj\Debug\net9.0\ref\EXE202_BE.Service.dll
+D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE.Service\obj\Debug\net9.0\EXE202_BE.Service.sourcelink.json

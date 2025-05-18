@@ -43,13 +43,11 @@ D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.0\Microsoft.Wi
 D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.0\System.ClientModel.dll
 D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.0\System.Configuration.ConfigurationManager.dll
 D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.0\System.Drawing.Common.dll
-D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.0\System.Formats.Asn1.dll
 D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
 D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.0\System.Memory.Data.dll
 D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.0\System.Runtime.Caching.dll
 D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.0\System.Security.Cryptography.ProtectedData.dll
 D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.0\System.Security.Permissions.dll
-D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.0\System.Text.Json.dll
 D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.0\System.Windows.Extensions.dll
 D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
 D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
@@ -80,12 +78,6 @@ D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\obj\Debug\net9.0\scopedcss\bu
 D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\obj\Debug\net9.0\staticwebassets.build.json
 D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\obj\Debug\net9.0\staticwebassets.development.json
 D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\obj\Debug\net9.0\staticwebassets.build.endpoints.json
-D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\obj\Debug\net9.0\staticwebassets\msbuild.EXE202_BE.Microsoft.AspNetCore.StaticWebAssets.props
-D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\obj\Debug\net9.0\staticwebassets\msbuild.EXE202_BE.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
-D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\obj\Debug\net9.0\staticwebassets\msbuild.build.EXE202_BE.props
-D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.EXE202_BE.props
-D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.EXE202_BE.props
-D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\obj\Debug\net9.0\staticwebassets.pack.json
 D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\obj\Debug\net9.0\EXE202_BE.csproj.Up2Date
 D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\obj\Debug\net9.0\EXE202_BE.dll
 D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\obj\Debug\net9.0\refint\EXE202_BE.dll
@@ -356,3 +348,10 @@ C:\Users\Lenovo\Downloads\FPT\EXE2\BE_EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.
 C:\Users\Lenovo\Downloads\FPT\EXE2\BE_EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Lenovo\Downloads\FPT\EXE2\BE_EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\Lenovo\Downloads\FPT\EXE2\BE_EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.0\AutoMapper.dll
+D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.0\AutoMapper.dll
+D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\obj\Debug\net9.0\EXE202_BE.sourcelink.json
+D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\obj\Debug\net9.0\staticwebassets.build.json.cache

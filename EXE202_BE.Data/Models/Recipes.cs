@@ -9,17 +9,22 @@ public partial class Recipes
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int RecipeId { get; set; }
 
-    public string Nation { get; set; }
+    [ForeignKey("Cuisines")]
+    public int? CuisineId { get; set; }
 
-    public string RecipeSteps { get; set; }
+    public string? Meals { get; set; } =  string.Empty;
 
-    public string InstructionVideoLink { get; set; }
+    public string? RecipeSteps { get; set; } =  string.Empty;
 
-    public string RecipeName { get; set; }
+    public string? InstructionVideoLink { get; set; }  =  string.Empty;
+
+    public string? RecipeName { get; set; }  =  string.Empty;
 
     //Minutes
     public int TimeEstimation  { get; set; }
     
     [Range(1, 10, ErrorMessage = "The difficulty rating should be between 1 and 10")]
     public int DifficultyEstimation { get; set; }
+
+    public int? DefaultServing { get; set; }
 }

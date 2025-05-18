@@ -14,5 +14,11 @@ public partial class Ingredients
     [ForeignKey("IngredientTypes")]
     public int IngredientTypeId { get; set; }
 
+    public double? CaloriesPer100g { get; set; }
+
+    public string? DefaultUnit { get; set; }
+
+    public double? GramPerUnit { get; set; }
+
     public virtual IngredientTypes IngredientType { get; set; } = null!;
 }

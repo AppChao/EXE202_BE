@@ -22,6 +22,25 @@ namespace EXE202_BE.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("EXE202_BE.Data.Models.ActivityLevels", b =>
+                {
+                    b.Property<int>("LevelId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("LevelId"));
+
+                    b.Property<string>("LevelDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LevelName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("LevelId");
+
+                    b.ToTable("ActivityLevels");
+                });
+
             modelBuilder.Entity("EXE202_BE.Data.Models.Allergies", b =>
                 {
                     b.Property<int>("IngredientId")
@@ -37,6 +56,41 @@ namespace EXE202_BE.Data.Migrations
                     b.HasIndex("UPId");
 
                     b.ToTable("Allergies");
+                });
+
+            modelBuilder.Entity("EXE202_BE.Data.Models.CookingSkills", b =>
+                {
+                    b.Property<int>("CookingSkillId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CookingSkillId"));
+
+                    b.Property<string>("CookingSkillName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DifficultyValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CookingSkillId");
+
+                    b.ToTable("CookingSkills");
+                });
+
+            modelBuilder.Entity("EXE202_BE.Data.Models.Goals", b =>
+                {
+                    b.Property<int>("GoalId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("GoalId"));
+
+                    b.Property<string>("GoalName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("GoalId");
+
+                    b.ToTable("Goals");
                 });
 
             modelBuilder.Entity("EXE202_BE.Data.Models.HealthConditions", b =>
@@ -95,6 +149,15 @@ namespace EXE202_BE.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IngredientId"));
 
+                    b.Property<double?>("CaloriesPer100g")
+                        .HasColumnType("float");
+
+                    b.Property<string>("DefaultUnit")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double?>("GramPerUnit")
+                        .HasColumnType("float");
+
                     b.Property<string>("IngredientName")
                         .HasColumnType("nvarchar(max)");
 
@@ -106,6 +169,25 @@ namespace EXE202_BE.Data.Migrations
                     b.HasIndex("IngredientTypeId");
 
                     b.ToTable("Ingredients");
+                });
+
+            modelBuilder.Entity("EXE202_BE.Data.Models.LoseWeightSpeed", b =>
+                {
+                    b.Property<int>("SpeedId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SpeedId"));
+
+                    b.Property<string>("SpeedName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TimeToReachGoal")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("SpeedId");
+
+                    b.ToTable("LoseWeightSpeed");
                 });
 
             modelBuilder.Entity("EXE202_BE.Data.Models.MealCatagories", b =>
@@ -143,6 +225,38 @@ namespace EXE202_BE.Data.Migrations
                     b.HasIndex("HealthConditionId");
 
                     b.ToTable("PersonalHealthConditions");
+                });
+
+            modelBuilder.Entity("EXE202_BE.Data.Models.PersonalUserCookingSkills", b =>
+                {
+                    b.Property<int>("UPId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CookingSkillId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UPId", "CookingSkillId");
+
+                    b.HasIndex("CookingSkillId");
+
+                    b.ToTable("PersonalUserCookingSkills");
+                });
+
+            modelBuilder.Entity("EXE202_BE.Data.Models.PersonalUserProblem", b =>
+                {
+                    b.Property<int>("UPId")
+                        .HasColumnType("int")
+                        .HasColumnOrder(1);
+
+                    b.Property<int>("ProblemId")
+                        .HasColumnType("int")
+                        .HasColumnOrder(2);
+
+                    b.HasKey("UPId", "ProblemId");
+
+                    b.HasIndex("ProblemId");
+
+                    b.ToTable("PersonalUserProblem");
                 });
 
             modelBuilder.Entity("EXE202_BE.Data.Models.RecipeHealthTags", b =>
@@ -193,23 +307,25 @@ namespace EXE202_BE.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RecipeId"));
 
+                    b.Property<int?>("CuisineId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DefaultServing")
+                        .HasColumnType("int");
+
                     b.Property<int>("DifficultyEstimation")
                         .HasColumnType("int");
 
                     b.Property<string>("InstructionVideoLink")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Nation")
-                        .IsRequired()
+                    b.Property<string>("Meals")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RecipeName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RecipeSteps")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TimeEstimation")
@@ -220,6 +336,8 @@ namespace EXE202_BE.Data.Migrations
                     b.ToTable("Recipes", t =>
                         {
                             t.HasCheckConstraint("CK_Recipes_Difficulty_Rating", "[DifficultyEstimation] BETWEEN 1 AND 10");
+
+                            t.HasCheckConstraint("CK_Recipes_Meals", "[Meals] IN ('breakfast', 'lunch', 'dinner', 'snack')");
                         });
                 });
 
@@ -241,6 +359,23 @@ namespace EXE202_BE.Data.Migrations
                     b.ToTable("Servings");
                 });
 
+            modelBuilder.Entity("EXE202_BE.Data.Models.SubcriptionUsers", b =>
+                {
+                    b.Property<int>("UPId")
+                        .HasColumnType("int")
+                        .HasColumnOrder(1);
+
+                    b.Property<int>("SubcriptionId")
+                        .HasColumnType("int")
+                        .HasColumnOrder(2);
+
+                    b.HasKey("UPId", "SubcriptionId");
+
+                    b.HasIndex("SubcriptionId");
+
+                    b.ToTable("SubcriptionUsers");
+                });
+
             modelBuilder.Entity("EXE202_BE.Data.Models.Subcriptions", b =>
                 {
                     b.Property<int>("SubcriptionId")
@@ -260,6 +395,38 @@ namespace EXE202_BE.Data.Migrations
                     b.ToTable("Subcriptions");
                 });
 
+            modelBuilder.Entity("EXE202_BE.Data.Models.UserExperiences", b =>
+                {
+                    b.Property<int>("ExperienceId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ExperienceId"));
+
+                    b.Property<string>("ExperienceName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ExperienceId");
+
+                    b.ToTable("UserExperiences");
+                });
+
+            modelBuilder.Entity("EXE202_BE.Data.Models.UserProblem", b =>
+                {
+                    b.Property<int>("ProblemId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProblemId"));
+
+                    b.Property<string>("ProblemName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ProblemId");
+
+                    b.ToTable("UserProblem");
+                });
+
             modelBuilder.Entity("EXE202_BE.Data.Models.UserProfiles", b =>
                 {
                     b.Property<int>("UPId")
@@ -268,23 +435,62 @@ namespace EXE202_BE.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UPId"));
 
+                    b.Property<int>("ActivityLevelLevelId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Age")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ExperienceId")
+                        .HasColumnType("int");
+
                     b.Property<string>("FullName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("SubcriptionId")
+                    b.Property<string>("Gender")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("GoalId")
+                        .HasColumnType("int");
+
+                    b.Property<double?>("GoalWeight")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Height")
+                        .HasColumnType("float");
+
+                    b.Property<int>("LevelId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SpeedId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserExperienceExperienceId")
                         .HasColumnType("int");
 
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<double?>("Weight")
+                        .HasColumnType("float");
+
                     b.HasKey("UPId");
 
-                    b.HasIndex("SubcriptionId");
+                    b.HasIndex("ActivityLevelLevelId");
+
+                    b.HasIndex("GoalId");
+
+                    b.HasIndex("SpeedId");
+
+                    b.HasIndex("UserExperienceExperienceId");
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserProfiles");
+                    b.ToTable("UserProfiles", t =>
+                        {
+                            t.HasCheckConstraint("CK_UserProfiles_Gener", "Gender IN ('Male', 'Female', 'Other')");
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -560,6 +766,44 @@ namespace EXE202_BE.Data.Migrations
                     b.Navigation("UserProfile");
                 });
 
+            modelBuilder.Entity("EXE202_BE.Data.Models.PersonalUserCookingSkills", b =>
+                {
+                    b.HasOne("EXE202_BE.Data.Models.CookingSkills", "CookingSkill")
+                        .WithMany()
+                        .HasForeignKey("CookingSkillId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EXE202_BE.Data.Models.UserProfiles", "UserProfile")
+                        .WithMany()
+                        .HasForeignKey("UPId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("CookingSkill");
+
+                    b.Navigation("UserProfile");
+                });
+
+            modelBuilder.Entity("EXE202_BE.Data.Models.PersonalUserProblem", b =>
+                {
+                    b.HasOne("EXE202_BE.Data.Models.UserProblem", "UserProblem")
+                        .WithMany()
+                        .HasForeignKey("ProblemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EXE202_BE.Data.Models.UserProfiles", "UserProfile")
+                        .WithMany()
+                        .HasForeignKey("UPId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("UserProblem");
+
+                    b.Navigation("UserProfile");
+                });
+
             modelBuilder.Entity("EXE202_BE.Data.Models.RecipeHealthTags", b =>
                 {
                     b.HasOne("EXE202_BE.Data.Models.HealthTags", "HealthTag")
@@ -598,11 +842,50 @@ namespace EXE202_BE.Data.Migrations
                     b.Navigation("Recipe");
                 });
 
-            modelBuilder.Entity("EXE202_BE.Data.Models.UserProfiles", b =>
+            modelBuilder.Entity("EXE202_BE.Data.Models.SubcriptionUsers", b =>
                 {
                     b.HasOne("EXE202_BE.Data.Models.Subcriptions", "Subcription")
                         .WithMany()
-                        .HasForeignKey("SubcriptionId");
+                        .HasForeignKey("SubcriptionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EXE202_BE.Data.Models.UserProfiles", "UserProfile")
+                        .WithMany()
+                        .HasForeignKey("UPId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Subcription");
+
+                    b.Navigation("UserProfile");
+                });
+
+            modelBuilder.Entity("EXE202_BE.Data.Models.UserProfiles", b =>
+                {
+                    b.HasOne("EXE202_BE.Data.Models.ActivityLevels", "ActivityLevel")
+                        .WithMany()
+                        .HasForeignKey("ActivityLevelLevelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EXE202_BE.Data.Models.Goals", "Goal")
+                        .WithMany()
+                        .HasForeignKey("GoalId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EXE202_BE.Data.Models.LoseWeightSpeed", "LoseWeightSpeed")
+                        .WithMany()
+                        .HasForeignKey("SpeedId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EXE202_BE.Data.Models.UserExperiences", "UserExperience")
+                        .WithMany()
+                        .HasForeignKey("UserExperienceExperienceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
                         .WithMany()
@@ -610,9 +893,15 @@ namespace EXE202_BE.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Subcription");
+                    b.Navigation("ActivityLevel");
+
+                    b.Navigation("Goal");
+
+                    b.Navigation("LoseWeightSpeed");
 
                     b.Navigation("User");
+
+                    b.Navigation("UserExperience");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

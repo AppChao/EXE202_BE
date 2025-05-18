@@ -8,11 +8,25 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace EXE202_BE.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialIdentityMigration : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "ActivityLevels",
+                columns: table => new
+                {
+                    LevelId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    LevelName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LevelDescription = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ActivityLevels", x => x.LevelId);
+                });
+
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -50,6 +64,33 @@ namespace EXE202_BE.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CookingSkills",
+                columns: table => new
+                {
+                    CookingSkillId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CookingSkillName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DifficultyValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CookingSkills", x => x.CookingSkillId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Goals",
+                columns: table => new
+                {
+                    GoalId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    GoalName = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Goals", x => x.GoalId);
                 });
 
             migrationBuilder.CreateTable(
@@ -92,6 +133,20 @@ namespace EXE202_BE.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "LoseWeightSpeed",
+                columns: table => new
+                {
+                    SpeedId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    SpeedName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TimeToReachGoal = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LoseWeightSpeed", x => x.SpeedId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "MealCatagories",
                 columns: table => new
                 {
@@ -110,17 +165,20 @@ namespace EXE202_BE.Data.Migrations
                 {
                     RecipeId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nation = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    RecipeSteps = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    InstructionVideoLink = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    RecipeName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CuisineId = table.Column<int>(type: "int", nullable: true),
+                    Meals = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RecipeSteps = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    InstructionVideoLink = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RecipeName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TimeEstimation = table.Column<int>(type: "int", nullable: false),
-                    DifficultyEstimation = table.Column<int>(type: "int", nullable: false)
+                    DifficultyEstimation = table.Column<int>(type: "int", nullable: false),
+                    DefaultServing = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Recipes", x => x.RecipeId);
                     table.CheckConstraint("CK_Recipes_Difficulty_Rating", "[DifficultyEstimation] BETWEEN 1 AND 10");
+                    table.CheckConstraint("CK_Recipes_Meals", "[Meals] IN ('breakfast', 'lunch', 'dinner', 'snack')");
                 });
 
             migrationBuilder.CreateTable(
@@ -148,6 +206,32 @@ namespace EXE202_BE.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Subcriptions", x => x.SubcriptionId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserExperiences",
+                columns: table => new
+                {
+                    ExperienceId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ExperienceName = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserExperiences", x => x.ExperienceId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserProblem",
+                columns: table => new
+                {
+                    ProblemId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProblemName = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserProblem", x => x.ProblemId);
                 });
 
             migrationBuilder.CreateTable(
@@ -263,7 +347,10 @@ namespace EXE202_BE.Data.Migrations
                     IngredientId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     IngredientName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    IngredientTypeId = table.Column<int>(type: "int", nullable: false)
+                    IngredientTypeId = table.Column<int>(type: "int", nullable: false),
+                    CaloriesPer100g = table.Column<double>(type: "float", nullable: true),
+                    DefaultUnit = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    GramPerUnit = table.Column<double>(type: "float", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -333,12 +420,29 @@ namespace EXE202_BE.Data.Migrations
                     UPId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FullName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SubcriptionId = table.Column<int>(type: "int", nullable: true),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    Weight = table.Column<double>(type: "float", nullable: true),
+                    GoalWeight = table.Column<double>(type: "float", nullable: true),
+                    Height = table.Column<double>(type: "float", nullable: true),
+                    Gender = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Age = table.Column<int>(type: "int", nullable: true),
+                    GoalId = table.Column<int>(type: "int", nullable: false),
+                    ExperienceId = table.Column<int>(type: "int", nullable: false),
+                    LevelId = table.Column<int>(type: "int", nullable: false),
+                    SpeedId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    UserExperienceExperienceId = table.Column<int>(type: "int", nullable: false),
+                    ActivityLevelLevelId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_UserProfiles", x => x.UPId);
+                    table.CheckConstraint("CK_UserProfiles_Gener", "Gender IN ('Male', 'Female', 'Other')");
+                    table.ForeignKey(
+                        name: "FK_UserProfiles_ActivityLevels_ActivityLevelLevelId",
+                        column: x => x.ActivityLevelLevelId,
+                        principalTable: "ActivityLevels",
+                        principalColumn: "LevelId",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_UserProfiles_AspNetUsers_UserId",
                         column: x => x.UserId,
@@ -346,10 +450,23 @@ namespace EXE202_BE.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_UserProfiles_Subcriptions_SubcriptionId",
-                        column: x => x.SubcriptionId,
-                        principalTable: "Subcriptions",
-                        principalColumn: "SubcriptionId");
+                        name: "FK_UserProfiles_Goals_GoalId",
+                        column: x => x.GoalId,
+                        principalTable: "Goals",
+                        principalColumn: "GoalId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserProfiles_LoseWeightSpeed_SpeedId",
+                        column: x => x.SpeedId,
+                        principalTable: "LoseWeightSpeed",
+                        principalColumn: "SpeedId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserProfiles_UserExperiences_UserExperienceExperienceId",
+                        column: x => x.UserExperienceExperienceId,
+                        principalTable: "UserExperiences",
+                        principalColumn: "ExperienceId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -395,6 +512,78 @@ namespace EXE202_BE.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_PersonalHealthConditions_UserProfiles_UPId",
+                        column: x => x.UPId,
+                        principalTable: "UserProfiles",
+                        principalColumn: "UPId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PersonalUserCookingSkills",
+                columns: table => new
+                {
+                    UPId = table.Column<int>(type: "int", nullable: false),
+                    CookingSkillId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PersonalUserCookingSkills", x => new { x.UPId, x.CookingSkillId });
+                    table.ForeignKey(
+                        name: "FK_PersonalUserCookingSkills_CookingSkills_CookingSkillId",
+                        column: x => x.CookingSkillId,
+                        principalTable: "CookingSkills",
+                        principalColumn: "CookingSkillId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PersonalUserCookingSkills_UserProfiles_UPId",
+                        column: x => x.UPId,
+                        principalTable: "UserProfiles",
+                        principalColumn: "UPId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PersonalUserProblem",
+                columns: table => new
+                {
+                    UPId = table.Column<int>(type: "int", nullable: false),
+                    ProblemId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PersonalUserProblem", x => new { x.UPId, x.ProblemId });
+                    table.ForeignKey(
+                        name: "FK_PersonalUserProblem_UserProblem_ProblemId",
+                        column: x => x.ProblemId,
+                        principalTable: "UserProblem",
+                        principalColumn: "ProblemId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PersonalUserProblem_UserProfiles_UPId",
+                        column: x => x.UPId,
+                        principalTable: "UserProfiles",
+                        principalColumn: "UPId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SubcriptionUsers",
+                columns: table => new
+                {
+                    UPId = table.Column<int>(type: "int", nullable: false),
+                    SubcriptionId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SubcriptionUsers", x => new { x.UPId, x.SubcriptionId });
+                    table.ForeignKey(
+                        name: "FK_SubcriptionUsers_Subcriptions_SubcriptionId",
+                        column: x => x.SubcriptionId,
+                        principalTable: "Subcriptions",
+                        principalColumn: "SubcriptionId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_SubcriptionUsers_UserProfiles_UPId",
                         column: x => x.UPId,
                         principalTable: "UserProfiles",
                         principalColumn: "UPId",
@@ -467,6 +656,16 @@ namespace EXE202_BE.Data.Migrations
                 column: "HealthConditionId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_PersonalUserCookingSkills_CookingSkillId",
+                table: "PersonalUserCookingSkills",
+                column: "CookingSkillId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PersonalUserProblem_ProblemId",
+                table: "PersonalUserProblem",
+                column: "ProblemId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_RecipeHealthTags_HealthTagId",
                 table: "RecipeHealthTags",
                 column: "HealthTagId");
@@ -477,9 +676,29 @@ namespace EXE202_BE.Data.Migrations
                 column: "RecipeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserProfiles_SubcriptionId",
-                table: "UserProfiles",
+                name: "IX_SubcriptionUsers_SubcriptionId",
+                table: "SubcriptionUsers",
                 column: "SubcriptionId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserProfiles_ActivityLevelLevelId",
+                table: "UserProfiles",
+                column: "ActivityLevelLevelId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserProfiles_GoalId",
+                table: "UserProfiles",
+                column: "GoalId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserProfiles_SpeedId",
+                table: "UserProfiles",
+                column: "SpeedId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserProfiles_UserExperienceExperienceId",
+                table: "UserProfiles",
+                column: "UserExperienceExperienceId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserProfiles_UserId",
@@ -512,6 +731,12 @@ namespace EXE202_BE.Data.Migrations
                 name: "PersonalHealthConditions");
 
             migrationBuilder.DropTable(
+                name: "PersonalUserCookingSkills");
+
+            migrationBuilder.DropTable(
+                name: "PersonalUserProblem");
+
+            migrationBuilder.DropTable(
                 name: "RecipeHealthTags");
 
             migrationBuilder.DropTable(
@@ -519,6 +744,9 @@ namespace EXE202_BE.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Servings");
+
+            migrationBuilder.DropTable(
+                name: "SubcriptionUsers");
 
             migrationBuilder.DropTable(
                 name: "Ingredients");
@@ -530,7 +758,10 @@ namespace EXE202_BE.Data.Migrations
                 name: "HealthConditions");
 
             migrationBuilder.DropTable(
-                name: "UserProfiles");
+                name: "CookingSkills");
+
+            migrationBuilder.DropTable(
+                name: "UserProblem");
 
             migrationBuilder.DropTable(
                 name: "HealthTags");
@@ -542,13 +773,28 @@ namespace EXE202_BE.Data.Migrations
                 name: "Recipes");
 
             migrationBuilder.DropTable(
+                name: "Subcriptions");
+
+            migrationBuilder.DropTable(
+                name: "UserProfiles");
+
+            migrationBuilder.DropTable(
                 name: "IngredientTypes");
+
+            migrationBuilder.DropTable(
+                name: "ActivityLevels");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Subcriptions");
+                name: "Goals");
+
+            migrationBuilder.DropTable(
+                name: "LoseWeightSpeed");
+
+            migrationBuilder.DropTable(
+                name: "UserExperiences");
         }
     }
 }

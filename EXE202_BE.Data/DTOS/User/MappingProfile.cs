@@ -10,7 +10,6 @@ public class MappingProfile : Profile
         CreateMap<UserProfiles, UserProfileResponse>()
             .ForMember(dest => dest.UPId, opt => opt.MapFrom(src => src.UPId))
             .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => src.FullName))
-            .ForMember(dest => dest.SubscriptionId, opt => opt.MapFrom(src => src.SubcriptionId))
             .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.UserId))
             .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.User.Email))
             .ForMember(dest => dest.Role, opt => opt.Ignore());

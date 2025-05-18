@@ -16,4 +16,9 @@ public partial class Servings
     public int IngredientId { get; set; }
 
     public string? Ammount { get; set; } = string.Empty;
+
+    public virtual Recipes Recipe { get; set; } =  null!;
+
+    public virtual Ingredients Ingredient { get; set; } =   null!;
+    
 }

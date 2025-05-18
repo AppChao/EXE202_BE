@@ -27,3 +27,4 @@ C:\Users\Lenovo\Downloads\FPT\EXE2\BE_EXE202\EXE202_BE\EXE202_BE.Data\obj\Debug\
 C:\Users\Lenovo\Downloads\FPT\EXE2\BE_EXE202\EXE202_BE\EXE202_BE.Data\obj\Debug\net9.0\EXE202_BE.Data.pdb
 C:\Users\Lenovo\Downloads\FPT\EXE2\BE_EXE202\EXE202_BE\EXE202_BE.Data\obj\Debug\net9.0\EXE202_BE.Data.genruntimeconfig.cache
 C:\Users\Lenovo\Downloads\FPT\EXE2\BE_EXE202\EXE202_BE\EXE202_BE.Data\obj\Debug\net9.0\ref\EXE202_BE.Data.dll
+D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE.Data\obj\Debug\net9.0\EXE202_BE.Data.sourcelink.json
