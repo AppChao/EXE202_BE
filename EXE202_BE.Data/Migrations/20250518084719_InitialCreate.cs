@@ -192,28 +192,6 @@ namespace EXE202_BE.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Recipes",
-                columns: table => new
-                {
-                    RecipeId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CuisineId = table.Column<int>(type: "int", nullable: true),
-                    Meals = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    RecipeSteps = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    InstructionVideoLink = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    RecipeName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    TimeEstimation = table.Column<int>(type: "int", nullable: false),
-                    DifficultyEstimation = table.Column<int>(type: "int", nullable: false),
-                    DefaultServing = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Recipes", x => x.RecipeId);
-                    table.CheckConstraint("CK_Recipes_Difficulty_Rating", "[DifficultyEstimation] BETWEEN 1 AND 10");
-                    table.CheckConstraint("CK_Recipes_Meals", "[Meals] IN ('breakfast', 'lunch', 'dinner', 'snack')");
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Subcriptions",
                 columns: table => new
                 {
@@ -381,6 +359,33 @@ namespace EXE202_BE.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Recipes",
+                columns: table => new
+                {
+                    RecipeId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CuisineId = table.Column<int>(type: "int", nullable: true),
+                    Meals = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RecipeSteps = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    InstructionVideoLink = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RecipeName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TimeEstimation = table.Column<int>(type: "int", nullable: false),
+                    DifficultyEstimation = table.Column<int>(type: "int", nullable: false),
+                    DefaultServing = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Recipes", x => x.RecipeId);
+                    table.CheckConstraint("CK_Recipes_Difficulty_Rating", "[DifficultyEstimation] BETWEEN 1 AND 10");
+                    table.CheckConstraint("CK_Recipes_Meals", "[Meals] IN ('breakfast', 'lunch', 'dinner', 'snack')");
+                    table.ForeignKey(
+                        name: "FK_Recipes_Cuisines_CuisineId",
+                        column: x => x.CuisineId,
+                        principalTable: "Cuisines",
+                        principalColumn: "CuisineId");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Ingredients",
                 columns: table => new
                 {
@@ -427,57 +432,6 @@ namespace EXE202_BE.Data.Migrations
                         column: x => x.NotificationId,
                         principalTable: "Notifications",
                         principalColumn: "NotificationId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "RecipeHealthTags",
-                columns: table => new
-                {
-                    RecipeId = table.Column<int>(type: "int", nullable: false),
-                    HealthTagId = table.Column<int>(type: "int", nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_RecipeHealthTags", x => new { x.RecipeId, x.HealthTagId });
-                    table.ForeignKey(
-                        name: "FK_RecipeHealthTags_HealthTags_HealthTagId",
-                        column: x => x.HealthTagId,
-                        principalTable: "HealthTags",
-                        principalColumn: "HealthTagId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_RecipeHealthTags_Recipes_RecipeId",
-                        column: x => x.RecipeId,
-                        principalTable: "Recipes",
-                        principalColumn: "RecipeId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "RecipeMealTypes",
-                columns: table => new
-                {
-                    MealId = table.Column<int>(type: "int", nullable: false),
-                    RecipeId = table.Column<int>(type: "int", nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    MealCatagorieMealId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_RecipeMealTypes", x => new { x.MealId, x.RecipeId });
-                    table.ForeignKey(
-                        name: "FK_RecipeMealTypes_MealCatagories_MealCatagorieMealId",
-                        column: x => x.MealCatagorieMealId,
-                        principalTable: "MealCatagories",
-                        principalColumn: "MealId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_RecipeMealTypes_Recipes_RecipeId",
-                        column: x => x.RecipeId,
-                        principalTable: "Recipes",
-                        principalColumn: "RecipeId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -534,6 +488,57 @@ namespace EXE202_BE.Data.Migrations
                         column: x => x.UserExperienceExperienceId,
                         principalTable: "UserExperiences",
                         principalColumn: "ExperienceId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RecipeHealthTags",
+                columns: table => new
+                {
+                    RecipeId = table.Column<int>(type: "int", nullable: false),
+                    HealthTagId = table.Column<int>(type: "int", nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RecipeHealthTags", x => new { x.RecipeId, x.HealthTagId });
+                    table.ForeignKey(
+                        name: "FK_RecipeHealthTags_HealthTags_HealthTagId",
+                        column: x => x.HealthTagId,
+                        principalTable: "HealthTags",
+                        principalColumn: "HealthTagId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_RecipeHealthTags_Recipes_RecipeId",
+                        column: x => x.RecipeId,
+                        principalTable: "Recipes",
+                        principalColumn: "RecipeId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RecipeMealTypes",
+                columns: table => new
+                {
+                    MealId = table.Column<int>(type: "int", nullable: false),
+                    RecipeId = table.Column<int>(type: "int", nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MealCatagorieMealId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RecipeMealTypes", x => new { x.MealId, x.RecipeId });
+                    table.ForeignKey(
+                        name: "FK_RecipeMealTypes_MealCatagories_MealCatagorieMealId",
+                        column: x => x.MealCatagorieMealId,
+                        principalTable: "MealCatagories",
+                        principalColumn: "MealId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_RecipeMealTypes_Recipes_RecipeId",
+                        column: x => x.RecipeId,
+                        principalTable: "Recipes",
+                        principalColumn: "RecipeId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -830,6 +835,11 @@ namespace EXE202_BE.Data.Migrations
                 column: "RecipeId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Recipes_CuisineId",
+                table: "Recipes",
+                column: "CuisineId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Servings_IngredientId",
                 table: "Servings",
                 column: "IngredientId");
@@ -890,9 +900,6 @@ namespace EXE202_BE.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
-
-            migrationBuilder.DropTable(
-                name: "Cuisines");
 
             migrationBuilder.DropTable(
                 name: "Devices");
@@ -959,6 +966,9 @@ namespace EXE202_BE.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "IngredientTypes");
+
+            migrationBuilder.DropTable(
+                name: "Cuisines");
 
             migrationBuilder.DropTable(
                 name: "ActivityLevels");

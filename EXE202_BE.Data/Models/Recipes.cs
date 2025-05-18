@@ -27,4 +27,6 @@ public partial class Recipes
     public int DifficultyEstimation { get; set; }
 
     public int? DefaultServing { get; set; }
+
+    public virtual Cuisines Cuisine { get; set; } = null!;
 }

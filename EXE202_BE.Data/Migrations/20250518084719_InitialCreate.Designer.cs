@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EXE202_BE.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250518082404_InitialCreate")]
+    [Migration("20250518084719_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -539,6 +539,8 @@ namespace EXE202_BE.Data.Migrations
 
                     b.HasKey("RecipeId");
 
+                    b.HasIndex("CuisineId");
+
                     b.ToTable("Recipes", t =>
                         {
                             t.HasCheckConstraint("CK_Recipes_Difficulty_Rating", "[DifficultyEstimation] BETWEEN 1 AND 10");
@@ -1025,6 +1027,15 @@ namespace EXE202_BE.Data.Migrations
                     b.Navigation("MealCatagorie");
 
                     b.Navigation("Recipe");
+                });
+
+            modelBuilder.Entity("EXE202_BE.Data.Models.Recipes", b =>
+                {
+                    b.HasOne("EXE202_BE.Data.Models.Cuisines", "Cuisine")
+                        .WithMany()
+                        .HasForeignKey("CuisineId");
+
+                    b.Navigation("Cuisine");
                 });
 
             modelBuilder.Entity("EXE202_BE.Data.Models.Servings", b =>
