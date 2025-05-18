@@ -44,12 +44,10 @@ namespace EXE202_BE.Data.Migrations
             modelBuilder.Entity("EXE202_BE.Data.Models.Allergies", b =>
                 {
                     b.Property<int>("IngredientId")
-                        .HasColumnType("int")
-                        .HasColumnOrder(2);
+                        .HasColumnType("int");
 
                     b.Property<int>("UPId")
-                        .HasColumnType("int")
-                        .HasColumnOrder(1);
+                        .HasColumnType("int");
 
                     b.HasKey("IngredientId", "UPId");
 
@@ -254,10 +252,7 @@ namespace EXE202_BE.Data.Migrations
             modelBuilder.Entity("EXE202_BE.Data.Models.MealScheduled", b =>
                 {
                     b.Property<int>("UPId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UPId"));
 
                     b.Property<DateTime>("BreakfastTime")
                         .HasColumnType("datetime2");
@@ -268,12 +263,7 @@ namespace EXE202_BE.Data.Migrations
                     b.Property<DateTime>("LunchTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("UserProfileUPId")
-                        .HasColumnType("int");
-
                     b.HasKey("UPId");
-
-                    b.HasIndex("UserProfileUPId");
 
                     b.ToTable("MealScheduled");
                 });
@@ -409,14 +399,9 @@ namespace EXE202_BE.Data.Migrations
                     b.Property<string>("Status")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserProfileUPId")
-                        .HasColumnType("int");
-
                     b.HasKey("UPId", "HealthConditionId");
 
                     b.HasIndex("HealthConditionId");
-
-                    b.HasIndex("UserProfileUPId");
 
                     b.ToTable("PersonalHealthConditions");
                 });
@@ -429,14 +414,9 @@ namespace EXE202_BE.Data.Migrations
                     b.Property<int>("CookingSkillId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserProfileUPId")
-                        .HasColumnType("int");
-
                     b.HasKey("UPId", "CookingSkillId");
 
                     b.HasIndex("CookingSkillId");
-
-                    b.HasIndex("UserProfileUPId");
 
                     b.ToTable("PersonalUserCookingSkills");
                 });
@@ -449,14 +429,9 @@ namespace EXE202_BE.Data.Migrations
                     b.Property<int>("ProblemId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserProfileUPId")
-                        .HasColumnType("int");
-
                     b.HasKey("UPId", "ProblemId");
 
                     b.HasIndex("ProblemId");
-
-                    b.HasIndex("UserProfileUPId");
 
                     b.ToTable("PersonalUserProblem");
                 });
@@ -487,15 +462,10 @@ namespace EXE202_BE.Data.Migrations
                     b.Property<int>("RecipeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("MealCatagorieMealId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Status")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("MealId", "RecipeId");
-
-                    b.HasIndex("MealCatagorieMealId");
 
                     b.HasIndex("RecipeId");
 
@@ -894,7 +864,7 @@ namespace EXE202_BE.Data.Migrations
                 {
                     b.HasOne("EXE202_BE.Data.Models.UserProfiles", "UserProfile")
                         .WithMany()
-                        .HasForeignKey("UserProfileUPId")
+                        .HasForeignKey("UPId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -930,7 +900,7 @@ namespace EXE202_BE.Data.Migrations
 
                     b.HasOne("EXE202_BE.Data.Models.UserProfiles", "UserProfile")
                         .WithMany()
-                        .HasForeignKey("UserProfileUPId")
+                        .HasForeignKey("UPId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -949,7 +919,7 @@ namespace EXE202_BE.Data.Migrations
 
                     b.HasOne("EXE202_BE.Data.Models.UserProfiles", "UserProfile")
                         .WithMany()
-                        .HasForeignKey("UserProfileUPId")
+                        .HasForeignKey("UPId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -968,7 +938,7 @@ namespace EXE202_BE.Data.Migrations
 
                     b.HasOne("EXE202_BE.Data.Models.UserProfiles", "UserProfile")
                         .WithMany()
-                        .HasForeignKey("UserProfileUPId")
+                        .HasForeignKey("UPId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -1000,7 +970,7 @@ namespace EXE202_BE.Data.Migrations
                 {
                     b.HasOne("EXE202_BE.Data.Models.MealCatagories", "MealCatagorie")
                         .WithMany()
-                        .HasForeignKey("MealCatagorieMealId")
+                        .HasForeignKey("MealId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

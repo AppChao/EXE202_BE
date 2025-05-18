@@ -520,15 +520,14 @@ namespace EXE202_BE.Data.Migrations
                 {
                     MealId = table.Column<int>(type: "int", nullable: false),
                     RecipeId = table.Column<int>(type: "int", nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    MealCatagorieMealId = table.Column<int>(type: "int", nullable: false)
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_RecipeMealTypes", x => new { x.MealId, x.RecipeId });
                     table.ForeignKey(
-                        name: "FK_RecipeMealTypes_MealCatagories_MealCatagorieMealId",
-                        column: x => x.MealCatagorieMealId,
+                        name: "FK_RecipeMealTypes_MealCatagories_MealId",
+                        column: x => x.MealId,
                         principalTable: "MealCatagories",
                         principalColumn: "MealId",
                         onDelete: ReferentialAction.Cascade);
@@ -593,19 +592,17 @@ namespace EXE202_BE.Data.Migrations
                 name: "MealScheduled",
                 columns: table => new
                 {
-                    UPId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UPId = table.Column<int>(type: "int", nullable: false),
                     BreakfastTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     LunchTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DinnerTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserProfileUPId = table.Column<int>(type: "int", nullable: false)
+                    DinnerTime = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_MealScheduled", x => x.UPId);
                     table.ForeignKey(
-                        name: "FK_MealScheduled_UserProfiles_UserProfileUPId",
-                        column: x => x.UserProfileUPId,
+                        name: "FK_MealScheduled_UserProfiles_UPId",
+                        column: x => x.UPId,
                         principalTable: "UserProfiles",
                         principalColumn: "UPId",
                         onDelete: ReferentialAction.Cascade);
@@ -617,8 +614,7 @@ namespace EXE202_BE.Data.Migrations
                 {
                     HealthConditionId = table.Column<int>(type: "int", nullable: false),
                     UPId = table.Column<int>(type: "int", nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UserProfileUPId = table.Column<int>(type: "int", nullable: false)
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -630,8 +626,8 @@ namespace EXE202_BE.Data.Migrations
                         principalColumn: "HealthConditionId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_PersonalHealthConditions_UserProfiles_UserProfileUPId",
-                        column: x => x.UserProfileUPId,
+                        name: "FK_PersonalHealthConditions_UserProfiles_UPId",
+                        column: x => x.UPId,
                         principalTable: "UserProfiles",
                         principalColumn: "UPId",
                         onDelete: ReferentialAction.Cascade);
@@ -642,8 +638,7 @@ namespace EXE202_BE.Data.Migrations
                 columns: table => new
                 {
                     UPId = table.Column<int>(type: "int", nullable: false),
-                    CookingSkillId = table.Column<int>(type: "int", nullable: false),
-                    UserProfileUPId = table.Column<int>(type: "int", nullable: false)
+                    CookingSkillId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -655,8 +650,8 @@ namespace EXE202_BE.Data.Migrations
                         principalColumn: "CookingSkillId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_PersonalUserCookingSkills_UserProfiles_UserProfileUPId",
-                        column: x => x.UserProfileUPId,
+                        name: "FK_PersonalUserCookingSkills_UserProfiles_UPId",
+                        column: x => x.UPId,
                         principalTable: "UserProfiles",
                         principalColumn: "UPId",
                         onDelete: ReferentialAction.Cascade);
@@ -667,8 +662,7 @@ namespace EXE202_BE.Data.Migrations
                 columns: table => new
                 {
                     UPId = table.Column<int>(type: "int", nullable: false),
-                    ProblemId = table.Column<int>(type: "int", nullable: false),
-                    UserProfileUPId = table.Column<int>(type: "int", nullable: false)
+                    ProblemId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -680,8 +674,8 @@ namespace EXE202_BE.Data.Migrations
                         principalColumn: "ProblemId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_PersonalUserProblem_UserProfiles_UserProfileUPId",
-                        column: x => x.UserProfileUPId,
+                        name: "FK_PersonalUserProblem_UserProfiles_UPId",
+                        column: x => x.UPId,
                         principalTable: "UserProfiles",
                         principalColumn: "UPId",
                         onDelete: ReferentialAction.Cascade);
@@ -777,11 +771,6 @@ namespace EXE202_BE.Data.Migrations
                 column: "IngredientTypeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_MealScheduled_UserProfileUPId",
-                table: "MealScheduled",
-                column: "UserProfileUPId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_NotificationUsers_NotificationId",
                 table: "NotificationUsers",
                 column: "NotificationId");
@@ -792,19 +781,9 @@ namespace EXE202_BE.Data.Migrations
                 column: "HealthConditionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PersonalHealthConditions_UserProfileUPId",
-                table: "PersonalHealthConditions",
-                column: "UserProfileUPId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_PersonalUserCookingSkills_CookingSkillId",
                 table: "PersonalUserCookingSkills",
                 column: "CookingSkillId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_PersonalUserCookingSkills_UserProfileUPId",
-                table: "PersonalUserCookingSkills",
-                column: "UserProfileUPId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PersonalUserProblem_ProblemId",
@@ -812,19 +791,9 @@ namespace EXE202_BE.Data.Migrations
                 column: "ProblemId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PersonalUserProblem_UserProfileUPId",
-                table: "PersonalUserProblem",
-                column: "UserProfileUPId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_RecipeHealthTags_HealthTagId",
                 table: "RecipeHealthTags",
                 column: "HealthTagId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_RecipeMealTypes_MealCatagorieMealId",
-                table: "RecipeMealTypes",
-                column: "MealCatagorieMealId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_RecipeMealTypes_RecipeId",
