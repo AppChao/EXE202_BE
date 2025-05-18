@@ -6,17 +6,13 @@ namespace EXE202_BE.Data.Models;
 
 public partial class NotificationUsers
 {
-    [Key]
-    [Column(Order = 1)]
     [ForeignKey("Notifications")]
     public int NotificationId { get; set; }
 
-    [Key]
-    [Column(Order = 2)]
     public string UserId { get; set; } = string.Empty;
 
     [ForeignKey("UserId")] 
-    public virtual IdentityUser User { get; set; } = null!;
+    public virtual ModifyIdentityUser User { get; set; } = null!;
 
     public bool IsRead { get; set; } = false;
 

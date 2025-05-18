@@ -40,7 +40,7 @@ public partial class UserProfiles
     [Required] public string UserId { get; set; } = string.Empty;
     
     [ForeignKey("UserId")] 
-    public virtual IdentityUser User { get; set; } = null!;
+    public virtual ModifyIdentityUser User { get; set; } = null!;
 
     public virtual Goals Goal { get; set; } =  null!;
     

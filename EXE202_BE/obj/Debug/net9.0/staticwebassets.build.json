@@ -1,12 +1,1 @@
-{
-  "Version": 1,
-  "Hash": "EcWLGRUQD5QxeqNfJ0aUnwoDWvjytSjhXDlqOomMMQQ=",
-  "Source": "EXE202_BE",
-  "BasePath": "_content/EXE202_BE",
-  "Mode": "Default",
-  "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": [],
-  "Endpoints": []
-}
+{"Version":1,"Hash":"EcWLGRUQD5QxeqNfJ0aUnwoDWvjytSjhXDlqOomMMQQ=","Source":"EXE202_BE","BasePath":"_content/EXE202_BE","Mode":"Default","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}

@@ -77,6 +77,50 @@ namespace EXE202_BE.Data.Migrations
                     b.ToTable("CookingSkills");
                 });
 
+            modelBuilder.Entity("EXE202_BE.Data.Models.Cuisines", b =>
+                {
+                    b.Property<int>("CuisineId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CuisineId"));
+
+                    b.Property<string>("Nation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Region")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CuisineId");
+
+                    b.ToTable("Cuisines");
+                });
+
+            modelBuilder.Entity("EXE202_BE.Data.Models.Devices", b =>
+                {
+                    b.Property<int>("DeviceToken")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DeviceToken"));
+
+                    b.Property<string>("Platform")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("DeviceToken");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Devices");
+                });
+
             modelBuilder.Entity("EXE202_BE.Data.Models.Goals", b =>
                 {
                     b.Property<int>("GoalId")
@@ -207,22 +251,172 @@ namespace EXE202_BE.Data.Migrations
                     b.ToTable("MealCatagories");
                 });
 
-            modelBuilder.Entity("EXE202_BE.Data.Models.PersonalHealthConditions", b =>
+            modelBuilder.Entity("EXE202_BE.Data.Models.MealScheduled", b =>
                 {
                     b.Property<int>("UPId")
-                        .HasColumnType("int")
-                        .HasColumnOrder(2);
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
 
-                    b.Property<int>("HealthConditionId")
-                        .HasColumnType("int")
-                        .HasColumnOrder(1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UPId"));
+
+                    b.Property<DateTime>("BreakfastTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DinnerTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("LunchTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("UserProfileUPId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UPId");
+
+                    b.HasIndex("UserProfileUPId");
+
+                    b.ToTable("MealScheduled");
+                });
+
+            modelBuilder.Entity("EXE202_BE.Data.Models.ModifyIdentityUser", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Status")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("EXE202_BE.Data.Models.NotificationUsers", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("NotificationId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsRead")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("ReceivedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId", "NotificationId");
+
+                    b.HasIndex("NotificationId");
+
+                    b.ToTable("NotificationUsers");
+                });
+
+            modelBuilder.Entity("EXE202_BE.Data.Models.Notifications", b =>
+                {
+                    b.Property<int>("NotificationId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("NotificationId"));
+
+                    b.Property<string>("Body")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Type")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("NotificationId");
+
+                    b.ToTable("Notifications");
+                });
+
+            modelBuilder.Entity("EXE202_BE.Data.Models.PersonalHealthConditions", b =>
+                {
+                    b.Property<int>("UPId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("HealthConditionId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserProfileUPId")
+                        .HasColumnType("int");
+
                     b.HasKey("UPId", "HealthConditionId");
 
                     b.HasIndex("HealthConditionId");
+
+                    b.HasIndex("UserProfileUPId");
 
                     b.ToTable("PersonalHealthConditions");
                 });
@@ -235,9 +429,14 @@ namespace EXE202_BE.Data.Migrations
                     b.Property<int>("CookingSkillId")
                         .HasColumnType("int");
 
+                    b.Property<int>("UserProfileUPId")
+                        .HasColumnType("int");
+
                     b.HasKey("UPId", "CookingSkillId");
 
                     b.HasIndex("CookingSkillId");
+
+                    b.HasIndex("UserProfileUPId");
 
                     b.ToTable("PersonalUserCookingSkills");
                 });
@@ -245,16 +444,19 @@ namespace EXE202_BE.Data.Migrations
             modelBuilder.Entity("EXE202_BE.Data.Models.PersonalUserProblem", b =>
                 {
                     b.Property<int>("UPId")
-                        .HasColumnType("int")
-                        .HasColumnOrder(1);
+                        .HasColumnType("int");
 
                     b.Property<int>("ProblemId")
-                        .HasColumnType("int")
-                        .HasColumnOrder(2);
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserProfileUPId")
+                        .HasColumnType("int");
 
                     b.HasKey("UPId", "ProblemId");
 
                     b.HasIndex("ProblemId");
+
+                    b.HasIndex("UserProfileUPId");
 
                     b.ToTable("PersonalUserProblem");
                 });
@@ -262,12 +464,10 @@ namespace EXE202_BE.Data.Migrations
             modelBuilder.Entity("EXE202_BE.Data.Models.RecipeHealthTags", b =>
                 {
                     b.Property<int>("RecipeId")
-                        .HasColumnType("int")
-                        .HasColumnOrder(1);
+                        .HasColumnType("int");
 
                     b.Property<int>("HealthTagId")
-                        .HasColumnType("int")
-                        .HasColumnOrder(2);
+                        .HasColumnType("int");
 
                     b.Property<string>("Status")
                         .HasColumnType("nvarchar(max)");
@@ -282,17 +482,20 @@ namespace EXE202_BE.Data.Migrations
             modelBuilder.Entity("EXE202_BE.Data.Models.RecipeMealTypes", b =>
                 {
                     b.Property<int>("MealId")
-                        .HasColumnType("int")
-                        .HasColumnOrder(1);
+                        .HasColumnType("int");
 
                     b.Property<int>("RecipeId")
-                        .HasColumnType("int")
-                        .HasColumnOrder(2);
+                        .HasColumnType("int");
+
+                    b.Property<int>("MealCatagorieMealId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Status")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("MealId", "RecipeId");
+
+                    b.HasIndex("MealCatagorieMealId");
 
                     b.HasIndex("RecipeId");
 
@@ -344,17 +547,17 @@ namespace EXE202_BE.Data.Migrations
             modelBuilder.Entity("EXE202_BE.Data.Models.Servings", b =>
                 {
                     b.Property<int>("RecipeId")
-                        .HasColumnType("int")
-                        .HasColumnOrder(1);
+                        .HasColumnType("int");
 
                     b.Property<int>("IngredientId")
-                        .HasColumnType("int")
-                        .HasColumnOrder(2);
+                        .HasColumnType("int");
 
                     b.Property<string>("Ammount")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("RecipeId", "IngredientId");
+
+                    b.HasIndex("IngredientId");
 
                     b.ToTable("Servings");
                 });
@@ -362,16 +565,19 @@ namespace EXE202_BE.Data.Migrations
             modelBuilder.Entity("EXE202_BE.Data.Models.SubcriptionUsers", b =>
                 {
                     b.Property<int>("UPId")
-                        .HasColumnType("int")
-                        .HasColumnOrder(1);
+                        .HasColumnType("int");
 
                     b.Property<int>("SubcriptionId")
-                        .HasColumnType("int")
-                        .HasColumnOrder(2);
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserProfileUPId")
+                        .HasColumnType("int");
 
                     b.HasKey("UPId", "SubcriptionId");
 
                     b.HasIndex("SubcriptionId");
+
+                    b.HasIndex("UserProfileUPId");
 
                     b.ToTable("SubcriptionUsers");
                 });
@@ -489,7 +695,7 @@ namespace EXE202_BE.Data.Migrations
 
                     b.ToTable("UserProfiles", t =>
                         {
-                            t.HasCheckConstraint("CK_UserProfiles_Gener", "Gender IN ('Male', 'Female', 'Other')");
+                            t.HasCheckConstraint("CK_UserProfiles_Gender", "[Gender] IN ('Male', 'Female', 'Other')");
                         });
                 });
 
@@ -569,71 +775,6 @@ namespace EXE202_BE.Data.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetRoleClaims", (string)null);
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("NormalizedEmail")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("NormalizedUserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("UserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedEmail")
-                        .HasDatabaseName("EmailIndex");
-
-                    b.HasIndex("NormalizedUserName")
-                        .IsUnique()
-                        .HasDatabaseName("UserNameIndex")
-                        .HasFilter("[NormalizedUserName] IS NOT NULL");
-
-                    b.ToTable("AspNetUsers", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -736,6 +877,17 @@ namespace EXE202_BE.Data.Migrations
                     b.Navigation("UserProfile");
                 });
 
+            modelBuilder.Entity("EXE202_BE.Data.Models.Devices", b =>
+                {
+                    b.HasOne("EXE202_BE.Data.Models.ModifyIdentityUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("EXE202_BE.Data.Models.Ingredients", b =>
                 {
                     b.HasOne("EXE202_BE.Data.Models.IngredientTypes", "IngredientType")
@@ -745,6 +897,36 @@ namespace EXE202_BE.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("IngredientType");
+                });
+
+            modelBuilder.Entity("EXE202_BE.Data.Models.MealScheduled", b =>
+                {
+                    b.HasOne("EXE202_BE.Data.Models.UserProfiles", "UserProfile")
+                        .WithMany()
+                        .HasForeignKey("UserProfileUPId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("UserProfile");
+                });
+
+            modelBuilder.Entity("EXE202_BE.Data.Models.NotificationUsers", b =>
+                {
+                    b.HasOne("EXE202_BE.Data.Models.Notifications", "Notification")
+                        .WithMany()
+                        .HasForeignKey("NotificationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EXE202_BE.Data.Models.ModifyIdentityUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Notification");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("EXE202_BE.Data.Models.PersonalHealthConditions", b =>
@@ -757,7 +939,7 @@ namespace EXE202_BE.Data.Migrations
 
                     b.HasOne("EXE202_BE.Data.Models.UserProfiles", "UserProfile")
                         .WithMany()
-                        .HasForeignKey("UPId")
+                        .HasForeignKey("UserProfileUPId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -776,7 +958,7 @@ namespace EXE202_BE.Data.Migrations
 
                     b.HasOne("EXE202_BE.Data.Models.UserProfiles", "UserProfile")
                         .WithMany()
-                        .HasForeignKey("UPId")
+                        .HasForeignKey("UserProfileUPId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -795,7 +977,7 @@ namespace EXE202_BE.Data.Migrations
 
                     b.HasOne("EXE202_BE.Data.Models.UserProfiles", "UserProfile")
                         .WithMany()
-                        .HasForeignKey("UPId")
+                        .HasForeignKey("UserProfileUPId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -827,7 +1009,7 @@ namespace EXE202_BE.Data.Migrations
                 {
                     b.HasOne("EXE202_BE.Data.Models.MealCatagories", "MealCatagorie")
                         .WithMany()
-                        .HasForeignKey("MealId")
+                        .HasForeignKey("MealCatagorieMealId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -842,6 +1024,25 @@ namespace EXE202_BE.Data.Migrations
                     b.Navigation("Recipe");
                 });
 
+            modelBuilder.Entity("EXE202_BE.Data.Models.Servings", b =>
+                {
+                    b.HasOne("EXE202_BE.Data.Models.Ingredients", "Ingredient")
+                        .WithMany()
+                        .HasForeignKey("IngredientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EXE202_BE.Data.Models.Recipes", "Recipe")
+                        .WithMany()
+                        .HasForeignKey("RecipeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Ingredient");
+
+                    b.Navigation("Recipe");
+                });
+
             modelBuilder.Entity("EXE202_BE.Data.Models.SubcriptionUsers", b =>
                 {
                     b.HasOne("EXE202_BE.Data.Models.Subcriptions", "Subcription")
@@ -852,7 +1053,7 @@ namespace EXE202_BE.Data.Migrations
 
                     b.HasOne("EXE202_BE.Data.Models.UserProfiles", "UserProfile")
                         .WithMany()
-                        .HasForeignKey("UPId")
+                        .HasForeignKey("UserProfileUPId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -887,7 +1088,7 @@ namespace EXE202_BE.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
+                    b.HasOne("EXE202_BE.Data.Models.ModifyIdentityUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -915,7 +1116,7 @@ namespace EXE202_BE.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("EXE202_BE.Data.Models.ModifyIdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -924,7 +1125,7 @@ namespace EXE202_BE.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("EXE202_BE.Data.Models.ModifyIdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -939,7 +1140,7 @@ namespace EXE202_BE.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("EXE202_BE.Data.Models.ModifyIdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -948,7 +1149,7 @@ namespace EXE202_BE.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("EXE202_BE.Data.Models.ModifyIdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

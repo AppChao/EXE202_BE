@@ -5,11 +5,9 @@ namespace EXE202_BE.Data.Models;
 
 public partial class PersonalUserCookingSkills
 {
-    [Key]
     [ForeignKey("UserProfiles")]
     public int UPId { get; set; }
     
-    [Key]
     [ForeignKey("CookingSkills")]
     public int CookingSkillId { get; set; }
 

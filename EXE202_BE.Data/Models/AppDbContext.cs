@@ -3,11 +3,65 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-public class AppDbContext : IdentityDbContext<ModifyIdentityUser ,IdentityRole<int>, int>
+public class AppDbContext : IdentityDbContext<ModifyIdentityUser>
 {
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     {
     }
+
+    public virtual DbSet<ActivityLevels> ActivityLevels { get; set; }
+    
+    public virtual DbSet<Allergies> Allergies { get; set; }
+    
+    public virtual DbSet<CookingSkills> CookingSkills { get; set; }
+    
+    public virtual DbSet<Cuisines> Cuisines { get; set; }
+    
+    public virtual DbSet<Devices> Devices { get; set; }
+    
+    public virtual DbSet<Goals> Goals { get; set; }
+    
+    public virtual DbSet<HealthConditions> HealthConditions { get; set; }
+    
+    public virtual DbSet<HealthTags> HealthTags { get; set; }
+    
+    public virtual DbSet<Ingredients> Ingredients { get; set; }
+    
+    public virtual DbSet<IngredientTypes> IngredientTypes { get; set; }
+    
+    public virtual DbSet<LoseWeightSpeed> LoseWeightSpeed { get; set; }
+    
+    public virtual DbSet<MealCatagories> MealCatagories { get; set; }
+    
+    public virtual DbSet<MealScheduled> MealScheduled { get; set; }
+    
+    public virtual DbSet<Notifications> Notifications { get; set; }
+    
+    public virtual DbSet<NotificationUsers> NotificationUsers { get; set; }
+    
+    public virtual DbSet<PersonalHealthConditions> PersonalHealthConditions { get; set; }
+    
+    public virtual DbSet<PersonalUserCookingSkills> PersonalUserCookingSkills { get; set; }
+    
+    public virtual DbSet<PersonalUserProblem> PersonalUserProblem { get; set; }
+    
+    public virtual DbSet<RecipeHealthTags> RecipeHealthTags { get; set; }
+    
+    public virtual DbSet<RecipeMealTypes> RecipeMealTypes { get; set; }
+    
+    public virtual DbSet<Recipes> Recipes { get; set; }
+    
+    public virtual DbSet<Servings> Servings { get; set; }
+    
+    public virtual DbSet<Subcriptions> Subcriptions { get; set; }
+    
+    public virtual DbSet<SubcriptionUsers> SubcriptionUsers { get; set; }
+    
+    public virtual DbSet<UserExperiences> UserExperiences { get; set; }
+    
+    public virtual DbSet<UserProblem> UserProblem { get; set; }
+    
+    public virtual DbSet<UserProfiles> UserProfiles { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -42,6 +96,9 @@ public class AppDbContext : IdentityDbContext<ModifyIdentityUser ,IdentityRole<i
         
         builder.Entity<PersonalUserCookingSkills>()
             .HasKey(pucs => new { pucs.UPId, pucs.CookingSkillId });
+        
+        builder.Entity<NotificationUsers>()
+            .HasKey(nu => new {nu.UserId, nu.NotificationId});
 
         builder.Entity<Recipes>()
             .ToTable(tb => tb.HasCheckConstraint("CK_Recipes_Difficulty_Rating", "[DifficultyEstimation] BETWEEN 1 AND 10"));
@@ -50,7 +107,7 @@ public class AppDbContext : IdentityDbContext<ModifyIdentityUser ,IdentityRole<i
             .ToTable(tb => tb.HasCheckConstraint("CK_Recipes_Meals", "[Meals] IN ('breakfast', 'lunch', 'dinner', 'snack')"));
 
         builder.Entity<UserProfiles>()
-            .ToTable(tb => tb.HasCheckConstraint("CK_UserProfiles_Gener", "Gender IN ('Male', 'Female', 'Other')"));
+            .ToTable(tb => tb.HasCheckConstraint("CK_UserProfiles_Gender", "[Gender] IN ('Male', 'Female', 'Other')"));
         
         base.OnModelCreating(builder);
     }
