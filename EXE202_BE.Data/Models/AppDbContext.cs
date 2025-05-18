@@ -55,8 +55,6 @@ public class AppDbContext : IdentityDbContext<ModifyIdentityUser>
     
     public virtual DbSet<Subcriptions> Subcriptions { get; set; }
     
-    public virtual DbSet<SubcriptionUsers> SubcriptionUsers { get; set; }
-    
     public virtual DbSet<UserExperiences> UserExperiences { get; set; }
     
     public virtual DbSet<UserProblem> UserProblem { get; set; }
@@ -87,9 +85,6 @@ public class AppDbContext : IdentityDbContext<ModifyIdentityUser>
 
         builder.Entity<PersonalHealthConditions>()
             .HasKey(phc => new { phc.UPId, phc.HealthConditionId });
-
-        builder.Entity<SubcriptionUsers>()
-            .HasKey(su => new {su.UPId, su.SubcriptionId});
         
         builder.Entity<PersonalUserProblem>()
             .HasKey(pup => new { pup.UPId, pup.ProblemId });

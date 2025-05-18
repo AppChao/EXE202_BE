@@ -1,3 +1,4 @@
+using EXE202_BE.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -9,7 +10,7 @@ namespace EXE202_BE.Data
         public static async Task InitializeAsync(IServiceProvider serviceProvider)
         {
             using var scope = serviceProvider.CreateScope();
-            var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+            var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ModifyIdentityUser>>();
             var loggerFactory = scope.ServiceProvider.GetRequiredService<ILoggerFactory>();
             var logger = loggerFactory.CreateLogger("SeedUsers");
 
@@ -21,9 +22,16 @@ namespace EXE202_BE.Data
 
             foreach (var userData in users)
             {
-                if (await userManager.FindByEmailAsync(userData.Email) == null)
+                var existingUser = await userManager.FindByEmailAsync(userData.Email);
+                if (existingUser == null)
                 {
-                    var user = new IdentityUser { UserName = userData.Email, Email = userData.Email };
+                    var user = new ModifyIdentityUser
+                    {
+                        UserName = userData.Email,
+                        Email = userData.Email
+                        // Add other custom fields here if you have them
+                    };
+
                     var result = await userManager.CreateAsync(user, userData.Password);
                     if (result.Succeeded)
                     {

@@ -11,14 +11,14 @@ namespace EXE202_BE.Service.Services;
 public class UserProfilesService : IUserProfilesService
 {
     private readonly IUserProfilesRepository _userProfilesRepository;
-    private readonly UserManager<IdentityUser> _userManager;
+    private readonly UserManager<ModifyIdentityUser> _userManager;
     private readonly IUserProfilesService _userProfilesService;
     private readonly IMapper _mapper;
 
 
     public UserProfilesService(
         IUserProfilesRepository userProfilesRepository,
-        UserManager<IdentityUser> userManager,
+        UserManager<ModifyIdentityUser> userManager,
         IMapper mapper)
     {
         _userProfilesRepository = userProfilesRepository;
@@ -35,7 +35,7 @@ public class UserProfilesService : IUserProfilesService
 
     public async Task<UserProfileResponse> CreateUserAsync(CreateUserRequestDTO model)
     {
-        var user = new IdentityUser
+        var user = new ModifyIdentityUser
         {
             UserName = model.Email,
             Email = model.Email

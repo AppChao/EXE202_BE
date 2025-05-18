@@ -446,6 +446,7 @@ namespace EXE202_BE.Data.Migrations
                     GoalWeight = table.Column<double>(type: "float", nullable: true),
                     Height = table.Column<double>(type: "float", nullable: true),
                     Gender = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SubcriptionId = table.Column<int>(type: "int", nullable: false),
                     Age = table.Column<int>(type: "int", nullable: true),
                     GoalId = table.Column<int>(type: "int", nullable: false),
                     ExperienceId = table.Column<int>(type: "int", nullable: false),
@@ -480,6 +481,12 @@ namespace EXE202_BE.Data.Migrations
                         column: x => x.SpeedId,
                         principalTable: "LoseWeightSpeed",
                         principalColumn: "SpeedId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserProfiles_Subcriptions_SubcriptionId",
+                        column: x => x.SubcriptionId,
+                        principalTable: "Subcriptions",
+                        principalColumn: "SubcriptionId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_UserProfiles_UserExperiences_ExperienceId",
@@ -681,30 +688,6 @@ namespace EXE202_BE.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "SubcriptionUsers",
-                columns: table => new
-                {
-                    UPId = table.Column<int>(type: "int", nullable: false),
-                    SubcriptionId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_SubcriptionUsers", x => new { x.UPId, x.SubcriptionId });
-                    table.ForeignKey(
-                        name: "FK_SubcriptionUsers_Subcriptions_SubcriptionId",
-                        column: x => x.SubcriptionId,
-                        principalTable: "Subcriptions",
-                        principalColumn: "SubcriptionId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_SubcriptionUsers_UserProfiles_UPId",
-                        column: x => x.UPId,
-                        principalTable: "UserProfiles",
-                        principalColumn: "UPId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
@@ -811,11 +794,6 @@ namespace EXE202_BE.Data.Migrations
                 column: "IngredientId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SubcriptionUsers_SubcriptionId",
-                table: "SubcriptionUsers",
-                column: "SubcriptionId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_UserProfiles_ExperienceId",
                 table: "UserProfiles",
                 column: "ExperienceId");
@@ -834,6 +812,11 @@ namespace EXE202_BE.Data.Migrations
                 name: "IX_UserProfiles_SpeedId",
                 table: "UserProfiles",
                 column: "SpeedId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserProfiles_SubcriptionId",
+                table: "UserProfiles",
+                column: "SubcriptionId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserProfiles_UserId",
@@ -890,9 +873,6 @@ namespace EXE202_BE.Data.Migrations
                 name: "Servings");
 
             migrationBuilder.DropTable(
-                name: "SubcriptionUsers");
-
-            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
@@ -908,6 +888,9 @@ namespace EXE202_BE.Data.Migrations
                 name: "UserProblem");
 
             migrationBuilder.DropTable(
+                name: "UserProfiles");
+
+            migrationBuilder.DropTable(
                 name: "HealthTags");
 
             migrationBuilder.DropTable(
@@ -918,18 +901,6 @@ namespace EXE202_BE.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Recipes");
-
-            migrationBuilder.DropTable(
-                name: "Subcriptions");
-
-            migrationBuilder.DropTable(
-                name: "UserProfiles");
-
-            migrationBuilder.DropTable(
-                name: "IngredientTypes");
-
-            migrationBuilder.DropTable(
-                name: "Cuisines");
 
             migrationBuilder.DropTable(
                 name: "ActivityLevels");
@@ -944,7 +915,16 @@ namespace EXE202_BE.Data.Migrations
                 name: "LoseWeightSpeed");
 
             migrationBuilder.DropTable(
+                name: "Subcriptions");
+
+            migrationBuilder.DropTable(
                 name: "UserExperiences");
+
+            migrationBuilder.DropTable(
+                name: "IngredientTypes");
+
+            migrationBuilder.DropTable(
+                name: "Cuisines");
         }
     }
 }

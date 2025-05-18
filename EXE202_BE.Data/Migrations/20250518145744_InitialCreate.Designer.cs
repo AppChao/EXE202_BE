@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EXE202_BE.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250518101910_InitialCreate")]
+    [Migration("20250518145744_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -537,21 +537,6 @@ namespace EXE202_BE.Data.Migrations
                     b.ToTable("Servings");
                 });
 
-            modelBuilder.Entity("EXE202_BE.Data.Models.SubcriptionUsers", b =>
-                {
-                    b.Property<int>("UPId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SubcriptionId")
-                        .HasColumnType("int");
-
-                    b.HasKey("UPId", "SubcriptionId");
-
-                    b.HasIndex("SubcriptionId");
-
-                    b.ToTable("SubcriptionUsers");
-                });
-
             modelBuilder.Entity("EXE202_BE.Data.Models.Subcriptions", b =>
                 {
                     b.Property<int>("SubcriptionId")
@@ -638,6 +623,9 @@ namespace EXE202_BE.Data.Migrations
                     b.Property<int>("SpeedId")
                         .HasColumnType("int");
 
+                    b.Property<int>("SubcriptionId")
+                        .HasColumnType("int");
+
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
@@ -654,6 +642,8 @@ namespace EXE202_BE.Data.Migrations
                     b.HasIndex("LevelId");
 
                     b.HasIndex("SpeedId");
+
+                    b.HasIndex("SubcriptionId");
 
                     b.HasIndex("UserId");
 
@@ -1016,25 +1006,6 @@ namespace EXE202_BE.Data.Migrations
                     b.Navigation("Recipe");
                 });
 
-            modelBuilder.Entity("EXE202_BE.Data.Models.SubcriptionUsers", b =>
-                {
-                    b.HasOne("EXE202_BE.Data.Models.Subcriptions", "Subcription")
-                        .WithMany()
-                        .HasForeignKey("SubcriptionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("EXE202_BE.Data.Models.UserProfiles", "UserProfile")
-                        .WithMany()
-                        .HasForeignKey("UPId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Subcription");
-
-                    b.Navigation("UserProfile");
-                });
-
             modelBuilder.Entity("EXE202_BE.Data.Models.UserProfiles", b =>
                 {
                     b.HasOne("EXE202_BE.Data.Models.UserExperiences", "UserExperience")
@@ -1061,6 +1032,12 @@ namespace EXE202_BE.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("EXE202_BE.Data.Models.Subcriptions", "Subcription")
+                        .WithMany()
+                        .HasForeignKey("SubcriptionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("EXE202_BE.Data.Models.ModifyIdentityUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
@@ -1072,6 +1049,8 @@ namespace EXE202_BE.Data.Migrations
                     b.Navigation("Goal");
 
                     b.Navigation("LoseWeightSpeed");
+
+                    b.Navigation("Subcription");
 
                     b.Navigation("User");
 

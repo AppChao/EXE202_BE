@@ -22,6 +22,8 @@ public partial class UserProfiles
     public double? Height { get; set; }
 
     public string?  Gender { get; set; }
+    
+    public int SubcriptionId { get; set; }
 
     public int? Age { get; set; }
     
@@ -37,6 +39,9 @@ public partial class UserProfiles
     
     [ForeignKey("UserId")] 
     public virtual ModifyIdentityUser User { get; set; } = null!;
+    
+    [ForeignKey("SubcriptionId")] 
+    public virtual Subcriptions Subcription { get; set; } = null!;
 
     [ForeignKey("GoalId")] 
     public virtual Goals Goal { get; set; } =  null!;

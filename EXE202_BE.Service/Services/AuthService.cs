@@ -13,12 +13,12 @@ namespace EXE202_BE.Service.Services;
 
 public class AuthService : IAuthService
 {
-    private readonly UserManager<IdentityUser> _userManager;
+    private readonly UserManager<ModifyIdentityUser> _userManager;
     private readonly IConfiguration _configuration;
     private readonly IUserProfilesService _userProfilesService;
 
     public AuthService(
-        UserManager<IdentityUser> userManager,
+        UserManager<ModifyIdentityUser> userManager,
         IConfiguration configuration,
         IUserProfilesService userProfilesService)
     {
