@@ -4,17 +4,17 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace EXE202_BE.Data.Models;
 
 public partial class Servings
-{
-    [ForeignKey("Recipes")]
+{ 
     public int RecipeId { get; set; }
     
-    [ForeignKey("Ingredients")]
     public int IngredientId { get; set; }
 
     public string? Ammount { get; set; } = string.Empty;
 
+    [ForeignKey("RecipeId")]
     public virtual Recipes Recipe { get; set; } =  null!;
 
+    [ForeignKey("IngredientId")]
     public virtual Ingredients Ingredient { get; set; } =   null!;
     
 }

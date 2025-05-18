@@ -25,16 +25,12 @@ public partial class UserProfiles
 
     public int? Age { get; set; }
     
-    [ForeignKey("Goals")] 
     public int GoalId { get; set; }
     
-    [ForeignKey("UserExperiences")] 
     public int ExperienceId { get; set; }
     
-    [ForeignKey("ActivityLevels")] 
     public int LevelId { get; set; }
     
-    [ForeignKey("LoseWeightSpeed")] 
     public int SpeedId { get; set; }
     
     [Required] public string UserId { get; set; } = string.Empty;
@@ -42,11 +38,15 @@ public partial class UserProfiles
     [ForeignKey("UserId")] 
     public virtual ModifyIdentityUser User { get; set; } = null!;
 
+    [ForeignKey("GoalId")] 
     public virtual Goals Goal { get; set; } =  null!;
     
+    [ForeignKey("ExperienceId")] 
     public virtual UserExperiences UserExperience { get; set; } = null!;
 
+    [ForeignKey("LevelId")] 
     public virtual ActivityLevels ActivityLevel { get; set; } = null!;
 
+    [ForeignKey("SpeedId")] 
     public virtual LoseWeightSpeed LoseWeightSpeed { get; set; } =  null!;
 }

@@ -5,13 +5,13 @@ namespace EXE202_BE.Data.Models;
 
 public partial class PersonalUserProblem
 {
-    [ForeignKey("UserProfiles")]
     public int UPId { get; set; }
     
-    [ForeignKey("UserProblem")]
     public int ProblemId { get; set; }
 
+    [ForeignKey("UPId")]
     public virtual UserProfiles UserProfile { get; set; } =  null!;
 
+    [ForeignKey("ProblemId")]
     public virtual UserProblem UserProblem { get; set; } =  null!;
 }

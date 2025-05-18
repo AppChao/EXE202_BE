@@ -451,17 +451,15 @@ namespace EXE202_BE.Data.Migrations
                     ExperienceId = table.Column<int>(type: "int", nullable: false),
                     LevelId = table.Column<int>(type: "int", nullable: false),
                     SpeedId = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    UserExperienceExperienceId = table.Column<int>(type: "int", nullable: false),
-                    ActivityLevelLevelId = table.Column<int>(type: "int", nullable: false)
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_UserProfiles", x => x.UPId);
                     table.CheckConstraint("CK_UserProfiles_Gender", "[Gender] IN ('Male', 'Female', 'Other')");
                     table.ForeignKey(
-                        name: "FK_UserProfiles_ActivityLevels_ActivityLevelLevelId",
-                        column: x => x.ActivityLevelLevelId,
+                        name: "FK_UserProfiles_ActivityLevels_LevelId",
+                        column: x => x.LevelId,
                         principalTable: "ActivityLevels",
                         principalColumn: "LevelId",
                         onDelete: ReferentialAction.Cascade);
@@ -484,8 +482,8 @@ namespace EXE202_BE.Data.Migrations
                         principalColumn: "SpeedId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_UserProfiles_UserExperiences_UserExperienceExperienceId",
-                        column: x => x.UserExperienceExperienceId,
+                        name: "FK_UserProfiles_UserExperiences_ExperienceId",
+                        column: x => x.ExperienceId,
                         principalTable: "UserExperiences",
                         principalColumn: "ExperienceId",
                         onDelete: ReferentialAction.Cascade);
@@ -694,8 +692,7 @@ namespace EXE202_BE.Data.Migrations
                 columns: table => new
                 {
                     UPId = table.Column<int>(type: "int", nullable: false),
-                    SubcriptionId = table.Column<int>(type: "int", nullable: false),
-                    UserProfileUPId = table.Column<int>(type: "int", nullable: false)
+                    SubcriptionId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -707,8 +704,8 @@ namespace EXE202_BE.Data.Migrations
                         principalColumn: "SubcriptionId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_SubcriptionUsers_UserProfiles_UserProfileUPId",
-                        column: x => x.UserProfileUPId,
+                        name: "FK_SubcriptionUsers_UserProfiles_UPId",
+                        column: x => x.UPId,
                         principalTable: "UserProfiles",
                         principalColumn: "UPId",
                         onDelete: ReferentialAction.Cascade);
@@ -850,14 +847,9 @@ namespace EXE202_BE.Data.Migrations
                 column: "SubcriptionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SubcriptionUsers_UserProfileUPId",
-                table: "SubcriptionUsers",
-                column: "UserProfileUPId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_UserProfiles_ActivityLevelLevelId",
+                name: "IX_UserProfiles_ExperienceId",
                 table: "UserProfiles",
-                column: "ActivityLevelLevelId");
+                column: "ExperienceId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserProfiles_GoalId",
@@ -865,14 +857,14 @@ namespace EXE202_BE.Data.Migrations
                 column: "GoalId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_UserProfiles_LevelId",
+                table: "UserProfiles",
+                column: "LevelId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_UserProfiles_SpeedId",
                 table: "UserProfiles",
                 column: "SpeedId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_UserProfiles_UserExperienceExperienceId",
-                table: "UserProfiles",
-                column: "UserExperienceExperienceId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserProfiles_UserId",

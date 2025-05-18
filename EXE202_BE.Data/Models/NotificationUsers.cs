@@ -6,7 +6,6 @@ namespace EXE202_BE.Data.Models;
 
 public partial class NotificationUsers
 {
-    [ForeignKey("Notifications")]
     public int NotificationId { get; set; }
 
     public string UserId { get; set; } = string.Empty;
@@ -20,5 +19,6 @@ public partial class NotificationUsers
 
     public string? Status { get; set; } = string.Empty;
 
+    [ForeignKey("NotificationId")]
     public virtual Notifications Notification { get; set; } =  null!;
 }

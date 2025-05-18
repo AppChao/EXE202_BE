@@ -10,8 +10,7 @@ public partial class Ingredients
     public int IngredientId { get; set; }
 
     public string? IngredientName { get; set; } = string.Empty;
-
-    [ForeignKey("IngredientTypes")]
+    
     public int IngredientTypeId { get; set; }
 
     public double? CaloriesPer100g { get; set; }
@@ -20,5 +19,6 @@ public partial class Ingredients
 
     public double? GramPerUnit { get; set; }
 
+    [ForeignKey("IngredientTypeId")]
     public virtual IngredientTypes IngredientType { get; set; } = null!;
 }

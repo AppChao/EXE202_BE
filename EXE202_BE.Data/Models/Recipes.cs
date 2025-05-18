@@ -9,7 +9,6 @@ public partial class Recipes
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int RecipeId { get; set; }
 
-    [ForeignKey("Cuisines")]
     public int? CuisineId { get; set; }
 
     public string? Meals { get; set; } =  string.Empty;
@@ -28,5 +27,6 @@ public partial class Recipes
 
     public int? DefaultServing { get; set; }
 
+    [ForeignKey("CuisineId")]
     public virtual Cuisines Cuisine { get; set; } = null!;
 }

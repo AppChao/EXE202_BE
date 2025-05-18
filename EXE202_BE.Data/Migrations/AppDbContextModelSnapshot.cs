@@ -572,14 +572,9 @@ namespace EXE202_BE.Data.Migrations
                     b.Property<int>("SubcriptionId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserProfileUPId")
-                        .HasColumnType("int");
-
                     b.HasKey("UPId", "SubcriptionId");
 
                     b.HasIndex("SubcriptionId");
-
-                    b.HasIndex("UserProfileUPId");
 
                     b.ToTable("SubcriptionUsers");
                 });
@@ -643,9 +638,6 @@ namespace EXE202_BE.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UPId"));
 
-                    b.Property<int>("ActivityLevelLevelId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("Age")
                         .HasColumnType("int");
 
@@ -673,9 +665,6 @@ namespace EXE202_BE.Data.Migrations
                     b.Property<int>("SpeedId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserExperienceExperienceId")
-                        .HasColumnType("int");
-
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
@@ -685,13 +674,13 @@ namespace EXE202_BE.Data.Migrations
 
                     b.HasKey("UPId");
 
-                    b.HasIndex("ActivityLevelLevelId");
+                    b.HasIndex("ExperienceId");
 
                     b.HasIndex("GoalId");
 
-                    b.HasIndex("SpeedId");
+                    b.HasIndex("LevelId");
 
-                    b.HasIndex("UserExperienceExperienceId");
+                    b.HasIndex("SpeedId");
 
                     b.HasIndex("UserId");
 
@@ -1064,7 +1053,7 @@ namespace EXE202_BE.Data.Migrations
 
                     b.HasOne("EXE202_BE.Data.Models.UserProfiles", "UserProfile")
                         .WithMany()
-                        .HasForeignKey("UserProfileUPId")
+                        .HasForeignKey("UPId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -1075,9 +1064,9 @@ namespace EXE202_BE.Data.Migrations
 
             modelBuilder.Entity("EXE202_BE.Data.Models.UserProfiles", b =>
                 {
-                    b.HasOne("EXE202_BE.Data.Models.ActivityLevels", "ActivityLevel")
+                    b.HasOne("EXE202_BE.Data.Models.UserExperiences", "UserExperience")
                         .WithMany()
-                        .HasForeignKey("ActivityLevelLevelId")
+                        .HasForeignKey("ExperienceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -1087,15 +1076,15 @@ namespace EXE202_BE.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EXE202_BE.Data.Models.LoseWeightSpeed", "LoseWeightSpeed")
+                    b.HasOne("EXE202_BE.Data.Models.ActivityLevels", "ActivityLevel")
                         .WithMany()
-                        .HasForeignKey("SpeedId")
+                        .HasForeignKey("LevelId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EXE202_BE.Data.Models.UserExperiences", "UserExperience")
+                    b.HasOne("EXE202_BE.Data.Models.LoseWeightSpeed", "LoseWeightSpeed")
                         .WithMany()
-                        .HasForeignKey("UserExperienceExperienceId")
+                        .HasForeignKey("SpeedId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
