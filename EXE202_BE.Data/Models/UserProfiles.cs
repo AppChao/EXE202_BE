@@ -21,7 +21,7 @@ public partial class UserProfiles
     //Cm
     public double? Height { get; set; }
 
-    public string?  Gender { get; set; }
+    public string?  Gender { get; set; } = string.Empty;
     
     public int SubcriptionId { get; set; }
 
@@ -34,6 +34,8 @@ public partial class UserProfiles
     public int LevelId { get; set; }
     
     public int SpeedId { get; set; }
+
+    public string? UserPicture { get; set; } = string.Empty;
     
     [Required] public string UserId { get; set; } = string.Empty;
     

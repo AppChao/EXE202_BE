@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
@@ -17,10 +18,10 @@ namespace EXE202_BE.Data.Migrations
                 name: "ActivityLevels",
                 columns: table => new
                 {
-                    LevelId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    LevelName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LevelDescription = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    LevelId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    LevelName = table.Column<string>(type: "text", nullable: true),
+                    LevelDescription = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -31,10 +32,10 @@ namespace EXE202_BE.Data.Migrations
                 name: "AspNetRoles",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    NormalizedName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Id = table.Column<string>(type: "text", nullable: false),
+                    Name = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
+                    NormalizedName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -45,22 +46,22 @@ namespace EXE202_BE.Data.Migrations
                 name: "AspNetUsers",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    NormalizedEmail = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    EmailConfirmed = table.Column<bool>(type: "bit", nullable: false),
-                    PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SecurityStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PhoneNumberConfirmed = table.Column<bool>(type: "bit", nullable: false),
-                    TwoFactorEnabled = table.Column<bool>(type: "bit", nullable: false),
-                    LockoutEnd = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
-                    LockoutEnabled = table.Column<bool>(type: "bit", nullable: false),
-                    AccessFailedCount = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<string>(type: "text", nullable: false),
+                    Status = table.Column<string>(type: "text", nullable: true),
+                    UserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
+                    NormalizedUserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
+                    Email = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
+                    NormalizedEmail = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
+                    EmailConfirmed = table.Column<bool>(type: "boolean", nullable: false),
+                    PasswordHash = table.Column<string>(type: "text", nullable: true),
+                    SecurityStamp = table.Column<string>(type: "text", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "text", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "text", nullable: true),
+                    PhoneNumberConfirmed = table.Column<bool>(type: "boolean", nullable: false),
+                    TwoFactorEnabled = table.Column<bool>(type: "boolean", nullable: false),
+                    LockoutEnd = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
+                    LockoutEnabled = table.Column<bool>(type: "boolean", nullable: false),
+                    AccessFailedCount = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -71,10 +72,10 @@ namespace EXE202_BE.Data.Migrations
                 name: "CookingSkills",
                 columns: table => new
                 {
-                    CookingSkillId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CookingSkillName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DifficultyValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    CookingSkillId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    CookingSkillName = table.Column<string>(type: "text", nullable: true),
+                    DifficultyValue = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -85,10 +86,10 @@ namespace EXE202_BE.Data.Migrations
                 name: "Cuisines",
                 columns: table => new
                 {
-                    CuisineId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nation = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Region = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    CuisineId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Nation = table.Column<string>(type: "text", nullable: true),
+                    Region = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -99,9 +100,9 @@ namespace EXE202_BE.Data.Migrations
                 name: "Goals",
                 columns: table => new
                 {
-                    GoalId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    GoalName = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    GoalId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    GoalName = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -112,9 +113,9 @@ namespace EXE202_BE.Data.Migrations
                 name: "HealthConditions",
                 columns: table => new
                 {
-                    HealthConditionId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    HealthConditionName = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    HealthConditionId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    HealthConditionName = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -125,9 +126,9 @@ namespace EXE202_BE.Data.Migrations
                 name: "HealthTags",
                 columns: table => new
                 {
-                    HealthTagId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    HealthTagName = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    HealthTagId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    HealthTagName = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -138,9 +139,9 @@ namespace EXE202_BE.Data.Migrations
                 name: "IngredientTypes",
                 columns: table => new
                 {
-                    IngredientTypeId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    TypeName = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    IngredientTypeId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    TypeName = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -151,10 +152,10 @@ namespace EXE202_BE.Data.Migrations
                 name: "LoseWeightSpeed",
                 columns: table => new
                 {
-                    SpeedId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    SpeedName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    TimeToReachGoal = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    SpeedId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    SpeedName = table.Column<string>(type: "text", nullable: true),
+                    TimeToReachGoal = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -165,9 +166,9 @@ namespace EXE202_BE.Data.Migrations
                 name: "MealCatagories",
                 columns: table => new
                 {
-                    MealId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    MealName = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    MealId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    MealName = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -178,13 +179,13 @@ namespace EXE202_BE.Data.Migrations
                 name: "Notifications",
                 columns: table => new
                 {
-                    NotificationId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Body = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Type = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    NotificationId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Title = table.Column<string>(type: "text", nullable: true),
+                    Body = table.Column<string>(type: "text", nullable: true),
+                    Type = table.Column<string>(type: "text", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    Status = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -195,10 +196,10 @@ namespace EXE202_BE.Data.Migrations
                 name: "Subcriptions",
                 columns: table => new
                 {
-                    SubcriptionId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    SubcriptionName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SubcriptionInfor = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    SubcriptionId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    SubcriptionName = table.Column<string>(type: "text", nullable: true),
+                    SubcriptionInfor = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -209,9 +210,9 @@ namespace EXE202_BE.Data.Migrations
                 name: "UserExperiences",
                 columns: table => new
                 {
-                    ExperienceId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ExperienceName = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    ExperienceId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    ExperienceName = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -222,9 +223,9 @@ namespace EXE202_BE.Data.Migrations
                 name: "UserProblem",
                 columns: table => new
                 {
-                    ProblemId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ProblemName = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    ProblemId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    ProblemName = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -235,11 +236,11 @@ namespace EXE202_BE.Data.Migrations
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    RoleId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ClaimType = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ClaimValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    RoleId = table.Column<string>(type: "text", nullable: false),
+                    ClaimType = table.Column<string>(type: "text", nullable: true),
+                    ClaimValue = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -256,11 +257,11 @@ namespace EXE202_BE.Data.Migrations
                 name: "AspNetUserClaims",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ClaimType = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ClaimValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    UserId = table.Column<string>(type: "text", nullable: false),
+                    ClaimType = table.Column<string>(type: "text", nullable: true),
+                    ClaimValue = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -277,10 +278,10 @@ namespace EXE202_BE.Data.Migrations
                 name: "AspNetUserLogins",
                 columns: table => new
                 {
-                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ProviderKey = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ProviderDisplayName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    LoginProvider = table.Column<string>(type: "text", nullable: false),
+                    ProviderKey = table.Column<string>(type: "text", nullable: false),
+                    ProviderDisplayName = table.Column<string>(type: "text", nullable: true),
+                    UserId = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -297,8 +298,8 @@ namespace EXE202_BE.Data.Migrations
                 name: "AspNetUserRoles",
                 columns: table => new
                 {
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    RoleId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    UserId = table.Column<string>(type: "text", nullable: false),
+                    RoleId = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -321,10 +322,10 @@ namespace EXE202_BE.Data.Migrations
                 name: "AspNetUserTokens",
                 columns: table => new
                 {
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Value = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    UserId = table.Column<string>(type: "text", nullable: false),
+                    LoginProvider = table.Column<string>(type: "text", nullable: false),
+                    Name = table.Column<string>(type: "text", nullable: false),
+                    Value = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -341,11 +342,11 @@ namespace EXE202_BE.Data.Migrations
                 name: "Devices",
                 columns: table => new
                 {
-                    DeviceToken = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Platform = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    DeviceToken = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    UserId = table.Column<string>(type: "text", nullable: false),
+                    Platform = table.Column<string>(type: "text", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -362,22 +363,22 @@ namespace EXE202_BE.Data.Migrations
                 name: "Recipes",
                 columns: table => new
                 {
-                    RecipeId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CuisineId = table.Column<int>(type: "int", nullable: true),
-                    Meals = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    RecipeSteps = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    InstructionVideoLink = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    RecipeName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    TimeEstimation = table.Column<int>(type: "int", nullable: false),
-                    DifficultyEstimation = table.Column<int>(type: "int", nullable: false),
-                    DefaultServing = table.Column<int>(type: "int", nullable: true)
+                    RecipeId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    CuisineId = table.Column<int>(type: "integer", nullable: true),
+                    Meals = table.Column<string>(type: "text", nullable: true),
+                    RecipeSteps = table.Column<string>(type: "text", nullable: true),
+                    InstructionVideoLink = table.Column<string>(type: "text", nullable: true),
+                    RecipeName = table.Column<string>(type: "text", nullable: true),
+                    TimeEstimation = table.Column<int>(type: "integer", nullable: false),
+                    DifficultyEstimation = table.Column<int>(type: "integer", nullable: false),
+                    DefaultServing = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Recipes", x => x.RecipeId);
-                    table.CheckConstraint("CK_Recipes_Difficulty_Rating", "[DifficultyEstimation] BETWEEN 1 AND 10");
-                    table.CheckConstraint("CK_Recipes_Meals", "[Meals] IN ('breakfast', 'lunch', 'dinner', 'snack')");
+                    table.CheckConstraint("CK_Recipes_Difficulty_Rating", "\"DifficultyEstimation\" BETWEEN 1 AND 10");
+                    table.CheckConstraint("CK_Recipes_Meals", "\"Meals\" IN ('breakfast', 'lunch', 'dinner', 'snack')");
                     table.ForeignKey(
                         name: "FK_Recipes_Cuisines_CuisineId",
                         column: x => x.CuisineId,
@@ -389,13 +390,13 @@ namespace EXE202_BE.Data.Migrations
                 name: "Ingredients",
                 columns: table => new
                 {
-                    IngredientId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    IngredientName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    IngredientTypeId = table.Column<int>(type: "int", nullable: false),
-                    CaloriesPer100g = table.Column<double>(type: "float", nullable: true),
-                    DefaultUnit = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    GramPerUnit = table.Column<double>(type: "float", nullable: true)
+                    IngredientId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    IngredientName = table.Column<string>(type: "text", nullable: true),
+                    IngredientTypeId = table.Column<int>(type: "integer", nullable: false),
+                    CaloriesPer100g = table.Column<double>(type: "double precision", nullable: true),
+                    DefaultUnit = table.Column<string>(type: "text", nullable: true),
+                    GramPerUnit = table.Column<double>(type: "double precision", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -412,11 +413,11 @@ namespace EXE202_BE.Data.Migrations
                 name: "NotificationUsers",
                 columns: table => new
                 {
-                    NotificationId = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    IsRead = table.Column<bool>(type: "bit", nullable: false),
-                    ReceivedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    NotificationId = table.Column<int>(type: "integer", nullable: false),
+                    UserId = table.Column<string>(type: "text", nullable: false),
+                    IsRead = table.Column<bool>(type: "boolean", nullable: false),
+                    ReceivedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    Status = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -439,25 +440,26 @@ namespace EXE202_BE.Data.Migrations
                 name: "UserProfiles",
                 columns: table => new
                 {
-                    UPId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    FullName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Weight = table.Column<double>(type: "float", nullable: true),
-                    GoalWeight = table.Column<double>(type: "float", nullable: true),
-                    Height = table.Column<double>(type: "float", nullable: true),
-                    Gender = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SubcriptionId = table.Column<int>(type: "int", nullable: false),
-                    Age = table.Column<int>(type: "int", nullable: true),
-                    GoalId = table.Column<int>(type: "int", nullable: false),
-                    ExperienceId = table.Column<int>(type: "int", nullable: false),
-                    LevelId = table.Column<int>(type: "int", nullable: false),
-                    SpeedId = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    UPId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    FullName = table.Column<string>(type: "text", nullable: true),
+                    Weight = table.Column<double>(type: "double precision", nullable: true),
+                    GoalWeight = table.Column<double>(type: "double precision", nullable: true),
+                    Height = table.Column<double>(type: "double precision", nullable: true),
+                    Gender = table.Column<string>(type: "text", nullable: true),
+                    SubcriptionId = table.Column<int>(type: "integer", nullable: false),
+                    Age = table.Column<int>(type: "integer", nullable: true),
+                    GoalId = table.Column<int>(type: "integer", nullable: false),
+                    ExperienceId = table.Column<int>(type: "integer", nullable: false),
+                    LevelId = table.Column<int>(type: "integer", nullable: false),
+                    SpeedId = table.Column<int>(type: "integer", nullable: false),
+                    UserPicture = table.Column<string>(type: "text", nullable: true),
+                    UserId = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_UserProfiles", x => x.UPId);
-                    table.CheckConstraint("CK_UserProfiles_Gender", "[Gender] IN ('Male', 'Female', 'Other')");
+                    table.CheckConstraint("CK_UserProfiles_Gender", "\"Gender\" IN ('Male', 'Female', 'Other')");
                     table.ForeignKey(
                         name: "FK_UserProfiles_ActivityLevels_LevelId",
                         column: x => x.LevelId,
@@ -500,9 +502,9 @@ namespace EXE202_BE.Data.Migrations
                 name: "RecipeHealthTags",
                 columns: table => new
                 {
-                    RecipeId = table.Column<int>(type: "int", nullable: false),
-                    HealthTagId = table.Column<int>(type: "int", nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    RecipeId = table.Column<int>(type: "integer", nullable: false),
+                    HealthTagId = table.Column<int>(type: "integer", nullable: false),
+                    Status = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -525,9 +527,9 @@ namespace EXE202_BE.Data.Migrations
                 name: "RecipeMealTypes",
                 columns: table => new
                 {
-                    MealId = table.Column<int>(type: "int", nullable: false),
-                    RecipeId = table.Column<int>(type: "int", nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    MealId = table.Column<int>(type: "integer", nullable: false),
+                    RecipeId = table.Column<int>(type: "integer", nullable: false),
+                    Status = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -550,9 +552,9 @@ namespace EXE202_BE.Data.Migrations
                 name: "Servings",
                 columns: table => new
                 {
-                    RecipeId = table.Column<int>(type: "int", nullable: false),
-                    IngredientId = table.Column<int>(type: "int", nullable: false),
-                    Ammount = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    RecipeId = table.Column<int>(type: "integer", nullable: false),
+                    IngredientId = table.Column<int>(type: "integer", nullable: false),
+                    Ammount = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -575,8 +577,8 @@ namespace EXE202_BE.Data.Migrations
                 name: "Allergies",
                 columns: table => new
                 {
-                    UPId = table.Column<int>(type: "int", nullable: false),
-                    IngredientId = table.Column<int>(type: "int", nullable: false)
+                    UPId = table.Column<int>(type: "integer", nullable: false),
+                    IngredientId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -599,10 +601,10 @@ namespace EXE202_BE.Data.Migrations
                 name: "MealScheduled",
                 columns: table => new
                 {
-                    UPId = table.Column<int>(type: "int", nullable: false),
-                    BreakfastTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    LunchTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DinnerTime = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    UPId = table.Column<int>(type: "integer", nullable: false),
+                    BreakfastTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    LunchTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    DinnerTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -619,9 +621,9 @@ namespace EXE202_BE.Data.Migrations
                 name: "PersonalHealthConditions",
                 columns: table => new
                 {
-                    HealthConditionId = table.Column<int>(type: "int", nullable: false),
-                    UPId = table.Column<int>(type: "int", nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    HealthConditionId = table.Column<int>(type: "integer", nullable: false),
+                    UPId = table.Column<int>(type: "integer", nullable: false),
+                    Status = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -644,8 +646,8 @@ namespace EXE202_BE.Data.Migrations
                 name: "PersonalUserCookingSkills",
                 columns: table => new
                 {
-                    UPId = table.Column<int>(type: "int", nullable: false),
-                    CookingSkillId = table.Column<int>(type: "int", nullable: false)
+                    UPId = table.Column<int>(type: "integer", nullable: false),
+                    CookingSkillId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -668,8 +670,8 @@ namespace EXE202_BE.Data.Migrations
                 name: "PersonalUserProblem",
                 columns: table => new
                 {
-                    UPId = table.Column<int>(type: "int", nullable: false),
-                    ProblemId = table.Column<int>(type: "int", nullable: false)
+                    UPId = table.Column<int>(type: "integer", nullable: false),
+                    ProblemId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -713,8 +715,7 @@ namespace EXE202_BE.Data.Migrations
                 name: "RoleNameIndex",
                 table: "AspNetRoles",
                 column: "NormalizedName",
-                unique: true,
-                filter: "[NormalizedName] IS NOT NULL");
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetUserClaims_UserId",
@@ -740,8 +741,7 @@ namespace EXE202_BE.Data.Migrations
                 name: "UserNameIndex",
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
-                unique: true,
-                filter: "[NormalizedUserName] IS NOT NULL");
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Devices_UserId",

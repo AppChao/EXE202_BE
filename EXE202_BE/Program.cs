@@ -26,8 +26,11 @@ namespace EXE202_BE
             var builder = WebApplication.CreateBuilder(args);
 
             // Add DbContext
+            // builder.Services.AddDbContext<AppDbContext>(options =>
+            //     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            
             builder.Services.AddDbContext<AppDbContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+                options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             // Add Identity
             builder.Services.AddIdentity<ModifyIdentityUser, IdentityRole>(options =>

@@ -96,13 +96,13 @@ public class AppDbContext : IdentityDbContext<ModifyIdentityUser>
             .HasKey(nu => new {nu.UserId, nu.NotificationId});
 
         builder.Entity<Recipes>()
-            .ToTable(tb => tb.HasCheckConstraint("CK_Recipes_Difficulty_Rating", "[DifficultyEstimation] BETWEEN 1 AND 10"));
+            .ToTable(tb => tb.HasCheckConstraint("CK_Recipes_Difficulty_Rating", "\"DifficultyEstimation\" BETWEEN 1 AND 10"));
 
         builder.Entity<Recipes>()
-            .ToTable(tb => tb.HasCheckConstraint("CK_Recipes_Meals", "[Meals] IN ('breakfast', 'lunch', 'dinner', 'snack')"));
+            .ToTable(tb => tb.HasCheckConstraint("CK_Recipes_Meals", "\"Meals\" IN ('breakfast', 'lunch', 'dinner', 'snack')"));
 
         builder.Entity<UserProfiles>()
-            .ToTable(tb => tb.HasCheckConstraint("CK_UserProfiles_Gender", "[Gender] IN ('Male', 'Female', 'Other')"));
+            .ToTable(tb => tb.HasCheckConstraint("CK_UserProfiles_Gender", "\"Gender\" IN ('Male', 'Female', 'Other')"));
         
         base.OnModelCreating(builder);
     }

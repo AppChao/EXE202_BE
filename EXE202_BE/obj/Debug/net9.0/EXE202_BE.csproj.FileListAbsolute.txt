@@ -355,3 +355,5 @@ D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\obj\Debug\net9.0\refint\EXE20
 D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\obj\Debug\net9.0\EXE202_BE.pdb
 D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\obj\Debug\net9.0\EXE202_BE.genruntimeconfig.cache
 D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\obj\Debug\net9.0\ref\EXE202_BE.dll
+D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.0\Npgsql.dll
+D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
