@@ -1,6 +1,7 @@
 using System.Linq.Expressions;
 using EXE202_BE.Data.DTOS.User;
 using AutoMapper;
+using EXE202_BE.Data.DTOS;
 using EXE202_BE.Data.Models;
 using EXE202_BE.Repository.Interface;
 using EXE202_BE.Service.Interface;
@@ -30,9 +31,7 @@ public class UserProfilesService : IUserProfilesService
     {
         return await _userProfilesRepository.AddAsync(userProfile);
     }
-
-
-
+    
     public async Task<UserProfileResponse> CreateUserAsync(CreateUserRequestDTO model)
     {
         var user = new ModifyIdentityUser
@@ -62,38 +61,55 @@ public class UserProfilesService : IUserProfilesService
         return dto;
     }
 
-    public async Task<List<UserProfileResponse>> GetUsersAsync(string? searchTerm)
+    public async Task<PageListResponse<UserProfileResponse>> GetUsersAsync(
+        string? searchTerm, int page = 1, int pageSize = 20)
     {
-        // Tạo filter (LINQ expression)
+        if (page < 1) page = 1;
+        if (pageSize < 1) pageSize = 20;
+
         Expression<Func<UserProfiles, bool>>? filter = null;
         if (!string.IsNullOrWhiteSpace(searchTerm))
         {
-            filter = up => up.FullName.Contains(searchTerm) || up.User.Email.Contains(searchTerm);
+            filter = up => up.FullName.Contains(searchTerm, StringComparison.OrdinalIgnoreCase) ||
+                          up.User.Email.Contains(searchTerm, StringComparison.OrdinalIgnoreCase);
         }
 
-        // Gọi repository và include navigation property "User"
-        var userProfiles = await _userProfilesRepository.GetAllAsync(filter, "User");
+        var userProfiles = await _userProfilesRepository.GetAllAsync(
+            filter, "User,Allergies.Ingredient,PersonalHealthConditions.HealthCondition");
 
-        // Chuẩn bị kết quả
+        var totalCount = userProfiles.Count();
+
+        var paginatedUsers = userProfiles
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
+            .ToList();
+
         var result = new List<UserProfileResponse>();
-
-        foreach (var up in userProfiles)
+        foreach (var up in paginatedUsers)
         {
             var user = await _userManager.FindByIdAsync(up.UserId);
             var roles = await _userManager.GetRolesAsync(user);
-
             var dto = _mapper.Map<UserProfileResponse>(up);
             dto.Role = roles.FirstOrDefault();
-
             result.Add(dto);
         }
 
-        return result;
+        return new PageListResponse<UserProfileResponse>
+        {
+            Items = result,
+            Page = page,
+            PageSize = pageSize,
+            TotalCount = totalCount,
+            HasNextPage = (page * pageSize) < totalCount,
+            HasPreviousPage = page > 1
+        };
     }
 
-    public async Task<UserProfileResponse> GetUserByIdAsync(int upId)
+    public async Task<UserProfileResponse> GetUserProfileAsync(int upId)
     {
-        var userProfile = await _userProfilesRepository.GetAsync(up => up.UPId == upId, "User");
+        var userProfile = await _userProfilesRepository.GetAsync(
+            up => up.UPId == upId, "User,Allergies.Ingredient,PersonalHealthConditions.HealthCondition");
+
         if (userProfile == null)
         {
             throw new Exception("User profile not found.");
@@ -101,32 +117,70 @@ public class UserProfilesService : IUserProfilesService
 
         var user = await _userManager.FindByIdAsync(userProfile.UserId);
         var roles = await _userManager.GetRolesAsync(user);
-
         var dto = _mapper.Map<UserProfileResponse>(userProfile);
         dto.Role = roles.FirstOrDefault();
         return dto;
     }
-
-    public async Task<UserProfileResponse> EditAsync(int upId, EditUserRequestDTO model)
+    
+    public async Task<AdminProfileResponse> GetAdminProfileAsync(int upId)
     {
-        var userProfile = await _userProfilesRepository.GetAsync(up => up.UPId == upId, "User");
+        var userProfile = await _userProfilesRepository.GetAsync(
+            up => up.UPId == upId, "User");
+
         if (userProfile == null)
         {
             throw new Exception("User profile not found.");
         }
 
-        userProfile.FullName = model.FullName;
+        var user = await _userManager.FindByIdAsync(userProfile.UserId);
+        if (user == null)
+        {
+            throw new Exception("User not found.");
+        }
+
+        var roles = await _userManager.GetRolesAsync(user);
+        var dto = _mapper.Map<AdminProfileResponse>(userProfile);
+        dto.Role = roles.FirstOrDefault();
+        return dto;
+    }
+
+    public async Task<AdminProfileResponse> UpdateAdminProfileAsync(int upId, AdminProfileResponse request)
+    {
+        var userProfile = await _userProfilesRepository.GetAsync(
+            up => up.UPId == upId, "User");
+
+        if (userProfile == null)
+        {
+            throw new Exception("User profile not found.");
+        }
+
+        var user = await _userManager.FindByIdAsync(userProfile.UserId);
+        if (user == null)
+        {
+            throw new Exception("User not found.");
+        }
+
+        if (upId != request.UPId)
+        {
+            throw new Exception("UPId mismatch.");
+        }
+
+        user.UserName = request.Username ?? user.UserName;
+        user.Email = request.Email;
+        user.PhoneNumber = request.PhoneNumber ?? user.PhoneNumber;
+        userProfile.FullName = request.FullName;
 
         await _userProfilesRepository.UpdateAsync(userProfile);
 
-        var dto = _mapper.Map<UserProfileResponse>(userProfile);
+        var updateResult = await _userManager.UpdateAsync(user);
+        if (!updateResult.Succeeded)
+        {
+            throw new Exception("Failed to update user: " + string.Join(", ", updateResult.Errors.Select(e => e.Description)));
+        }
 
-        // Nếu vẫn muốn trả role ra (chứ không update), lấy từ user
-        var user = await _userManager.FindByIdAsync(userProfile.UserId);
         var roles = await _userManager.GetRolesAsync(user);
+        var dto = _mapper.Map<AdminProfileResponse>(userProfile);
         dto.Role = roles.FirstOrDefault();
-
         return dto;
     }
-
 }

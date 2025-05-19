@@ -104,6 +104,37 @@ public class AppDbContext : IdentityDbContext<ModifyIdentityUser>
         builder.Entity<UserProfiles>()
             .ToTable(tb => tb.HasCheckConstraint("CK_UserProfiles_Gender", "\"Gender\" IN ('Male', 'Female', 'Other')"));
         
+        // Thêm từ đây - Cấu hình tối thiểu để sửa lỗi MappingProfile
+        builder.Entity<UserProfiles>()
+            .HasMany(up => up.Allergies)
+            .WithOne(a => a.UserProfile)
+            .HasForeignKey(a => a.UPId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        builder.Entity<UserProfiles>()
+            .HasMany(up => up.PersonalHealthConditions)
+            .WithOne(phc => phc.UserProfile)
+            .HasForeignKey(phc => phc.UPId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        builder.Entity<Allergies>()
+            .HasOne(a => a.Ingredient)
+            .WithMany()
+            .HasForeignKey(a => a.IngredientId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        builder.Entity<PersonalHealthConditions>()
+            .HasOne(phc => phc.HealthCondition)
+            .WithMany()
+            .HasForeignKey(phc => phc.HealthConditionId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        builder.Entity<UserProfiles>()
+            .HasOne(up => up.User)
+            .WithOne()
+            .HasForeignKey<UserProfiles>(up => up.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
+        
         base.OnModelCreating(builder);
     }
 }

@@ -56,4 +56,7 @@ public partial class UserProfiles
 
     [ForeignKey("SpeedId")] 
     public virtual LoseWeightSpeed LoseWeightSpeed { get; set; } =  null!;
+    
+    public virtual ICollection<Allergies>? Allergies { get; set; } = new List<Allergies>();
+    public virtual ICollection<PersonalHealthConditions>? PersonalHealthConditions { get; set; } = new List<PersonalHealthConditions>();
 }
