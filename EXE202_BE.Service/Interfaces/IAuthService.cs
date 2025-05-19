@@ -6,4 +6,5 @@ namespace EXE202_BE.Service.Interface;
 public interface IAuthService
 {
     Task<LoginResponse> LoginAsync(LoginRequestDTO model);
+    Task ChangePasswordAsync(ChangePasswordRequest request);
 }

@@ -41,6 +41,8 @@ namespace EXE202_BE
             })
             .AddEntityFrameworkStores<AppDbContext>()
             .AddDefaultTokenProviders();
+            
+            builder.Services.AddHttpContextAccessor();
 
             // Configure JWT Authentication
             var jwtSecret = builder.Configuration["Jwt:Key"];
