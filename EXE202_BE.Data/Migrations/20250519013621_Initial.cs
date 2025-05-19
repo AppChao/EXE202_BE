@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace EXE202_BE.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -446,12 +446,12 @@ namespace EXE202_BE.Data.Migrations
                     GoalWeight = table.Column<double>(type: "float", nullable: true),
                     Height = table.Column<double>(type: "float", nullable: true),
                     Gender = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SubcriptionId = table.Column<int>(type: "int", nullable: false),
+                    SubcriptionId = table.Column<int>(type: "int", nullable: true),
                     Age = table.Column<int>(type: "int", nullable: true),
-                    GoalId = table.Column<int>(type: "int", nullable: false),
-                    ExperienceId = table.Column<int>(type: "int", nullable: false),
-                    LevelId = table.Column<int>(type: "int", nullable: false),
-                    SpeedId = table.Column<int>(type: "int", nullable: false),
+                    GoalId = table.Column<int>(type: "int", nullable: true),
+                    ExperienceId = table.Column<int>(type: "int", nullable: true),
+                    LevelId = table.Column<int>(type: "int", nullable: true),
+                    SpeedId = table.Column<int>(type: "int", nullable: true),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
@@ -462,8 +462,7 @@ namespace EXE202_BE.Data.Migrations
                         name: "FK_UserProfiles_ActivityLevels_LevelId",
                         column: x => x.LevelId,
                         principalTable: "ActivityLevels",
-                        principalColumn: "LevelId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "LevelId");
                     table.ForeignKey(
                         name: "FK_UserProfiles_AspNetUsers_UserId",
                         column: x => x.UserId,
@@ -474,26 +473,22 @@ namespace EXE202_BE.Data.Migrations
                         name: "FK_UserProfiles_Goals_GoalId",
                         column: x => x.GoalId,
                         principalTable: "Goals",
-                        principalColumn: "GoalId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "GoalId");
                     table.ForeignKey(
                         name: "FK_UserProfiles_LoseWeightSpeed_SpeedId",
                         column: x => x.SpeedId,
                         principalTable: "LoseWeightSpeed",
-                        principalColumn: "SpeedId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "SpeedId");
                     table.ForeignKey(
                         name: "FK_UserProfiles_Subcriptions_SubcriptionId",
                         column: x => x.SubcriptionId,
                         principalTable: "Subcriptions",
-                        principalColumn: "SubcriptionId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "SubcriptionId");
                     table.ForeignKey(
                         name: "FK_UserProfiles_UserExperiences_ExperienceId",
                         column: x => x.ExperienceId,
                         principalTable: "UserExperiences",
-                        principalColumn: "ExperienceId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ExperienceId");
                 });
 
             migrationBuilder.CreateTable(
@@ -821,7 +816,8 @@ namespace EXE202_BE.Data.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_UserProfiles_UserId",
                 table: "UserProfiles",
-                column: "UserId");
+                column: "UserId",
+                unique: true);
         }
 
         /// <inheritdoc />

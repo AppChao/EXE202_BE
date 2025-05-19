@@ -32,11 +32,14 @@ public class UserProfileController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetUsers([FromQuery] string? searchTerm)
+    public async Task<IActionResult> GetUsers(
+        [FromQuery] string? searchTerm,
+        [FromQuery] int page = 1,
+        [FromQuery] int pageSize = 20)
     {
         try
         {
-            var users = await _userProfilesService.GetUsersAsync(searchTerm);
+            var users = await _userProfilesService.GetUsersAsync(searchTerm, page, pageSize);
             return Ok(users);
         }
         catch (Exception ex)
@@ -45,31 +48,50 @@ public class UserProfileController : ControllerBase
         }
     }
 
-    [HttpGet("{upId}")]
-    public async Task<IActionResult> GetUserById(int upId)
+
+    [HttpGet("userProfile/{upId}")]
+    public async Task<IActionResult> GetUserProfile(int upId)
     {
         try
         {
-            var user = await _userProfilesService.GetUserByIdAsync(upId);
-            return Ok(user);
+            var userProfile = await _userProfilesService.GetUserProfileAsync(upId);
+            return Ok(userProfile);
         }
         catch (Exception ex)
         {
-            return NotFound(new { Message = "User not found.", Error = ex.Message });
+            return StatusCode(500, new { Message = "An error occurred while retrieving user profile.", Error = ex.Message });
         }
     }
 
-    [HttpPut("{upId}")]
-    public async Task<IActionResult> Edit(int upId, [FromBody] EditUserRequestDTO model)
+    [HttpGet("userProfileMin/{upId}")]
+    public async Task<IActionResult> GetAdminProfile(int upId)
     {
         try
         {
-            var response = await _userProfilesService.EditAsync(upId, model);
-            return Ok(response);
+            var adminProfile = await _userProfilesService.GetAdminProfileAsync(upId);
+            return Ok(adminProfile);
         }
         catch (Exception ex)
         {
-            return BadRequest(new { Message = "Failed to update user.", Error = ex.Message });
+            return StatusCode(500, new { Message = "An error occurred while retrieving admin profile.", Error = ex.Message });
+        }
+    }
+
+    [HttpPut("userProfile/{upId}")]
+    public async Task<IActionResult> UpdateAdminProfile(int upId, [FromBody] AdminProfileResponse request)
+    {
+        try
+        {
+            if (upId != request.UPId)
+            {
+                return BadRequest(new { Message = "User ID mismatch." });
+            }
+            var updatedProfile = await _userProfilesService.UpdateAdminProfileAsync(upId, request);
+            return Ok(updatedProfile);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { Message = "An error occurred while updating admin profile.", Error = ex.Message });
         }
     }
 }

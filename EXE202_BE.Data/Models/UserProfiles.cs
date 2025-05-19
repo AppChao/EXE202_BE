@@ -23,17 +23,17 @@ public partial class UserProfiles
 
     public string?  Gender { get; set; }
     
-    public int SubcriptionId { get; set; }
+    public int? SubcriptionId { get; set; }
 
     public int? Age { get; set; }
     
-    public int GoalId { get; set; }
+    public int? GoalId { get; set; }
     
-    public int ExperienceId { get; set; }
+    public int? ExperienceId { get; set; }
     
-    public int LevelId { get; set; }
+    public int? LevelId { get; set; }
     
-    public int SpeedId { get; set; }
+    public int? SpeedId { get; set; }
     
     [Required] public string UserId { get; set; } = string.Empty;
     
@@ -41,17 +41,20 @@ public partial class UserProfiles
     public virtual ModifyIdentityUser User { get; set; } = null!;
     
     [ForeignKey("SubcriptionId")] 
-    public virtual Subcriptions Subcription { get; set; } = null!;
+    public virtual Subcriptions? Subcription { get; set; } = null!;
 
     [ForeignKey("GoalId")] 
-    public virtual Goals Goal { get; set; } =  null!;
+    public virtual Goals? Goal { get; set; } =  null!;
     
     [ForeignKey("ExperienceId")] 
-    public virtual UserExperiences UserExperience { get; set; } = null!;
+    public virtual UserExperiences? UserExperience { get; set; } = null!;
 
     [ForeignKey("LevelId")] 
-    public virtual ActivityLevels ActivityLevel { get; set; } = null!;
+    public virtual ActivityLevels? ActivityLevel { get; set; } = null!;
 
     [ForeignKey("SpeedId")] 
-    public virtual LoseWeightSpeed LoseWeightSpeed { get; set; } =  null!;
+    public virtual LoseWeightSpeed? LoseWeightSpeed { get; set; } =  null!;
+    
+    public virtual ICollection<Allergies>? Allergies { get; set; } = new List<Allergies>();
+    public virtual ICollection<PersonalHealthConditions>? PersonalHealthConditions { get; set; } = new List<PersonalHealthConditions>();
 }

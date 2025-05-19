@@ -6,6 +6,7 @@ using System.Text;
 using EXE202_BE.Data.DTOS.Auth;
 using EXE202_BE.Data.DTOS.User;
 using EXE202_BE.Data.Models;
+using EXE202_BE.Repository.Interface;
 using EXE202_BE.Service.Interface;
 using Microsoft.Extensions.Configuration;
 
@@ -16,15 +17,19 @@ public class AuthService : IAuthService
     private readonly UserManager<ModifyIdentityUser> _userManager;
     private readonly IConfiguration _configuration;
     private readonly IUserProfilesService _userProfilesService;
+    private readonly IUserProfilesRepository _userProfilesRepository;
+
 
     public AuthService(
         UserManager<ModifyIdentityUser> userManager,
         IConfiguration configuration,
-        IUserProfilesService userProfilesService)
+        IUserProfilesService userProfilesService,
+        IUserProfilesRepository userProfilesRepository)
     {
         _userManager = userManager;
         _configuration = configuration;
         _userProfilesService = userProfilesService;
+        _userProfilesRepository = userProfilesRepository;
     }
 
     public async Task<LoginResponse> LoginAsync(LoginRequestDTO model)
@@ -40,6 +45,15 @@ public class AuthService : IAuthService
         {
             throw new Exception("Your account is unauthorized.");
         }
+        
+        var userProfile = await _userProfilesRepository.GetAsync( 
+            up => up.UserId == user.Id);
+
+        if (userProfile == null)
+        {
+            throw new Exception("User profile not found.");
+        }
+        
 
         var claims = new List<Claim>
         {
@@ -61,7 +75,8 @@ public class AuthService : IAuthService
         return new LoginResponse
         {
             Token = new JwtSecurityTokenHandler().WriteToken(token),
-            Role = roles.FirstOrDefault()
+            Role = roles.FirstOrDefault(),
+            UPId = userProfile.UPId
         };
     }
 }

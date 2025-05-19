@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\studying\\FPT-lessons\\EXE202\\EXE202_BE\\EXE202_BE.Repository\\EXE202_BE.Repository.csproj": {}
+    "D:\\FPT\\EXE2_BE\\EXE202_BE\\EXE202_BE.Repository\\EXE202_BE.Repository.csproj": {}
   },
   "projects": {
-    "D:\\studying\\FPT-lessons\\EXE202\\EXE202_BE\\EXE202_BE.Data\\EXE202_BE.Data.csproj": {
+    "D:\\FPT\\EXE2_BE\\EXE202_BE\\EXE202_BE.Data\\EXE202_BE.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\studying\\FPT-lessons\\EXE202\\EXE202_BE\\EXE202_BE.Data\\EXE202_BE.Data.csproj",
+        "projectUniqueName": "D:\\FPT\\EXE2_BE\\EXE202_BE\\EXE202_BE.Data\\EXE202_BE.Data.csproj",
         "projectName": "EXE202_BE.Data",
-        "projectPath": "D:\\studying\\FPT-lessons\\EXE202\\EXE202_BE\\EXE202_BE.Data\\EXE202_BE.Data.csproj",
-        "packagesPath": "C:\\Users\\giang\\.nuget\\packages\\",
-        "outputPath": "D:\\studying\\FPT-lessons\\EXE202\\EXE202_BE\\EXE202_BE.Data\\obj\\",
+        "projectPath": "D:\\FPT\\EXE2_BE\\EXE202_BE\\EXE202_BE.Data\\EXE202_BE.Data.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "D:\\FPT\\EXE2_BE\\EXE202_BE\\EXE202_BE.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\Environments\\IDE\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\giang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -44,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
@@ -85,24 +85,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\studying\\FPT-lessons\\EXE202\\EXE202_BE\\EXE202_BE.Repository\\EXE202_BE.Repository.csproj": {
+    "D:\\FPT\\EXE2_BE\\EXE202_BE\\EXE202_BE.Repository\\EXE202_BE.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\studying\\FPT-lessons\\EXE202\\EXE202_BE\\EXE202_BE.Repository\\EXE202_BE.Repository.csproj",
+        "projectUniqueName": "D:\\FPT\\EXE2_BE\\EXE202_BE\\EXE202_BE.Repository\\EXE202_BE.Repository.csproj",
         "projectName": "EXE202_BE.Repository",
-        "projectPath": "D:\\studying\\FPT-lessons\\EXE202\\EXE202_BE\\EXE202_BE.Repository\\EXE202_BE.Repository.csproj",
-        "packagesPath": "C:\\Users\\giang\\.nuget\\packages\\",
-        "outputPath": "D:\\studying\\FPT-lessons\\EXE202\\EXE202_BE\\EXE202_BE.Repository\\obj\\",
+        "projectPath": "D:\\FPT\\EXE2_BE\\EXE202_BE\\EXE202_BE.Repository\\EXE202_BE.Repository.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "D:\\FPT\\EXE2_BE\\EXE202_BE\\EXE202_BE.Repository\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\Environments\\IDE\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\giang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -117,8 +117,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\studying\\FPT-lessons\\EXE202\\EXE202_BE\\EXE202_BE.Data\\EXE202_BE.Data.csproj": {
-                "projectPath": "D:\\studying\\FPT-lessons\\EXE202\\EXE202_BE\\EXE202_BE.Data\\EXE202_BE.Data.csproj"
+              "D:\\FPT\\EXE2_BE\\EXE202_BE\\EXE202_BE.Data\\EXE202_BE.Data.csproj": {
+                "projectPath": "D:\\FPT\\EXE2_BE\\EXE202_BE\\EXE202_BE.Data\\EXE202_BE.Data.csproj"
               }
             }
           }
@@ -133,7 +133,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
@@ -154,7 +154,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EXE202_BE.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250518145744_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20250519013621_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -599,7 +599,7 @@ namespace EXE202_BE.Data.Migrations
                     b.Property<int?>("Age")
                         .HasColumnType("int");
 
-                    b.Property<int>("ExperienceId")
+                    b.Property<int?>("ExperienceId")
                         .HasColumnType("int");
 
                     b.Property<string>("FullName")
@@ -608,7 +608,7 @@ namespace EXE202_BE.Data.Migrations
                     b.Property<string>("Gender")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("GoalId")
+                    b.Property<int?>("GoalId")
                         .HasColumnType("int");
 
                     b.Property<double?>("GoalWeight")
@@ -617,13 +617,13 @@ namespace EXE202_BE.Data.Migrations
                     b.Property<double?>("Height")
                         .HasColumnType("float");
 
-                    b.Property<int>("LevelId")
+                    b.Property<int?>("LevelId")
                         .HasColumnType("int");
 
-                    b.Property<int>("SpeedId")
+                    b.Property<int?>("SpeedId")
                         .HasColumnType("int");
 
-                    b.Property<int>("SubcriptionId")
+                    b.Property<int?>("SubcriptionId")
                         .HasColumnType("int");
 
                     b.Property<string>("UserId")
@@ -645,7 +645,8 @@ namespace EXE202_BE.Data.Migrations
 
                     b.HasIndex("SubcriptionId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserId")
+                        .IsUnique();
 
                     b.ToTable("UserProfiles", t =>
                         {
@@ -821,7 +822,7 @@ namespace EXE202_BE.Data.Migrations
                         .IsRequired();
 
                     b.HasOne("EXE202_BE.Data.Models.UserProfiles", "UserProfile")
-                        .WithMany()
+                        .WithMany("Allergies")
                         .HasForeignKey("UPId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -892,7 +893,7 @@ namespace EXE202_BE.Data.Migrations
                         .IsRequired();
 
                     b.HasOne("EXE202_BE.Data.Models.UserProfiles", "UserProfile")
-                        .WithMany()
+                        .WithMany("PersonalHealthConditions")
                         .HasForeignKey("UPId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1010,37 +1011,27 @@ namespace EXE202_BE.Data.Migrations
                 {
                     b.HasOne("EXE202_BE.Data.Models.UserExperiences", "UserExperience")
                         .WithMany()
-                        .HasForeignKey("ExperienceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ExperienceId");
 
                     b.HasOne("EXE202_BE.Data.Models.Goals", "Goal")
                         .WithMany()
-                        .HasForeignKey("GoalId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("GoalId");
 
                     b.HasOne("EXE202_BE.Data.Models.ActivityLevels", "ActivityLevel")
                         .WithMany()
-                        .HasForeignKey("LevelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("LevelId");
 
                     b.HasOne("EXE202_BE.Data.Models.LoseWeightSpeed", "LoseWeightSpeed")
                         .WithMany()
-                        .HasForeignKey("SpeedId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SpeedId");
 
                     b.HasOne("EXE202_BE.Data.Models.Subcriptions", "Subcription")
                         .WithMany()
-                        .HasForeignKey("SubcriptionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SubcriptionId");
 
                     b.HasOne("EXE202_BE.Data.Models.ModifyIdentityUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
+                        .WithOne()
+                        .HasForeignKey("EXE202_BE.Data.Models.UserProfiles", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -1106,6 +1097,13 @@ namespace EXE202_BE.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("EXE202_BE.Data.Models.UserProfiles", b =>
+                {
+                    b.Navigation("Allergies");
+
+                    b.Navigation("PersonalHealthConditions");
                 });
 #pragma warning restore 612, 618
         }
