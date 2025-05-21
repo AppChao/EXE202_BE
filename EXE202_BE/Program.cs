@@ -13,6 +13,7 @@ using EXE202_BE.Service.Interface;
 using EXE202_BE.Service.Services;
 using EXE202_BE.Repository.Interface;
 using EXE202_BE.Repository.Repositories;
+using Google.Apis.Auth.OAuth2;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
@@ -25,26 +26,61 @@ namespace EXE202_BE
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            try
+            {
+                var firebaseCred = Environment.GetEnvironmentVariable("FIREBASE_CREDENTIALS");
+                if (string.IsNullOrEmpty(firebaseCred))
+                    throw new ArgumentNullException("FIREBASE_CREDENTIALS", "Environment variable is not set.");
+
+                GoogleCredential credential;
+
+                if (File.Exists(firebaseCred)) // Local: file path
+                {
+                    credential = GoogleCredential
+                        .FromFile(firebaseCred)
+                        .CreateScoped("https://www.googleapis.com/auth/firebase.messaging");
+
+                    Console.WriteLine("Loaded Firebase credentials from file: " + firebaseCred);
+                }
+                else // Cloud env: treat as JSON string
+                {
+                    credential = GoogleCredential
+                        .FromJson(firebaseCred)
+                        .CreateScoped("https://www.googleapis.com/auth/firebase.messaging");
+
+                    Console.WriteLine("Loaded Firebase credentials from JSON environment variable.");
+                }
+
+                var accessToken = await credential.UnderlyingCredential.GetAccessTokenForRequestAsync();
+                Console.WriteLine("Firebase initialized successfully. Access token acquired.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Firebase initialization failed: {ex.Message}");
+                throw;
+            }
+
             // Add DbContext
             // builder.Services.AddDbContext<AppDbContext>(options =>
             //     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-            
+
             builder.Services.AddDbContext<AppDbContext>(options =>
                 options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             // Add Identity
             builder.Services.AddIdentity<ModifyIdentityUser, IdentityRole>(options =>
-            {
-                options.Password.RequireDigit = true;
-                options.Password.RequiredLength = 8;
-                options.Password.RequireNonAlphanumeric = true;
-                options.Password.RequireUppercase = true;
-                options.Lockout.MaxFailedAccessAttempts = 5;
-                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(15);
-            })
-            .AddEntityFrameworkStores<AppDbContext>()
-            .AddDefaultTokenProviders();
-            
+                {
+                    options.Password.RequireDigit = true;
+                    options.Password.RequiredLength = 8;
+                    options.Password.RequireNonAlphanumeric = true;
+                    options.Password.RequireUppercase = true;
+                    options.Lockout.MaxFailedAccessAttempts = 5;
+                    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(15);
+                })
+                .AddEntityFrameworkStores<AppDbContext>()
+                .AddDefaultTokenProviders();
+
+            builder.Services.AddHostedService<NotificationsBackgroundService>();
             builder.Services.AddHttpContextAccessor();
 
             // Configure JWT Authentication
@@ -55,26 +91,26 @@ namespace EXE202_BE
             }
 
             builder.Services.AddAuthentication(options =>
-            {
-                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-            .AddJwtBearer(options =>
-            {
-                options.SaveToken = true;
-                options.RequireHttpsMetadata = false;
-                options.TokenValidationParameters = new TokenValidationParameters
                 {
-                    ValidateIssuer = true,
-                    ValidateAudience = true,
-                    ValidateLifetime = true,
-                    ValidateIssuerSigningKey = true,
-                    ValidIssuer = builder.Configuration["Jwt:Issuer"],
-                    ValidAudience = builder.Configuration["Jwt:Audience"],
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSecret))
-                };
-            });
+                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+                })
+                .AddJwtBearer(options =>
+                {
+                    options.SaveToken = true;
+                    options.RequireHttpsMetadata = false;
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+                        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+                        ValidAudience = builder.Configuration["Jwt:Audience"],
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSecret))
+                    };
+                });
 
             builder.Services.AddAuthorization();
 
@@ -83,8 +119,8 @@ namespace EXE202_BE
             {
                 options.AddPolicy("AllowAll", builder =>
                     builder.AllowAnyOrigin()
-                           .AllowAnyMethod()
-                           .AllowAnyHeader());
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
             });
 
             // Add Swagger
@@ -111,7 +147,7 @@ namespace EXE202_BE
                     }
                 });
             });
-            
+
             // Add controllers
             builder.Services.AddAutoMapper(typeof(MappingProfile));
             builder.Services.AddServices().AddRepositories();
@@ -120,13 +156,10 @@ namespace EXE202_BE
             builder.Services.AddEndpointsApiExplorer();
 
             // Add logging
-            builder.Services.AddLogging(logging =>
-            {
-                logging.AddConsole();
-            });
+            builder.Services.AddLogging(logging => { logging.AddConsole(); });
 
             var app = builder.Build();
-            
+
             app.UseCors(x =>
                 x.AllowAnyOrigin()
                     .AllowAnyMethod()
@@ -150,6 +183,7 @@ namespace EXE202_BE
                     context.Response.StatusCode = 200;
                     return;
                 }
+
                 await next();
             });
 

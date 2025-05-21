@@ -357,3 +357,12 @@ D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\obj\Debug\net9.0\EXE202_BE.ge
 D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\obj\Debug\net9.0\ref\EXE202_BE.dll
 D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.0\Npgsql.dll
 D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.0\FirebaseAdmin.dll
+D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.0\Google.Api.Gax.dll
+D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.0\Google.Api.Gax.Rest.dll
+D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.0\Google.Apis.dll
+D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.0\Google.Apis.Auth.dll
+D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.0\Google.Apis.Core.dll
+D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.0\Newtonsoft.Json.dll
+D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.0\System.Management.dll
+D:\studying\FPT-lessons\EXE202\EXE202_BE\EXE202_BE\bin\Debug\net9.0\runtimes\win\lib\net7.0\System.Management.dll

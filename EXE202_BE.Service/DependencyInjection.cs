@@ -21,6 +21,7 @@ public static class DependencyInjection
         services.AddTransient<IUserProfilesService, UserProfilesService>();
         services.AddTransient<IAuthService, AuthService>();
         services.AddTransient<IDashboardService, DashboardService>();
+        services.AddTransient<INotificationService, NotificationsService>();
         
         return services;
     }

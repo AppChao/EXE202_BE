@@ -9,13 +9,17 @@ public partial class Notifications
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int NotificationId { get; set; }
 
-    public string? Title { get; set; } =  string.Empty;
+    public string? Title { get; set; } = string.Empty;
 
-    public string? Body { get; set; } =   string.Empty;
+    public string? Body { get; set; } = string.Empty;
 
-    public string? Type { get; set; } =   string.Empty;
+    public string? Type { get; set; } = string.Empty;
 
-    public DateTime CreatedAt { get; set; } =  DateTime.UtcNow;
+    public DateTime? CreatedAt { get; set; } = DateTime.UtcNow;
 
-    public string? Status { get; set; } =  string.Empty;
+    public DateTime? ScheduledTime { get; set; } = DateTime.UtcNow;
+
+    public DateTime? UpdatedDate { get; set; } = DateTime.UtcNow;
+
+    public string? Status { get; set; } = string.Empty;
 }

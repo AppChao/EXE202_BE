@@ -7,7 +7,8 @@ namespace EXE202_BE.Data.Models;
 public partial class Devices
 {
     [Key]
-    public int DeviceToken { get; set; }
+    [Required]
+    public string DeviceToken { get; set; }
     
     [Required] public string UserId { get; set; } = string.Empty;
     

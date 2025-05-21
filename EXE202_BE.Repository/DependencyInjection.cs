@@ -20,6 +20,8 @@ public static class DependencyInjection
         services.AddTransient<IServingsRepository, ServingsRepository>();
         services.AddTransient<ISubcriptionsRepository, SubcriptionsRepository>();
         services.AddTransient<IUserProfilesRepository, UserProfilesRepository>();
+        services.AddTransient<INotificationsRepository, NotificationsRepository>();
+        services.AddTransient<IDevicesRepository, DevicesRepository>();
         
         return services;
     }
