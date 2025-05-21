@@ -1,7 +1,11 @@
 using AutoMapper;
 using EXE202_BE.Data.Models;
 using System.Collections.Generic;
+using EXE202_BE.Data.DTOS.Cuisine;
 using EXE202_BE.Data.DTOS.Dashboard;
+using EXE202_BE.Data.DTOS.HealthTag;
+using EXE202_BE.Data.DTOS.Ingredient;
+using EXE202_BE.Data.DTOS.MealCategory;
 
 namespace EXE202_BE.Data.DTOS.User;
 
@@ -32,5 +36,22 @@ public class MappingProfile : Profile
             .ForMember(dest => dest.RecipeId, opt => opt.MapFrom(src => src.RecipeId))
             .ForMember(dest => dest.RecipeName, opt => opt.MapFrom(src => src.RecipeName))
             .ForMember(dest => dest.SelectionCount, opt => opt.Ignore());
+        
+        CreateMap<Ingredients, IngredientResponse>()
+            .ForMember(dest => dest.IngredientId, opt => opt.MapFrom(src => src.IngredientId))
+            .ForMember(dest => dest.IngredientName, opt => opt.MapFrom(src => src.IngredientName));
+
+        CreateMap<Cuisines, CuisineResponse>()
+            .ForMember(dest => dest.CuisineId, opt => opt.MapFrom(src => src.CuisineId))
+            .ForMember(dest => dest.Nation, opt => opt.MapFrom(src => src.Nation))
+            .ForMember(dest => dest.Region, opt => opt.MapFrom(src => src.Region));
+
+        CreateMap<HealthTags, HealthTagResponse>()
+            .ForMember(dest => dest.HealthTagId, opt => opt.MapFrom(src => src.HealthTagId))
+            .ForMember(dest => dest.HealthTagName, opt => opt.MapFrom(src => src.HealthTagName));
+
+        CreateMap<MealCatagories, MealCategoryResponse>()
+            .ForMember(dest => dest.MealId, opt => opt.MapFrom(src => src.MealId))
+            .ForMember(dest => dest.MealName, opt => opt.MapFrom(src => src.MealName));
     }
 }

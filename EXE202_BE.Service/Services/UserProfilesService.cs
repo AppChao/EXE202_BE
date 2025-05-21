@@ -6,6 +6,7 @@ using EXE202_BE.Data.Models;
 using EXE202_BE.Repository.Interface;
 using EXE202_BE.Service.Interface;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace EXE202_BE.Service.Services;
 
@@ -15,16 +16,20 @@ public class UserProfilesService : IUserProfilesService
     private readonly UserManager<ModifyIdentityUser> _userManager;
     private readonly IUserProfilesService _userProfilesService;
     private readonly IMapper _mapper;
+    private readonly AppDbContext _dbContext;
+    
 
 
     public UserProfilesService(
         IUserProfilesRepository userProfilesRepository,
         UserManager<ModifyIdentityUser> userManager,
-        IMapper mapper)
+        IMapper mapper,
+        AppDbContext dbContext)
     {
         _userProfilesRepository = userProfilesRepository;
         _userManager = userManager;
         _mapper = mapper;
+        _dbContext = dbContext;
     }
 
     public async Task<UserProfiles> AddAsync(UserProfiles userProfile)
@@ -34,31 +39,46 @@ public class UserProfilesService : IUserProfilesService
     
     public async Task<UserProfileResponse> CreateUserAsync(CreateUserRequestDTO model)
     {
-        var user = new ModifyIdentityUser
+        try
         {
-            UserName = model.Email,
-            Email = model.Email
-        };
+            // Tạo Identity User
+            var user = new ModifyIdentityUser
+            {
+                UserName = model.Email,
+                Email = model.Email
+            };
 
-        var result = await _userManager.CreateAsync(user, model.Password);
-        if (!result.Succeeded)
-        {
-            throw new Exception(string.Join(", ", result.Errors.Select(e => e.Description)));
+            var result = await _userManager.CreateAsync(user, model.Password);
+            if (!result.Succeeded)
+            {
+                throw new Exception(string.Join(", ", result.Errors.Select(e => e.Description)));
+            }
+
+            // Gán vai trò
+            await _userManager.AddToRoleAsync(user, model.Role);
+
+            // Tạo UserProfile
+            var userProfile = new UserProfiles
+            {
+                UserId = user.Id,
+                FullName = model.FullName,
+                Gender = "Other"
+            };
+
+            await _userProfilesRepository.AddAsync(userProfile);
+
+            var dto = _mapper.Map<UserProfileResponse>(userProfile);
+            dto.Role = model.Role;
+            return dto;
         }
-
-        await _userManager.AddToRoleAsync(user, model.Role);
-
-        var userProfile = new UserProfiles
+        catch (DbUpdateException ex)
         {
-            UserId = user.Id,
-            FullName = model.FullName,
-        };
-
-        await _userProfilesRepository.AddAsync(userProfile);
-
-        var dto = _mapper.Map<UserProfileResponse>(userProfile);
-        dto.Role = model.Role;
-        return dto;
+            throw new Exception($"Failed to create user profile: {ex.InnerException?.Message ?? ex.Message}", ex);
+        }
+        catch (Exception ex)
+        {
+            throw new Exception($"Failed to create user: {ex.Message}", ex);
+        }
     }
 
     public async Task<PageListResponse<UserProfileResponse>> GetUsersAsync(
