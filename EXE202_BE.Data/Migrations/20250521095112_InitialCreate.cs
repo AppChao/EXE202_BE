@@ -184,7 +184,9 @@ namespace EXE202_BE.Data.Migrations
                     Title = table.Column<string>(type: "text", nullable: true),
                     Body = table.Column<string>(type: "text", nullable: true),
                     Type = table.Column<string>(type: "text", nullable: true),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    ScheduledTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    UpdatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     Status = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
@@ -342,8 +344,7 @@ namespace EXE202_BE.Data.Migrations
                 name: "Devices",
                 columns: table => new
                 {
-                    DeviceToken = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    DeviceToken = table.Column<string>(type: "text", nullable: false),
                     UserId = table.Column<string>(type: "text", nullable: false),
                     Platform = table.Column<string>(type: "text", nullable: true),
                     UpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
@@ -447,12 +448,12 @@ namespace EXE202_BE.Data.Migrations
                     GoalWeight = table.Column<double>(type: "double precision", nullable: true),
                     Height = table.Column<double>(type: "double precision", nullable: true),
                     Gender = table.Column<string>(type: "text", nullable: true),
-                    SubcriptionId = table.Column<int>(type: "integer", nullable: false),
+                    SubcriptionId = table.Column<int>(type: "integer", nullable: true),
                     Age = table.Column<int>(type: "integer", nullable: true),
-                    GoalId = table.Column<int>(type: "integer", nullable: false),
-                    ExperienceId = table.Column<int>(type: "integer", nullable: false),
-                    LevelId = table.Column<int>(type: "integer", nullable: false),
-                    SpeedId = table.Column<int>(type: "integer", nullable: false),
+                    GoalId = table.Column<int>(type: "integer", nullable: true),
+                    ExperienceId = table.Column<int>(type: "integer", nullable: true),
+                    LevelId = table.Column<int>(type: "integer", nullable: true),
+                    SpeedId = table.Column<int>(type: "integer", nullable: true),
                     UserPicture = table.Column<string>(type: "text", nullable: true),
                     UserId = table.Column<string>(type: "text", nullable: false)
                 },
@@ -464,8 +465,7 @@ namespace EXE202_BE.Data.Migrations
                         name: "FK_UserProfiles_ActivityLevels_LevelId",
                         column: x => x.LevelId,
                         principalTable: "ActivityLevels",
-                        principalColumn: "LevelId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "LevelId");
                     table.ForeignKey(
                         name: "FK_UserProfiles_AspNetUsers_UserId",
                         column: x => x.UserId,
@@ -476,26 +476,22 @@ namespace EXE202_BE.Data.Migrations
                         name: "FK_UserProfiles_Goals_GoalId",
                         column: x => x.GoalId,
                         principalTable: "Goals",
-                        principalColumn: "GoalId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "GoalId");
                     table.ForeignKey(
                         name: "FK_UserProfiles_LoseWeightSpeed_SpeedId",
                         column: x => x.SpeedId,
                         principalTable: "LoseWeightSpeed",
-                        principalColumn: "SpeedId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "SpeedId");
                     table.ForeignKey(
                         name: "FK_UserProfiles_Subcriptions_SubcriptionId",
                         column: x => x.SubcriptionId,
                         principalTable: "Subcriptions",
-                        principalColumn: "SubcriptionId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "SubcriptionId");
                     table.ForeignKey(
                         name: "FK_UserProfiles_UserExperiences_ExperienceId",
                         column: x => x.ExperienceId,
                         principalTable: "UserExperiences",
-                        principalColumn: "ExperienceId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ExperienceId");
                 });
 
             migrationBuilder.CreateTable(

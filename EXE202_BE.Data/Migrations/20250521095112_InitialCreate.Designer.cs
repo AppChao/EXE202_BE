@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace EXE202_BE.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250519182433_InitialCreate")]
+    [Migration("20250521095112_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -99,11 +99,8 @@ namespace EXE202_BE.Data.Migrations
 
             modelBuilder.Entity("EXE202_BE.Data.Models.Devices", b =>
                 {
-                    b.Property<int>("DeviceToken")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("DeviceToken"));
+                    b.Property<string>("DeviceToken")
+                        .HasColumnType("text");
 
                     b.Property<string>("Platform")
                         .HasColumnType("text");
@@ -373,7 +370,10 @@ namespace EXE202_BE.Data.Migrations
                     b.Property<string>("Body")
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime?>("ScheduledTime")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Status")
@@ -384,6 +384,9 @@ namespace EXE202_BE.Data.Migrations
 
                     b.Property<string>("Type")
                         .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("timestamp with time zone");
 
                     b.HasKey("NotificationId");
 
@@ -598,7 +601,7 @@ namespace EXE202_BE.Data.Migrations
                     b.Property<int?>("Age")
                         .HasColumnType("integer");
 
-                    b.Property<int>("ExperienceId")
+                    b.Property<int?>("ExperienceId")
                         .HasColumnType("integer");
 
                     b.Property<string>("FullName")
@@ -607,7 +610,7 @@ namespace EXE202_BE.Data.Migrations
                     b.Property<string>("Gender")
                         .HasColumnType("text");
 
-                    b.Property<int>("GoalId")
+                    b.Property<int?>("GoalId")
                         .HasColumnType("integer");
 
                     b.Property<double?>("GoalWeight")
@@ -616,13 +619,13 @@ namespace EXE202_BE.Data.Migrations
                     b.Property<double?>("Height")
                         .HasColumnType("double precision");
 
-                    b.Property<int>("LevelId")
+                    b.Property<int?>("LevelId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("SpeedId")
+                    b.Property<int?>("SpeedId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("SubcriptionId")
+                    b.Property<int?>("SubcriptionId")
                         .HasColumnType("integer");
 
                     b.Property<string>("UserId")
@@ -1012,33 +1015,23 @@ namespace EXE202_BE.Data.Migrations
                 {
                     b.HasOne("EXE202_BE.Data.Models.UserExperiences", "UserExperience")
                         .WithMany()
-                        .HasForeignKey("ExperienceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ExperienceId");
 
                     b.HasOne("EXE202_BE.Data.Models.Goals", "Goal")
                         .WithMany()
-                        .HasForeignKey("GoalId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("GoalId");
 
                     b.HasOne("EXE202_BE.Data.Models.ActivityLevels", "ActivityLevel")
                         .WithMany()
-                        .HasForeignKey("LevelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("LevelId");
 
                     b.HasOne("EXE202_BE.Data.Models.LoseWeightSpeed", "LoseWeightSpeed")
                         .WithMany()
-                        .HasForeignKey("SpeedId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SpeedId");
 
                     b.HasOne("EXE202_BE.Data.Models.Subcriptions", "Subcription")
                         .WithMany()
-                        .HasForeignKey("SubcriptionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SubcriptionId");
 
                     b.HasOne("EXE202_BE.Data.Models.ModifyIdentityUser", "User")
                         .WithOne()
