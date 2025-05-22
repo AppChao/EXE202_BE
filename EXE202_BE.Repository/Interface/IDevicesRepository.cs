@@ -6,5 +6,5 @@ public interface IDevicesRepository : IGenericRepository<Devices>
 {
     Task<bool> CreateDeviceToken(string userId, string fcmToken);
     
-    Task<Devices> GetDeviceToken();
+    Task<Devices?> GetDeviceToken();
 }

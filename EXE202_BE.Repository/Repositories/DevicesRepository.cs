@@ -24,10 +24,19 @@ public class DevicesRepository :  GenericRepository<Devices>, IDevicesRepository
         await _dbContext.AddAsync(deviceToken);
         return await _dbContext.SaveChangesAsync() > 0;
     }
-
-    public async Task<Devices> GetDeviceToken()
+    
+    public async Task<Devices?> GetDeviceToken()
     {
-        var list = await _dbContext.Devices.ToListAsync();
-        return list[^1];
+        var tokens = await _dbContext.Devices
+            .Where(d => d.DeviceToken != null)
+            .ToListAsync();
+
+        // 🔐 Safe check
+        if (tokens.Count == 0)
+        {
+            return null;
+        }
+
+        return tokens[0]; // or use First() if not empty
     }
 }
