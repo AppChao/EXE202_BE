@@ -115,6 +115,7 @@ public class NotificationsService : INotificationService
         var originalStatus = notification.Status;
 
         notification.Title = dto.Title ?? notification.Title;
+        notification.Body = dto.Body ?? notification.Body;
         notification.Type = dto.Type ?? notification.Type;
         notification.UpdatedDate = DateTime.UtcNow.AddHours(7);
         notification.Status = dto.Status ?? notification.Status;
