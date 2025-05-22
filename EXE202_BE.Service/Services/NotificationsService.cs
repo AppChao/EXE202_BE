@@ -86,7 +86,7 @@ public class NotificationsService : INotificationService
             Body = dto.Body,
             Type = dto.Type,
             CreatedAt = DateTime.UtcNow.AddHours(7),
-            ScheduledTime = dto.ScheduledTime,
+            ScheduledTime = dto.ScheduledTime.Value.AddHours(7),
             Status = dto.ScheduledTime.HasValue ? "Pending" : "Active"
         };
 
