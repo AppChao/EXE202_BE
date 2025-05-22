@@ -4,4 +4,6 @@ public class IngredientResponse
 {
     public int IngredientId { get; set; }
     public string IngredientName { get; set; }
+    
+    public string DefaultUnit { get; set; }
 }

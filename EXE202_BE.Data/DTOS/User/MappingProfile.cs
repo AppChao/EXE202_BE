@@ -1,11 +1,14 @@
 using AutoMapper;
 using EXE202_BE.Data.Models;
 using System.Collections.Generic;
+using System.Text.Json;
 using EXE202_BE.Data.DTOS.Cuisine;
 using EXE202_BE.Data.DTOS.Dashboard;
 using EXE202_BE.Data.DTOS.HealthTag;
 using EXE202_BE.Data.DTOS.Ingredient;
 using EXE202_BE.Data.DTOS.MealCategory;
+using EXE202_BE.Data.DTOS.Recipe;
+using IngredientDetail = EXE202_BE.Data.DTOS.Ingredient.IngredientDetail;
 
 namespace EXE202_BE.Data.DTOS.User;
 
@@ -37,9 +40,28 @@ public class MappingProfile : Profile
             .ForMember(dest => dest.RecipeName, opt => opt.MapFrom(src => src.RecipeName))
             .ForMember(dest => dest.SelectionCount, opt => opt.Ignore());
         
+        CreateMap<Recipes, RecipeResponse>()
+            .ForMember(dest => dest.RecipeId, opt => opt.MapFrom(src => src.RecipeId))
+            .ForMember(dest => dest.RecipeName, opt => opt.MapFrom(src => src.RecipeName))
+            .ForMember(dest => dest.Meals, opt => opt.MapFrom(src => src.Meals))
+            .ForMember(dest => dest.DifficultyEstimation, opt => opt.MapFrom(src => src.DifficultyEstimation))
+            .ForMember(dest => dest.TimeEstimation, opt => opt.MapFrom(src => src.TimeEstimation))
+            .ForMember(dest => dest.Nation, opt => opt.MapFrom(src => src.Cuisine.Nation))
+            .ForMember(dest => dest.CuisineId, opt => opt.MapFrom(src => src.CuisineId))
+            .ForMember(dest => dest.InstructionVideoLink, opt => opt.MapFrom(src => src.InstructionVideoLink))
+            .ForMember(dest => dest.Ingredients, opt => opt.MapFrom(src => src.Servings.Select(s => new EXE202_BE.Data.DTOS.Recipe.IngredientDetail
+            {
+                Ingredient = s.Ingredient.IngredientName,
+                Amount = s.Ammount,
+                DefaultUnit = s.Ingredient.DefaultUnit
+            }).ToList()))
+            .ForMember(dest => dest.Steps, opt => opt.Ignore()) // Parse trong service
+            .ForMember(dest => dest.RecipeSteps, opt => opt.MapFrom(src => src.RecipeSteps));
+
         CreateMap<Ingredients, IngredientResponse>()
             .ForMember(dest => dest.IngredientId, opt => opt.MapFrom(src => src.IngredientId))
-            .ForMember(dest => dest.IngredientName, opt => opt.MapFrom(src => src.IngredientName));
+            .ForMember(dest => dest.IngredientName, opt => opt.MapFrom(src => src.IngredientName))
+            .ForMember(dest => dest.DefaultUnit, opt => opt.MapFrom(src => src.DefaultUnit));
 
         CreateMap<Cuisines, CuisineResponse>()
             .ForMember(dest => dest.CuisineId, opt => opt.MapFrom(src => src.CuisineId))

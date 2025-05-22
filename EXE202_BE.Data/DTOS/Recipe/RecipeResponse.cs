@@ -4,15 +4,15 @@ public class RecipeResponse
 {
     public int RecipeId { get; set; }
     public string RecipeName { get; set; }
-    public int CuisineId { get; set; }
-    public string CuisineName { get; set; } // Từ Cuisines.Nation + Region
     public string Meals { get; set; }
-    public string RecipeSteps { get; set; }
-    public string InstructionVideoLink { get; set; }
-    public int TimeEstimation { get; set; }
     public int DifficultyEstimation { get; set; }
-    public int DefaultServing { get; set; }
-    public List<ServingResponse> Servings { get; set; } = new List<ServingResponse>();
-    public List<string> HealthTags { get; set; } = new List<string>();
-    public List<string> MealTypes { get; set; } = new List<string>();
+    public int TimeEstimation { get; set; } // Phút
+    public string Nation { get; set; }
+    public int? CuisineId { get; set; } // Chỉ trả trong GET danh sách, POST, PUT
+    public string? InstructionVideoLink { get; set; } // Chỉ trả trong GET chi tiết, POST, PUT
+    public List<IngredientDetail>? Ingredients { get; set; } // Chỉ trả trong GET chi tiết
+    public List<RecipeStep>? Steps { get; set; } // Chỉ trả trong GET chi tiết
+    public string? RecipeSteps { get; set; } // Chỉ trả trong POST, PUT, string JSON
 }
+
+
