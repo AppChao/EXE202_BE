@@ -10,5 +10,6 @@ public partial class UserExperiences
     public int ExperienceId { get; set; }
 
     public string? ExperienceName { get; set; } =  string.Empty;
-    
+
+    public virtual ICollection<UserProfiles> UserProfiles { get; set; } = null!;
 }

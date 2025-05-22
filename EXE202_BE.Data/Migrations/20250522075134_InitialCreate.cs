@@ -574,7 +574,8 @@ namespace EXE202_BE.Data.Migrations
                 columns: table => new
                 {
                     UPId = table.Column<int>(type: "integer", nullable: false),
-                    IngredientId = table.Column<int>(type: "integer", nullable: false)
+                    IngredientId = table.Column<int>(type: "integer", nullable: false),
+                    IngredientsIngredientId = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -585,6 +586,11 @@ namespace EXE202_BE.Data.Migrations
                         principalTable: "Ingredients",
                         principalColumn: "IngredientId",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Allergies_Ingredients_IngredientsIngredientId",
+                        column: x => x.IngredientsIngredientId,
+                        principalTable: "Ingredients",
+                        principalColumn: "IngredientId");
                     table.ForeignKey(
                         name: "FK_Allergies_UserProfiles_UPId",
                         column: x => x.UPId,
@@ -619,11 +625,17 @@ namespace EXE202_BE.Data.Migrations
                 {
                     HealthConditionId = table.Column<int>(type: "integer", nullable: false),
                     UPId = table.Column<int>(type: "integer", nullable: false),
-                    Status = table.Column<string>(type: "text", nullable: true)
+                    Status = table.Column<string>(type: "text", nullable: true),
+                    ActivityLevelsLevelId = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_PersonalHealthConditions", x => new { x.UPId, x.HealthConditionId });
+                    table.ForeignKey(
+                        name: "FK_PersonalHealthConditions_ActivityLevels_ActivityLevelsLevel~",
+                        column: x => x.ActivityLevelsLevelId,
+                        principalTable: "ActivityLevels",
+                        principalColumn: "LevelId");
                     table.ForeignKey(
                         name: "FK_PersonalHealthConditions_HealthConditions_HealthConditionId",
                         column: x => x.HealthConditionId,
@@ -698,6 +710,11 @@ namespace EXE202_BE.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Allergies_IngredientsIngredientId",
+                table: "Allergies",
+                column: "IngredientsIngredientId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Allergies_UPId",
                 table: "Allergies",
                 column: "UPId");
@@ -753,6 +770,11 @@ namespace EXE202_BE.Data.Migrations
                 name: "IX_NotificationUsers_NotificationId",
                 table: "NotificationUsers",
                 column: "NotificationId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PersonalHealthConditions_ActivityLevelsLevelId",
+                table: "PersonalHealthConditions",
+                column: "ActivityLevelsLevelId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PersonalHealthConditions_HealthConditionId",

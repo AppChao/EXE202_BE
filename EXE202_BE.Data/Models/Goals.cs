@@ -10,5 +10,6 @@ public partial class Goals
     public int GoalId { get; set; }
 
     public string? GoalName { get; set; } = string.Empty;
-    
+
+    public virtual ICollection<UserProfiles>? UserProfiles { get; set; } =   null!;
 }

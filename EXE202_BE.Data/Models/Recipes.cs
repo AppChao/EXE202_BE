@@ -29,4 +29,10 @@ public partial class Recipes
 
     [ForeignKey("CuisineId")]
     public virtual Cuisines Cuisine { get; set; } = null!;
+    
+    public virtual ICollection<Servings>? Servings {get; set;} = null!;
+
+    public virtual ICollection<RecipeMealTypes>? RecipeMealTypes { get; set; } = null!;
+
+    public virtual ICollection<RecipeHealthTags>? RecipeHealthTags { get; set; } =  null!;
 }

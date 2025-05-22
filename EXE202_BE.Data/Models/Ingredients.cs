@@ -21,4 +21,8 @@ public partial class Ingredients
 
     [ForeignKey("IngredientTypeId")]
     public virtual IngredientTypes IngredientType { get; set; } = null!;
+    
+    public virtual ICollection<Allergies>? Allergies { get; set; } = null!;
+
+    public virtual ICollection<Servings>? Servings { get; set; } =  null!;
 }

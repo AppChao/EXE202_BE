@@ -12,4 +12,7 @@ public partial class CookingSkills
     public string? CookingSkillName { get; set; } = string.Empty;
 
     public string? DifficultyValue { get; set; } = string.Empty;
+
+    public virtual ICollection<PersonalUserCookingSkills>? PersonalUserCookingSkills { get; set; } =  null!;
+    
 }

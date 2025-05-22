@@ -12,4 +12,8 @@ public partial class ActivityLevels
     public string? LevelName { get; set; } =  string.Empty;
 
     public string? LevelDescription { get; set; } =   string.Empty;
+
+    public virtual ICollection<PersonalHealthConditions>? PersonalHealthConditions { get; set; } = null!;
+
+    public virtual ICollection<UserProfiles>? UserProfiles { get; set; } = null!;
 }

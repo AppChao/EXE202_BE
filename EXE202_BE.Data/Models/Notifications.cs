@@ -22,4 +22,7 @@ public partial class Notifications
     public DateTime? UpdatedDate { get; set; } = DateTime.UtcNow;
 
     public string? Status { get; set; } = string.Empty;
+    
+    public virtual ICollection<NotificationUsers>? NotificationUsers { get; set; } =  null!;
+
 }

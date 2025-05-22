@@ -10,4 +10,6 @@ public partial class MealCatagories
     public int MealId { get; set; }
     
     public string MealName { get; set; }
+
+    public virtual ICollection<RecipeMealTypes>? RecipeMealTypes { get; set; } =  null!;
 }

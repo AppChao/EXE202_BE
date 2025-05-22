@@ -55,4 +55,8 @@ public partial class UserProfiles
 
     public virtual ICollection<PersonalHealthConditions>? PersonalHealthConditions { get; set; } =
         new List<PersonalHealthConditions>();
+
+    public virtual ICollection<PersonalUserProblem>? PersonalUserProblems { get; set; } = null!;
+   
+    public virtual ICollection<PersonalUserCookingSkills>? PersonalUserCookingSkills { get; set; } =  null!;
 }

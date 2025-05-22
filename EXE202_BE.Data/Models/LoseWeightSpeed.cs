@@ -13,4 +13,6 @@ public partial class LoseWeightSpeed
 
     //months
     public string? TimeToReachGoal { get; set; } =   string.Empty;
+
+    public virtual ICollection<UserProfiles>? UserProfiles { get; set; } =  null!;
 }

@@ -10,4 +10,7 @@ public partial class UserProblem
     public int ProblemId { get; set; }
 
     public string? ProblemName { get; set; } = string.Empty;
+
+    public virtual ICollection<PersonalUserProblem>? PersonalUserProblems { get; set; }  = null!;
+    
 }

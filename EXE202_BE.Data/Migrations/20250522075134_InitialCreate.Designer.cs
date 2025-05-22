@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace EXE202_BE.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250521095112_InitialCreate")]
+    [Migration("20250522075134_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -52,7 +52,12 @@ namespace EXE202_BE.Data.Migrations
                     b.Property<int>("UPId")
                         .HasColumnType("integer");
 
+                    b.Property<int?>("IngredientsIngredientId")
+                        .HasColumnType("integer");
+
                     b.HasKey("IngredientId", "UPId");
+
+                    b.HasIndex("IngredientsIngredientId");
 
                     b.HasIndex("UPId");
 
@@ -401,10 +406,15 @@ namespace EXE202_BE.Data.Migrations
                     b.Property<int>("HealthConditionId")
                         .HasColumnType("integer");
 
+                    b.Property<int?>("ActivityLevelsLevelId")
+                        .HasColumnType("integer");
+
                     b.Property<string>("Status")
                         .HasColumnType("text");
 
                     b.HasKey("UPId", "HealthConditionId");
+
+                    b.HasIndex("ActivityLevelsLevelId");
 
                     b.HasIndex("HealthConditionId");
 
@@ -825,6 +835,10 @@ namespace EXE202_BE.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("EXE202_BE.Data.Models.Ingredients", null)
+                        .WithMany("Allergies")
+                        .HasForeignKey("IngredientsIngredientId");
+
                     b.HasOne("EXE202_BE.Data.Models.UserProfiles", "UserProfile")
                         .WithMany("Allergies")
                         .HasForeignKey("UPId")
@@ -850,7 +864,7 @@ namespace EXE202_BE.Data.Migrations
             modelBuilder.Entity("EXE202_BE.Data.Models.Ingredients", b =>
                 {
                     b.HasOne("EXE202_BE.Data.Models.IngredientTypes", "IngredientType")
-                        .WithMany()
+                        .WithMany("Ingredients")
                         .HasForeignKey("IngredientTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -872,7 +886,7 @@ namespace EXE202_BE.Data.Migrations
             modelBuilder.Entity("EXE202_BE.Data.Models.NotificationUsers", b =>
                 {
                     b.HasOne("EXE202_BE.Data.Models.Notifications", "Notification")
-                        .WithMany()
+                        .WithMany("NotificationUsers")
                         .HasForeignKey("NotificationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -890,6 +904,10 @@ namespace EXE202_BE.Data.Migrations
 
             modelBuilder.Entity("EXE202_BE.Data.Models.PersonalHealthConditions", b =>
                 {
+                    b.HasOne("EXE202_BE.Data.Models.ActivityLevels", null)
+                        .WithMany("PersonalHealthConditions")
+                        .HasForeignKey("ActivityLevelsLevelId");
+
                     b.HasOne("EXE202_BE.Data.Models.HealthConditions", "HealthCondition")
                         .WithMany()
                         .HasForeignKey("HealthConditionId")
@@ -910,13 +928,13 @@ namespace EXE202_BE.Data.Migrations
             modelBuilder.Entity("EXE202_BE.Data.Models.PersonalUserCookingSkills", b =>
                 {
                     b.HasOne("EXE202_BE.Data.Models.CookingSkills", "CookingSkill")
-                        .WithMany()
+                        .WithMany("PersonalUserCookingSkills")
                         .HasForeignKey("CookingSkillId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("EXE202_BE.Data.Models.UserProfiles", "UserProfile")
-                        .WithMany()
+                        .WithMany("PersonalUserCookingSkills")
                         .HasForeignKey("UPId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -929,13 +947,13 @@ namespace EXE202_BE.Data.Migrations
             modelBuilder.Entity("EXE202_BE.Data.Models.PersonalUserProblem", b =>
                 {
                     b.HasOne("EXE202_BE.Data.Models.UserProblem", "UserProblem")
-                        .WithMany()
+                        .WithMany("PersonalUserProblems")
                         .HasForeignKey("ProblemId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("EXE202_BE.Data.Models.UserProfiles", "UserProfile")
-                        .WithMany()
+                        .WithMany("PersonalUserProblems")
                         .HasForeignKey("UPId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -948,13 +966,13 @@ namespace EXE202_BE.Data.Migrations
             modelBuilder.Entity("EXE202_BE.Data.Models.RecipeHealthTags", b =>
                 {
                     b.HasOne("EXE202_BE.Data.Models.HealthTags", "HealthTag")
-                        .WithMany()
+                        .WithMany("RecipeHealthTags")
                         .HasForeignKey("HealthTagId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("EXE202_BE.Data.Models.Recipes", "Recipe")
-                        .WithMany()
+                        .WithMany("RecipeHealthTags")
                         .HasForeignKey("RecipeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -967,13 +985,13 @@ namespace EXE202_BE.Data.Migrations
             modelBuilder.Entity("EXE202_BE.Data.Models.RecipeMealTypes", b =>
                 {
                     b.HasOne("EXE202_BE.Data.Models.MealCatagories", "MealCatagorie")
-                        .WithMany()
+                        .WithMany("RecipeMealTypes")
                         .HasForeignKey("MealId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("EXE202_BE.Data.Models.Recipes", "Recipe")
-                        .WithMany()
+                        .WithMany("RecipeMealTypes")
                         .HasForeignKey("RecipeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -986,7 +1004,7 @@ namespace EXE202_BE.Data.Migrations
             modelBuilder.Entity("EXE202_BE.Data.Models.Recipes", b =>
                 {
                     b.HasOne("EXE202_BE.Data.Models.Cuisines", "Cuisine")
-                        .WithMany()
+                        .WithMany("Recipes")
                         .HasForeignKey("CuisineId");
 
                     b.Navigation("Cuisine");
@@ -995,13 +1013,13 @@ namespace EXE202_BE.Data.Migrations
             modelBuilder.Entity("EXE202_BE.Data.Models.Servings", b =>
                 {
                     b.HasOne("EXE202_BE.Data.Models.Ingredients", "Ingredient")
-                        .WithMany()
+                        .WithMany("Servings")
                         .HasForeignKey("IngredientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("EXE202_BE.Data.Models.Recipes", "Recipe")
-                        .WithMany()
+                        .WithMany("Servings")
                         .HasForeignKey("RecipeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1014,19 +1032,19 @@ namespace EXE202_BE.Data.Migrations
             modelBuilder.Entity("EXE202_BE.Data.Models.UserProfiles", b =>
                 {
                     b.HasOne("EXE202_BE.Data.Models.UserExperiences", "UserExperience")
-                        .WithMany()
+                        .WithMany("UserProfiles")
                         .HasForeignKey("ExperienceId");
 
                     b.HasOne("EXE202_BE.Data.Models.Goals", "Goal")
-                        .WithMany()
+                        .WithMany("UserProfiles")
                         .HasForeignKey("GoalId");
 
                     b.HasOne("EXE202_BE.Data.Models.ActivityLevels", "ActivityLevel")
-                        .WithMany()
+                        .WithMany("UserProfiles")
                         .HasForeignKey("LevelId");
 
                     b.HasOne("EXE202_BE.Data.Models.LoseWeightSpeed", "LoseWeightSpeed")
-                        .WithMany()
+                        .WithMany("UserProfiles")
                         .HasForeignKey("SpeedId");
 
                     b.HasOne("EXE202_BE.Data.Models.Subcriptions", "Subcription")
@@ -1103,11 +1121,88 @@ namespace EXE202_BE.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("EXE202_BE.Data.Models.ActivityLevels", b =>
+                {
+                    b.Navigation("PersonalHealthConditions");
+
+                    b.Navigation("UserProfiles");
+                });
+
+            modelBuilder.Entity("EXE202_BE.Data.Models.CookingSkills", b =>
+                {
+                    b.Navigation("PersonalUserCookingSkills");
+                });
+
+            modelBuilder.Entity("EXE202_BE.Data.Models.Cuisines", b =>
+                {
+                    b.Navigation("Recipes");
+                });
+
+            modelBuilder.Entity("EXE202_BE.Data.Models.Goals", b =>
+                {
+                    b.Navigation("UserProfiles");
+                });
+
+            modelBuilder.Entity("EXE202_BE.Data.Models.HealthTags", b =>
+                {
+                    b.Navigation("RecipeHealthTags");
+                });
+
+            modelBuilder.Entity("EXE202_BE.Data.Models.IngredientTypes", b =>
+                {
+                    b.Navigation("Ingredients");
+                });
+
+            modelBuilder.Entity("EXE202_BE.Data.Models.Ingredients", b =>
+                {
+                    b.Navigation("Allergies");
+
+                    b.Navigation("Servings");
+                });
+
+            modelBuilder.Entity("EXE202_BE.Data.Models.LoseWeightSpeed", b =>
+                {
+                    b.Navigation("UserProfiles");
+                });
+
+            modelBuilder.Entity("EXE202_BE.Data.Models.MealCatagories", b =>
+                {
+                    b.Navigation("RecipeMealTypes");
+                });
+
+            modelBuilder.Entity("EXE202_BE.Data.Models.Notifications", b =>
+                {
+                    b.Navigation("NotificationUsers");
+                });
+
+            modelBuilder.Entity("EXE202_BE.Data.Models.Recipes", b =>
+                {
+                    b.Navigation("RecipeHealthTags");
+
+                    b.Navigation("RecipeMealTypes");
+
+                    b.Navigation("Servings");
+                });
+
+            modelBuilder.Entity("EXE202_BE.Data.Models.UserExperiences", b =>
+                {
+                    b.Navigation("UserProfiles");
+                });
+
+            modelBuilder.Entity("EXE202_BE.Data.Models.UserProblem", b =>
+                {
+                    b.Navigation("PersonalUserProblems");
+                });
+
             modelBuilder.Entity("EXE202_BE.Data.Models.UserProfiles", b =>
                 {
                     b.Navigation("Allergies");
 
                     b.Navigation("PersonalHealthConditions");
+
+                    b.Navigation("PersonalUserCookingSkills");
+
+                    b.Navigation("PersonalUserProblems");
                 });
 #pragma warning restore 612, 618
         }
