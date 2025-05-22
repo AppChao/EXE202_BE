@@ -86,7 +86,7 @@ public class NotificationsService : INotificationService
             Body = dto.Body,
             Type = dto.Type,
             CreatedAt = DateTime.UtcNow.AddHours(7),
-            ScheduledTime = dto.ScheduledTime.Value.AddHours(7),
+            ScheduledTime = dto.ScheduledTime?.AddHours(7),
             Status = dto.ScheduledTime.HasValue ? "Pending" : "Active"
         };
 
@@ -118,7 +118,7 @@ public class NotificationsService : INotificationService
         notification.Type = dto.Type ?? notification.Type;
         notification.UpdatedDate = DateTime.UtcNow.AddHours(7);
         notification.Status = dto.Status ?? notification.Status;
-        notification.ScheduledTime = dto.ScheduledTime ?? notification.ScheduledTime;
+        notification.ScheduledTime = dto.ScheduledTime?.AddHours(7) ?? notification.ScheduledTime;
 
         // Handle status transition logic
         if (notification.Status == "Active")
