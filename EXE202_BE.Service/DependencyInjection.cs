@@ -22,6 +22,10 @@ public static class DependencyInjection
         services.AddTransient<IAuthService, AuthService>();
         services.AddTransient<IDashboardService, DashboardService>();
         services.AddTransient<INotificationService, NotificationsService>();
+        services.AddTransient<IIngredientsService, IngredientsService>();
+        services.AddTransient<ICuisinesService, CuisinesService>();
+        services.AddTransient<IHealthTagsService, HealthTagsService>();
+        services.AddTransient<IMealCatagoriesService, MealCatagoriesService>();
         
         return services;
     }

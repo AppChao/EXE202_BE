@@ -22,7 +22,10 @@ public static class DependencyInjection
         services.AddTransient<IUserProfilesRepository, UserProfilesRepository>();
         services.AddTransient<INotificationsRepository, NotificationsRepository>();
         services.AddTransient<IDevicesRepository, DevicesRepository>();
-        
+        services.AddTransient<IIngredientsRepository, IngredientsRepository>(); 
+        services.AddTransient<ICuisinesRepository, CuisinesRepository>(); 
+        services.AddTransient<IHealthTagsRepository, HealthTagsRepository>(); 
+        services.AddTransient<IMealCatagoriesRepository, MealCatagoriesRepository>();
         return services;
     }
 }
