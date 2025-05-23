@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\EXE202_BE.props" />
-</Project>
