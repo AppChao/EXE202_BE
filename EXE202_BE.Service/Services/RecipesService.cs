@@ -141,7 +141,7 @@ public class RecipesService : IRecipesService
             {
                 RecipeId = recipe.RecipeId,
                 IngredientId = ingredientEntity.IngredientId,
-                Ammount = $"{ingredient.Amount} {ingredient.DefaultUnit}"
+                Ammount = $"{ingredient.Amount}"
             };
             await _servingsRepository.AddAsync(servingEntity);
         }

@@ -22,8 +22,8 @@ public partial class Recipes
     //Minutes
     public int TimeEstimation  { get; set; }
     
-    [Range(1, 10, ErrorMessage = "The difficulty rating should be between 1 and 10")]
-    public int DifficultyEstimation { get; set; }
+    [Range(1, 5, ErrorMessage = "The difficulty rating should be between 1 and 5")]
+    public double DifficultyEstimation { get; set; }
 
     public int? DefaultServing { get; set; }
 
