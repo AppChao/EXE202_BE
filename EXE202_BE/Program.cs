@@ -31,15 +31,15 @@ namespace EXE202_BE
                 var firebaseCred = Environment.GetEnvironmentVariable("FIREBASE_CREDENTIALS");
                 if (string.IsNullOrEmpty(firebaseCred))
                     throw new ArgumentNullException("FIREBASE_CREDENTIALS", "Environment variable is not set.");
-
+            
                 GoogleCredential credential;
-
+            
                 if (File.Exists(firebaseCred)) // Local: file path
                 {
                     credential = GoogleCredential
                         .FromFile(firebaseCred)
                         .CreateScoped("https://www.googleapis.com/auth/firebase.messaging");
-
+            
                     Console.WriteLine("Loaded Firebase credentials from file: " + firebaseCred);
                 }
                 else // Cloud env: treat as JSON string
@@ -47,10 +47,10 @@ namespace EXE202_BE
                     credential = GoogleCredential
                         .FromJson(firebaseCred)
                         .CreateScoped("https://www.googleapis.com/auth/firebase.messaging");
-
+            
                     Console.WriteLine("Loaded Firebase credentials from JSON environment variable.");
                 }
-
+            
                 var accessToken = await credential.UnderlyingCredential.GetAccessTokenForRequestAsync();
                 Console.WriteLine("Firebase initialized successfully. Access token acquired.");
             }
@@ -75,7 +75,10 @@ namespace EXE202_BE
                     options.Password.RequireNonAlphanumeric = true;
                     options.Password.RequireUppercase = true;
                     options.Lockout.MaxFailedAccessAttempts = 5;
-                    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(15);
+                    options.Lockout.
+                        DefaultLockoutTimeSpan = TimeSpan.FromMinutes(15);
+                    options.SignIn.RequireConfirmedAccount = false; // Không yêu cầu xác nhận tài khoản
+                    options.SignIn.RequireConfirmedEmail = false;
                 })
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
@@ -190,6 +193,7 @@ namespace EXE202_BE
             //app.UseHttpsRedirection();
             app.UseAuthentication();
             app.UseAuthorization();
+            // app.MapGroup("api/identity").MapIdentityApi<ModifyIdentityUser>();
             app.MapControllers();
 
             // Seed users

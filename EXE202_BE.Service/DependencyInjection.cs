@@ -1,5 +1,7 @@
+using EXE202_BE.Data.Models;
 using EXE202_BE.Service.Interface;
 using EXE202_BE.Service.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace EXE202_BE.Service;
@@ -26,6 +28,7 @@ public static class DependencyInjection
         services.AddTransient<ICuisinesService, CuisinesService>();
         services.AddTransient<IHealthTagsService, HealthTagsService>();
         services.AddTransient<IMealCatagoriesService, MealCatagoriesService>();
+        services.AddTransient<IEmailSender<ModifyIdentityUser>, SmtpEmailSender>();
         
         return services;
     }
