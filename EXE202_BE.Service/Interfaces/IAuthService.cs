@@ -7,4 +7,6 @@ public interface IAuthService
 {
     Task<LoginResponse> LoginAsync(LoginRequestDTO model);
     Task ChangePasswordAsync(ChangePasswordRequest request);
+    
+    Task<LoginResponse> CustomerLoginAsync(LoginRequestDTO model);
 }

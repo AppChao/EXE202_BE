@@ -17,7 +17,8 @@ namespace EXE202_BE.Data
             var users = new[]
             {
                 new { Email = "a@gmail.com", Password = "Abcd@1234", Role = "Admin" },
-                new { Email = "b@gmail.com", Password = "Abcd@1234", Role = "Staff" }
+                new { Email = "b@gmail.com", Password = "Abcd@1234", Role = "Staff" },
+                new { Email = "c@gmail.com", Password = "Abcd@1234", Role = "User" },
             };
 
             foreach (var userData in users)

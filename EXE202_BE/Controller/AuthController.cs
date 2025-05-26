@@ -34,6 +34,21 @@ public class AuthController : ControllerBase
             return Unauthorized(new { Message = "Login failed.", Error = ex.Message });
         }
     }
+
+    [HttpPost("customer/login")]
+    public async Task<IActionResult> CustomerLogin(LoginRequestDTO model)
+    {
+        try
+        {
+            var response = await _authService.CustomerLoginAsync(model);
+            return Ok(response);
+            
+        } 
+        catch (Exception ex)
+        {
+            return Unauthorized(new { Message = "Login failed.", Error = ex.Message });
+        }
+    }
     
     [HttpPut("change-password")]
     [Authorize]

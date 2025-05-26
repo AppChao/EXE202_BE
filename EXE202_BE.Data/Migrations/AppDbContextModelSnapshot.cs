@@ -498,8 +498,8 @@ namespace EXE202_BE.Data.Migrations
                     b.Property<int?>("DefaultServing")
                         .HasColumnType("integer");
 
-                    b.Property<int>("DifficultyEstimation")
-                        .HasColumnType("integer");
+                    b.Property<double>("DifficultyEstimation")
+                        .HasColumnType("double precision");
 
                     b.Property<string>("InstructionVideoLink")
                         .HasColumnType("text");
@@ -522,7 +522,7 @@ namespace EXE202_BE.Data.Migrations
 
                     b.ToTable("Recipes", t =>
                         {
-                            t.HasCheckConstraint("CK_Recipes_Difficulty_Rating", "\"DifficultyEstimation\" BETWEEN 1 AND 10");
+                            t.HasCheckConstraint("CK_Recipes_Difficulty_Rating", "\"DifficultyEstimation\" BETWEEN 1 AND 5");
 
                             t.HasCheckConstraint("CK_Recipes_Meals", "\"Meals\" IN ('breakfast', 'lunch', 'dinner', 'snack')");
                         });

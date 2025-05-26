@@ -372,13 +372,13 @@ namespace EXE202_BE.Data.Migrations
                     InstructionVideoLink = table.Column<string>(type: "text", nullable: true),
                     RecipeName = table.Column<string>(type: "text", nullable: true),
                     TimeEstimation = table.Column<int>(type: "integer", nullable: false),
-                    DifficultyEstimation = table.Column<int>(type: "integer", nullable: false),
+                    DifficultyEstimation = table.Column<double>(type: "double precision", nullable: false),
                     DefaultServing = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Recipes", x => x.RecipeId);
-                    table.CheckConstraint("CK_Recipes_Difficulty_Rating", "\"DifficultyEstimation\" BETWEEN 1 AND 10");
+                    table.CheckConstraint("CK_Recipes_Difficulty_Rating", "\"DifficultyEstimation\" BETWEEN 1 AND 5");
                     table.CheckConstraint("CK_Recipes_Meals", "\"Meals\" IN ('breakfast', 'lunch', 'dinner', 'snack')");
                     table.ForeignKey(
                         name: "FK_Recipes_Cuisines_CuisineId",

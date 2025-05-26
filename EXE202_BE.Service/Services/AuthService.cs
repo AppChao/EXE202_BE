@@ -134,4 +134,52 @@ public class AuthService : IAuthService
 
             _logger.LogInformation("Password changed successfully for user ID: {UserId}", userId);
         }
+
+    public async Task<LoginResponse> CustomerLoginAsync(LoginRequestDTO model)
+    {
+        var user = await _userManager.FindByEmailAsync(model.Email);
+        if (user == null || !await _userManager.CheckPasswordAsync(user, model.Password))
+        {
+            throw new Exception("Invalid email or password");
+        }
+
+        var roles = await _userManager.GetRolesAsync(user);
+        if (!roles.Contains("Member") && !roles.Contains("User"))
+        {
+            throw new Exception("Your account is unauthorized.");
+        }
+        
+        var userProfile = await _userProfilesRepository.GetAsync( 
+            up => up.UserId == user.Id);
+
+        // if (userProfile == null)
+        // {
+        //     throw new Exception("User profile not found. Please create an account");
+        // }
+        
+
+        var claims = new List<Claim>
+        {
+            new Claim(ClaimTypes.NameIdentifier, user.Id),
+            new Claim(ClaimTypes.Email, user.Email)
+        };
+
+        claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
+
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+        var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+        var token = new JwtSecurityToken(
+            issuer: _configuration["Jwt:Issuer"],
+            audience: _configuration["Jwt:Audience"],
+            claims: claims,
+            expires: DateTime.Now.AddDays(29),
+            signingCredentials: creds);
+
+        return new LoginResponse
+        {
+            Token = new JwtSecurityTokenHandler().WriteToken(token),
+            Role = roles.FirstOrDefault(),
+            UPId = 1
+        };
+    }
 }
