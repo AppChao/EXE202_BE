@@ -14,9 +14,9 @@ using EXE202_BE.Service.Services;
 using EXE202_BE.Repository.Interface;
 using EXE202_BE.Repository.Repositories;
 using Google.Apis.Auth.OAuth2;
-using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
-using Swashbuckle.AspNetCore.SwaggerUI;
+using CloudinaryDotNet;
+using EXE202_BE.Utilities;
 
 namespace EXE202_BE
 {
@@ -31,15 +31,15 @@ namespace EXE202_BE
                 var firebaseCred = Environment.GetEnvironmentVariable("FIREBASE_CREDENTIALS");
                 if (string.IsNullOrEmpty(firebaseCred))
                     throw new ArgumentNullException("FIREBASE_CREDENTIALS", "Environment variable is not set.");
-            
+
                 GoogleCredential credential;
-            
+
                 if (File.Exists(firebaseCred)) // Local: file path
                 {
                     credential = GoogleCredential
                         .FromFile(firebaseCred)
                         .CreateScoped("https://www.googleapis.com/auth/firebase.messaging");
-            
+
                     Console.WriteLine("Loaded Firebase credentials from file: " + firebaseCred);
                 }
                 else // Cloud env: treat as JSON string
@@ -47,10 +47,10 @@ namespace EXE202_BE
                     credential = GoogleCredential
                         .FromJson(firebaseCred)
                         .CreateScoped("https://www.googleapis.com/auth/firebase.messaging");
-            
+
                     Console.WriteLine("Loaded Firebase credentials from JSON environment variable.");
                 }
-            
+
                 var accessToken = await credential.UnderlyingCredential.GetAccessTokenForRequestAsync();
                 Console.WriteLine("Firebase initialized successfully. Access token acquired.");
             }
@@ -60,10 +60,14 @@ namespace EXE202_BE
                 throw;
             }
 
-            // Add DbContext
-            // builder.Services.AddDbContext<AppDbContext>(options =>
-            //     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            // Cloudinary
+            builder.Services.AddSingleton(new Cloudinary(new Account(
+                builder.Configuration["Cloudinary:CloudName"],
+                builder.Configuration["Cloudinary:ApiKey"],
+                builder.Configuration["Cloudinary:ApiSecret"]
+            )));
 
+            // Add DbContext
             builder.Services.AddDbContext<AppDbContext>(options =>
                 options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
@@ -75,9 +79,8 @@ namespace EXE202_BE
                     options.Password.RequireNonAlphanumeric = true;
                     options.Password.RequireUppercase = true;
                     options.Lockout.MaxFailedAccessAttempts = 5;
-                    options.Lockout.
-                        DefaultLockoutTimeSpan = TimeSpan.FromMinutes(15);
-                    options.SignIn.RequireConfirmedAccount = false; // Không yêu cầu xác nhận tài khoản
+                    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(15);
+                    options.SignIn.RequireConfirmedAccount = false;
                     options.SignIn.RequireConfirmedEmail = false;
                 })
                 .AddEntityFrameworkStores<AppDbContext>()
@@ -126,15 +129,20 @@ namespace EXE202_BE
                         .AllowAnyHeader());
             });
 
-            // Add Swagger
+            // Add Swagger with file upload support
             builder.Services.AddSwaggerGen(c =>
             {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "EXE202_BE API", Version = "v1" });
+
+                // Add JWT security definition
                 c.AddSecurityDefinition("bearerAuth", new OpenApiSecurityScheme
                 {
                     Type = SecuritySchemeType.Http,
                     Scheme = "Bearer",
                     BearerFormat = "JWT",
+                    Description = "JWT Authorization header using the Bearer scheme."
                 });
+
                 c.AddSecurityRequirement(new OpenApiSecurityRequirement
                 {
                     {
@@ -149,14 +157,24 @@ namespace EXE202_BE
                         Array.Empty<string>()
                     }
                 });
+
+                // Configure Swagger to handle file uploads
+                c.MapType<IFormFile>(() => new OpenApiSchema
+                {
+                    Type = "string",
+                    Format = "binary"
+                });
+
+                // Apply the custom operation filter for file uploads
+                c.OperationFilter<FileUploadOperationFilter>();
             });
 
             // Add controllers
             builder.Services.AddAutoMapper(typeof(MappingProfile));
             builder.Services.AddServices().AddRepositories();
-
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddScoped<IUserProfilesService, UserProfilesService>();
 
             // Add logging
             builder.Services.AddLogging(logging => { logging.AddConsole(); });
@@ -175,7 +193,10 @@ namespace EXE202_BE
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
-                app.UseSwaggerUI();
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "EXE202_BE API v1");
+                });
             }
 
             // Handle OPTIONS requests
@@ -190,10 +211,8 @@ namespace EXE202_BE
                 await next();
             });
 
-            //app.UseHttpsRedirection();
             app.UseAuthentication();
             app.UseAuthorization();
-            // app.MapGroup("api/identity").MapIdentityApi<ModifyIdentityUser>();
             app.MapControllers();
 
             // Seed users

@@ -8,7 +8,7 @@ namespace EXE202_BE.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 //[Authorize(Roles = "Admin")]
-public class UserProfileController : ControllerBase
+public class UserProfileController : ControllerBase     
 {
     private readonly IUserProfilesService _userProfilesService;
 
@@ -94,4 +94,19 @@ public class UserProfileController : ControllerBase
             return StatusCode(500, new { Message = "An error occurred while updating admin profile.", Error = ex.Message });
         }
     }
+    
+    [HttpPost("uploadProfileImage")]
+    public async Task<IActionResult> UploadProfileImage([FromForm] int upId, [FromForm] IFormFile image)
+    {
+        try
+        {
+            var result = await _userProfilesService.UploadProfileImageAsync(upId, image);
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { Message = "Failed to upload profile image.", Error = ex.Message });
+        }
+    }
+    
 }
