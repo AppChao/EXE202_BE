@@ -61,11 +61,24 @@ namespace EXE202_BE
             }
 
             // Cloudinary
-            builder.Services.AddSingleton(new Cloudinary(new Account(
-                builder.Configuration["Cloudinary:CloudName"],
-                builder.Configuration["Cloudinary:ApiKey"],
-                builder.Configuration["Cloudinary:ApiSecret"]
-            )));
+            var cloudinaryUrl = Environment.GetEnvironmentVariable("CLOUDINARY_URL");
+
+            if (string.IsNullOrEmpty(cloudinaryUrl))
+            {
+                throw new Exception("CLOUDINARY_URL environment variable is not set.");
+            }
+
+            var uri = new Uri(cloudinaryUrl);
+            var userInfo = uri.UserInfo.Split(':');
+
+            var account = new Account(
+                uri.Host,        // CloudName
+                userInfo[0],     // API Key
+                userInfo[1]      // API Secret
+            );
+
+            builder.Services.AddSingleton(new Cloudinary(account));
+
 
             // Add DbContext
             builder.Services.AddDbContext<AppDbContext>(options =>
