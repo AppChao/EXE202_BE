@@ -8,6 +8,7 @@ using EXE202_BE.Data.DTOS.User;
 using EXE202_BE.Data.Models;
 using EXE202_BE.Repository.Interface;
 using EXE202_BE.Service.Interface;
+using Google.Apis.Auth;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
@@ -22,6 +23,7 @@ public class AuthService : IAuthService
     private readonly IUserProfilesRepository _userProfilesRepository;
     private readonly IHttpContextAccessor _httpContextAccessor;
     private readonly ILogger _logger;
+    private readonly RoleManager<IdentityRole> _roleManager;
     
     public AuthService(
         UserManager<ModifyIdentityUser> userManager,
@@ -70,18 +72,9 @@ public class AuthService : IAuthService
 
         claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
 
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
-        var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-        var token = new JwtSecurityToken(
-            issuer: _configuration["Jwt:Issuer"],
-            audience: _configuration["Jwt:Audience"],
-            claims: claims,
-            expires: DateTime.Now.AddDays(1),
-            signingCredentials: creds);
-
         return new LoginResponse
         {
-            Token = new JwtSecurityTokenHandler().WriteToken(token),
+            Token = new JwtSecurityTokenHandler().WriteToken(GenerateJwtSecurityToken(claims)),
             Role = roles.FirstOrDefault(),
             UPId = userProfile.UPId
         };
@@ -166,6 +159,61 @@ public class AuthService : IAuthService
 
         claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
 
+        return new LoginResponse
+        {
+            Token = new JwtSecurityTokenHandler().WriteToken(GenerateJwtSecurityToken(claims)),
+            Role = roles.FirstOrDefault(),
+            UPId = 1
+        };
+    }
+
+    public async Task<LoginResponse> LoginGoogleAsync(LoginGoogleRequest model)
+    {
+        var payload = await GoogleJsonWebSignature.ValidateAsync(model.idToken);
+
+        var user = await _userManager.FindByEmailAsync(payload.Email);
+
+        if (user == null)
+        {
+            user = new ModifyIdentityUser()
+            {
+                UserName = payload.Email,
+                Email = payload.Email,
+                EmailConfirmed = true
+            };
+            await _userManager.CreateAsync(user);
+        }
+        
+        await _userManager.AddToRoleAsync(user, "User");
+
+        // var userProfile = await _userProfilesRepository.GetAsync( 
+        //     up => up.UserId == user.Id);
+        //
+        // if (userProfile == null)
+        // {
+        //     throw new Exception("User profile not found. Please create an account");
+        // }
+        
+        var roles = await _userManager.GetRolesAsync(user);
+        
+        var claims = new List<Claim>
+        {
+            new Claim(ClaimTypes.NameIdentifier, user.Id),
+            new Claim(ClaimTypes.Email, user.Email)
+        };
+
+        claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
+        
+        return new LoginResponse
+        {
+            Token = new JwtSecurityTokenHandler().WriteToken(GenerateJwtSecurityToken(claims)),
+            Role = roles.FirstOrDefault(),
+            UPId = 1
+        };    
+    }
+
+    public JwtSecurityToken GenerateJwtSecurityToken(List<Claim> claims)
+    {
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
         var token = new JwtSecurityToken(
@@ -174,12 +222,7 @@ public class AuthService : IAuthService
             claims: claims,
             expires: DateTime.Now.AddDays(29),
             signingCredentials: creds);
-
-        return new LoginResponse
-        {
-            Token = new JwtSecurityTokenHandler().WriteToken(token),
-            Role = roles.FirstOrDefault(),
-            UPId = 1
-        };
+        
+        return token;
     }
 }

@@ -3,6 +3,7 @@ using EXE202_BE.Data.DTOS.User;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using EXE202_BE.Service.Interface;
+using Google.Apis.Auth;
 
 namespace EXE202_BE.Controllers;
 
@@ -84,5 +85,20 @@ public class AuthController : ControllerBase
             _logger.LogError(ex, "Unexpected error in ChangePassword.");
             return StatusCode(500, new { message = "An unexpected error occurred." });
         }
+    }
+
+    [HttpPost("google")]
+    public async Task<IActionResult> GoogleLogin([FromBody] LoginGoogleRequest model)
+    {
+        try
+        {
+            var response = await _authService.LoginGoogleAsync(model);
+            return Ok(response);
+            
+        } 
+        catch (Exception ex)
+        {
+            return Unauthorized(new { Message = "Login failed.", Error = ex.Message });
+        }    
     }
 }

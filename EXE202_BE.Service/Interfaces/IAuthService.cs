@@ -1,3 +1,5 @@
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using EXE202_BE.Data.DTOS.Auth;
 using EXE202_BE.Data.DTOS.User;
 
@@ -9,4 +11,8 @@ public interface IAuthService
     Task ChangePasswordAsync(ChangePasswordRequest request);
     
     Task<LoginResponse> CustomerLoginAsync(LoginRequestDTO model);
+    
+    Task<LoginResponse> LoginGoogleAsync(LoginGoogleRequest model);
+    
+    JwtSecurityToken GenerateJwtSecurityToken(List<Claim> claims);
 }
