@@ -26,7 +26,8 @@ public class MappingProfile : Profile
             .ForMember(dest => dest.HealthConditions, opt => opt.MapFrom(src => src.PersonalHealthConditions.Select(h => h.HealthCondition.HealthConditionName).ToList()))
             .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.UserId))
             .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.User.Email))
-            .ForMember(dest => dest.Role, opt => opt.Ignore());
+            .ForMember(dest => dest.Role, opt => opt.Ignore())
+            .ForMember(dest => dest.UserPicture, opt => opt.MapFrom(src => src.UserPicture.ToString()));
 
         CreateMap<UserProfiles, AdminProfileResponse>()
             .ForMember(dest => dest.UPId, opt => opt.MapFrom(src => src.UPId))
@@ -34,7 +35,8 @@ public class MappingProfile : Profile
             .ForMember(dest => dest.Username, opt => opt.MapFrom(src => src.User.UserName))
             .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.User.Email))
             .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => src.User.PhoneNumber))
-            .ForMember(dest => dest.Role, opt => opt.Ignore());
+            .ForMember(dest => dest.Role, opt => opt.Ignore())
+            .ForMember(dest => dest.UserPicture, opt => opt.MapFrom(src => src.UserPicture.ToString()));
         CreateMap<Recipes, TopRecipesResponse>()
             .ForMember(dest => dest.RecipeId, opt => opt.MapFrom(src => src.RecipeId))
             .ForMember(dest => dest.RecipeName, opt => opt.MapFrom(src => src.RecipeName))
@@ -75,5 +77,6 @@ public class MappingProfile : Profile
         CreateMap<MealCatagories, MealCategoryResponse>()
             .ForMember(dest => dest.MealId, opt => opt.MapFrom(src => src.MealId))
             .ForMember(dest => dest.MealName, opt => opt.MapFrom(src => src.MealName));
+        
     }
 }

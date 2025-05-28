@@ -1,10 +1,13 @@
 using System.Linq.Expressions;
 using EXE202_BE.Data.DTOS.User;
 using AutoMapper;
+using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
 using EXE202_BE.Data.DTOS;
 using EXE202_BE.Data.Models;
 using EXE202_BE.Repository.Interface;
 using EXE202_BE.Service.Interface;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,19 +20,21 @@ public class UserProfilesService : IUserProfilesService
     private readonly IUserProfilesService _userProfilesService;
     private readonly IMapper _mapper;
     private readonly AppDbContext _dbContext;
-    
+    private readonly Cloudinary _cloudinary;
 
 
     public UserProfilesService(
         IUserProfilesRepository userProfilesRepository,
         UserManager<ModifyIdentityUser> userManager,
         IMapper mapper,
-        AppDbContext dbContext)
+        AppDbContext dbContext,
+        Cloudinary cloudinary)
     {
         _userProfilesRepository = userProfilesRepository;
         _userManager = userManager;
         _mapper = mapper;
         _dbContext = dbContext;
+        _cloudinary = cloudinary;
     }
 
     public async Task<UserProfiles> AddAsync(UserProfiles userProfile)
@@ -203,4 +208,38 @@ public class UserProfilesService : IUserProfilesService
         dto.Role = roles.FirstOrDefault();
         return dto;
     }
+    
+    public async Task<ProfileImageResponseDTO> UploadProfileImageAsync(int upId, IFormFile image)
+    {
+        if (image == null || !new[] { "image/jpeg", "image/png", "image/gif" }.Contains(image.ContentType))
+            throw new ArgumentException("Invalid file type. Only JPEG, PNG, or GIF allowed.");
+
+        if (image.Length > 5 * 1024 * 1024) // 5MB limit
+            throw new ArgumentException("File size exceeds 5MB limit.");
+
+        var userProfile = await _userProfilesRepository.GetAsync(up => up.UPId == upId, "User");
+        if (userProfile == null)
+            throw new Exception("User profile not found.");
+
+        // Upload to Cloudinary
+        using var stream = image.OpenReadStream();
+        var uploadParams = new ImageUploadParams
+        {
+            File = new FileDescription(image.FileName, stream),
+            Folder = $"user_profiles/{upId}",
+            Transformation = new Transformation().Width(100).Height(100).Crop("fill").Quality(80)
+        };
+        var uploadResult = await _cloudinary.UploadAsync(uploadParams);
+
+        if (uploadResult.Error != null)
+            throw new Exception($"Upload failed: {uploadResult.Error.Message}");
+
+        // Update UserPicture
+        userProfile.UserPicture = new Uri(uploadResult.SecureUrl.ToString());
+        await _userProfilesRepository.UpdateAsync(userProfile);
+
+        // Return the URL as a string
+        return new ProfileImageResponseDTO { SecureUrl = uploadResult.SecureUrl.ToString() };
+    }
+    
 }

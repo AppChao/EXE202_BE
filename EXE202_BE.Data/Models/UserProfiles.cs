@@ -35,7 +35,7 @@ public partial class UserProfiles
 
     public int? SpeedId { get; set; }
 
-    public string? UserPicture { get; set; } = string.Empty;
+    public Uri? UserPicture { get; set; } 
 
     [Required] public string? UserId { get; set; } = string.Empty;
 
