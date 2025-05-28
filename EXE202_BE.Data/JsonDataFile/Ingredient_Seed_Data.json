@@ -1,0 +1,730 @@
+[
+  {
+    "IngredientId": "1",
+    "IngredientName": "Chicken Breast",
+    "IngredientTypeId": "1",
+    "CaloriesPer100g": "424.2",
+    "DefaultUnit": "gram",
+    "GramPerUnit": "20.5"
+  },
+  {
+    "IngredientId": "2",
+    "IngredientName": "Pork Belly",
+    "IngredientTypeId": "1",
+    "CaloriesPer100g": "48.2",
+    "DefaultUnit": "tsp",
+    "GramPerUnit": "8.2"
+  },
+  {
+    "IngredientId": "3",
+    "IngredientName": "Salmon",
+    "IngredientTypeId": "1",
+    "CaloriesPer100g": "456.8",
+    "DefaultUnit": "tsp",
+    "GramPerUnit": "22.1"
+  },
+  {
+    "IngredientId": "4",
+    "IngredientName": "Beef Steak",
+    "IngredientTypeId": "1",
+    "CaloriesPer100g": "251.9",
+    "DefaultUnit": "tbsp",
+    "GramPerUnit": "72.0"
+  },
+  {
+    "IngredientId": "5",
+    "IngredientName": "Shrimp",
+    "IngredientTypeId": "1",
+    "CaloriesPer100g": "373.1",
+    "DefaultUnit": "tbsp",
+    "GramPerUnit": "3.6"
+  },
+  {
+    "IngredientId": "6",
+    "IngredientName": "Tuna",
+    "IngredientTypeId": "1",
+    "CaloriesPer100g": "123.7",
+    "DefaultUnit": "tbsp",
+    "GramPerUnit": "30.1"
+  },
+  {
+    "IngredientId": "7",
+    "IngredientName": "Crab",
+    "IngredientTypeId": "1",
+    "CaloriesPer100g": "236.8",
+    "DefaultUnit": "gram",
+    "GramPerUnit": "133.9"
+  },
+  {
+    "IngredientId": "8",
+    "IngredientName": "Lamb",
+    "IngredientTypeId": "1",
+    "CaloriesPer100g": "428.3",
+    "DefaultUnit": "piece",
+    "GramPerUnit": "100.5"
+  },
+  {
+    "IngredientId": "9",
+    "IngredientName": "Duck",
+    "IngredientTypeId": "1",
+    "CaloriesPer100g": "227.5",
+    "DefaultUnit": "tbsp",
+    "GramPerUnit": "145.3"
+  },
+  {
+    "IngredientId": "10",
+    "IngredientName": "Squid",
+    "IngredientTypeId": "1",
+    "CaloriesPer100g": "78.0",
+    "DefaultUnit": "gram",
+    "GramPerUnit": "12.1"
+  },
+  {
+    "IngredientId": "11",
+    "IngredientName": "Carrot",
+    "IngredientTypeId": "2",
+    "CaloriesPer100g": "147.3",
+    "DefaultUnit": "piece",
+    "GramPerUnit": "140.6"
+  },
+  {
+    "IngredientId": "12",
+    "IngredientName": "Broccoli",
+    "IngredientTypeId": "2",
+    "CaloriesPer100g": "169.5",
+    "DefaultUnit": "piece",
+    "GramPerUnit": "54.7"
+  },
+  {
+    "IngredientId": "13",
+    "IngredientName": "Spinach",
+    "IngredientTypeId": "2",
+    "CaloriesPer100g": "75.1",
+    "DefaultUnit": "ml",
+    "GramPerUnit": "70.7"
+  },
+  {
+    "IngredientId": "14",
+    "IngredientName": "Cabbage",
+    "IngredientTypeId": "2",
+    "CaloriesPer100g": "69.5",
+    "DefaultUnit": "tbsp",
+    "GramPerUnit": "64.6"
+  },
+  {
+    "IngredientId": "15",
+    "IngredientName": "Tomato",
+    "IngredientTypeId": "2",
+    "CaloriesPer100g": "193.7",
+    "DefaultUnit": "gram",
+    "GramPerUnit": "70.1"
+  },
+  {
+    "IngredientId": "16",
+    "IngredientName": "Bell Pepper",
+    "IngredientTypeId": "2",
+    "CaloriesPer100g": "118.0",
+    "DefaultUnit": "tbsp",
+    "GramPerUnit": "109.0"
+  },
+  {
+    "IngredientId": "17",
+    "IngredientName": "Cucumber",
+    "IngredientTypeId": "2",
+    "CaloriesPer100g": "203.2",
+    "DefaultUnit": "piece",
+    "GramPerUnit": "108.6"
+  },
+  {
+    "IngredientId": "18",
+    "IngredientName": "Pumpkin",
+    "IngredientTypeId": "2",
+    "CaloriesPer100g": "196.0",
+    "DefaultUnit": "gram",
+    "GramPerUnit": "23.9"
+  },
+  {
+    "IngredientId": "19",
+    "IngredientName": "Zucchini",
+    "IngredientTypeId": "2",
+    "CaloriesPer100g": "75.7",
+    "DefaultUnit": "tsp",
+    "GramPerUnit": "63.1"
+  },
+  {
+    "IngredientId": "20",
+    "IngredientName": "Asparagus",
+    "IngredientTypeId": "2",
+    "CaloriesPer100g": "465.0",
+    "DefaultUnit": "piece",
+    "GramPerUnit": "103.6"
+  },
+  {
+    "IngredientId": "21",
+    "IngredientName": "Shiitake Mushroom",
+    "IngredientTypeId": "3",
+    "CaloriesPer100g": "198.8",
+    "DefaultUnit": "ml",
+    "GramPerUnit": "144.0"
+  },
+  {
+    "IngredientId": "22",
+    "IngredientName": "Enoki Mushroom",
+    "IngredientTypeId": "3",
+    "CaloriesPer100g": "219.8",
+    "DefaultUnit": "gram",
+    "GramPerUnit": "61.6"
+  },
+  {
+    "IngredientId": "23",
+    "IngredientName": "Portobello",
+    "IngredientTypeId": "3",
+    "CaloriesPer100g": "354.2",
+    "DefaultUnit": "piece",
+    "GramPerUnit": "40.8"
+  },
+  {
+    "IngredientId": "24",
+    "IngredientName": "Oyster Mushroom",
+    "IngredientTypeId": "3",
+    "CaloriesPer100g": "157.1",
+    "DefaultUnit": "gram",
+    "GramPerUnit": "45.4"
+  },
+  {
+    "IngredientId": "25",
+    "IngredientName": "Button Mushroom",
+    "IngredientTypeId": "3",
+    "CaloriesPer100g": "322.7",
+    "DefaultUnit": "gram",
+    "GramPerUnit": "11.1"
+  },
+  {
+    "IngredientId": "26",
+    "IngredientName": "Wood Ear",
+    "IngredientTypeId": "3",
+    "CaloriesPer100g": "36.9",
+    "DefaultUnit": "gram",
+    "GramPerUnit": "20.7"
+  },
+  {
+    "IngredientId": "27",
+    "IngredientName": "Egg",
+    "IngredientTypeId": "4",
+    "CaloriesPer100g": "430.8",
+    "DefaultUnit": "tsp",
+    "GramPerUnit": "109.6"
+  },
+  {
+    "IngredientId": "28",
+    "IngredientName": "Milk",
+    "IngredientTypeId": "4",
+    "CaloriesPer100g": "157.6",
+    "DefaultUnit": "tsp",
+    "GramPerUnit": "147.8"
+  },
+  {
+    "IngredientId": "29",
+    "IngredientName": "Butter",
+    "IngredientTypeId": "4",
+    "CaloriesPer100g": "434.8",
+    "DefaultUnit": "tsp",
+    "GramPerUnit": "102.4"
+  },
+  {
+    "IngredientId": "30",
+    "IngredientName": "Cheese",
+    "IngredientTypeId": "4",
+    "CaloriesPer100g": "291.6",
+    "DefaultUnit": "gram",
+    "GramPerUnit": "44.8"
+  },
+  {
+    "IngredientId": "31",
+    "IngredientName": "Yogurt",
+    "IngredientTypeId": "4",
+    "CaloriesPer100g": "259.2",
+    "DefaultUnit": "tbsp",
+    "GramPerUnit": "90.2"
+  },
+  {
+    "IngredientId": "32",
+    "IngredientName": "Cream",
+    "IngredientTypeId": "4",
+    "CaloriesPer100g": "149.7",
+    "DefaultUnit": "tsp",
+    "GramPerUnit": "125.0"
+  },
+  {
+    "IngredientId": "33",
+    "IngredientName": "Apple",
+    "IngredientTypeId": "5",
+    "CaloriesPer100g": "369.1",
+    "DefaultUnit": "tsp",
+    "GramPerUnit": "32.4"
+  },
+  {
+    "IngredientId": "34",
+    "IngredientName": "Banana",
+    "IngredientTypeId": "5",
+    "CaloriesPer100g": "276.9",
+    "DefaultUnit": "tbsp",
+    "GramPerUnit": "66.1"
+  },
+  {
+    "IngredientId": "35",
+    "IngredientName": "Orange",
+    "IngredientTypeId": "5",
+    "CaloriesPer100g": "469.3",
+    "DefaultUnit": "ml",
+    "GramPerUnit": "105.9"
+  },
+  {
+    "IngredientId": "36",
+    "IngredientName": "Mango",
+    "IngredientTypeId": "5",
+    "CaloriesPer100g": "110.9",
+    "DefaultUnit": "ml",
+    "GramPerUnit": "77.6"
+  },
+  {
+    "IngredientId": "37",
+    "IngredientName": "Pineapple",
+    "IngredientTypeId": "5",
+    "CaloriesPer100g": "329.2",
+    "DefaultUnit": "tbsp",
+    "GramPerUnit": "92.7"
+  },
+  {
+    "IngredientId": "38",
+    "IngredientName": "Strawberry",
+    "IngredientTypeId": "5",
+    "CaloriesPer100g": "417.5",
+    "DefaultUnit": "tbsp",
+    "GramPerUnit": "80.5"
+  },
+  {
+    "IngredientId": "39",
+    "IngredientName": "Blueberry",
+    "IngredientTypeId": "5",
+    "CaloriesPer100g": "74.4",
+    "DefaultUnit": "gram",
+    "GramPerUnit": "145.2"
+  },
+  {
+    "IngredientId": "40",
+    "IngredientName": "Watermelon",
+    "IngredientTypeId": "5",
+    "CaloriesPer100g": "50.5",
+    "DefaultUnit": "tbsp",
+    "GramPerUnit": "65.3"
+  },
+  {
+    "IngredientId": "41",
+    "IngredientName": "Avocado",
+    "IngredientTypeId": "5",
+    "CaloriesPer100g": "248.3",
+    "DefaultUnit": "tbsp",
+    "GramPerUnit": "139.9"
+  },
+  {
+    "IngredientId": "42",
+    "IngredientName": "Rice",
+    "IngredientTypeId": "6",
+    "CaloriesPer100g": "198.0",
+    "DefaultUnit": "tbsp",
+    "GramPerUnit": "101.3"
+  },
+  {
+    "IngredientId": "43",
+    "IngredientName": "Spaghetti",
+    "IngredientTypeId": "6",
+    "CaloriesPer100g": "190.6",
+    "DefaultUnit": "gram",
+    "GramPerUnit": "132.0"
+  },
+  {
+    "IngredientId": "44",
+    "IngredientName": "Bread",
+    "IngredientTypeId": "6",
+    "CaloriesPer100g": "368.4",
+    "DefaultUnit": "tbsp",
+    "GramPerUnit": "112.2"
+  },
+  {
+    "IngredientId": "45",
+    "IngredientName": "Oats",
+    "IngredientTypeId": "6",
+    "CaloriesPer100g": "464.5",
+    "DefaultUnit": "tsp",
+    "GramPerUnit": "13.5"
+  },
+  {
+    "IngredientId": "46",
+    "IngredientName": "Corn",
+    "IngredientTypeId": "6",
+    "CaloriesPer100g": "319.8",
+    "DefaultUnit": "tbsp",
+    "GramPerUnit": "84.7"
+  },
+  {
+    "IngredientId": "47",
+    "IngredientName": "Vermicelli",
+    "IngredientTypeId": "6",
+    "CaloriesPer100g": "166.6",
+    "DefaultUnit": "gram",
+    "GramPerUnit": "82.5"
+  },
+  {
+    "IngredientId": "48",
+    "IngredientName": "Quinoa",
+    "IngredientTypeId": "6",
+    "CaloriesPer100g": "138.0",
+    "DefaultUnit": "gram",
+    "GramPerUnit": "30.7"
+  },
+  {
+    "IngredientId": "49",
+    "IngredientName": "Sweet Potato",
+    "IngredientTypeId": "6",
+    "CaloriesPer100g": "180.9",
+    "DefaultUnit": "tbsp",
+    "GramPerUnit": "102.6"
+  },
+  {
+    "IngredientId": "50",
+    "IngredientName": "Tofu",
+    "IngredientTypeId": "7",
+    "CaloriesPer100g": "334.9",
+    "DefaultUnit": "gram",
+    "GramPerUnit": "149.8"
+  },
+  {
+    "IngredientId": "51",
+    "IngredientName": "Lentils",
+    "IngredientTypeId": "7",
+    "CaloriesPer100g": "93.3",
+    "DefaultUnit": "piece",
+    "GramPerUnit": "55.5"
+  },
+  {
+    "IngredientId": "52",
+    "IngredientName": "Chickpeas",
+    "IngredientTypeId": "7",
+    "CaloriesPer100g": "357.0",
+    "DefaultUnit": "ml",
+    "GramPerUnit": "70.8"
+  },
+  {
+    "IngredientId": "53",
+    "IngredientName": "Soybeans",
+    "IngredientTypeId": "7",
+    "CaloriesPer100g": "124.3",
+    "DefaultUnit": "ml",
+    "GramPerUnit": "129.9"
+  },
+  {
+    "IngredientId": "54",
+    "IngredientName": "Black Beans",
+    "IngredientTypeId": "7",
+    "CaloriesPer100g": "490.6",
+    "DefaultUnit": "ml",
+    "GramPerUnit": "8.7"
+  },
+  {
+    "IngredientId": "55",
+    "IngredientName": "Peas",
+    "IngredientTypeId": "7",
+    "CaloriesPer100g": "84.4",
+    "DefaultUnit": "tsp",
+    "GramPerUnit": "132.6"
+  },
+  {
+    "IngredientId": "56",
+    "IngredientName": "Tempeh",
+    "IngredientTypeId": "7",
+    "CaloriesPer100g": "123.1",
+    "DefaultUnit": "ml",
+    "GramPerUnit": "125.7"
+  },
+  {
+    "IngredientId": "57",
+    "IngredientName": "Salt",
+    "IngredientTypeId": "8",
+    "CaloriesPer100g": "86.2",
+    "DefaultUnit": "piece",
+    "GramPerUnit": "12.5"
+  },
+  {
+    "IngredientId": "58",
+    "IngredientName": "Pepper",
+    "IngredientTypeId": "8",
+    "CaloriesPer100g": "472.9",
+    "DefaultUnit": "ml",
+    "GramPerUnit": "104.8"
+  },
+  {
+    "IngredientId": "59",
+    "IngredientName": "Cinnamon",
+    "IngredientTypeId": "8",
+    "CaloriesPer100g": "203.6",
+    "DefaultUnit": "tbsp",
+    "GramPerUnit": "9.2"
+  },
+  {
+    "IngredientId": "60",
+    "IngredientName": "Paprika",
+    "IngredientTypeId": "8",
+    "CaloriesPer100g": "286.7",
+    "DefaultUnit": "tbsp",
+    "GramPerUnit": "2.9"
+  },
+  {
+    "IngredientId": "61",
+    "IngredientName": "Cumin",
+    "IngredientTypeId": "8",
+    "CaloriesPer100g": "216.9",
+    "DefaultUnit": "ml",
+    "GramPerUnit": "23.2"
+  },
+  {
+    "IngredientId": "62",
+    "IngredientName": "Turmeric",
+    "IngredientTypeId": "8",
+    "CaloriesPer100g": "137.4",
+    "DefaultUnit": "tbsp",
+    "GramPerUnit": "91.6"
+  },
+  {
+    "IngredientId": "63",
+    "IngredientName": "Chili Powder",
+    "IngredientTypeId": "8",
+    "CaloriesPer100g": "339.9",
+    "DefaultUnit": "ml",
+    "GramPerUnit": "98.5"
+  },
+  {
+    "IngredientId": "64",
+    "IngredientName": "Garlic",
+    "IngredientTypeId": "9",
+    "CaloriesPer100g": "36.4",
+    "DefaultUnit": "ml",
+    "GramPerUnit": "127.0"
+  },
+  {
+    "IngredientId": "65",
+    "IngredientName": "Onion",
+    "IngredientTypeId": "9",
+    "CaloriesPer100g": "414.8",
+    "DefaultUnit": "gram",
+    "GramPerUnit": "59.4"
+  },
+  {
+    "IngredientId": "66",
+    "IngredientName": "Ginger",
+    "IngredientTypeId": "9",
+    "CaloriesPer100g": "458.2",
+    "DefaultUnit": "ml",
+    "GramPerUnit": "135.1"
+  },
+  {
+    "IngredientId": "67",
+    "IngredientName": "Lemongrass",
+    "IngredientTypeId": "9",
+    "CaloriesPer100g": "455.2",
+    "DefaultUnit": "ml",
+    "GramPerUnit": "134.6"
+  },
+  {
+    "IngredientId": "68",
+    "IngredientName": "Basil",
+    "IngredientTypeId": "9",
+    "CaloriesPer100g": "181.3",
+    "DefaultUnit": "tsp",
+    "GramPerUnit": "24.8"
+  },
+  {
+    "IngredientId": "69",
+    "IngredientName": "Coriander",
+    "IngredientTypeId": "9",
+    "CaloriesPer100g": "153.6",
+    "DefaultUnit": "tsp",
+    "GramPerUnit": "106.5"
+  },
+  {
+    "IngredientId": "70",
+    "IngredientName": "Parsley",
+    "IngredientTypeId": "9",
+    "CaloriesPer100g": "270.8",
+    "DefaultUnit": "tbsp",
+    "GramPerUnit": "6.5"
+  },
+  {
+    "IngredientId": "71",
+    "IngredientName": "Olive Oil",
+    "IngredientTypeId": "10",
+    "CaloriesPer100g": "132.8",
+    "DefaultUnit": "tsp",
+    "GramPerUnit": "149.1"
+  },
+  {
+    "IngredientId": "72",
+    "IngredientName": "Vegetable Oil",
+    "IngredientTypeId": "10",
+    "CaloriesPer100g": "373.0",
+    "DefaultUnit": "gram",
+    "GramPerUnit": "8.0"
+  },
+  {
+    "IngredientId": "73",
+    "IngredientName": "Butter Oil",
+    "IngredientTypeId": "10",
+    "CaloriesPer100g": "103.6",
+    "DefaultUnit": "tsp",
+    "GramPerUnit": "141.5"
+  },
+  {
+    "IngredientId": "74",
+    "IngredientName": "Lard",
+    "IngredientTypeId": "10",
+    "CaloriesPer100g": "268.4",
+    "DefaultUnit": "piece",
+    "GramPerUnit": "18.0"
+  },
+  {
+    "IngredientId": "75",
+    "IngredientName": "Coconut Oil",
+    "IngredientTypeId": "10",
+    "CaloriesPer100g": "461.0",
+    "DefaultUnit": "tbsp",
+    "GramPerUnit": "102.5"
+  },
+  {
+    "IngredientId": "76",
+    "IngredientName": "Sugar",
+    "IngredientTypeId": "11",
+    "CaloriesPer100g": "393.1",
+    "DefaultUnit": "gram",
+    "GramPerUnit": "83.3"
+  },
+  {
+    "IngredientId": "77",
+    "IngredientName": "Honey",
+    "IngredientTypeId": "11",
+    "CaloriesPer100g": "261.2",
+    "DefaultUnit": "ml",
+    "GramPerUnit": "93.6"
+  },
+  {
+    "IngredientId": "78",
+    "IngredientName": "Maple Syrup",
+    "IngredientTypeId": "11",
+    "CaloriesPer100g": "421.3",
+    "DefaultUnit": "tbsp",
+    "GramPerUnit": "134.6"
+  },
+  {
+    "IngredientId": "79",
+    "IngredientName": "Stevia",
+    "IngredientTypeId": "11",
+    "CaloriesPer100g": "464.8",
+    "DefaultUnit": "tbsp",
+    "GramPerUnit": "131.1"
+  },
+  {
+    "IngredientId": "80",
+    "IngredientName": "Soy Sauce",
+    "IngredientTypeId": "12",
+    "CaloriesPer100g": "238.8",
+    "DefaultUnit": "ml",
+    "GramPerUnit": "88.4"
+  },
+  {
+    "IngredientId": "81",
+    "IngredientName": "Miso",
+    "IngredientTypeId": "12",
+    "CaloriesPer100g": "159.7",
+    "DefaultUnit": "piece",
+    "GramPerUnit": "4.6"
+  },
+  {
+    "IngredientId": "82",
+    "IngredientName": "Kimchi",
+    "IngredientTypeId": "12",
+    "CaloriesPer100g": "59.4",
+    "DefaultUnit": "gram",
+    "GramPerUnit": "45.8"
+  },
+  {
+    "IngredientId": "83",
+    "IngredientName": "Yogurt",
+    "IngredientTypeId": "12",
+    "CaloriesPer100g": "442.6",
+    "DefaultUnit": "ml",
+    "GramPerUnit": "6.8"
+  },
+  {
+    "IngredientId": "84",
+    "IngredientName": "Fish Sauce",
+    "IngredientTypeId": "12",
+    "CaloriesPer100g": "275.9",
+    "DefaultUnit": "piece",
+    "GramPerUnit": "137.6"
+  },
+  {
+    "IngredientId": "85",
+    "IngredientName": "Vinegar",
+    "IngredientTypeId": "12",
+    "CaloriesPer100g": "426.2",
+    "DefaultUnit": "ml",
+    "GramPerUnit": "102.2"
+  },
+  {
+    "IngredientId": "86",
+    "IngredientName": "Gelatin",
+    "IngredientTypeId": "13",
+    "CaloriesPer100g": "94.7",
+    "DefaultUnit": "tbsp",
+    "GramPerUnit": "31.2"
+  },
+  {
+    "IngredientId": "87",
+    "IngredientName": "Baking Powder",
+    "IngredientTypeId": "13",
+    "CaloriesPer100g": "388.9",
+    "DefaultUnit": "gram",
+    "GramPerUnit": "71.3"
+  },
+  {
+    "IngredientId": "88",
+    "IngredientName": "Baking Soda",
+    "IngredientTypeId": "13",
+    "CaloriesPer100g": "284.8",
+    "DefaultUnit": "piece",
+    "GramPerUnit": "72.3"
+  },
+  {
+    "IngredientId": "89",
+    "IngredientName": "Cornstarch",
+    "IngredientTypeId": "13",
+    "CaloriesPer100g": "87.9",
+    "DefaultUnit": "ml",
+    "GramPerUnit": "17.1"
+  },
+  {
+    "IngredientId": "90",
+    "IngredientName": "Cocoa Powder",
+    "IngredientTypeId": "13",
+    "CaloriesPer100g": "311.2",
+    "DefaultUnit": "piece",
+    "GramPerUnit": "62.4"
+  },
+  {
+    "IngredientId": "91",
+    "IngredientName": "Vanilla Extract",
+    "IngredientTypeId": "13",
+    "CaloriesPer100g": "255.0",
+    "DefaultUnit": "piece",
+    "GramPerUnit": "141.0"
+  }
+]

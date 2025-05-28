@@ -70,6 +70,22 @@ public class AppDbContext : IdentityDbContext<ModifyIdentityUser>
             new IdentityRole { Id = "3", Name = "Member", NormalizedName = "MEMBER" },
             new IdentityRole { Id = "4", Name = "User", NormalizedName = "USER" }
         );
+        
+        builder.Entity<IngredientTypes>().HasData(
+            new IngredientTypes { IngredientTypeId = 1, TypeName = "Meat & Seafood" },
+            new IngredientTypes { IngredientTypeId = 2, TypeName = "Vegetables" },
+            new IngredientTypes { IngredientTypeId = 3, TypeName = "Mushrooms" },
+            new IngredientTypes { IngredientTypeId = 4, TypeName = "Eggs & Dairy" },
+            new IngredientTypes { IngredientTypeId = 5, TypeName = "Fruits" },
+            new IngredientTypes { IngredientTypeId = 6, TypeName = "Carbs & Grains" },
+            new IngredientTypes { IngredientTypeId = 7, TypeName = "Legumes" },
+            new IngredientTypes { IngredientTypeId = 8, TypeName = "Spices" },
+            new IngredientTypes { IngredientTypeId = 9, TypeName = "Flavorings" },
+            new IngredientTypes { IngredientTypeId = 10, TypeName = "Fats & Oils" },
+            new IngredientTypes { IngredientTypeId = 11, TypeName = "Sweeteners" },
+            new IngredientTypes { IngredientTypeId = 12, TypeName = "Fermented Ingredients" },
+            new IngredientTypes { IngredientTypeId = 13, TypeName = "Others" }
+        );
 
         builder.Entity<RecipeMealTypes>()
             .HasKey(re => new { re.MealId, re.RecipeId });
@@ -103,6 +119,9 @@ public class AppDbContext : IdentityDbContext<ModifyIdentityUser>
 
         builder.Entity<UserProfiles>()
             .ToTable(tb => tb.HasCheckConstraint("CK_UserProfiles_Gender", "\"Gender\" IN ('Male', 'Female', 'Other')"));
+
+        builder.Entity<Ingredients>()
+            .ToTable(tb => tb.HasCheckConstraint("CK_Ingredients_DefaultUnit", "\"DefaultUnit\" IN ('gram', 'ml', 'piece', 'tbsp', 'tsp')"));
         
         // Thêm từ đây - Cấu hình tối thiểu để sửa lỗi MappingProfile
         builder.Entity<UserProfiles>()

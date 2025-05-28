@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace EXE202_BE.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250526132520_InitialCreate")]
+    [Migration("20250528194416_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -186,6 +186,73 @@ namespace EXE202_BE.Data.Migrations
                     b.HasKey("IngredientTypeId");
 
                     b.ToTable("IngredientTypes");
+
+                    b.HasData(
+                        new
+                        {
+                            IngredientTypeId = 1,
+                            TypeName = "Meat & Seafood"
+                        },
+                        new
+                        {
+                            IngredientTypeId = 2,
+                            TypeName = "Vegetables"
+                        },
+                        new
+                        {
+                            IngredientTypeId = 3,
+                            TypeName = "Mushrooms"
+                        },
+                        new
+                        {
+                            IngredientTypeId = 4,
+                            TypeName = "Eggs & Dairy"
+                        },
+                        new
+                        {
+                            IngredientTypeId = 5,
+                            TypeName = "Fruits"
+                        },
+                        new
+                        {
+                            IngredientTypeId = 6,
+                            TypeName = "Carbs & Grains"
+                        },
+                        new
+                        {
+                            IngredientTypeId = 7,
+                            TypeName = "Legumes"
+                        },
+                        new
+                        {
+                            IngredientTypeId = 8,
+                            TypeName = "Spices"
+                        },
+                        new
+                        {
+                            IngredientTypeId = 9,
+                            TypeName = "Flavorings"
+                        },
+                        new
+                        {
+                            IngredientTypeId = 10,
+                            TypeName = "Fats & Oils"
+                        },
+                        new
+                        {
+                            IngredientTypeId = 11,
+                            TypeName = "Sweeteners"
+                        },
+                        new
+                        {
+                            IngredientTypeId = 12,
+                            TypeName = "Fermented Ingredients"
+                        },
+                        new
+                        {
+                            IngredientTypeId = 13,
+                            TypeName = "Others"
+                        });
                 });
 
             modelBuilder.Entity("EXE202_BE.Data.Models.Ingredients", b =>
@@ -215,7 +282,10 @@ namespace EXE202_BE.Data.Migrations
 
                     b.HasIndex("IngredientTypeId");
 
-                    b.ToTable("Ingredients");
+                    b.ToTable("Ingredients", t =>
+                        {
+                            t.HasCheckConstraint("CK_Ingredients_DefaultUnit", "\"DefaultUnit\" IN ('gram', 'ml', 'piece', 'tbsp', 'tsp')");
+                        });
                 });
 
             modelBuilder.Entity("EXE202_BE.Data.Models.LoseWeightSpeed", b =>

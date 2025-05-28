@@ -16,6 +16,7 @@ using EXE202_BE.Repository.Repositories;
 using Google.Apis.Auth.OAuth2;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using CloudinaryDotNet;
+using EXE202_BE.Data.SeedData;
 using EXE202_BE.Utilities;
 
 namespace EXE202_BE
@@ -232,6 +233,7 @@ namespace EXE202_BE
             if (app.Environment.IsDevelopment())
             {
                 await SeedUsers.InitializeAsync(app.Services);
+                await SeedIngredients.InitializeAsync(app.Services);
             }
 
             await app.RunAsync();

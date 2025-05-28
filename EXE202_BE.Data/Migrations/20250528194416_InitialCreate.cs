@@ -402,6 +402,7 @@ namespace EXE202_BE.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Ingredients", x => x.IngredientId);
+                    table.CheckConstraint("CK_Ingredients_DefaultUnit", "\"DefaultUnit\" IN ('gram', 'ml', 'piece', 'tbsp', 'tsp')");
                     table.ForeignKey(
                         name: "FK_Ingredients_IngredientTypes_IngredientTypeId",
                         column: x => x.IngredientTypeId,
@@ -707,6 +708,26 @@ namespace EXE202_BE.Data.Migrations
                     { "2", null, "Staff", "STAFF" },
                     { "3", null, "Member", "MEMBER" },
                     { "4", null, "User", "USER" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "IngredientTypes",
+                columns: new[] { "IngredientTypeId", "TypeName" },
+                values: new object[,]
+                {
+                    { 1, "Meat & Seafood" },
+                    { 2, "Vegetables" },
+                    { 3, "Mushrooms" },
+                    { 4, "Eggs & Dairy" },
+                    { 5, "Fruits" },
+                    { 6, "Carbs & Grains" },
+                    { 7, "Legumes" },
+                    { 8, "Spices" },
+                    { 9, "Flavorings" },
+                    { 10, "Fats & Oils" },
+                    { 11, "Sweeteners" },
+                    { 12, "Fermented Ingredients" },
+                    { 13, "Others" }
                 });
 
             migrationBuilder.CreateIndex(
