@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace EXE202_BE.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250528194416_InitialCreate")]
+    [Migration("20250529151140_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -55,11 +55,16 @@ namespace EXE202_BE.Data.Migrations
                     b.Property<int?>("IngredientsIngredientId")
                         .HasColumnType("integer");
 
+                    b.Property<int?>("UserProfilesUPId")
+                        .HasColumnType("integer");
+
                     b.HasKey("IngredientId", "UPId");
 
                     b.HasIndex("IngredientsIngredientId");
 
                     b.HasIndex("UPId");
+
+                    b.HasIndex("UserProfilesUPId");
 
                     b.ToTable("Allergies");
                 });
@@ -148,12 +153,23 @@ namespace EXE202_BE.Data.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("HealthConditionId"));
 
+                    b.Property<string>("BriefDescription")
+                        .HasColumnType("text");
+
                     b.Property<string>("HealthConditionName")
                         .HasColumnType("text");
 
                     b.HasKey("HealthConditionId");
 
                     b.ToTable("HealthConditions");
+
+                    b.HasData(
+                        new
+                        {
+                            HealthConditionId = 1,
+                            BriefDescription = "",
+                            HealthConditionName = "Health Condition 1"
+                        });
                 });
 
             modelBuilder.Entity("EXE202_BE.Data.Models.HealthTags", b =>
@@ -164,12 +180,203 @@ namespace EXE202_BE.Data.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("HealthTagId"));
 
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
                     b.Property<string>("HealthTagName")
                         .HasColumnType("text");
 
                     b.HasKey("HealthTagId");
 
                     b.ToTable("HealthTags");
+
+                    b.HasData(
+                        new
+                        {
+                            HealthTagId = 1,
+                            Description = "Low in carbohydrates, Applicable To People on weight loss diets, diabetics",
+                            HealthTagName = "is_low_carb"
+                        },
+                        new
+                        {
+                            HealthTagId = 2,
+                            Description = "Low in fat, Applicable To People with heart conditions, those losing weight",
+                            HealthTagName = "is_low_fat"
+                        },
+                        new
+                        {
+                            HealthTagId = 3,
+                            Description = "High in protein, Applicable To Gym-goers, people with protein deficiency",
+                            HealthTagName = "is_high_protein"
+                        },
+                        new
+                        {
+                            HealthTagId = 4,
+                            Description = "Low in sugar, Applicable To Diabetics, people on sugar-restricted diets",
+                            HealthTagName = "is_low_sugar"
+                        },
+                        new
+                        {
+                            HealthTagId = 5,
+                            Description = "Low in sodium, Applicable To People with high blood pressure, heart conditions",
+                            HealthTagName = "is_low_sodium"
+                        },
+                        new
+                        {
+                            HealthTagId = 6,
+                            Description = "Low in cholesterol, Applicable To People with high cholesterol, heart conditions",
+                            HealthTagName = "is_low_cholesterol"
+                        },
+                        new
+                        {
+                            HealthTagId = 7,
+                            Description = "Low in total calories, Applicable To Overweight individuals, people aiming for weight loss",
+                            HealthTagName = "is_low_calorie"
+                        },
+                        new
+                        {
+                            HealthTagId = 8,
+                            Description = "High in fiber, Applicable To People with constipation, those reducing cholesterol",
+                            HealthTagName = "is_high_fiber"
+                        },
+                        new
+                        {
+                            HealthTagId = 9,
+                            Description = "Suitable for diabetics, Applicable To People with diabetes or prediabetes",
+                            HealthTagName = "is_diabetic_friendly"
+                        },
+                        new
+                        {
+                            HealthTagId = 10,
+                            Description = "Heart-friendly, Applicable To People with heart disease, high blood pressure",
+                            HealthTagName = "is_heart_healthy"
+                        },
+                        new
+                        {
+                            HealthTagId = 11,
+                            Description = "Kidney-friendly, Applicable To People with chronic kidney disease or on dialysis",
+                            HealthTagName = "is_kidney_friendly"
+                        },
+                        new
+                        {
+                            HealthTagId = 12,
+                            Description = "Liver-friendly, Applicable To People with hepatitis, fatty liver",
+                            HealthTagName = "is_liver_friendly"
+                        },
+                        new
+                        {
+                            HealthTagId = 13,
+                            Description = "Does not trigger uric acid, Applicable To People with gout",
+                            HealthTagName = "is_gout_safe"
+                        },
+                        new
+                        {
+                            HealthTagId = 14,
+                            Description = "Does not cause acid reflux, Applicable To People with GERD",
+                            HealthTagName = "is_gerd_safe"
+                        },
+                        new
+                        {
+                            HealthTagId = 15,
+                            Description = "Easy to digest, Applicable To People with weak stomach, IBS",
+                            HealthTagName = "is_digestive_friendly"
+                        },
+                        new
+                        {
+                            HealthTagId = 16,
+                            Description = "Relieves constipation, Applicable To People with constipation",
+                            HealthTagName = "is_constipation_relief"
+                        },
+                        new
+                        {
+                            HealthTagId = 17,
+                            Description = "Helps regulate blood pressure, Applicable To People with hypertension",
+                            HealthTagName = "is_blood_pressure_friendly"
+                        },
+                        new
+                        {
+                            HealthTagId = 18,
+                            Description = "Helps control blood lipids, Applicable To People with dyslipidemia",
+                            HealthTagName = "is_cholesterol_control"
+                        },
+                        new
+                        {
+                            HealthTagId = 19,
+                            Description = "Gluten-free, Applicable To People with gluten allergy or celiac disease",
+                            HealthTagName = "is_gluten_free"
+                        },
+                        new
+                        {
+                            HealthTagId = 20,
+                            Description = "Free from dairy and lactose, Applicable To People with lactose intolerance",
+                            HealthTagName = "is_dairy_free"
+                        },
+                        new
+                        {
+                            HealthTagId = 21,
+                            Description = "Free from lactose, Applicable To People experiencing bloating or diarrhea from lactose",
+                            HealthTagName = "is_lactose_free"
+                        },
+                        new
+                        {
+                            HealthTagId = 22,
+                            Description = "Free from common allergens, Applicable To People with multiple food allergies",
+                            HealthTagName = "is_allergen_free"
+                        },
+                        new
+                        {
+                            HealthTagId = 23,
+                            Description = "Reduces inflammation, Applicable To People with chronic inflammatory conditions",
+                            HealthTagName = "is_anti_inflammatory"
+                        },
+                        new
+                        {
+                            HealthTagId = 24,
+                            Description = "Keto-compliant (low-carb, high-fat), Applicable To People on keto or low-carb diets",
+                            HealthTagName = "is_keto"
+                        },
+                        new
+                        {
+                            HealthTagId = 25,
+                            Description = "Paleo-compliant (no refined foods), Applicable To People who prefer natural, clean eating",
+                            HealthTagName = "is_paleo"
+                        },
+                        new
+                        {
+                            HealthTagId = 26,
+                            Description = "Low FODMAP, Applicable To People with IBS or sensitive digestion",
+                            HealthTagName = "is_fodmap_friendly"
+                        },
+                        new
+                        {
+                            HealthTagId = 27,
+                            Description = "Boosts immune system, Applicable To People recovering from illness or surgery",
+                            HealthTagName = "is_immune_boosting"
+                        },
+                        new
+                        {
+                            HealthTagId = 28,
+                            Description = "Rich in calcium/vitamin D, Applicable To Elderly individuals, those with osteoporosis",
+                            HealthTagName = "is_bone_strengthening"
+                        },
+                        new
+                        {
+                            HealthTagId = 29,
+                            Description = "Good for skin (vitamin E, A, zinc, etc.), Applicable To People with acne or dry skin",
+                            HealthTagName = "is_skin_health"
+                        },
+                        new
+                        {
+                            HealthTagId = 30,
+                            Description = "Rich in lutein, vitamin A, Applicable To Screen workers, elderly individuals",
+                            HealthTagName = "is_eye_health"
+                        },
+                        new
+                        {
+                            HealthTagId = 31,
+                            Description = "Helps improve mood, Applicable To People under stress or with mild depression",
+                            HealthTagName = "is_mood_boosting"
+                        });
                 });
 
             modelBuilder.Entity("EXE202_BE.Data.Models.IngredientTypes", b =>
@@ -315,6 +522,9 @@ namespace EXE202_BE.Data.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("MealId"));
 
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
                     b.Property<string>("MealName")
                         .IsRequired()
                         .HasColumnType("text");
@@ -322,6 +532,62 @@ namespace EXE202_BE.Data.Migrations
                     b.HasKey("MealId");
 
                     b.ToTable("MealCatagories");
+
+                    b.HasData(
+                        new
+                        {
+                            MealId = 1,
+                            Description = "no meat or fish, but may consume eggs and dairy",
+                            MealName = "is_vegetarian"
+                        },
+                        new
+                        {
+                            MealId = 2,
+                            Description = "does not consume any animal products, including dairy, eggs, and honey",
+                            MealName = "is_vegan"
+                        },
+                        new
+                        {
+                            MealId = 3,
+                            Description = "suitable for Muslims: no pork, no alcohol, and meat must be slaughtered according to Islamic law",
+                            MealName = "is_halal"
+                        },
+                        new
+                        {
+                            MealId = 4,
+                            Description = "suitable for Jews: follows Kosher rules, no mixing meat and dairy, only certified meat",
+                            MealName = "is_kosher"
+                        },
+                        new
+                        {
+                            MealId = 5,
+                            Description = "Raw food (consumes only uncooked or minimally heated foods, typically below 42–48°C)",
+                            MealName = "is_raw_food"
+                        },
+                        new
+                        {
+                            MealId = 6,
+                            Description = "no meat, but allows fish and seafood",
+                            MealName = "is_pescatarian"
+                        },
+                        new
+                        {
+                            MealId = 7,
+                            Description = "includes dairy but not eggs",
+                            MealName = "is_lacto_vegetarian"
+                        },
+                        new
+                        {
+                            MealId = 8,
+                            Description = "includes eggs but not dairy",
+                            MealName = "is_ovo_vegetarian"
+                        },
+                        new
+                        {
+                            MealId = 9,
+                            Description = "includes both eggs and dairy",
+                            MealName = "is_lacto_ovo_vegetarian"
+                        });
                 });
 
             modelBuilder.Entity("EXE202_BE.Data.Models.MealScheduled", b =>
@@ -479,6 +745,9 @@ namespace EXE202_BE.Data.Migrations
                     b.Property<int?>("ActivityLevelsLevelId")
                         .HasColumnType("integer");
 
+                    b.Property<int?>("HealthConditionsHealthConditionId")
+                        .HasColumnType("integer");
+
                     b.Property<string>("Status")
                         .HasColumnType("text");
 
@@ -487,6 +756,8 @@ namespace EXE202_BE.Data.Migrations
                     b.HasIndex("ActivityLevelsLevelId");
 
                     b.HasIndex("HealthConditionId");
+
+                    b.HasIndex("HealthConditionsHealthConditionId");
 
                     b.ToTable("PersonalHealthConditions");
                 });
@@ -910,10 +1181,14 @@ namespace EXE202_BE.Data.Migrations
                         .HasForeignKey("IngredientsIngredientId");
 
                     b.HasOne("EXE202_BE.Data.Models.UserProfiles", "UserProfile")
-                        .WithMany("Allergies")
+                        .WithMany()
                         .HasForeignKey("UPId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("EXE202_BE.Data.Models.UserProfiles", null)
+                        .WithMany("Allergies")
+                        .HasForeignKey("UserProfilesUPId");
 
                     b.Navigation("Ingredient");
 
@@ -983,6 +1258,10 @@ namespace EXE202_BE.Data.Migrations
                         .HasForeignKey("HealthConditionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("EXE202_BE.Data.Models.HealthConditions", null)
+                        .WithMany("PersonalHealthConditions")
+                        .HasForeignKey("HealthConditionsHealthConditionId");
 
                     b.HasOne("EXE202_BE.Data.Models.UserProfiles", "UserProfile")
                         .WithMany("PersonalHealthConditions")
@@ -1211,6 +1490,11 @@ namespace EXE202_BE.Data.Migrations
             modelBuilder.Entity("EXE202_BE.Data.Models.Goals", b =>
                 {
                     b.Navigation("UserProfiles");
+                });
+
+            modelBuilder.Entity("EXE202_BE.Data.Models.HealthConditions", b =>
+                {
+                    b.Navigation("PersonalHealthConditions");
                 });
 
             modelBuilder.Entity("EXE202_BE.Data.Models.HealthTags", b =>

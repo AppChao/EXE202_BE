@@ -9,5 +9,11 @@ public partial class HealthConditions
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int HealthConditionId { get; set; }
 
+    public string? HealthConditionType { get; set; } = string.Empty;
+    
     public string? HealthConditionName { get; set; } = string.Empty;
+    
+    public string? 	BriefDescription { get; set; } = string.Empty;
+
+    public virtual ICollection<PersonalHealthConditions> PersonalHealthConditions { get; set; } =  null!;
 }

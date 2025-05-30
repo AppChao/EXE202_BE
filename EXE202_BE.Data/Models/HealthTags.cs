@@ -10,6 +10,8 @@ public partial class HealthTags
     public int HealthTagId { get; set; }
 
     public string? HealthTagName { get; set; } = string.Empty;
+    
+    public string? Description { get; set; } = string.Empty;
 
     public virtual ICollection<RecipeHealthTags>? RecipeHealthTags { get; set; } =  null!;
 }

@@ -11,5 +11,7 @@ public partial class MealCatagories
     
     public string MealName { get; set; }
 
+    public string? Description { get; set; } =  string.Empty;
+
     public virtual ICollection<RecipeMealTypes>? RecipeMealTypes { get; set; } =  null!;
 }

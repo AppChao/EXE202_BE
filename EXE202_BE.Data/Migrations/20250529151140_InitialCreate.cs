@@ -115,7 +115,8 @@ namespace EXE202_BE.Data.Migrations
                 {
                     HealthConditionId = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    HealthConditionName = table.Column<string>(type: "text", nullable: true)
+                    HealthConditionName = table.Column<string>(type: "text", nullable: true),
+                    BriefDescription = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -128,7 +129,8 @@ namespace EXE202_BE.Data.Migrations
                 {
                     HealthTagId = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    HealthTagName = table.Column<string>(type: "text", nullable: true)
+                    HealthTagName = table.Column<string>(type: "text", nullable: true),
+                    Description = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -168,7 +170,8 @@ namespace EXE202_BE.Data.Migrations
                 {
                     MealId = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    MealName = table.Column<string>(type: "text", nullable: false)
+                    MealName = table.Column<string>(type: "text", nullable: false),
+                    Description = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -576,7 +579,8 @@ namespace EXE202_BE.Data.Migrations
                 {
                     UPId = table.Column<int>(type: "integer", nullable: false),
                     IngredientId = table.Column<int>(type: "integer", nullable: false),
-                    IngredientsIngredientId = table.Column<int>(type: "integer", nullable: true)
+                    IngredientsIngredientId = table.Column<int>(type: "integer", nullable: true),
+                    UserProfilesUPId = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -598,6 +602,11 @@ namespace EXE202_BE.Data.Migrations
                         principalTable: "UserProfiles",
                         principalColumn: "UPId",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Allergies_UserProfiles_UserProfilesUPId",
+                        column: x => x.UserProfilesUPId,
+                        principalTable: "UserProfiles",
+                        principalColumn: "UPId");
                 });
 
             migrationBuilder.CreateTable(
@@ -627,7 +636,8 @@ namespace EXE202_BE.Data.Migrations
                     HealthConditionId = table.Column<int>(type: "integer", nullable: false),
                     UPId = table.Column<int>(type: "integer", nullable: false),
                     Status = table.Column<string>(type: "text", nullable: true),
-                    ActivityLevelsLevelId = table.Column<int>(type: "integer", nullable: true)
+                    ActivityLevelsLevelId = table.Column<int>(type: "integer", nullable: true),
+                    HealthConditionsHealthConditionId = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -643,6 +653,11 @@ namespace EXE202_BE.Data.Migrations
                         principalTable: "HealthConditions",
                         principalColumn: "HealthConditionId",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PersonalHealthConditions_HealthConditions_HealthConditionsH~",
+                        column: x => x.HealthConditionsHealthConditionId,
+                        principalTable: "HealthConditions",
+                        principalColumn: "HealthConditionId");
                     table.ForeignKey(
                         name: "FK_PersonalHealthConditions_UserProfiles_UPId",
                         column: x => x.UPId,
@@ -711,6 +726,49 @@ namespace EXE202_BE.Data.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "HealthConditions",
+                columns: new[] { "HealthConditionId", "BriefDescription", "HealthConditionName" },
+                values: new object[] { 1, "", "Health Condition 1" });
+
+            migrationBuilder.InsertData(
+                table: "HealthTags",
+                columns: new[] { "HealthTagId", "Description", "HealthTagName" },
+                values: new object[,]
+                {
+                    { 1, "Low in carbohydrates, Applicable To People on weight loss diets, diabetics", "is_low_carb" },
+                    { 2, "Low in fat, Applicable To People with heart conditions, those losing weight", "is_low_fat" },
+                    { 3, "High in protein, Applicable To Gym-goers, people with protein deficiency", "is_high_protein" },
+                    { 4, "Low in sugar, Applicable To Diabetics, people on sugar-restricted diets", "is_low_sugar" },
+                    { 5, "Low in sodium, Applicable To People with high blood pressure, heart conditions", "is_low_sodium" },
+                    { 6, "Low in cholesterol, Applicable To People with high cholesterol, heart conditions", "is_low_cholesterol" },
+                    { 7, "Low in total calories, Applicable To Overweight individuals, people aiming for weight loss", "is_low_calorie" },
+                    { 8, "High in fiber, Applicable To People with constipation, those reducing cholesterol", "is_high_fiber" },
+                    { 9, "Suitable for diabetics, Applicable To People with diabetes or prediabetes", "is_diabetic_friendly" },
+                    { 10, "Heart-friendly, Applicable To People with heart disease, high blood pressure", "is_heart_healthy" },
+                    { 11, "Kidney-friendly, Applicable To People with chronic kidney disease or on dialysis", "is_kidney_friendly" },
+                    { 12, "Liver-friendly, Applicable To People with hepatitis, fatty liver", "is_liver_friendly" },
+                    { 13, "Does not trigger uric acid, Applicable To People with gout", "is_gout_safe" },
+                    { 14, "Does not cause acid reflux, Applicable To People with GERD", "is_gerd_safe" },
+                    { 15, "Easy to digest, Applicable To People with weak stomach, IBS", "is_digestive_friendly" },
+                    { 16, "Relieves constipation, Applicable To People with constipation", "is_constipation_relief" },
+                    { 17, "Helps regulate blood pressure, Applicable To People with hypertension", "is_blood_pressure_friendly" },
+                    { 18, "Helps control blood lipids, Applicable To People with dyslipidemia", "is_cholesterol_control" },
+                    { 19, "Gluten-free, Applicable To People with gluten allergy or celiac disease", "is_gluten_free" },
+                    { 20, "Free from dairy and lactose, Applicable To People with lactose intolerance", "is_dairy_free" },
+                    { 21, "Free from lactose, Applicable To People experiencing bloating or diarrhea from lactose", "is_lactose_free" },
+                    { 22, "Free from common allergens, Applicable To People with multiple food allergies", "is_allergen_free" },
+                    { 23, "Reduces inflammation, Applicable To People with chronic inflammatory conditions", "is_anti_inflammatory" },
+                    { 24, "Keto-compliant (low-carb, high-fat), Applicable To People on keto or low-carb diets", "is_keto" },
+                    { 25, "Paleo-compliant (no refined foods), Applicable To People who prefer natural, clean eating", "is_paleo" },
+                    { 26, "Low FODMAP, Applicable To People with IBS or sensitive digestion", "is_fodmap_friendly" },
+                    { 27, "Boosts immune system, Applicable To People recovering from illness or surgery", "is_immune_boosting" },
+                    { 28, "Rich in calcium/vitamin D, Applicable To Elderly individuals, those with osteoporosis", "is_bone_strengthening" },
+                    { 29, "Good for skin (vitamin E, A, zinc, etc.), Applicable To People with acne or dry skin", "is_skin_health" },
+                    { 30, "Rich in lutein, vitamin A, Applicable To Screen workers, elderly individuals", "is_eye_health" },
+                    { 31, "Helps improve mood, Applicable To People under stress or with mild depression", "is_mood_boosting" }
+                });
+
+            migrationBuilder.InsertData(
                 table: "IngredientTypes",
                 columns: new[] { "IngredientTypeId", "TypeName" },
                 values: new object[,]
@@ -730,6 +788,22 @@ namespace EXE202_BE.Data.Migrations
                     { 13, "Others" }
                 });
 
+            migrationBuilder.InsertData(
+                table: "MealCatagories",
+                columns: new[] { "MealId", "Description", "MealName" },
+                values: new object[,]
+                {
+                    { 1, "no meat or fish, but may consume eggs and dairy", "is_vegetarian" },
+                    { 2, "does not consume any animal products, including dairy, eggs, and honey", "is_vegan" },
+                    { 3, "suitable for Muslims: no pork, no alcohol, and meat must be slaughtered according to Islamic law", "is_halal" },
+                    { 4, "suitable for Jews: follows Kosher rules, no mixing meat and dairy, only certified meat", "is_kosher" },
+                    { 5, "Raw food (consumes only uncooked or minimally heated foods, typically below 42–48°C)", "is_raw_food" },
+                    { 6, "no meat, but allows fish and seafood", "is_pescatarian" },
+                    { 7, "includes dairy but not eggs", "is_lacto_vegetarian" },
+                    { 8, "includes eggs but not dairy", "is_ovo_vegetarian" },
+                    { 9, "includes both eggs and dairy", "is_lacto_ovo_vegetarian" }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Allergies_IngredientsIngredientId",
                 table: "Allergies",
@@ -739,6 +813,11 @@ namespace EXE202_BE.Data.Migrations
                 name: "IX_Allergies_UPId",
                 table: "Allergies",
                 column: "UPId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Allergies_UserProfilesUPId",
+                table: "Allergies",
+                column: "UserProfilesUPId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -801,6 +880,11 @@ namespace EXE202_BE.Data.Migrations
                 name: "IX_PersonalHealthConditions_HealthConditionId",
                 table: "PersonalHealthConditions",
                 column: "HealthConditionId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PersonalHealthConditions_HealthConditionsHealthConditionId",
+                table: "PersonalHealthConditions",
+                column: "HealthConditionsHealthConditionId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PersonalUserCookingSkills_CookingSkillId",
