@@ -115,12 +115,14 @@ namespace EXE202_BE.Data.Migrations
                 {
                     HealthConditionId = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    HealthConditionType = table.Column<string>(type: "text", nullable: true),
                     HealthConditionName = table.Column<string>(type: "text", nullable: true),
                     BriefDescription = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_HealthConditions", x => x.HealthConditionId);
+                    table.CheckConstraint("CK_HealthConditions_Types", "\"HealthConditionType\" IN ('Metabolic & Endocrine Disorders', 'Cardiovascular & Blood Pressure Disorders', 'Digestive & Absorption Disorders', 'Liver & Kidney Disorders', 'Immune & Allergy Disorders', 'Others – Skin, Bones, Mental Health')");
                 });
 
             migrationBuilder.CreateTable(
@@ -388,6 +390,30 @@ namespace EXE202_BE.Data.Migrations
                         column: x => x.CuisineId,
                         principalTable: "Cuisines",
                         principalColumn: "CuisineId");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "HealthTagConditions",
+                columns: table => new
+                {
+                    HealthConditionId = table.Column<int>(type: "integer", nullable: false),
+                    HealthTagId = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_HealthTagConditions", x => new { x.HealthConditionId, x.HealthTagId });
+                    table.ForeignKey(
+                        name: "FK_HealthTagConditions_HealthConditions_HealthConditionId",
+                        column: x => x.HealthConditionId,
+                        principalTable: "HealthConditions",
+                        principalColumn: "HealthConditionId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_HealthTagConditions_HealthTags_HealthTagId",
+                        column: x => x.HealthTagId,
+                        principalTable: "HealthTags",
+                        principalColumn: "HealthTagId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -727,8 +753,43 @@ namespace EXE202_BE.Data.Migrations
 
             migrationBuilder.InsertData(
                 table: "HealthConditions",
-                columns: new[] { "HealthConditionId", "BriefDescription", "HealthConditionName" },
-                values: new object[] { 1, "", "Health Condition 1" });
+                columns: new[] { "HealthConditionId", "BriefDescription", "HealthConditionName", "HealthConditionType" },
+                values: new object[,]
+                {
+                    { 1, "Caused by insulin disorders – requires control of sugar and carbs", "Diabetes Type 1", "Metabolic & Endocrine Disorders" },
+                    { 2, "Caused by insulin disorders – requires control of sugar and carbs", "Diabetes Type 2", "Metabolic & Endocrine Disorders" },
+                    { 3, "A warning stage before diabetes", "Prediabetes", "Metabolic & Endocrine Disorders" },
+                    { 4, "High LDL, triglycerides; low HDL", "Dyslipidemia", "Metabolic & Endocrine Disorders" },
+                    { 5, "High uric acid causing joint inflammation – avoid purines", "Hyperuricemia / Gout", "Metabolic & Endocrine Disorders" },
+                    { 6, "Excess calories – needs low-energy diet", "Overweight / Obesity", "Metabolic & Endocrine Disorders" },
+                    { 7, "Includes abdominal obesity, high blood pressure, high blood sugar, high blood lipids", "Metabolic Syndrome", "Metabolic & Endocrine Disorders" },
+                    { 8, "Low blood sugar – requires proper carb distribution", "Hypoglycemia", "Metabolic & Endocrine Disorders" },
+                    { 9, "High blood pressure – reduce salt and fat", "Hypertension", "Cardiovascular & Blood Pressure Disorders" },
+                    { 10, "Narrowed heart vessels due to fat – requires low-fat diet", "Coronary Heart Disease", "Cardiovascular & Blood Pressure Disorders" },
+                    { 11, "Reduced heart pumping function – limit salt and fluids", "Heart Failure", "Cardiovascular & Blood Pressure Disorders" },
+                    { 12, "Caused by cholesterol buildup", "Atherosclerosis", "Cardiovascular & Blood Pressure Disorders" },
+                    { 13, "May be related to potassium, sodium, and magnesium levels", "Arrhythmia", "Cardiovascular & Blood Pressure Disorders" },
+                    { 14, "Avoid acidic, spicy, and fatty foods", "Gastroesophageal Reflux Disease (GERD)", "Digestive & Absorption Disorders" },
+                    { 15, "Avoid spicy, sour foods, and alcohol", "Gastric and Duodenal Ulcers", "Digestive & Absorption Disorders" },
+                    { 16, "Requires low-FODMAP diet", "Irritable Bowel Syndrome (IBS)", "Digestive & Absorption Disorders" },
+                    { 17, "Caused by low fiber or water intake", "Chronic Constipation", "Digestive & Absorption Disorders" },
+                    { 18, "May be due to bacteria or incorrect diet", "Prolonged Diarrhea", "Digestive & Absorption Disorders" },
+                    { 19, "Gluten allergy – requires gluten-free diet", "Celiac Disease / Gluten Allergy", "Digestive & Absorption Disorders" },
+                    { 20, "Milk sugar allergy – avoid dairy products", "Lactose Intolerance", "Digestive & Absorption Disorders" },
+                    { 21, "Caused by excess fat – needs low-fat, low-sugar diet", "Fatty Liver", "Liver & Kidney Disorders" },
+                    { 22, "Weak liver – reduce protein and salt", "Hepatitis B/C, Cirrhosis", "Liver & Kidney Disorders" },
+                    { 23, "Restrict protein, sodium, potassium, and phosphorus", "Chronic Kidney Disease", "Liver & Kidney Disorders" },
+                    { 24, "Avoid oxalates, purines, and sodium depending on stone type", "Kidney Stones", "Liver & Kidney Disorders" },
+                    { 25, "Allergic to peanuts, eggs, milk, seafood, etc.", "Food Allergies", "Immune & Allergy Disorders" },
+                    { 26, "Triggered by certain foods", "Asthma related to food allergies", "Immune & Allergy Disorders" },
+                    { 27, "Avoid fats and inflammatory foods", "Lupus", "Immune & Allergy Disorders" },
+                    { 28, "Requires nutrient-rich, immune-boosting foods", "Immunodeficiency / Post-surgery / Cancer", "Immune & Allergy Disorders" },
+                    { 29, "Calcium and vitamin D deficiency", "Osteoporosis", "Others – Skin, Bones, Mental Health" },
+                    { 30, "May be linked to zinc, vitamins A and E deficiency", "Skin Inflammation, Acne", "Others – Skin, Bones, Mental Health" },
+                    { 31, "Need foods rich in tryptophan, B6, and magnesium", "Mild Depression, Chronic Stress", "Others – Skin, Bones, Mental Health" },
+                    { 32, "May benefit from melatonin-boosting diet", "Insomnia", "Others – Skin, Bones, Mental Health" },
+                    { 33, "Requires iron-rich and vitamin C-rich foods", "Iron-deficiency Anemia", "Others – Skin, Bones, Mental Health" }
+                });
 
             migrationBuilder.InsertData(
                 table: "HealthTags",
@@ -804,6 +865,96 @@ namespace EXE202_BE.Data.Migrations
                     { 9, "includes both eggs and dairy", "is_lacto_ovo_vegetarian" }
                 });
 
+            migrationBuilder.InsertData(
+                table: "HealthTagConditions",
+                columns: new[] { "HealthConditionId", "HealthTagId" },
+                values: new object[,]
+                {
+                    { 1, 1 },
+                    { 1, 4 },
+                    { 1, 9 },
+                    { 2, 1 },
+                    { 2, 2 },
+                    { 2, 4 },
+                    { 2, 7 },
+                    { 2, 9 },
+                    { 3, 1 },
+                    { 3, 4 },
+                    { 3, 9 },
+                    { 4, 2 },
+                    { 4, 6 },
+                    { 4, 10 },
+                    { 4, 18 },
+                    { 5, 2 },
+                    { 5, 13 },
+                    { 5, 22 },
+                    { 6, 1 },
+                    { 6, 2 },
+                    { 6, 3 },
+                    { 6, 7 },
+                    { 7, 1 },
+                    { 7, 2 },
+                    { 7, 4 },
+                    { 7, 5 },
+                    { 7, 7 },
+                    { 8, 1 },
+                    { 8, 3 },
+                    { 9, 5 },
+                    { 9, 10 },
+                    { 9, 17 },
+                    { 10, 2 },
+                    { 10, 6 },
+                    { 10, 10 },
+                    { 11, 5 },
+                    { 11, 10 },
+                    { 12, 2 },
+                    { 12, 6 },
+                    { 12, 18 },
+                    { 13, 5 },
+                    { 13, 10 },
+                    { 13, 17 },
+                    { 14, 14 },
+                    { 14, 15 },
+                    { 15, 14 },
+                    { 15, 15 },
+                    { 16, 15 },
+                    { 16, 26 },
+                    { 17, 8 },
+                    { 17, 16 },
+                    { 18, 15 },
+                    { 19, 19 },
+                    { 19, 22 },
+                    { 20, 20 },
+                    { 20, 21 },
+                    { 20, 22 },
+                    { 21, 2 },
+                    { 21, 4 },
+                    { 21, 12 },
+                    { 22, 2 },
+                    { 22, 11 },
+                    { 22, 12 },
+                    { 23, 5 },
+                    { 23, 11 },
+                    { 24, 2 },
+                    { 24, 5 },
+                    { 24, 13 },
+                    { 25, 22 },
+                    { 26, 22 },
+                    { 27, 2 },
+                    { 27, 23 },
+                    { 28, 3 },
+                    { 28, 23 },
+                    { 28, 27 },
+                    { 29, 28 },
+                    { 30, 23 },
+                    { 30, 29 },
+                    { 31, 27 },
+                    { 31, 31 },
+                    { 32, 31 },
+                    { 33, 3 },
+                    { 33, 30 }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Allergies_IngredientsIngredientId",
                 table: "Allergies",
@@ -860,6 +1011,11 @@ namespace EXE202_BE.Data.Migrations
                 name: "IX_Devices_UserId",
                 table: "Devices",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_HealthTagConditions_HealthTagId",
+                table: "HealthTagConditions",
+                column: "HealthTagId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Ingredients_IngredientTypeId",
@@ -971,6 +1127,9 @@ namespace EXE202_BE.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Devices");
+
+            migrationBuilder.DropTable(
+                name: "HealthTagConditions");
 
             migrationBuilder.DropTable(
                 name: "MealScheduled");

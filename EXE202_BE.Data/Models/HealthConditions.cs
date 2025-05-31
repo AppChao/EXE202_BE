@@ -16,4 +16,6 @@ public partial class HealthConditions
     public string? 	BriefDescription { get; set; } = string.Empty;
 
     public virtual ICollection<PersonalHealthConditions> PersonalHealthConditions { get; set; } =  null!;
+
+    public virtual ICollection<HealthTagConditions> HealthTagConditions { get; set; }  =  null!;
 }

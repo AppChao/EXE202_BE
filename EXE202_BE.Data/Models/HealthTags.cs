@@ -14,4 +14,6 @@ public partial class HealthTags
     public string? Description { get; set; } = string.Empty;
 
     public virtual ICollection<RecipeHealthTags>? RecipeHealthTags { get; set; } =  null!;
+
+    public virtual ICollection<HealthTagConditions> HealthTagConditions { get; set; } =   null!;
 }

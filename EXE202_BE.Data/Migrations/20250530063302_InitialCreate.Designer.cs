@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace EXE202_BE.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250529151140_InitialCreate")]
+    [Migration("20250530063302_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -159,16 +159,679 @@ namespace EXE202_BE.Data.Migrations
                     b.Property<string>("HealthConditionName")
                         .HasColumnType("text");
 
+                    b.Property<string>("HealthConditionType")
+                        .HasColumnType("text");
+
                     b.HasKey("HealthConditionId");
 
-                    b.ToTable("HealthConditions");
+                    b.ToTable("HealthConditions", t =>
+                        {
+                            t.HasCheckConstraint("CK_HealthConditions_Types", "\"HealthConditionType\" IN ('Metabolic & Endocrine Disorders', 'Cardiovascular & Blood Pressure Disorders', 'Digestive & Absorption Disorders', 'Liver & Kidney Disorders', 'Immune & Allergy Disorders', 'Others – Skin, Bones, Mental Health')");
+                        });
 
                     b.HasData(
                         new
                         {
                             HealthConditionId = 1,
-                            BriefDescription = "",
-                            HealthConditionName = "Health Condition 1"
+                            BriefDescription = "Caused by insulin disorders – requires control of sugar and carbs",
+                            HealthConditionName = "Diabetes Type 1",
+                            HealthConditionType = "Metabolic & Endocrine Disorders"
+                        },
+                        new
+                        {
+                            HealthConditionId = 2,
+                            BriefDescription = "Caused by insulin disorders – requires control of sugar and carbs",
+                            HealthConditionName = "Diabetes Type 2",
+                            HealthConditionType = "Metabolic & Endocrine Disorders"
+                        },
+                        new
+                        {
+                            HealthConditionId = 3,
+                            BriefDescription = "A warning stage before diabetes",
+                            HealthConditionName = "Prediabetes",
+                            HealthConditionType = "Metabolic & Endocrine Disorders"
+                        },
+                        new
+                        {
+                            HealthConditionId = 4,
+                            BriefDescription = "High LDL, triglycerides; low HDL",
+                            HealthConditionName = "Dyslipidemia",
+                            HealthConditionType = "Metabolic & Endocrine Disorders"
+                        },
+                        new
+                        {
+                            HealthConditionId = 5,
+                            BriefDescription = "High uric acid causing joint inflammation – avoid purines",
+                            HealthConditionName = "Hyperuricemia / Gout",
+                            HealthConditionType = "Metabolic & Endocrine Disorders"
+                        },
+                        new
+                        {
+                            HealthConditionId = 6,
+                            BriefDescription = "Excess calories – needs low-energy diet",
+                            HealthConditionName = "Overweight / Obesity",
+                            HealthConditionType = "Metabolic & Endocrine Disorders"
+                        },
+                        new
+                        {
+                            HealthConditionId = 7,
+                            BriefDescription = "Includes abdominal obesity, high blood pressure, high blood sugar, high blood lipids",
+                            HealthConditionName = "Metabolic Syndrome",
+                            HealthConditionType = "Metabolic & Endocrine Disorders"
+                        },
+                        new
+                        {
+                            HealthConditionId = 8,
+                            BriefDescription = "Low blood sugar – requires proper carb distribution",
+                            HealthConditionName = "Hypoglycemia",
+                            HealthConditionType = "Metabolic & Endocrine Disorders"
+                        },
+                        new
+                        {
+                            HealthConditionId = 9,
+                            BriefDescription = "High blood pressure – reduce salt and fat",
+                            HealthConditionName = "Hypertension",
+                            HealthConditionType = "Cardiovascular & Blood Pressure Disorders"
+                        },
+                        new
+                        {
+                            HealthConditionId = 10,
+                            BriefDescription = "Narrowed heart vessels due to fat – requires low-fat diet",
+                            HealthConditionName = "Coronary Heart Disease",
+                            HealthConditionType = "Cardiovascular & Blood Pressure Disorders"
+                        },
+                        new
+                        {
+                            HealthConditionId = 11,
+                            BriefDescription = "Reduced heart pumping function – limit salt and fluids",
+                            HealthConditionName = "Heart Failure",
+                            HealthConditionType = "Cardiovascular & Blood Pressure Disorders"
+                        },
+                        new
+                        {
+                            HealthConditionId = 12,
+                            BriefDescription = "Caused by cholesterol buildup",
+                            HealthConditionName = "Atherosclerosis",
+                            HealthConditionType = "Cardiovascular & Blood Pressure Disorders"
+                        },
+                        new
+                        {
+                            HealthConditionId = 13,
+                            BriefDescription = "May be related to potassium, sodium, and magnesium levels",
+                            HealthConditionName = "Arrhythmia",
+                            HealthConditionType = "Cardiovascular & Blood Pressure Disorders"
+                        },
+                        new
+                        {
+                            HealthConditionId = 14,
+                            BriefDescription = "Avoid acidic, spicy, and fatty foods",
+                            HealthConditionName = "Gastroesophageal Reflux Disease (GERD)",
+                            HealthConditionType = "Digestive & Absorption Disorders"
+                        },
+                        new
+                        {
+                            HealthConditionId = 15,
+                            BriefDescription = "Avoid spicy, sour foods, and alcohol",
+                            HealthConditionName = "Gastric and Duodenal Ulcers",
+                            HealthConditionType = "Digestive & Absorption Disorders"
+                        },
+                        new
+                        {
+                            HealthConditionId = 16,
+                            BriefDescription = "Requires low-FODMAP diet",
+                            HealthConditionName = "Irritable Bowel Syndrome (IBS)",
+                            HealthConditionType = "Digestive & Absorption Disorders"
+                        },
+                        new
+                        {
+                            HealthConditionId = 17,
+                            BriefDescription = "Caused by low fiber or water intake",
+                            HealthConditionName = "Chronic Constipation",
+                            HealthConditionType = "Digestive & Absorption Disorders"
+                        },
+                        new
+                        {
+                            HealthConditionId = 18,
+                            BriefDescription = "May be due to bacteria or incorrect diet",
+                            HealthConditionName = "Prolonged Diarrhea",
+                            HealthConditionType = "Digestive & Absorption Disorders"
+                        },
+                        new
+                        {
+                            HealthConditionId = 19,
+                            BriefDescription = "Gluten allergy – requires gluten-free diet",
+                            HealthConditionName = "Celiac Disease / Gluten Allergy",
+                            HealthConditionType = "Digestive & Absorption Disorders"
+                        },
+                        new
+                        {
+                            HealthConditionId = 20,
+                            BriefDescription = "Milk sugar allergy – avoid dairy products",
+                            HealthConditionName = "Lactose Intolerance",
+                            HealthConditionType = "Digestive & Absorption Disorders"
+                        },
+                        new
+                        {
+                            HealthConditionId = 21,
+                            BriefDescription = "Caused by excess fat – needs low-fat, low-sugar diet",
+                            HealthConditionName = "Fatty Liver",
+                            HealthConditionType = "Liver & Kidney Disorders"
+                        },
+                        new
+                        {
+                            HealthConditionId = 22,
+                            BriefDescription = "Weak liver – reduce protein and salt",
+                            HealthConditionName = "Hepatitis B/C, Cirrhosis",
+                            HealthConditionType = "Liver & Kidney Disorders"
+                        },
+                        new
+                        {
+                            HealthConditionId = 23,
+                            BriefDescription = "Restrict protein, sodium, potassium, and phosphorus",
+                            HealthConditionName = "Chronic Kidney Disease",
+                            HealthConditionType = "Liver & Kidney Disorders"
+                        },
+                        new
+                        {
+                            HealthConditionId = 24,
+                            BriefDescription = "Avoid oxalates, purines, and sodium depending on stone type",
+                            HealthConditionName = "Kidney Stones",
+                            HealthConditionType = "Liver & Kidney Disorders"
+                        },
+                        new
+                        {
+                            HealthConditionId = 25,
+                            BriefDescription = "Allergic to peanuts, eggs, milk, seafood, etc.",
+                            HealthConditionName = "Food Allergies",
+                            HealthConditionType = "Immune & Allergy Disorders"
+                        },
+                        new
+                        {
+                            HealthConditionId = 26,
+                            BriefDescription = "Triggered by certain foods",
+                            HealthConditionName = "Asthma related to food allergies",
+                            HealthConditionType = "Immune & Allergy Disorders"
+                        },
+                        new
+                        {
+                            HealthConditionId = 27,
+                            BriefDescription = "Avoid fats and inflammatory foods",
+                            HealthConditionName = "Lupus",
+                            HealthConditionType = "Immune & Allergy Disorders"
+                        },
+                        new
+                        {
+                            HealthConditionId = 28,
+                            BriefDescription = "Requires nutrient-rich, immune-boosting foods",
+                            HealthConditionName = "Immunodeficiency / Post-surgery / Cancer",
+                            HealthConditionType = "Immune & Allergy Disorders"
+                        },
+                        new
+                        {
+                            HealthConditionId = 29,
+                            BriefDescription = "Calcium and vitamin D deficiency",
+                            HealthConditionName = "Osteoporosis",
+                            HealthConditionType = "Others – Skin, Bones, Mental Health"
+                        },
+                        new
+                        {
+                            HealthConditionId = 30,
+                            BriefDescription = "May be linked to zinc, vitamins A and E deficiency",
+                            HealthConditionName = "Skin Inflammation, Acne",
+                            HealthConditionType = "Others – Skin, Bones, Mental Health"
+                        },
+                        new
+                        {
+                            HealthConditionId = 31,
+                            BriefDescription = "Need foods rich in tryptophan, B6, and magnesium",
+                            HealthConditionName = "Mild Depression, Chronic Stress",
+                            HealthConditionType = "Others – Skin, Bones, Mental Health"
+                        },
+                        new
+                        {
+                            HealthConditionId = 32,
+                            BriefDescription = "May benefit from melatonin-boosting diet",
+                            HealthConditionName = "Insomnia",
+                            HealthConditionType = "Others – Skin, Bones, Mental Health"
+                        },
+                        new
+                        {
+                            HealthConditionId = 33,
+                            BriefDescription = "Requires iron-rich and vitamin C-rich foods",
+                            HealthConditionName = "Iron-deficiency Anemia",
+                            HealthConditionType = "Others – Skin, Bones, Mental Health"
+                        });
+                });
+
+            modelBuilder.Entity("EXE202_BE.Data.Models.HealthTagConditions", b =>
+                {
+                    b.Property<int>("HealthConditionId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("HealthTagId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("HealthConditionId", "HealthTagId");
+
+                    b.HasIndex("HealthTagId");
+
+                    b.ToTable("HealthTagConditions");
+
+                    b.HasData(
+                        new
+                        {
+                            HealthConditionId = 1,
+                            HealthTagId = 4
+                        },
+                        new
+                        {
+                            HealthConditionId = 1,
+                            HealthTagId = 9
+                        },
+                        new
+                        {
+                            HealthConditionId = 1,
+                            HealthTagId = 1
+                        },
+                        new
+                        {
+                            HealthConditionId = 2,
+                            HealthTagId = 4
+                        },
+                        new
+                        {
+                            HealthConditionId = 2,
+                            HealthTagId = 9
+                        },
+                        new
+                        {
+                            HealthConditionId = 2,
+                            HealthTagId = 1
+                        },
+                        new
+                        {
+                            HealthConditionId = 2,
+                            HealthTagId = 2
+                        },
+                        new
+                        {
+                            HealthConditionId = 2,
+                            HealthTagId = 7
+                        },
+                        new
+                        {
+                            HealthConditionId = 3,
+                            HealthTagId = 9
+                        },
+                        new
+                        {
+                            HealthConditionId = 3,
+                            HealthTagId = 4
+                        },
+                        new
+                        {
+                            HealthConditionId = 3,
+                            HealthTagId = 1
+                        },
+                        new
+                        {
+                            HealthConditionId = 4,
+                            HealthTagId = 6
+                        },
+                        new
+                        {
+                            HealthConditionId = 4,
+                            HealthTagId = 18
+                        },
+                        new
+                        {
+                            HealthConditionId = 4,
+                            HealthTagId = 2
+                        },
+                        new
+                        {
+                            HealthConditionId = 4,
+                            HealthTagId = 10
+                        },
+                        new
+                        {
+                            HealthConditionId = 5,
+                            HealthTagId = 13
+                        },
+                        new
+                        {
+                            HealthConditionId = 5,
+                            HealthTagId = 2
+                        },
+                        new
+                        {
+                            HealthConditionId = 5,
+                            HealthTagId = 22
+                        },
+                        new
+                        {
+                            HealthConditionId = 6,
+                            HealthTagId = 7
+                        },
+                        new
+                        {
+                            HealthConditionId = 6,
+                            HealthTagId = 1
+                        },
+                        new
+                        {
+                            HealthConditionId = 6,
+                            HealthTagId = 2
+                        },
+                        new
+                        {
+                            HealthConditionId = 6,
+                            HealthTagId = 3
+                        },
+                        new
+                        {
+                            HealthConditionId = 7,
+                            HealthTagId = 1
+                        },
+                        new
+                        {
+                            HealthConditionId = 7,
+                            HealthTagId = 2
+                        },
+                        new
+                        {
+                            HealthConditionId = 7,
+                            HealthTagId = 5
+                        },
+                        new
+                        {
+                            HealthConditionId = 7,
+                            HealthTagId = 4
+                        },
+                        new
+                        {
+                            HealthConditionId = 7,
+                            HealthTagId = 7
+                        },
+                        new
+                        {
+                            HealthConditionId = 8,
+                            HealthTagId = 1
+                        },
+                        new
+                        {
+                            HealthConditionId = 8,
+                            HealthTagId = 3
+                        },
+                        new
+                        {
+                            HealthConditionId = 9,
+                            HealthTagId = 5
+                        },
+                        new
+                        {
+                            HealthConditionId = 9,
+                            HealthTagId = 17
+                        },
+                        new
+                        {
+                            HealthConditionId = 9,
+                            HealthTagId = 10
+                        },
+                        new
+                        {
+                            HealthConditionId = 10,
+                            HealthTagId = 2
+                        },
+                        new
+                        {
+                            HealthConditionId = 10,
+                            HealthTagId = 6
+                        },
+                        new
+                        {
+                            HealthConditionId = 10,
+                            HealthTagId = 10
+                        },
+                        new
+                        {
+                            HealthConditionId = 11,
+                            HealthTagId = 5
+                        },
+                        new
+                        {
+                            HealthConditionId = 11,
+                            HealthTagId = 10
+                        },
+                        new
+                        {
+                            HealthConditionId = 12,
+                            HealthTagId = 6
+                        },
+                        new
+                        {
+                            HealthConditionId = 12,
+                            HealthTagId = 18
+                        },
+                        new
+                        {
+                            HealthConditionId = 12,
+                            HealthTagId = 2
+                        },
+                        new
+                        {
+                            HealthConditionId = 13,
+                            HealthTagId = 5
+                        },
+                        new
+                        {
+                            HealthConditionId = 13,
+                            HealthTagId = 17
+                        },
+                        new
+                        {
+                            HealthConditionId = 13,
+                            HealthTagId = 10
+                        },
+                        new
+                        {
+                            HealthConditionId = 14,
+                            HealthTagId = 14
+                        },
+                        new
+                        {
+                            HealthConditionId = 14,
+                            HealthTagId = 15
+                        },
+                        new
+                        {
+                            HealthConditionId = 15,
+                            HealthTagId = 15
+                        },
+                        new
+                        {
+                            HealthConditionId = 15,
+                            HealthTagId = 14
+                        },
+                        new
+                        {
+                            HealthConditionId = 16,
+                            HealthTagId = 26
+                        },
+                        new
+                        {
+                            HealthConditionId = 16,
+                            HealthTagId = 15
+                        },
+                        new
+                        {
+                            HealthConditionId = 17,
+                            HealthTagId = 8
+                        },
+                        new
+                        {
+                            HealthConditionId = 17,
+                            HealthTagId = 16
+                        },
+                        new
+                        {
+                            HealthConditionId = 18,
+                            HealthTagId = 15
+                        },
+                        new
+                        {
+                            HealthConditionId = 19,
+                            HealthTagId = 19
+                        },
+                        new
+                        {
+                            HealthConditionId = 19,
+                            HealthTagId = 22
+                        },
+                        new
+                        {
+                            HealthConditionId = 20,
+                            HealthTagId = 20
+                        },
+                        new
+                        {
+                            HealthConditionId = 20,
+                            HealthTagId = 21
+                        },
+                        new
+                        {
+                            HealthConditionId = 20,
+                            HealthTagId = 22
+                        },
+                        new
+                        {
+                            HealthConditionId = 21,
+                            HealthTagId = 12
+                        },
+                        new
+                        {
+                            HealthConditionId = 21,
+                            HealthTagId = 2
+                        },
+                        new
+                        {
+                            HealthConditionId = 21,
+                            HealthTagId = 4
+                        },
+                        new
+                        {
+                            HealthConditionId = 22,
+                            HealthTagId = 12
+                        },
+                        new
+                        {
+                            HealthConditionId = 22,
+                            HealthTagId = 2
+                        },
+                        new
+                        {
+                            HealthConditionId = 22,
+                            HealthTagId = 11
+                        },
+                        new
+                        {
+                            HealthConditionId = 23,
+                            HealthTagId = 11
+                        },
+                        new
+                        {
+                            HealthConditionId = 23,
+                            HealthTagId = 5
+                        },
+                        new
+                        {
+                            HealthConditionId = 24,
+                            HealthTagId = 13
+                        },
+                        new
+                        {
+                            HealthConditionId = 24,
+                            HealthTagId = 5
+                        },
+                        new
+                        {
+                            HealthConditionId = 24,
+                            HealthTagId = 2
+                        },
+                        new
+                        {
+                            HealthConditionId = 25,
+                            HealthTagId = 22
+                        },
+                        new
+                        {
+                            HealthConditionId = 26,
+                            HealthTagId = 22
+                        },
+                        new
+                        {
+                            HealthConditionId = 27,
+                            HealthTagId = 23
+                        },
+                        new
+                        {
+                            HealthConditionId = 27,
+                            HealthTagId = 2
+                        },
+                        new
+                        {
+                            HealthConditionId = 28,
+                            HealthTagId = 27
+                        },
+                        new
+                        {
+                            HealthConditionId = 28,
+                            HealthTagId = 3
+                        },
+                        new
+                        {
+                            HealthConditionId = 28,
+                            HealthTagId = 23
+                        },
+                        new
+                        {
+                            HealthConditionId = 29,
+                            HealthTagId = 28
+                        },
+                        new
+                        {
+                            HealthConditionId = 30,
+                            HealthTagId = 29
+                        },
+                        new
+                        {
+                            HealthConditionId = 30,
+                            HealthTagId = 23
+                        },
+                        new
+                        {
+                            HealthConditionId = 31,
+                            HealthTagId = 31
+                        },
+                        new
+                        {
+                            HealthConditionId = 31,
+                            HealthTagId = 27
+                        },
+                        new
+                        {
+                            HealthConditionId = 32,
+                            HealthTagId = 31
+                        },
+                        new
+                        {
+                            HealthConditionId = 33,
+                            HealthTagId = 3
+                        },
+                        new
+                        {
+                            HealthConditionId = 33,
+                            HealthTagId = 30
                         });
                 });
 
@@ -1206,6 +1869,25 @@ namespace EXE202_BE.Data.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("EXE202_BE.Data.Models.HealthTagConditions", b =>
+                {
+                    b.HasOne("EXE202_BE.Data.Models.HealthConditions", "HealthCondition")
+                        .WithMany("HealthTagConditions")
+                        .HasForeignKey("HealthConditionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EXE202_BE.Data.Models.HealthTags", "HealthTag")
+                        .WithMany("HealthTagConditions")
+                        .HasForeignKey("HealthTagId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("HealthCondition");
+
+                    b.Navigation("HealthTag");
+                });
+
             modelBuilder.Entity("EXE202_BE.Data.Models.Ingredients", b =>
                 {
                     b.HasOne("EXE202_BE.Data.Models.IngredientTypes", "IngredientType")
@@ -1494,11 +2176,15 @@ namespace EXE202_BE.Data.Migrations
 
             modelBuilder.Entity("EXE202_BE.Data.Models.HealthConditions", b =>
                 {
+                    b.Navigation("HealthTagConditions");
+
                     b.Navigation("PersonalHealthConditions");
                 });
 
             modelBuilder.Entity("EXE202_BE.Data.Models.HealthTags", b =>
                 {
+                    b.Navigation("HealthTagConditions");
+
                     b.Navigation("RecipeHealthTags");
                 });
 
