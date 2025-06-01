@@ -26,6 +26,8 @@ public class MappingProfile : Profile
             .ForMember(dest => dest.HealthConditions, opt => opt.MapFrom(src => src.PersonalHealthConditions.Select(h => h.HealthCondition.HealthConditionName).ToList()))
             .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.UserId))
             .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.User.Email))
+            .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => src.User.PhoneNumber)) // Map phone number
+            .ForMember(dest => dest.SubcriptionId, opt => opt.MapFrom(src => src.SubcriptionId)) 
             .ForMember(dest => dest.Role, opt => opt.Ignore())
             .ForMember(dest => dest.UserPicture, opt => opt.MapFrom(src => src.UserPicture.ToString()));
 

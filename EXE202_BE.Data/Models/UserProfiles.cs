@@ -34,6 +34,10 @@ public partial class UserProfiles
     public int? LevelId { get; set; }
 
     public int? SpeedId { get; set; }
+    
+    public DateTime? StartDate { get; set; }
+    
+    public DateTime? EndDate { get; set; }
 
     public Uri? UserPicture { get; set; } 
 
