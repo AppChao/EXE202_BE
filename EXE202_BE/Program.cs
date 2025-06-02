@@ -71,7 +71,7 @@ namespace EXE202_BE
             if (string.IsNullOrEmpty(cloudinaryUrl))
             {
                 throw new Exception("CLOUDINARY_URL environment variable is not set.");
-            }else
+            }else if (cloudinaryUrl == string.Empty)
             {
                 Console.WriteLine("⚠️ CLOUDINARY_URL is not set. Using dummy Cloudinary instance.");
 
