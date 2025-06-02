@@ -8,6 +8,10 @@ public class IngredientDto
     public string CaloriesPer100g { get; set; }
     public string DefaultUnit { get; set; }
     public string GramPerUnit { get; set; }
+    
+    public string? IconLibrary { get; set; } 
+
+    public string? IconName { get; set; } 
 
     public Ingredients ToEntity()
     {
@@ -18,7 +22,9 @@ public class IngredientDto
             IngredientTypeId = int.Parse(IngredientTypeId),
             CaloriesPer100g = double.Parse(CaloriesPer100g),
             DefaultUnit = DefaultUnit,
-            GramPerUnit = double.Parse(GramPerUnit)
+            GramPerUnit = double.Parse(GramPerUnit),
+            IconLibrary = IconLibrary ?? null,
+            IconName = IconName ?? null,
         };
     }
 }

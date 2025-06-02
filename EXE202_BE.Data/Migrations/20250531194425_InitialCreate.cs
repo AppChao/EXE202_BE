@@ -89,7 +89,8 @@ namespace EXE202_BE.Data.Migrations
                     CuisineId = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Nation = table.Column<string>(type: "text", nullable: true),
-                    Region = table.Column<string>(type: "text", nullable: true)
+                    Region = table.Column<string>(type: "text", nullable: true),
+                    Description = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -426,7 +427,9 @@ namespace EXE202_BE.Data.Migrations
                     IngredientTypeId = table.Column<int>(type: "integer", nullable: false),
                     CaloriesPer100g = table.Column<double>(type: "double precision", nullable: true),
                     DefaultUnit = table.Column<string>(type: "text", nullable: true),
-                    GramPerUnit = table.Column<double>(type: "double precision", nullable: true)
+                    GramPerUnit = table.Column<double>(type: "double precision", nullable: true),
+                    IconLibrary = table.Column<string>(type: "text", nullable: true),
+                    IconName = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -741,6 +744,18 @@ namespace EXE202_BE.Data.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "ActivityLevels",
+                columns: new[] { "LevelId", "LevelDescription", "LevelName" },
+                values: new object[,]
+                {
+                    { 1, "Sedentary lifestyle, no exercise", "Low Activity" },
+                    { 2, "Light exercise 1-3 days per week", "Medium Activity" },
+                    { 3, "Intense exercise 3-5 days per week", "High Activity" },
+                    { 4, "Daily exercise or physical job", "Very High Activity" },
+                    { 5, "Athletes very hard physical job", "Extra Activity" }
+                });
+
+            migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
@@ -749,6 +764,42 @@ namespace EXE202_BE.Data.Migrations
                     { "2", null, "Staff", "STAFF" },
                     { "3", null, "Member", "MEMBER" },
                     { "4", null, "User", "USER" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "CookingSkills",
+                columns: new[] { "CookingSkillId", "CookingSkillName", "DifficultyValue" },
+                values: new object[,]
+                {
+                    { 1, "Novice", "1" },
+                    { 2, "Basic", "2" },
+                    { 3, "Intermediate", "3" },
+                    { 4, "Advanced", "4" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Cuisines",
+                columns: new[] { "CuisineId", "Description", "Nation", "Region" },
+                values: new object[,]
+                {
+                    { 1, "Taste profile: Light, delicate, mildly seasoned, not too sweet, emphasizing subtlety and balance.\n\nCommonly used ingredients: Shallots, garlic, fish sauce, fermented shrimp paste (mắm tôm), vinegar, rice wine vinegar (dấm bỗng).\n\nRepresentative dishes:\n\nHanoi Beef Pho (Phở bò Hà Nội)\n\nBun Thang (Bún thang)\n\nLa Vong Grilled Fish (Chả cá Lã Vọng)\n\nFried Spring Rolls (Nem rán / Chả giò)\n\nCrab Noodle Soup (Bún riêu cua)", "Viet Nam", "Northern" },
+                    { 2, "Taste profile: Bold, spicy, and saltier than other regions.\n\nCommonly used ingredients: Chili, lemongrass, fermented anchovy paste (mắm ruốc), fermented fish sauce (mắm nêm), turmeric, pepper.\n\nRepresentative dishes:\n\nHue Spicy Beef Noodle Soup (Bún bò Huế)\n\nQuang-style Noodles (Mì Quảng)\n\nBaby Clam Rice (Cơm hến)\n\nSteamed Savory Rice Cakes (Bánh bèo, Bánh nậm, Bánh lọc)\n\nGrilled Pork Skewers & Fermented Pork (Nem lụi, Tré)\n\nHue is known for its royal cuisine, with dishes that are often elaborate and beautifully presented.", "Viet Nam", "Central" },
+                    { 3, "Taste profile: Sweeter, richer flavors, often using coconut milk and sugar-based broths.\n\nCommonly used ingredients: Sugar, coconut milk, garlic, mild chili, aromatic herbs.\n\nRepresentative dishes:\n\nPhnom Penh-style Noodle Soup (Hủ tiếu Nam Vang)\n\nFermented Fish Noodle Soup (Bún mắm)\n\nBroken Rice with Grilled Pork (Cơm tấm)\n\nFresh Spring Rolls (Gỏi cuốn)\n\nCaramelized Braised Fish in Clay Pot (Cá kho tộ)\n\nSour Soup & Fermented Fish Hotpot (Canh chua, Lẩu mắm)", "Viet Nam", "Southern" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Goals",
+                columns: new[] { "GoalId", "GoalName" },
+                values: new object[,]
+                {
+                    { 1, "Eat healthy" },
+                    { 2, "Learn how to cook" },
+                    { 3, "Lose weight" },
+                    { 4, "Gain weight" },
+                    { 5, "Try new recipes" },
+                    { 6, "Stick to my diet" },
+                    { 7, "Build muscle" },
+                    { 8, "Save time" }
                 });
 
             migrationBuilder.InsertData(
@@ -863,6 +914,28 @@ namespace EXE202_BE.Data.Migrations
                     { 7, "includes dairy but not eggs", "is_lacto_vegetarian" },
                     { 8, "includes eggs but not dairy", "is_ovo_vegetarian" },
                     { 9, "includes both eggs and dairy", "is_lacto_ovo_vegetarian" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "UserExperiences",
+                columns: new[] { "ExperienceId", "ExperienceName" },
+                values: new object[,]
+                {
+                    { 1, "Beginner" },
+                    { 2, "Intermediate" },
+                    { 3, "Advanced" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "UserProblem",
+                columns: new[] { "ProblemId", "ProblemName" },
+                values: new object[,]
+                {
+                    { 1, "Lack of motivation" },
+                    { 2, "Weight rebound" },
+                    { 3, "No significant change" },
+                    { 4, "I don't have enough time" },
+                    { 5, "None of the above" }
                 });
 
             migrationBuilder.InsertData(

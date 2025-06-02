@@ -13,5 +13,7 @@ public partial class Cuisines
 
     public string? Region { get; set; } = string.Empty;
 
+    public string? Description { get; set; } = string.Empty;
+
     public virtual ICollection<Recipes> Recipes { get; set; } =  null!;
 }

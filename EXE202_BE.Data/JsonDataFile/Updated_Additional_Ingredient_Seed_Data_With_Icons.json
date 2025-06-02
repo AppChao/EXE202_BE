@@ -213,7 +213,9 @@
     "IngredientTypeId": "4",
     "CaloriesPer100g": "411.7",
     "DefaultUnit": "tbsp",
-    "GramPerUnit": "34.4"
+    "GramPerUnit": "34.4",
+    "IconLibrary": "Ionicons",
+    "IconName": "milk"
   },
   {
     "IngredientId": "128",
@@ -221,7 +223,9 @@
     "IngredientTypeId": "4",
     "CaloriesPer100g": "168.2",
     "DefaultUnit": "piece",
-    "GramPerUnit": "77.4"
+    "GramPerUnit": "77.4",
+    "IconLibrary": "Ionicons",
+    "IconName": "milk"
   },
   {
     "IngredientId": "129",
@@ -237,7 +241,9 @@
     "IngredientTypeId": "4",
     "CaloriesPer100g": "365.6",
     "DefaultUnit": "gram",
-    "GramPerUnit": "62.7"
+    "GramPerUnit": "62.7",
+    "IconLibrary": "Ionicons",
+    "IconName": "milk"
   },
   {
     "IngredientId": "131",
@@ -245,7 +251,9 @@
     "IngredientTypeId": "4",
     "CaloriesPer100g": "131.5",
     "DefaultUnit": "piece",
-    "GramPerUnit": "144.8"
+    "GramPerUnit": "144.8",
+    "IconLibrary": "Ionicons",
+    "IconName": "milk"
   },
   {
     "IngredientId": "132",
@@ -389,7 +397,9 @@
     "IngredientTypeId": "6",
     "CaloriesPer100g": "51.1",
     "DefaultUnit": "tbsp",
-    "GramPerUnit": "19.7"
+    "GramPerUnit": "19.7",
+    "IconLibrary": "MaterialIcons",
+    "IconName": "wheat"
   },
   {
     "IngredientId": "150",
@@ -581,7 +591,9 @@
     "IngredientTypeId": "10",
     "CaloriesPer100g": "500.0",
     "DefaultUnit": "gram",
-    "GramPerUnit": "52.9"
+    "GramPerUnit": "52.9",
+    "IconLibrary": "EvaIcons",
+    "IconName": "nut"
   },
   {
     "IngredientId": "174",
@@ -653,7 +665,9 @@
     "IngredientTypeId": "12",
     "CaloriesPer100g": "339.0",
     "DefaultUnit": "piece",
-    "GramPerUnit": "121.7"
+    "GramPerUnit": "121.7",
+    "IconLibrary": "FontAwesome",
+    "IconName": "shrimp"
   },
   {
     "IngredientId": "183",

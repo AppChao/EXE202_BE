@@ -37,7 +37,9 @@
     "IngredientTypeId": "1",
     "CaloriesPer100g": "356.6",
     "DefaultUnit": "ml",
-    "GramPerUnit": "117.0"
+    "GramPerUnit": "117.0",
+    "IconLibrary": "RemixIcon",
+    "IconName": "fish"
   },
   {
     "IngredientId": "206",
@@ -45,7 +47,9 @@
     "IngredientTypeId": "1",
     "CaloriesPer100g": "353.0",
     "DefaultUnit": "ml",
-    "GramPerUnit": "21.5"
+    "GramPerUnit": "21.5",
+    "IconLibrary": "RemixIcon",
+    "IconName": "fish"
   },
   {
     "IngredientId": "207",
@@ -53,7 +57,9 @@
     "IngredientTypeId": "1",
     "CaloriesPer100g": "137.9",
     "DefaultUnit": "tsp",
-    "GramPerUnit": "124.1"
+    "GramPerUnit": "124.1",
+    "IconLibrary": "RemixIcon",
+    "IconName": "fish"
   },
   {
     "IngredientId": "208",
@@ -205,7 +211,9 @@
     "IngredientTypeId": "4",
     "CaloriesPer100g": "52.9",
     "DefaultUnit": "tbsp",
-    "GramPerUnit": "48.9"
+    "GramPerUnit": "48.9",
+    "IconLibrary": "FeatherIcons",
+    "IconName": "egg"
   },
   {
     "IngredientId": "227",
@@ -213,7 +221,9 @@
     "IngredientTypeId": "4",
     "CaloriesPer100g": "162.9",
     "DefaultUnit": "gram",
-    "GramPerUnit": "67.6"
+    "GramPerUnit": "67.6",
+    "IconLibrary": "Ionicons",
+    "IconName": "milk"
   },
   {
     "IngredientId": "228",
@@ -221,7 +231,9 @@
     "IngredientTypeId": "4",
     "CaloriesPer100g": "426.9",
     "DefaultUnit": "piece",
-    "GramPerUnit": "53.7"
+    "GramPerUnit": "53.7",
+    "IconLibrary": "Ionicons",
+    "IconName": "milk"
   },
   {
     "IngredientId": "229",
@@ -237,7 +249,9 @@
     "IngredientTypeId": "4",
     "CaloriesPer100g": "483.6",
     "DefaultUnit": "piece",
-    "GramPerUnit": "50.1"
+    "GramPerUnit": "50.1",
+    "IconLibrary": "Ionicons",
+    "IconName": "milk"
   },
   {
     "IngredientId": "231",
@@ -349,7 +363,9 @@
     "IngredientTypeId": "6",
     "CaloriesPer100g": "381.6",
     "DefaultUnit": "ml",
-    "GramPerUnit": "137.2"
+    "GramPerUnit": "137.2",
+    "IconLibrary": "MaterialIcons",
+    "IconName": "wheat"
   },
   {
     "IngredientId": "245",
@@ -365,7 +381,9 @@
     "IngredientTypeId": "6",
     "CaloriesPer100g": "302.4",
     "DefaultUnit": "tbsp",
-    "GramPerUnit": "81.3"
+    "GramPerUnit": "81.3",
+    "IconLibrary": "MaterialIcons",
+    "IconName": "wheat"
   },
   {
     "IngredientId": "247",
@@ -645,7 +663,9 @@
     "IngredientTypeId": "12",
     "CaloriesPer100g": "181.9",
     "DefaultUnit": "gram",
-    "GramPerUnit": "53.0"
+    "GramPerUnit": "53.0",
+    "IconLibrary": "FeatherIcons",
+    "IconName": "egg"
   },
   {
     "IngredientId": "282",
@@ -701,7 +721,9 @@
     "IngredientTypeId": "13",
     "CaloriesPer100g": "41.7",
     "DefaultUnit": "gram",
-    "GramPerUnit": "42.0"
+    "GramPerUnit": "42.0",
+    "IconLibrary": "MaterialIcons",
+    "IconName": "wheat"
   },
   {
     "IngredientId": "289",

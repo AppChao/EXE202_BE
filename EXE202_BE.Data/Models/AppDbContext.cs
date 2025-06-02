@@ -259,7 +259,53 @@ builder.Entity<HealthTagConditions>().HasData(
     new HealthTagConditions { HealthConditionId = 32, HealthTagId = 31 },
     new HealthTagConditions { HealthConditionId = 33, HealthTagId = 3 },
     new HealthTagConditions { HealthConditionId = 33, HealthTagId = 30 }
-);
+    );
+
+    builder.Entity<Goals>().HasData(
+        new Goals {GoalId = 1, GoalName = "Eat healthy"},
+        new Goals {GoalId = 2, GoalName = "Learn how to cook"},
+        new Goals {GoalId = 3, GoalName = "Lose weight"},
+        new Goals {GoalId = 4, GoalName = "Gain weight"},
+        new Goals {GoalId = 5, GoalName = "Try new recipes"},
+        new Goals {GoalId = 6, GoalName = "Stick to my diet"},
+        new Goals {GoalId = 7, GoalName = "Build muscle"},
+        new Goals {GoalId = 8, GoalName = "Save time"}
+        );
+
+        builder.Entity<ActivityLevels>().HasData(
+            new ActivityLevels {LevelId = 1, LevelName = "Low Activity", LevelDescription = "Sedentary lifestyle, no exercise"},
+            new ActivityLevels {LevelId = 2, LevelName = "Medium Activity", LevelDescription = "Light exercise 1-3 days per week"},
+            new ActivityLevels {LevelId = 3, LevelName = "High Activity", LevelDescription = "Intense exercise 3-5 days per week"},
+            new ActivityLevels {LevelId = 4, LevelName = "Very High Activity", LevelDescription = "Daily exercise or physical job"},
+            new ActivityLevels {LevelId = 5, LevelName = "Extra Activity", LevelDescription = "Athletes very hard physical job"}
+            );
+
+        builder.Entity<UserExperiences>().HasData(
+            new UserExperiences {ExperienceId = 1, ExperienceName = "Beginner"},
+            new UserExperiences {ExperienceId = 2, ExperienceName = "Intermediate"},
+            new UserExperiences {ExperienceId = 3, ExperienceName = "Advanced"}
+            );
+
+        builder.Entity<UserProblem>().HasData(
+            new UserProblem {ProblemId = 1, ProblemName = "Lack of motivation"},
+            new UserProblem {ProblemId = 2, ProblemName = "Weight rebound"},
+            new UserProblem {ProblemId = 3, ProblemName = "No significant change"},
+            new UserProblem {ProblemId = 4, ProblemName = "I don't have enough time"},
+            new UserProblem {ProblemId = 5, ProblemName = "None of the above"}
+            );
+
+        builder.Entity<CookingSkills>().HasData(
+            new CookingSkills {CookingSkillId = 1, CookingSkillName = "Novice", DifficultyValue = "1"},
+            new CookingSkills {CookingSkillId = 2, CookingSkillName = "Basic", DifficultyValue = "2"},
+            new CookingSkills {CookingSkillId = 3, CookingSkillName = "Intermediate", DifficultyValue = "3"},
+            new  CookingSkills {CookingSkillId = 4, CookingSkillName = "Advanced", DifficultyValue = "4"}
+            );
+
+        builder.Entity<Cuisines>().HasData(
+            new Cuisines {CuisineId = 1, Nation = "Viet Nam", Region = "Northern", Description = "Taste profile: Light, delicate, mildly seasoned, not too sweet, emphasizing subtlety and balance.\n\nCommonly used ingredients: Shallots, garlic, fish sauce, fermented shrimp paste (mắm tôm), vinegar, rice wine vinegar (dấm bỗng).\n\nRepresentative dishes:\n\nHanoi Beef Pho (Phở bò Hà Nội)\n\nBun Thang (Bún thang)\n\nLa Vong Grilled Fish (Chả cá Lã Vọng)\n\nFried Spring Rolls (Nem rán / Chả giò)\n\nCrab Noodle Soup (Bún riêu cua)"},
+            new Cuisines {CuisineId = 2, Nation = "Viet Nam", Region = "Central", Description = "Taste profile: Bold, spicy, and saltier than other regions.\n\nCommonly used ingredients: Chili, lemongrass, fermented anchovy paste (mắm ruốc), fermented fish sauce (mắm nêm), turmeric, pepper.\n\nRepresentative dishes:\n\nHue Spicy Beef Noodle Soup (Bún bò Huế)\n\nQuang-style Noodles (Mì Quảng)\n\nBaby Clam Rice (Cơm hến)\n\nSteamed Savory Rice Cakes (Bánh bèo, Bánh nậm, Bánh lọc)\n\nGrilled Pork Skewers & Fermented Pork (Nem lụi, Tré)\n\nHue is known for its royal cuisine, with dishes that are often elaborate and beautifully presented."},
+            new Cuisines {CuisineId = 3, Nation = "Viet Nam", Region = "Southern", Description = "Taste profile: Sweeter, richer flavors, often using coconut milk and sugar-based broths.\n\nCommonly used ingredients: Sugar, coconut milk, garlic, mild chili, aromatic herbs.\n\nRepresentative dishes:\n\nPhnom Penh-style Noodle Soup (Hủ tiếu Nam Vang)\n\nFermented Fish Noodle Soup (Bún mắm)\n\nBroken Rice with Grilled Pork (Cơm tấm)\n\nFresh Spring Rolls (Gỏi cuốn)\n\nCaramelized Braised Fish in Clay Pot (Cá kho tộ)\n\nSour Soup & Fermented Fish Hotpot (Canh chua, Lẩu mắm)"}
+            );
 
         builder.Entity<RecipeMealTypes>()
             .HasKey(re => new { re.MealId, re.RecipeId });

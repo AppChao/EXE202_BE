@@ -19,6 +19,10 @@ public partial class Ingredients
 
     public double? GramPerUnit { get; set; }
 
+    public string? IconLibrary { get; set; } = string.Empty;
+
+    public string? IconName { get; set; } = string.Empty;
+
     [ForeignKey("IngredientTypeId")]
     public virtual IngredientTypes IngredientType { get; set; } = null!;
     

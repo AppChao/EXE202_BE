@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace EXE202_BE.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250530063302_InitialCreate")]
+    [Migration("20250531194425_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -42,6 +42,38 @@ namespace EXE202_BE.Data.Migrations
                     b.HasKey("LevelId");
 
                     b.ToTable("ActivityLevels");
+
+                    b.HasData(
+                        new
+                        {
+                            LevelId = 1,
+                            LevelDescription = "Sedentary lifestyle, no exercise",
+                            LevelName = "Low Activity"
+                        },
+                        new
+                        {
+                            LevelId = 2,
+                            LevelDescription = "Light exercise 1-3 days per week",
+                            LevelName = "Medium Activity"
+                        },
+                        new
+                        {
+                            LevelId = 3,
+                            LevelDescription = "Intense exercise 3-5 days per week",
+                            LevelName = "High Activity"
+                        },
+                        new
+                        {
+                            LevelId = 4,
+                            LevelDescription = "Daily exercise or physical job",
+                            LevelName = "Very High Activity"
+                        },
+                        new
+                        {
+                            LevelId = 5,
+                            LevelDescription = "Athletes very hard physical job",
+                            LevelName = "Extra Activity"
+                        });
                 });
 
             modelBuilder.Entity("EXE202_BE.Data.Models.Allergies", b =>
@@ -86,6 +118,32 @@ namespace EXE202_BE.Data.Migrations
                     b.HasKey("CookingSkillId");
 
                     b.ToTable("CookingSkills");
+
+                    b.HasData(
+                        new
+                        {
+                            CookingSkillId = 1,
+                            CookingSkillName = "Novice",
+                            DifficultyValue = "1"
+                        },
+                        new
+                        {
+                            CookingSkillId = 2,
+                            CookingSkillName = "Basic",
+                            DifficultyValue = "2"
+                        },
+                        new
+                        {
+                            CookingSkillId = 3,
+                            CookingSkillName = "Intermediate",
+                            DifficultyValue = "3"
+                        },
+                        new
+                        {
+                            CookingSkillId = 4,
+                            CookingSkillName = "Advanced",
+                            DifficultyValue = "4"
+                        });
                 });
 
             modelBuilder.Entity("EXE202_BE.Data.Models.Cuisines", b =>
@@ -96,6 +154,9 @@ namespace EXE202_BE.Data.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("CuisineId"));
 
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
                     b.Property<string>("Nation")
                         .HasColumnType("text");
 
@@ -105,6 +166,29 @@ namespace EXE202_BE.Data.Migrations
                     b.HasKey("CuisineId");
 
                     b.ToTable("Cuisines");
+
+                    b.HasData(
+                        new
+                        {
+                            CuisineId = 1,
+                            Description = "Taste profile: Light, delicate, mildly seasoned, not too sweet, emphasizing subtlety and balance.\n\nCommonly used ingredients: Shallots, garlic, fish sauce, fermented shrimp paste (mắm tôm), vinegar, rice wine vinegar (dấm bỗng).\n\nRepresentative dishes:\n\nHanoi Beef Pho (Phở bò Hà Nội)\n\nBun Thang (Bún thang)\n\nLa Vong Grilled Fish (Chả cá Lã Vọng)\n\nFried Spring Rolls (Nem rán / Chả giò)\n\nCrab Noodle Soup (Bún riêu cua)",
+                            Nation = "Viet Nam",
+                            Region = "Northern"
+                        },
+                        new
+                        {
+                            CuisineId = 2,
+                            Description = "Taste profile: Bold, spicy, and saltier than other regions.\n\nCommonly used ingredients: Chili, lemongrass, fermented anchovy paste (mắm ruốc), fermented fish sauce (mắm nêm), turmeric, pepper.\n\nRepresentative dishes:\n\nHue Spicy Beef Noodle Soup (Bún bò Huế)\n\nQuang-style Noodles (Mì Quảng)\n\nBaby Clam Rice (Cơm hến)\n\nSteamed Savory Rice Cakes (Bánh bèo, Bánh nậm, Bánh lọc)\n\nGrilled Pork Skewers & Fermented Pork (Nem lụi, Tré)\n\nHue is known for its royal cuisine, with dishes that are often elaborate and beautifully presented.",
+                            Nation = "Viet Nam",
+                            Region = "Central"
+                        },
+                        new
+                        {
+                            CuisineId = 3,
+                            Description = "Taste profile: Sweeter, richer flavors, often using coconut milk and sugar-based broths.\n\nCommonly used ingredients: Sugar, coconut milk, garlic, mild chili, aromatic herbs.\n\nRepresentative dishes:\n\nPhnom Penh-style Noodle Soup (Hủ tiếu Nam Vang)\n\nFermented Fish Noodle Soup (Bún mắm)\n\nBroken Rice with Grilled Pork (Cơm tấm)\n\nFresh Spring Rolls (Gỏi cuốn)\n\nCaramelized Braised Fish in Clay Pot (Cá kho tộ)\n\nSour Soup & Fermented Fish Hotpot (Canh chua, Lẩu mắm)",
+                            Nation = "Viet Nam",
+                            Region = "Southern"
+                        });
                 });
 
             modelBuilder.Entity("EXE202_BE.Data.Models.Devices", b =>
@@ -143,6 +227,48 @@ namespace EXE202_BE.Data.Migrations
                     b.HasKey("GoalId");
 
                     b.ToTable("Goals");
+
+                    b.HasData(
+                        new
+                        {
+                            GoalId = 1,
+                            GoalName = "Eat healthy"
+                        },
+                        new
+                        {
+                            GoalId = 2,
+                            GoalName = "Learn how to cook"
+                        },
+                        new
+                        {
+                            GoalId = 3,
+                            GoalName = "Lose weight"
+                        },
+                        new
+                        {
+                            GoalId = 4,
+                            GoalName = "Gain weight"
+                        },
+                        new
+                        {
+                            GoalId = 5,
+                            GoalName = "Try new recipes"
+                        },
+                        new
+                        {
+                            GoalId = 6,
+                            GoalName = "Stick to my diet"
+                        },
+                        new
+                        {
+                            GoalId = 7,
+                            GoalName = "Build muscle"
+                        },
+                        new
+                        {
+                            GoalId = 8,
+                            GoalName = "Save time"
+                        });
                 });
 
             modelBuilder.Entity("EXE202_BE.Data.Models.HealthConditions", b =>
@@ -1142,6 +1268,12 @@ namespace EXE202_BE.Data.Migrations
                     b.Property<double?>("GramPerUnit")
                         .HasColumnType("double precision");
 
+                    b.Property<string>("IconLibrary")
+                        .HasColumnType("text");
+
+                    b.Property<string>("IconName")
+                        .HasColumnType("text");
+
                     b.Property<string>("IngredientName")
                         .HasColumnType("text");
 
@@ -1586,6 +1718,23 @@ namespace EXE202_BE.Data.Migrations
                     b.HasKey("ExperienceId");
 
                     b.ToTable("UserExperiences");
+
+                    b.HasData(
+                        new
+                        {
+                            ExperienceId = 1,
+                            ExperienceName = "Beginner"
+                        },
+                        new
+                        {
+                            ExperienceId = 2,
+                            ExperienceName = "Intermediate"
+                        },
+                        new
+                        {
+                            ExperienceId = 3,
+                            ExperienceName = "Advanced"
+                        });
                 });
 
             modelBuilder.Entity("EXE202_BE.Data.Models.UserProblem", b =>
@@ -1602,6 +1751,33 @@ namespace EXE202_BE.Data.Migrations
                     b.HasKey("ProblemId");
 
                     b.ToTable("UserProblem");
+
+                    b.HasData(
+                        new
+                        {
+                            ProblemId = 1,
+                            ProblemName = "Lack of motivation"
+                        },
+                        new
+                        {
+                            ProblemId = 2,
+                            ProblemName = "Weight rebound"
+                        },
+                        new
+                        {
+                            ProblemId = 3,
+                            ProblemName = "No significant change"
+                        },
+                        new
+                        {
+                            ProblemId = 4,
+                            ProblemName = "I don't have enough time"
+                        },
+                        new
+                        {
+                            ProblemId = 5,
+                            ProblemName = "None of the above"
+                        });
                 });
 
             modelBuilder.Entity("EXE202_BE.Data.Models.UserProfiles", b =>
