@@ -23,14 +23,39 @@ public class MappingProfile : Profile
             .ForMember(dest => dest.Age, opt => opt.MapFrom(src => src.Age))
             .ForMember(dest => dest.Gender, opt => opt.MapFrom(src => src.Gender))
             .ForMember(dest => dest.Allergies, opt => opt.MapFrom(src => src.Allergies.Select(a => a.Ingredient.IngredientName).ToList()))
-            .ForMember(dest => dest.HealthConditions, opt => opt.MapFrom(src => src.PersonalHealthConditions.Select(h => h.HealthCondition.HealthConditionName).ToList()))
+            .ForMember(dest => dest.HealthConditions, opt => opt.MapFrom(src => src.PersonalHealthConditions.Select(h => new HealthConditionDTO
+            {
+                Condition = h.HealthCondition.HealthConditionName,
+                Status = h.Status
+            }).ToList()))
             .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.UserId))
             .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.User.Email))
-            .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => src.User.PhoneNumber)) // Map phone number
-            .ForMember(dest => dest.SubcriptionId, opt => opt.MapFrom(src => src.SubcriptionId)) 
+            .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => src.User.PhoneNumber))
+            .ForMember(dest => dest.SubcriptionId, opt => opt.MapFrom(src => src.SubcriptionId))
             .ForMember(dest => dest.Role, opt => opt.Ignore())
-            .ForMember(dest => dest.UserPicture, opt => opt.MapFrom(src => src.UserPicture.ToString()));
-
+            .ForMember(dest => dest.UserPicture, opt => opt.MapFrom(src => src.UserPicture.ToString()))
+            .ForMember(dest => dest.EndDate, opt => opt.MapFrom(src => src.EndDate));
+            
+    
+        CreateMap<UpdateUserProfileRequestDTO, UserProfiles>()
+            .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => src.FullName))
+            .ForMember(dest => dest.Age, opt => opt.MapFrom(src => src.Age))
+            .ForMember(dest => dest.Gender, opt => opt.MapFrom(src => src.Gender))
+            .ForMember(dest => dest.UPId, opt => opt.Ignore())
+            .ForMember(dest => dest.UserId, opt => opt.Ignore())
+            .ForMember(dest => dest.SubcriptionId, opt => opt.Ignore())
+            .ForMember(dest => dest.UserPicture, opt => opt.Ignore())
+            .ForMember(dest => dest.Weight, opt => opt.Ignore())
+            .ForMember(dest => dest.GoalWeight, opt => opt.Ignore())
+            .ForMember(dest => dest.Height, opt => opt.Ignore())
+            .ForMember(dest => dest.Age, opt => opt.Ignore())
+            .ForMember(dest => dest.GoalId, opt => opt.Ignore())
+            .ForMember(dest => dest.ExperienceId, opt => opt.Ignore())
+            .ForMember(dest => dest.LevelId, opt => opt.Ignore())
+            .ForMember(dest => dest.SpeedId, opt => opt.Ignore())
+            .ForMember(dest => dest.StartDate, opt => opt.Ignore())
+            .ForMember(dest => dest.EndDate, opt => opt.Ignore());
+        
         CreateMap<UserProfiles, AdminProfileResponse>()
             .ForMember(dest => dest.UPId, opt => opt.MapFrom(src => src.UPId))
             .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => src.FullName))
@@ -62,7 +87,21 @@ public class MappingProfile : Profile
             .ForMember(dest => dest.Steps, opt => opt.Ignore()) // Parse trong service
             .ForMember(dest => dest.RecipeSteps, opt => opt.MapFrom(src => src.RecipeSteps));
 
+        CreateMap<IngredientTypes, IngredientTypeResponse>()
+            .ForMember(dest => dest.IngredientTypeId, opt => opt.MapFrom(src => src.IngredientTypeId))
+            .ForMember(dest => dest.TypeName, opt => opt.MapFrom(src => src.TypeName));
+
         CreateMap<Ingredients, IngredientResponse>()
+            .ForMember(dest => dest.IngredientId, opt => opt.MapFrom(src => src.IngredientId))
+            .ForMember(dest => dest.IngredientName, opt => opt.MapFrom(src => src.IngredientName))
+            .ForMember(dest => dest.DefaultUnit, opt => opt.MapFrom(src => src.DefaultUnit));
+        
+        CreateMap<HealthConditions, HealthConditionResponse>()
+            .ForMember(dest => dest.HealthConditionId, opt => opt.MapFrom(src => src.HealthConditionId))
+            .ForMember(dest => dest.HealthConditionName, opt => opt.MapFrom(src => src.HealthConditionName))
+            .ForMember(dest => dest.BriefDescription, opt => opt.MapFrom(src => src.BriefDescription));
+        
+        CreateMap<Ingredients, Ingredient1Response>()
             .ForMember(dest => dest.IngredientId, opt => opt.MapFrom(src => src.IngredientId))
             .ForMember(dest => dest.IngredientName, opt => opt.MapFrom(src => src.IngredientName))
             .ForMember(dest => dest.DefaultUnit, opt => opt.MapFrom(src => src.DefaultUnit));

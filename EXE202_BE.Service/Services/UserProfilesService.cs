@@ -16,6 +16,10 @@ namespace EXE202_BE.Service.Services;
 public class UserProfilesService : IUserProfilesService
 {
     private readonly IUserProfilesRepository _userProfilesRepository;
+    private readonly IAllergiesRepository _allergiesRepository;
+    private readonly IPersonalHealthConditionsRepository _personalHealthConditionsRepository;
+    private readonly IIngredientsRepository _ingredientsRepository;
+    private readonly IHealthConditionsRepository _healthConditionsRepository;
     private readonly UserManager<ModifyIdentityUser> _userManager;
     private readonly IUserProfilesService _userProfilesService;
     private readonly IMapper _mapper;
@@ -25,6 +29,10 @@ public class UserProfilesService : IUserProfilesService
 
     public UserProfilesService(
         IUserProfilesRepository userProfilesRepository,
+        IAllergiesRepository allergiesRepository,
+        IPersonalHealthConditionsRepository personalHealthConditionsRepository,
+        IIngredientsRepository ingredientsRepository,
+        IHealthConditionsRepository healthConditionsRepository,
         UserManager<ModifyIdentityUser> userManager,
         IMapper mapper,
         AppDbContext dbContext,
@@ -35,6 +43,10 @@ public class UserProfilesService : IUserProfilesService
         _mapper = mapper;
         _dbContext = dbContext;
         _cloudinary = cloudinary;
+        _allergiesRepository = allergiesRepository;
+        _personalHealthConditionsRepository = personalHealthConditionsRepository;
+        _ingredientsRepository = ingredientsRepository;
+        _healthConditionsRepository = healthConditionsRepository;
     }
 
     public async Task<UserProfiles> AddAsync(UserProfiles userProfile)
@@ -242,4 +254,130 @@ public class UserProfilesService : IUserProfilesService
         return new ProfileImageResponseDTO { SecureUrl = uploadResult.SecureUrl.ToString() };
     }
     
+    public async Task<UserProfileResponse> UpdateUserProfileAsync(int upId, UpdateUserProfileRequestDTO model)
+    {
+        // Validate inputs
+        if (string.IsNullOrEmpty(model.FullName))
+            throw new Exception("FullName is required.");
+        if (!new[] { "Male", "Female", "Other" }.Contains(model.Gender))
+            throw new Exception("Invalid Gender. Must be 'Male', 'Female', or 'Other'.");
+        if (string.IsNullOrEmpty(model.Email) || !model.Email.Contains("@"))
+            throw new Exception("Invalid Email.");
+
+        // Start transaction
+        using var transaction = _userProfilesRepository.GetDbContext().Database.BeginTransaction();
+
+        try
+        {
+            // Get existing profile
+            var userProfile = await _userProfilesRepository.GetAsync(p => p.UPId == upId, "AspNetUsers");
+            if (userProfile == null)
+                throw new Exception("User profile not found.");
+
+            // Update UserProfiles
+            _mapper.Map(model, userProfile); // Map DTO to entity
+            await _userProfilesRepository.UpdateAsync(userProfile);
+
+            // Update AspNetUsers
+            var identityUser = await _userManager.FindByIdAsync(userProfile.UserId);
+            if (identityUser == null)
+                throw new Exception("Identity user not found.");
+            if (identityUser.Email != model.Email)
+            {
+                identityUser.Email = model.Email;
+                identityUser.NormalizedEmail = model.Email.ToUpper();
+                var updateResult = await _userManager.UpdateAsync(identityUser);
+                if (!updateResult.Succeeded)
+                    throw new Exception(string.Join(", ", updateResult.Errors.Select(e => e.Description)));
+            }
+
+            // Update Allergies
+            var currentAllergies = (await _allergiesRepository.GetAllAsync(a => a.UPId == upId, "Ingredients"))
+                .Select(a => a.Ingredient.IngredientName).ToList();
+            var newAllergies = model.Allergies ?? new List<string>();
+
+            // Remove old allergies
+            foreach (var allergy in currentAllergies.Except(newAllergies))
+            {
+                var ingredient = await _ingredientsRepository.GetAsync(i => i.IngredientName == allergy);
+                if (ingredient != null)
+                {
+                    var allergyEntity = await _allergiesRepository.GetAsync(a => a.UPId == upId && a.IngredientId == ingredient.IngredientId);
+                    if (allergyEntity != null)
+                        await _allergiesRepository.DeleteAsync(allergyEntity);
+                }
+            }
+
+            // Add new allergies
+            foreach (var allergy in newAllergies.Except(currentAllergies))
+            {
+                var ingredient = await _ingredientsRepository.GetAsync(i => i.IngredientName == allergy);
+                if (ingredient == null)
+                    throw new Exception($"Ingredient '{allergy}' not found.");
+                var newAllergy = new Allergies
+                {
+                    UPId = upId,
+                    IngredientId = ingredient.IngredientId
+                };
+                await _allergiesRepository.AddAsync(newAllergy);
+            }
+
+            // Update PersonalHealthConditions
+            var currentConditions = (await _personalHealthConditionsRepository.GetAllAsync(phc => phc.UPId == upId, "HealthConditions"))
+                .Select(phc => new { phc.HealthCondition.HealthConditionName, phc.Status }).ToList();
+            var newConditions = model.HealthConditions ?? new List<HealthConditionDTO>();
+
+            // Remove old conditions
+            foreach (var condition in currentConditions.Where(c => !newConditions.Any(nc => nc.Condition == c.HealthConditionName)))
+            {
+                var healthCondition = await _healthConditionsRepository.GetAsync(hc => hc.HealthConditionName == condition.HealthConditionName);
+                if (healthCondition != null)
+                {
+                    var conditionEntity = await _personalHealthConditionsRepository.GetAsync(phc => phc.UPId == upId && phc.HealthConditionId == healthCondition.HealthConditionId);
+                    if (conditionEntity != null)
+                        await _personalHealthConditionsRepository.DeleteAsync(conditionEntity);
+                }
+            }
+
+            // Add or update conditions
+            foreach (var condition in newConditions)
+            {
+                var healthCondition = await _healthConditionsRepository.GetAsync(hc => hc.HealthConditionName == condition.Condition);
+                if (healthCondition == null)
+                    throw new Exception($"Health condition '{condition.Condition}' not found.");
+
+                var existingCondition = await _personalHealthConditionsRepository.GetAsync(phc => phc.UPId == upId && phc.HealthConditionId == healthCondition.HealthConditionId);
+                if (existingCondition != null)
+                {
+                    existingCondition.Status = condition.Status;
+                    await _personalHealthConditionsRepository.UpdateAsync(existingCondition);
+                }
+                else
+                {
+                    var newCondition = new PersonalHealthConditions
+                    {
+                        UPId = upId,
+                        HealthConditionId = healthCondition.HealthConditionId,
+                        Status = condition.Status
+                    };
+                    await _personalHealthConditionsRepository.AddAsync(newCondition);
+                }
+            }
+
+            // Commit transaction
+            await transaction.CommitAsync();
+
+            // Map to response
+            var updatedProfile = await _userProfilesRepository.GetAsync(p => p.UPId == upId, "AspNetUsers,Allergies.Ingredients,PersonalHealthConditions.HealthConditions");
+            var response = _mapper.Map<UserProfileResponse>(updatedProfile);
+            response.Email = identityUser.Email;
+
+            return response;
+        }
+        catch (Exception ex)
+        {
+            await transaction.RollbackAsync();
+            throw new Exception($"Failed to update user profile: {ex.Message}", ex);
+        }
+    }
 }

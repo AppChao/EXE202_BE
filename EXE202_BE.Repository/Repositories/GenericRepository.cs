@@ -78,5 +78,10 @@ using EXE202_BE.Repository.Interface;
             await _db.SaveChangesAsync();
             return entity;
         }
+        
+        public AppDbContext GetDbContext()
+        {
+            return _db;
+        }
     }
 
