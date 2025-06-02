@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace EXE202_BE.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250531194425_InitialCreate")]
+    [Migration("20250602071447_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -1529,6 +1529,47 @@ namespace EXE202_BE.Data.Migrations
                     b.ToTable("Notifications");
                 });
 
+            modelBuilder.Entity("EXE202_BE.Data.Models.PaymentTransaction", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<long>("OrderCode")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("PaymentLinkId")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("UPId")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UPId");
+
+                    b.ToTable("PaymentTransactions");
+                });
+
             modelBuilder.Entity("EXE202_BE.Data.Models.PersonalHealthConditions", b =>
                 {
                     b.Property<int>("UPId")
@@ -1791,6 +1832,9 @@ namespace EXE202_BE.Data.Migrations
                     b.Property<int?>("Age")
                         .HasColumnType("integer");
 
+                    b.Property<DateTime?>("EndDate")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<int?>("ExperienceId")
                         .HasColumnType("integer");
 
@@ -1814,6 +1858,9 @@ namespace EXE202_BE.Data.Migrations
 
                     b.Property<int?>("SpeedId")
                         .HasColumnType("integer");
+
+                    b.Property<DateTime?>("StartDate")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<int?>("SubcriptionId")
                         .HasColumnType("integer");
@@ -2103,6 +2150,17 @@ namespace EXE202_BE.Data.Migrations
                     b.Navigation("Notification");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("EXE202_BE.Data.Models.PaymentTransaction", b =>
+                {
+                    b.HasOne("EXE202_BE.Data.Models.UserProfiles", "UserProfile")
+                        .WithMany()
+                        .HasForeignKey("UPId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("UserProfile");
                 });
 
             modelBuilder.Entity("EXE202_BE.Data.Models.PersonalHealthConditions", b =>

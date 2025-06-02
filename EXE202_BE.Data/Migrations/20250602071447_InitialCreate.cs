@@ -487,6 +487,8 @@ namespace EXE202_BE.Data.Migrations
                     ExperienceId = table.Column<int>(type: "integer", nullable: true),
                     LevelId = table.Column<int>(type: "integer", nullable: true),
                     SpeedId = table.Column<int>(type: "integer", nullable: true),
+                    StartDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    EndDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     UserPicture = table.Column<string>(type: "text", nullable: true),
                     UserId = table.Column<string>(type: "text", nullable: false)
                 },
@@ -652,6 +654,32 @@ namespace EXE202_BE.Data.Migrations
                     table.PrimaryKey("PK_MealScheduled", x => x.UPId);
                     table.ForeignKey(
                         name: "FK_MealScheduled_UserProfiles_UPId",
+                        column: x => x.UPId,
+                        principalTable: "UserProfiles",
+                        principalColumn: "UPId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PaymentTransactions",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    OrderCode = table.Column<long>(type: "bigint", nullable: false),
+                    Amount = table.Column<int>(type: "integer", nullable: false),
+                    Description = table.Column<string>(type: "text", nullable: false),
+                    PaymentLinkId = table.Column<string>(type: "text", nullable: true),
+                    Status = table.Column<string>(type: "text", nullable: false),
+                    UPId = table.Column<int>(type: "integer", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PaymentTransactions", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_PaymentTransactions_UserProfiles_UPId",
                         column: x => x.UPId,
                         principalTable: "UserProfiles",
                         principalColumn: "UPId",
@@ -1101,6 +1129,11 @@ namespace EXE202_BE.Data.Migrations
                 column: "NotificationId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_PaymentTransactions_UPId",
+                table: "PaymentTransactions",
+                column: "UPId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_PersonalHealthConditions_ActivityLevelsLevelId",
                 table: "PersonalHealthConditions",
                 column: "ActivityLevelsLevelId");
@@ -1209,6 +1242,9 @@ namespace EXE202_BE.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "NotificationUsers");
+
+            migrationBuilder.DropTable(
+                name: "PaymentTransactions");
 
             migrationBuilder.DropTable(
                 name: "PersonalHealthConditions");
