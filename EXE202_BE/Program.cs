@@ -18,6 +18,11 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 using CloudinaryDotNet;
 using EXE202_BE.Data.SeedData;
 using EXE202_BE.Utilities;
+using Serilog;
+using Serilog.AspNetCore;
+using System;
+using Hangfire;
+using Hangfire.PostgreSql;
 
 namespace EXE202_BE
 {
@@ -61,13 +66,20 @@ namespace EXE202_BE
                 throw;
             }
 
-            // Cloudinary
+            // Cloudinary (từ file mới)
             var cloudinaryUrl = Environment.GetEnvironmentVariable("CLOUDINARY_URL");
-
             if (string.IsNullOrEmpty(cloudinaryUrl))
             {
                 throw new Exception("CLOUDINARY_URL environment variable is not set.");
+            }else
+            {
+                Console.WriteLine("⚠️ CLOUDINARY_URL is not set. Using dummy Cloudinary instance.");
+
+                var dummyAccount = new Account("dummy", "dummy", "dummy");
+                var dummyCloudinary = new Cloudinary(dummyAccount);
+                builder.Services.AddSingleton(dummyCloudinary);
             }
+
 
             var uri = new Uri(cloudinaryUrl);
             var userInfo = uri.UserInfo.Split(':');
@@ -79,7 +91,6 @@ namespace EXE202_BE
             );
 
             builder.Services.AddSingleton(new Cloudinary(account));
-
 
             // Add DbContext
             builder.Services.AddDbContext<AppDbContext>(options =>
@@ -99,6 +110,19 @@ namespace EXE202_BE
                 })
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
+
+            // Thêm Hangfire
+            builder.Services.AddHangfire(config => config
+                .SetDataCompatibilityLevel(CompatibilityLevel.Version_180)
+                .UseSimpleAssemblyNameTypeSerializer()
+                .UseRecommendedSerializerSettings()
+                .UsePostgreSqlStorage(options =>
+                {
+                    options.UseNpgsqlConnection(builder.Configuration.GetConnectionString("DefaultConnection"));
+                }));
+
+            // Thêm Hangfire Server
+            builder.Services.AddHangfireServer();
 
             builder.Services.AddHostedService<NotificationsBackgroundService>();
             builder.Services.AddHttpContextAccessor();
@@ -189,6 +213,13 @@ namespace EXE202_BE
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddScoped<IUserProfilesService, UserProfilesService>();
+            builder.Services.AddScoped<SubscriptionExpirationJob>();
+
+            // Add Serilog
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Information()
+                .WriteTo.Console()
+                .CreateLogger();
 
             // Add logging
             builder.Services.AddLogging(logging => { logging.AddConsole(); });
@@ -213,6 +244,26 @@ namespace EXE202_BE
                 });
             }
 
+            // Thêm Hangfire Dashboard
+            app.UseHangfireDashboard("/hangfire");
+
+            // Đăng ký các job định kỳ
+            using (var scope = app.Services.CreateScope())
+            {
+                var recurringJobManager = scope.ServiceProvider.GetRequiredService<IRecurringJobManager>();
+                var subscriptionExpirationJob = scope.ServiceProvider.GetRequiredService<SubscriptionExpirationJob>();
+
+                recurringJobManager.AddOrUpdate(
+                    "CheckSubscriptions",
+                    () => subscriptionExpirationJob.CheckAndUpdateExpiredSubscriptions(),
+                    Cron.Daily(0, 0)); // Chạy lúc 00:00 hàng ngày
+
+                recurringJobManager.AddOrUpdate(
+                    "NotifyExpiringSubscriptions",
+                    () => subscriptionExpirationJob.NotifyExpiringSubscriptions(),
+                    Cron.Daily(8, 0)); // Chạy lúc 08:00 hàng ngày
+            }
+
             // Handle OPTIONS requests
             app.Use(async (context, next) =>
             {
@@ -229,7 +280,7 @@ namespace EXE202_BE
             app.UseAuthorization();
             app.MapControllers();
 
-            // Seed users
+            // Seed users and ingredients
             if (app.Environment.IsDevelopment())
             {
                 await SeedUsers.InitializeAsync(app.Services);

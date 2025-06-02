@@ -60,6 +60,9 @@ public class AppDbContext : IdentityDbContext<ModifyIdentityUser>
     public virtual DbSet<UserProblem> UserProblem { get; set; }
     
     public virtual DbSet<UserProfiles> UserProfiles { get; set; }
+    
+    public virtual DbSet<PaymentTransaction> PaymentTransactions { get; set; }
+
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -384,6 +387,13 @@ builder.Entity<HealthTagConditions>().HasData(
             .HasOne(up => up.User)
             .WithOne()
             .HasForeignKey<UserProfiles>(up => up.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
+        
+        // Thêm cấu hình cho PaymentTransaction
+        builder.Entity<PaymentTransaction>()
+            .HasOne(pt => pt.UserProfile)
+            .WithMany()
+            .HasForeignKey(pt => pt.UPId)
             .OnDelete(DeleteBehavior.Cascade);
         
         base.OnModelCreating(builder);
