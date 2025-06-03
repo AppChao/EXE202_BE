@@ -10,6 +10,7 @@ using EXE202_BE.Service.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace EXE202_BE.Service.Services;
 
@@ -25,6 +26,8 @@ public class UserProfilesService : IUserProfilesService
     private readonly IMapper _mapper;
     private readonly AppDbContext _dbContext;
     private readonly Cloudinary _cloudinary;
+    private readonly ILogger<UserProfilesService> _logger;
+
 
 
     public UserProfilesService(
@@ -36,7 +39,8 @@ public class UserProfilesService : IUserProfilesService
         UserManager<ModifyIdentityUser> userManager,
         IMapper mapper,
         AppDbContext dbContext,
-        Cloudinary cloudinary)
+        Cloudinary cloudinary,
+        ILogger<UserProfilesService> logger)
     {
         _userProfilesRepository = userProfilesRepository;
         _userManager = userManager;
@@ -47,6 +51,7 @@ public class UserProfilesService : IUserProfilesService
         _personalHealthConditionsRepository = personalHealthConditionsRepository;
         _ingredientsRepository = ingredientsRepository;
         _healthConditionsRepository = healthConditionsRepository;
+        _logger = logger;
     }
 
     public async Task<UserProfiles> AddAsync(UserProfiles userProfile)
@@ -145,16 +150,22 @@ public class UserProfilesService : IUserProfilesService
     public async Task<UserProfileResponse> GetUserProfileAsync(int upId)
     {
         var userProfile = await _userProfilesRepository.GetAsync(
-            up => up.UPId == upId, "User,Allergies.Ingredient,PersonalHealthConditions.HealthCondition");
-
+            up => up.UPId == upId, "User,PersonalHealthConditions.HealthCondition");
         if (userProfile == null)
         {
             throw new Exception("User profile not found.");
         }
 
+        var allergies = await _dbContext.Allergies
+            .Where(a => a.UPId == upId)
+            .Include(a => a.Ingredient)
+            .Select(a => a.Ingredient.IngredientName)
+            .ToListAsync();
+
         var user = await _userManager.FindByIdAsync(userProfile.UserId);
         var roles = await _userManager.GetRolesAsync(user);
         var dto = _mapper.Map<UserProfileResponse>(userProfile);
+        dto.Allergies = allergies;
         dto.Role = roles.FirstOrDefault();
         return dto;
     }
@@ -265,25 +276,34 @@ public class UserProfilesService : IUserProfilesService
             throw new Exception("Invalid Email.");
 
         // Start transaction
-        using var transaction = _userProfilesRepository.GetDbContext().Database.BeginTransaction();
+        _logger.LogInformation("Starting transaction for UPId: {UPId}", upId);
+        using var transaction = await _userProfilesRepository.GetDbContext().Database.BeginTransactionAsync();
+        _logger.LogInformation("Transaction started with ID: {TransactionId}. DbContext instance: {DbContextId}", 
+            transaction.TransactionId, _userProfilesRepository.GetDbContext().GetHashCode());
 
         try
         {
             // Get existing profile
-            var userProfile = await _userProfilesRepository.GetAsync(p => p.UPId == upId, "AspNetUsers");
+            _logger.LogInformation("Fetching user profile for UPId: {UPId}", upId);
+            var userProfile = await _userProfilesRepository.GetAsync(p => p.UPId == upId, "User");
             if (userProfile == null)
                 throw new Exception("User profile not found.");
 
             // Update UserProfiles
-            _mapper.Map(model, userProfile); // Map DTO to entity
+            _logger.LogInformation("Mapping DTO to UserProfiles. DbContext instance: {DbContextId}", 
+                _userProfilesRepository.GetDbContext().GetHashCode());
+            _mapper.Map(model, userProfile);
+            _logger.LogInformation("Updating user profile...");
             await _userProfilesRepository.UpdateAsync(userProfile);
 
             // Update AspNetUsers
+            _logger.LogInformation("Fetching identity user for UserId: {UserId}", userProfile.UserId);
             var identityUser = await _userManager.FindByIdAsync(userProfile.UserId);
             if (identityUser == null)
                 throw new Exception("Identity user not found.");
             if (identityUser.Email != model.Email)
             {
+                _logger.LogInformation("Updating email for identity user...");
                 identityUser.Email = model.Email;
                 identityUser.NormalizedEmail = model.Email.ToUpper();
                 var updateResult = await _userManager.UpdateAsync(identityUser);
@@ -291,91 +311,45 @@ public class UserProfilesService : IUserProfilesService
                     throw new Exception(string.Join(", ", updateResult.Errors.Select(e => e.Description)));
             }
 
-            // Update Allergies
-            var currentAllergies = (await _allergiesRepository.GetAllAsync(a => a.UPId == upId, "Ingredients"))
-                .Select(a => a.Ingredient.IngredientName).ToList();
-            var newAllergies = model.Allergies ?? new List<string>();
+            // Update Allergies and PersonalHealthConditions
+            _logger.LogInformation("Updating allergies for UPId: {UPId}. DbContext instance: {DbContextId}", 
+                upId, _allergiesRepository.GetDbContext().GetHashCode());
+            await _userProfilesRepository.UpdateAllergiesAsync(upId, model.Allergies ?? new List<string>());
 
-            // Remove old allergies
-            foreach (var allergy in currentAllergies.Except(newAllergies))
-            {
-                var ingredient = await _ingredientsRepository.GetAsync(i => i.IngredientName == allergy);
-                if (ingredient != null)
-                {
-                    var allergyEntity = await _allergiesRepository.GetAsync(a => a.UPId == upId && a.IngredientId == ingredient.IngredientId);
-                    if (allergyEntity != null)
-                        await _allergiesRepository.DeleteAsync(allergyEntity);
-                }
-            }
-
-            // Add new allergies
-            foreach (var allergy in newAllergies.Except(currentAllergies))
-            {
-                var ingredient = await _ingredientsRepository.GetAsync(i => i.IngredientName == allergy);
-                if (ingredient == null)
-                    throw new Exception($"Ingredient '{allergy}' not found.");
-                var newAllergy = new Allergies
-                {
-                    UPId = upId,
-                    IngredientId = ingredient.IngredientId
-                };
-                await _allergiesRepository.AddAsync(newAllergy);
-            }
-
-            // Update PersonalHealthConditions
-            var currentConditions = (await _personalHealthConditionsRepository.GetAllAsync(phc => phc.UPId == upId, "HealthConditions"))
-                .Select(phc => new { phc.HealthCondition.HealthConditionName, phc.Status }).ToList();
-            var newConditions = model.HealthConditions ?? new List<HealthConditionDTO>();
-
-            // Remove old conditions
-            foreach (var condition in currentConditions.Where(c => !newConditions.Any(nc => nc.Condition == c.HealthConditionName)))
-            {
-                var healthCondition = await _healthConditionsRepository.GetAsync(hc => hc.HealthConditionName == condition.HealthConditionName);
-                if (healthCondition != null)
-                {
-                    var conditionEntity = await _personalHealthConditionsRepository.GetAsync(phc => phc.UPId == upId && phc.HealthConditionId == healthCondition.HealthConditionId);
-                    if (conditionEntity != null)
-                        await _personalHealthConditionsRepository.DeleteAsync(conditionEntity);
-                }
-            }
-
-            // Add or update conditions
-            foreach (var condition in newConditions)
-            {
-                var healthCondition = await _healthConditionsRepository.GetAsync(hc => hc.HealthConditionName == condition.Condition);
-                if (healthCondition == null)
-                    throw new Exception($"Health condition '{condition.Condition}' not found.");
-
-                var existingCondition = await _personalHealthConditionsRepository.GetAsync(phc => phc.UPId == upId && phc.HealthConditionId == healthCondition.HealthConditionId);
-                if (existingCondition != null)
-                {
-                    existingCondition.Status = condition.Status;
-                    await _personalHealthConditionsRepository.UpdateAsync(existingCondition);
-                }
-                else
-                {
-                    var newCondition = new PersonalHealthConditions
-                    {
-                        UPId = upId,
-                        HealthConditionId = healthCondition.HealthConditionId,
-                        Status = condition.Status
-                    };
-                    await _personalHealthConditionsRepository.AddAsync(newCondition);
-                }
-            }
+            _logger.LogInformation("Updating health conditions for UPId: {UPId}. DbContext instance: {DbContextId}", 
+                upId, _personalHealthConditionsRepository.GetDbContext().GetHashCode());
+            await _userProfilesRepository.UpdatePersonalHealthConditionsAsync(upId, model.HealthConditions ?? new List<HealthConditionDTO>());
 
             // Commit transaction
+            _logger.LogInformation("Committing transaction...");
             await transaction.CommitAsync();
 
-            // Map to response
-            var updatedProfile = await _userProfilesRepository.GetAsync(p => p.UPId == upId, "AspNetUsers,Allergies.Ingredients,PersonalHealthConditions.HealthConditions");
+            // Get updated profile
+            _logger.LogInformation("Fetching updated profile for UPId: {UPId}", upId);
+            var updatedProfile = await _userProfilesRepository.GetAsync(p => p.UPId == upId, "User,PersonalHealthConditions.HealthCondition");
+            if (updatedProfile == null)
+                throw new Exception("Updated profile not found.");
+
+            var allergies = await _userProfilesRepository.GetDbContext().Allergies
+                .Where(a => a.UPId == upId)
+                .Include(a => a.Ingredient)
+                .Select(a => a.Ingredient.IngredientName)
+                .ToListAsync();
+
             var response = _mapper.Map<UserProfileResponse>(updatedProfile);
+            response.Allergies = allergies;
             response.Email = identityUser.Email;
+
+            // Gán Role
+            _logger.LogInformation("Fetching roles for identity user...");
+            var roles = await _userManager.GetRolesAsync(identityUser);
+            response.Role = roles.FirstOrDefault();
 
             return response;
         }
         catch (Exception ex)
         {
+            _logger.LogError(ex, "Error during transaction for UPId: {UPId}", upId);
             await transaction.RollbackAsync();
             throw new Exception($"Failed to update user profile: {ex.Message}", ex);
         }

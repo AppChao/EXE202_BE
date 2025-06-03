@@ -1,16 +1,16 @@
 using EXE202_BE.Data.Models;
-
-namespace EXE202_BE.Repository.Repositories;
-using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 using EXE202_BE.Repository.Interface;
 
+namespace EXE202_BE.Repository.Repositories
+{
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private readonly AppDbContext _db;
         internal readonly DbSet<T> DbSet;
 
-        public GenericRepository (AppDbContext db)
+        public GenericRepository(AppDbContext db)
         {
             _db = db;
             DbSet = db.Set<T>();
@@ -20,11 +20,6 @@ using EXE202_BE.Repository.Interface;
         {
             await _db.AddAsync(entity);
             await _db.SaveChangesAsync();
-            using (var transaction = _db.Database.BeginTransaction(System.Data.IsolationLevel.ReadCommitted))
-            {
-                // Your insert operation
-                await transaction.CommitAsync();
-            }
             return entity;
         }
 
@@ -43,6 +38,7 @@ using EXE202_BE.Repository.Interface;
             {
                 query = query.Where(filter);
             }
+
             if (includeProperties != null)
             {
                 foreach (var includeProp in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
@@ -57,6 +53,7 @@ using EXE202_BE.Repository.Interface;
         public async Task<T> GetAsync(Expression<Func<T, bool>> filter, string? includeProperties = null)
         {
             IQueryable<T> query = DbSet;
+
             if (includeProperties != null)
             {
                 foreach (var includeProp in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
@@ -64,6 +61,7 @@ using EXE202_BE.Repository.Interface;
                     query = query.Include(includeProp.Trim());
                 }
             }
+
             if (filter != null)
             {
                 query = query.Where(filter);
@@ -78,10 +76,10 @@ using EXE202_BE.Repository.Interface;
             await _db.SaveChangesAsync();
             return entity;
         }
-        
+
         public AppDbContext GetDbContext()
         {
             return _db;
         }
     }
-
+}
