@@ -12,4 +12,5 @@ public interface IRecipesService
     Task<RecipeResponse> CreateRecipeAsync(RecipeRequest request);
     Task<RecipeResponse> UpdateRecipeAsync(int id, RecipeRequest request);
     Task DeleteRecipeAsync(int id);
+    Task<PageListResponse<RecipeHomeResponse>> GetRecipesHomeAsync(string? category, int page = 1, int pageSize = 14);
 }

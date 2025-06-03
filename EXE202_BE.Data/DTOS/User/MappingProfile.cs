@@ -87,6 +87,14 @@ public class MappingProfile : Profile
             .ForMember(dest => dest.Steps, opt => opt.Ignore()) // Parse trong service
             .ForMember(dest => dest.RecipeSteps, opt => opt.MapFrom(src => src.RecipeSteps));
 
+        CreateMap<Recipes, RecipeHomeResponse>()
+            .ForMember(dest => dest.RecipeId, opt => opt.MapFrom(src => src.RecipeId))
+            .ForMember(dest => dest.RecipeName, opt => opt.MapFrom(src => src.RecipeName))
+            .ForMember(dest => dest.TimeEstimation, opt => opt.MapFrom(src => src.TimeEstimation))
+            .ForMember(dest => dest.DifficultyEstimation, opt => opt.MapFrom(src => src.DifficultyEstimation))
+            .ForMember(dest => dest.MealName, opt => opt.MapFrom(src => src.RecipeMealTypes.FirstOrDefault().MealCatagorie.MealName ?? string.Empty))
+            .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => string.Empty));
+        
         CreateMap<IngredientTypes, IngredientTypeResponse>()
             .ForMember(dest => dest.IngredientTypeId, opt => opt.MapFrom(src => src.IngredientTypeId))
             .ForMember(dest => dest.TypeName, opt => opt.MapFrom(src => src.TypeName));
