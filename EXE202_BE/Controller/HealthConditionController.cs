@@ -16,13 +16,14 @@ public class HealthConditionController : ControllerBase
     }
 
     [HttpGet("health-condition-types")]
-    public IActionResult GetHealthConditionTypes(
+    public async Task<IActionResult> GetHealthConditionTypes(
+        [FromQuery] string? searchTerm,
         [FromQuery] int page = 1,
         [FromQuery] int pageSize = 20)
     {
         try
         {
-            var types = _healthConditionService.GetHealthConditionTypesAsync(page, pageSize);
+            var types = await _healthConditionService.GetHealthConditionTypesAsync(searchTerm, page, pageSize);
             return Ok(types);
         }
         catch (Exception ex)
@@ -33,13 +34,14 @@ public class HealthConditionController : ControllerBase
 
     [HttpGet("health-conditions")]
     public async Task<IActionResult> GetHealthConditionsByType(
-        [FromQuery] string type,
+        [FromQuery] string? type,
+        [FromQuery] string? searchTerm,
         [FromQuery] int page = 1,
         [FromQuery] int pageSize = 20)
     {
         try
         {
-            var conditions = await _healthConditionService.GetHealthConditionsByTypeAsync(type, page, pageSize);
+            var conditions = await _healthConditionService.GetHealthConditionsByTypeAsync(type, searchTerm, page, pageSize);
             return Ok(conditions);
         }
         catch (Exception ex)

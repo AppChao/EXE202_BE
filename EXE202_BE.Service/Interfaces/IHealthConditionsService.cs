@@ -6,6 +6,7 @@ namespace EXE202_BE.Service.Interface;
 public interface IHealthConditionsService
 {
     // Add custom methods here
-    Task<PageListResponse<string>> GetHealthConditionTypesAsync(int page = 1, int pageSize = 20);
-    Task<PageListResponse<HealthConditionResponse>> GetHealthConditionsByTypeAsync(string type, int page = 1, int pageSize = 20);
+    Task<PageListResponse<string>> GetHealthConditionTypesAsync(string? searchTerm, int page = 1, int pageSize = 20);
+    Task<PageListResponse<HealthConditionResponse>> GetHealthConditionsByTypeAsync(string? type, string? searchTerm,
+        int page = 1, int pageSize = 20);
 }

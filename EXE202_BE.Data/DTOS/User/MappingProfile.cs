@@ -103,11 +103,12 @@ public class MappingProfile : Profile
             .ForMember(dest => dest.IngredientId, opt => opt.MapFrom(src => src.IngredientId))
             .ForMember(dest => dest.IngredientName, opt => opt.MapFrom(src => src.IngredientName))
             .ForMember(dest => dest.DefaultUnit, opt => opt.MapFrom(src => src.DefaultUnit));
-        
+
         CreateMap<HealthConditions, HealthConditionResponse>()
             .ForMember(dest => dest.HealthConditionId, opt => opt.MapFrom(src => src.HealthConditionId))
             .ForMember(dest => dest.HealthConditionName, opt => opt.MapFrom(src => src.HealthConditionName))
-            .ForMember(dest => dest.BriefDescription, opt => opt.MapFrom(src => src.BriefDescription));
+            .ForMember(dest => dest.BriefDescription, opt => opt.MapFrom(src => src.BriefDescription))
+            .ForMember(dest => dest.HealthConditionType, opt => opt.MapFrom(src => src.HealthConditionType));
         
         CreateMap<Ingredients, Ingredient1Response>()
             .ForMember(dest => dest.IngredientId, opt => opt.MapFrom(src => src.IngredientId))
