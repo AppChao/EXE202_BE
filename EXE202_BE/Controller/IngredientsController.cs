@@ -33,12 +33,13 @@ public class IngredientsController : ControllerBase
     
     [HttpGet("ingredient-types")]
     public async Task<IActionResult> GetIngredientTypes(
+        [FromQuery] string? searchTerm,
         [FromQuery] int page = 1,
         [FromQuery] int pageSize = 20)
     {
         try
         {
-            var types = await _ingredientsService.GetIngredientTypesAsync(page, pageSize);
+            var types = await _ingredientsService.GetIngredientTypesAsync(searchTerm, page, pageSize);
             return Ok(types);
         }
         catch (Exception ex)
@@ -49,13 +50,14 @@ public class IngredientsController : ControllerBase
 
     [HttpGet("ingredients")]
     public async Task<IActionResult> GetIngredientsByType(
-        [FromQuery] int typeId,
+        [FromQuery] int? typeId,
+        [FromQuery] string? searchTerm,
         [FromQuery] int page = 1,
         [FromQuery] int pageSize = 20)
     {
         try
         {
-            var ingredients = await _ingredientsService.GetIngredientsByTypeAsync(typeId, page, pageSize);
+            var ingredients = await _ingredientsService.GetIngredientsByTypeAsync(typeId, searchTerm, page, pageSize);
             return Ok(ingredients);
         }
         catch (Exception ex)

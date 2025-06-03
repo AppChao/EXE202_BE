@@ -56,55 +56,35 @@ public class IngredientsService : IIngredientsService
         };
     }
     
-    public async Task<PageListResponse<IngredientTypeResponse>> GetIngredientTypesAsync(int page = 1, int pageSize = 20)
+    public async Task<PageListResponse<IngredientTypeResponse>> GetIngredientTypesAsync(string? searchTerm, int page = 1, int pageSize = 20)
     {
-        if (page < 1) page = 1;
-        if (pageSize < 1) pageSize = 20;
-
-        var types = await _ingredientsTypeRepository.GetAllAsync();
-        var totalCount = types.Count();
-
-        var paginatedItems = types
-            .Skip((page - 1) * pageSize)
-            .Take(pageSize)
-            .ToList();
-
-        var result = _mapper.Map<List<IngredientTypeResponse>>(paginatedItems);
+        var response = await _ingredientsTypeRepository.GetIngredientTypesAsync(searchTerm, page, pageSize);
+        var result = _mapper.Map<List<IngredientTypeResponse>>(response.Items);
 
         return new PageListResponse<IngredientTypeResponse>
         {
             Items = result,
-            Page = page,
-            PageSize = pageSize,
-            TotalCount = totalCount,
-            HasNextPage = (page * pageSize) < totalCount,
-            HasPreviousPage = page > 1
+            Page = response.Page,
+            PageSize = response.PageSize,
+            TotalCount = response.TotalCount,
+            HasNextPage = response.HasNextPage,
+            HasPreviousPage = response.HasPreviousPage
         };
     }
 
-    public async Task<PageListResponse<IngredientResponse>> GetIngredientsByTypeAsync(int typeId, int page = 1, int pageSize = 20)
+    public async Task<PageListResponse<IngredientResponse>> GetIngredientsByTypeAsync(int? typeId, string? searchTerm, int page = 1, int pageSize = 20)
     {
-        if (page < 1) page = 1;
-        if (pageSize < 1) pageSize = 20;
-
-        var ingredients = await _ingredientsRepository.GetAllAsync(i => i.IngredientTypeId == typeId);
-        var totalCount = ingredients.Count();
-
-        var paginatedItems = ingredients
-            .Skip((page - 1) * pageSize)
-            .Take(pageSize)
-            .ToList();
-
-        var result = _mapper.Map<List<IngredientResponse>>(paginatedItems);
+        var response = await _ingredientsRepository.GetIngredientsAsync(typeId, searchTerm, page, pageSize);
+        var result = _mapper.Map<List<IngredientResponse>>(response.Items);
 
         return new PageListResponse<IngredientResponse>
         {
             Items = result,
-            Page = page,
-            PageSize = pageSize,
-            TotalCount = totalCount,
-            HasNextPage = (page * pageSize) < totalCount,
-            HasPreviousPage = page > 1
+            Page = response.Page,
+            PageSize = response.PageSize,
+            TotalCount = response.TotalCount,
+            HasNextPage = response.HasNextPage,
+            HasPreviousPage = response.HasPreviousPage
         };
     }
 }
