@@ -13,5 +13,5 @@ public class UpdateUserProfileRequestDTO
 public class HealthConditionDTO
 {
     public string Condition { get; set; } = string.Empty;
-    public string Status { get; set; } = string.Empty;
+    public string? Status { get; set; } = string.Empty;
 }
