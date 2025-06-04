@@ -262,6 +262,32 @@ public class RecipesService : IRecipesService
             return new List<RecipeStep>();
         }
     }
+    
+    public async Task<PageListResponse<RecipeHomeResponse>> GetRecipesHomeAsync(string? category, int page = 1, int pageSize = 14)
+    {
+        if (page < 1) page = 1;
+        if (pageSize < 1) pageSize = 14;
+
+        var recipes = await _recipesRepository.GetRecipesByCategoryAsync(category);
+        var totalCount = recipes.Count;
+
+        var paginatedItems = recipes
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
+            .ToList();
+
+        var result = _mapper.Map<List<RecipeHomeResponse>>(paginatedItems);
+
+        return new PageListResponse<RecipeHomeResponse>
+        {
+            Items = result,
+            Page = page,
+            PageSize = pageSize,
+            TotalCount = totalCount,
+            HasNextPage = (page * pageSize) < totalCount,
+            HasPreviousPage = page > 1
+        };
+    }
 
     /*public async Task DeleteRecipeAsync(int id)
     {

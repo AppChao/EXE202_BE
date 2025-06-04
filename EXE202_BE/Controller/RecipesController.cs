@@ -95,4 +95,21 @@ public class RecipesController : ControllerBase
             return StatusCode(500, new { Message = "An error occurred while deleting recipe.", Error = ex.Message });
         }
     }
+    
+    [HttpGet("home")]
+    public async Task<IActionResult> GetRecipesHome(
+        [FromQuery] string? category,
+        [FromQuery] int page = 1,
+        [FromQuery] int pageSize = 14)
+    {
+        try
+        {
+            var recipes = await _recipesService.GetRecipesHomeAsync(category, page, pageSize);
+            return Ok(recipes);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { Message = "Lấy danh sách công thức thất bại.", Error = ex.Message });
+        }
+    }
 }

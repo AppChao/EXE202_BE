@@ -109,4 +109,18 @@ public class UserProfileController : ControllerBase
         }
     }
     
+    [HttpPut("{upId}")]
+    public async Task<IActionResult> Update(int upId, [FromBody] UpdateUserProfileRequestDTO model)
+    {
+        try
+        {
+            var response = await _userProfilesService.UpdateUserProfileAsync(upId, model);
+            return Ok(response);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { Message = "Failed to update user profile.", Error = ex.Message });
+        }
+    }
+    
 }

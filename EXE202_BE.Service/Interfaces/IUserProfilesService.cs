@@ -14,4 +14,6 @@ public interface IUserProfilesService
     Task<AdminProfileResponse> UpdateAdminProfileAsync(int upId, AdminProfileResponse request);
     Task<UserProfileResponse> CreateUserAsync(CreateUserRequestDTO model);
     Task<ProfileImageResponseDTO> UploadProfileImageAsync(int upId, IFormFile image);
+    Task<UserProfileResponse> UpdateUserProfileAsync(int upId, UpdateUserProfileRequestDTO model);
+    
 }

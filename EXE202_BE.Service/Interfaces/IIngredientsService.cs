@@ -5,5 +5,8 @@ namespace EXE202_BE.Service.Interface;
 
 public interface IIngredientsService
 {
-    Task<PageListResponse<IngredientResponse>> GetIngredientsAsync(string? searchTerm, int page, int pageSize);
+    Task<PageListResponse<Ingredient1Response>> GetIngredientsAsync(string? searchTerm, int page, int pageSize);
+    
+    Task<PageListResponse<IngredientTypeResponse>> GetIngredientTypesAsync(string? searchTerm, int page = 1, int pageSize = 20);
+    Task<PageListResponse<IngredientResponse>> GetIngredientsByTypeAsync(int? typeId, string? searchTerm, int page = 1, int pageSize = 20);
 }

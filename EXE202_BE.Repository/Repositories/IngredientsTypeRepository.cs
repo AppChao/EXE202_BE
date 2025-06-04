@@ -5,28 +5,22 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EXE202_BE.Repository.Repositories;
 
-public class IngredientsRepository : GenericRepository<Ingredients>, IIngredientsRepository
+public class IngredientsTypeRepository : GenericRepository<IngredientTypes>, IIngredientsTypeRepository
 {
-    public IngredientsRepository(AppDbContext context) : base(context)
+    public IngredientsTypeRepository(AppDbContext context) : base(context)
     {
     }
-    
-    public async Task<PageListResponse<Ingredients>> GetIngredientsAsync(int? typeId, string? searchTerm, int page = 1, int pageSize = 20)
+    public async Task<PageListResponse<IngredientTypes>> GetIngredientTypesAsync(string? searchTerm, int page = 1, int pageSize = 20)
     {
         if (page < 1) page = 1;
         if (pageSize < 1) pageSize = 20;
 
-        IQueryable<Ingredients> query = DbSet;
-
-        if (typeId.HasValue)
-        {
-            query = query.Where(i => i.IngredientTypeId == typeId.Value);
-        }
+        IQueryable<IngredientTypes> query = DbSet;
 
         if (!string.IsNullOrEmpty(searchTerm))
         {
             searchTerm = searchTerm.ToLower();
-            query = query.Where(i => i.IngredientName != null && i.IngredientName.ToLower().Contains(searchTerm));
+            query = query.Where(t => t.TypeName != null && t.TypeName.ToLower().Contains(searchTerm));
         }
 
         var totalCount = await query.CountAsync();
@@ -36,7 +30,7 @@ public class IngredientsRepository : GenericRepository<Ingredients>, IIngredient
             .Take(pageSize)
             .ToListAsync();
 
-        return new PageListResponse<Ingredients>
+        return new PageListResponse<IngredientTypes>
         {
             Items = paginatedItems,
             Page = page,
