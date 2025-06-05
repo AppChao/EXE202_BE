@@ -39,13 +39,15 @@ public class PayOSService
         }
         else
         {
-            throw new FileNotFoundException($"PayOS credentials file not found at: {payosCredPath}");
+            // Nếu không phải đường dẫn file, coi như là chuỗi JSON
+            payosCredJson = payosCredPath;
+            _logger.LogInformation("Loaded PayOS credentials from environment variable as JSON string.");
         }
 
         var payosCredentials = JsonSerializer.Deserialize<PayOSCredentials>(payosCredJson);
         if (payosCredentials == null)
         {
-            throw new Exception("Failed to parse PayOS credentials file.");
+            throw new Exception("Failed to parse PayOS credentials.");
         }
 
         _payOS = new PayOS(payosCredentials.ClientId, payosCredentials.ApiKey, payosCredentials.ChecksumKey);
