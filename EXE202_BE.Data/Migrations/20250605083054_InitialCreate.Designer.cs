@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace EXE202_BE.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250602071447_InitialCreate")]
+    [Migration("20250605083054_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -1892,7 +1892,7 @@ namespace EXE202_BE.Data.Migrations
 
                     b.ToTable("UserProfiles", t =>
                         {
-                            t.HasCheckConstraint("CK_UserProfiles_Gender", "\"Gender\" IN ('Male', 'Female', 'Other')");
+                            t.HasCheckConstraint("CK_UserProfiles_Gender", "\"Gender\" IN ('Male', 'Female', 'Other', 'Prefer not to say')");
                         });
                 });
 

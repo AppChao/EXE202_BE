@@ -344,7 +344,7 @@ builder.Entity<HealthTagConditions>().HasData(
             .ToTable(tb => tb.HasCheckConstraint("CK_Recipes_Meals", "\"Meals\" IN ('breakfast', 'lunch', 'dinner', 'snack')"));
 
         builder.Entity<UserProfiles>()
-            .ToTable(tb => tb.HasCheckConstraint("CK_UserProfiles_Gender", "\"Gender\" IN ('Male', 'Female', 'Other')"));
+            .ToTable(tb => tb.HasCheckConstraint("CK_UserProfiles_Gender", "\"Gender\" IN ('Male', 'Female', 'Other', 'Prefer not to say')"));
 
         //ml for only ingredient that are liquidation, piece for something like apple, egg,... , gram for meat and vegetable, tbsp and tsp is only for powder form
         builder.Entity<Ingredients>()

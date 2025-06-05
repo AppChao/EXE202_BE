@@ -495,7 +495,7 @@ namespace EXE202_BE.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_UserProfiles", x => x.UPId);
-                    table.CheckConstraint("CK_UserProfiles_Gender", "\"Gender\" IN ('Male', 'Female', 'Other')");
+                    table.CheckConstraint("CK_UserProfiles_Gender", "\"Gender\" IN ('Male', 'Female', 'Other', 'Prefer not to say')");
                     table.ForeignKey(
                         name: "FK_UserProfiles_ActivityLevels_LevelId",
                         column: x => x.LevelId,

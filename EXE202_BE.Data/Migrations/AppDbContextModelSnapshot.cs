@@ -1889,7 +1889,7 @@ namespace EXE202_BE.Data.Migrations
 
                     b.ToTable("UserProfiles", t =>
                         {
-                            t.HasCheckConstraint("CK_UserProfiles_Gender", "\"Gender\" IN ('Male', 'Female', 'Other')");
+                            t.HasCheckConstraint("CK_UserProfiles_Gender", "\"Gender\" IN ('Male', 'Female', 'Other', 'Prefer not to say')");
                         });
                 });
 

@@ -30,6 +30,7 @@ public static class DependencyInjection
         services.AddTransient<ICuisinesService, CuisinesService>();
         services.AddTransient<IHealthTagsService, HealthTagsService>();
         services.AddTransient<IMealCatagoriesService, MealCatagoriesService>();
+        services.AddTransient<IGoalsService, GoalsService>();
         // services.AddTransient<IEmailSender<ModifyIdentityUser>, SmtpEmailSender>();
         services.AddTransient<PayOSService>(); 
         // Tiêm SmtpEmailSender với các dependency

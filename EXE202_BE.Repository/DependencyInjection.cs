@@ -27,6 +27,7 @@ public static class DependencyInjection
         services.AddTransient<IHealthTagsRepository, HealthTagsRepository>(); 
         services.AddTransient<IMealCatagoriesRepository, MealCatagoriesRepository>();
         services.AddTransient<IIngredientsTypeRepository, IngredientsTypeRepository>();
+        services.AddTransient<IGoalsRepository, GoalsRepository>();
         return services;
     }
 }

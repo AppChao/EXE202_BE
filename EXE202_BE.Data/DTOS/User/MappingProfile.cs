@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text.Json;
 using EXE202_BE.Data.DTOS.Cuisine;
 using EXE202_BE.Data.DTOS.Dashboard;
+using EXE202_BE.Data.DTOS.Goals;
 using EXE202_BE.Data.DTOS.HealthTag;
 using EXE202_BE.Data.DTOS.Ingredient;
 using EXE202_BE.Data.DTOS.MealCategory;
@@ -128,5 +129,9 @@ public class MappingProfile : Profile
         CreateMap<MealCatagories, MealCategoryResponse>()
             .ForMember(dest => dest.MealId, opt => opt.MapFrom(src => src.MealId))
             .ForMember(dest => dest.MealName, opt => opt.MapFrom(src => src.MealName));
+
+        CreateMap<Models.Goals, GoalResponse>()
+            .ForMember(dest => dest.GoalId, opt => opt.MapFrom(src => src.GoalId))
+            .ForMember(dest => dest.GoalName, opt => opt.MapFrom(src => src.GoalName));
     }
 }
