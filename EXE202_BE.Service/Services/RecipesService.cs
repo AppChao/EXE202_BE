@@ -101,16 +101,17 @@ public class RecipesService : IRecipesService
             throw new ArgumentException("Recipe name is required.");
         }
 
-        if (string.IsNullOrWhiteSpace(request.Nation))
+        if (request.CuisineId <= 0)
         {
-            throw new ArgumentException("Nation is required.");
+            throw new ArgumentException("Cuisine ID is required.");
         }
 
-        var cuisine = await _cuisinesRepository.GetAsync(c => c.Nation == request.Nation);
+        var cuisine = await _cuisinesRepository.GetAsync(c => c.CuisineId == request.CuisineId);
         if (cuisine == null)
         {
-            throw new ArgumentException($"Invalid nation: {request.Nation}.");
+            throw new ArgumentException($"Invalid cuisine ID: {request.CuisineId}.");
         }
+
         // Parse steps to JSON
         string recipeStepsJson = JsonSerializer.Serialize(request.Steps);
 
@@ -118,7 +119,7 @@ public class RecipesService : IRecipesService
         var recipe = new Recipes
         {
             RecipeName = request.RecipeName,
-            CuisineId = cuisine.CuisineId,
+            CuisineId = request.CuisineId,
             Meals = request.Meals,
             RecipeSteps = recipeStepsJson,
             InstructionVideoLink = request.InstructionVideoLink,
@@ -155,37 +156,72 @@ public class RecipesService : IRecipesService
         return response;
     }
 
-    public async Task<RecipeResponse> UpdateRecipeAsync(int id, RecipeRequest request)
+public async Task<RecipeResponse> UpdateRecipeAsync(int id, RecipeRequest request)
+{
+    var recipe = await _recipesRepository.GetAsync(r => r.RecipeId == id);
+    if (recipe == null)
     {
-        var recipe = await _recipesRepository.GetAsync(r => r.RecipeId == id);
-        if (recipe == null)
+        throw new Exception("Recipe not found.");
+    }
+
+    // Kiểm tra validation
+    if (string.IsNullOrWhiteSpace(request.RecipeName))
+    {
+        throw new ArgumentException("Recipe name is required.");
+    }
+
+    if (request.CuisineId <= 0)
+    {
+        throw new ArgumentException("Cuisine ID is required.");
+    }
+
+    var cuisine = await _cuisinesRepository.GetAsync(c => c.CuisineId == request.CuisineId);
+    if (cuisine == null)
+    {
+        throw new ArgumentException($"Invalid cuisine ID: {request.CuisineId}.");
+    }
+
+    if (request.Ingredients == null || !request.Ingredients.Any())
+    {
+        throw new ArgumentException("At least one ingredient is required.");
+    }
+
+    if (request.Steps == null || !request.Steps.Any())
+    {
+        throw new ArgumentException("At least one step is required.");
+    }
+
+    foreach (var ingredient in request.Ingredients)
+    {
+        if (string.IsNullOrWhiteSpace(ingredient.Ingredient))
         {
-            throw new Exception("Recipe not found.");
+            throw new ArgumentException("Ingredient name is required.");
         }
-
-        // Kiểm tra validation
-        if (string.IsNullOrWhiteSpace(request.RecipeName))
+        if (string.IsNullOrWhiteSpace(ingredient.Amount) || !double.TryParse(ingredient.Amount, out var amount) || amount <= 0)
         {
-            throw new ArgumentException("Recipe name is required.");
+            throw new ArgumentException($"Invalid amount for ingredient '{ingredient.Ingredient}': must be a positive number.");
         }
+    }
 
-        if (string.IsNullOrWhiteSpace(request.Nation))
+    foreach (var step in request.Steps)
+    {
+        if (string.IsNullOrWhiteSpace(step.Instruction))
         {
-            throw new ArgumentException("Nation is required.");
+            throw new ArgumentException("All step instructions must be provided.");
         }
+    }
 
-        var cuisine = await _cuisinesRepository.GetAsync(c => c.Nation == request.Nation);
-        if (cuisine == null)
-        {
-            throw new ArgumentException($"Invalid nation: {request.Nation}.");
-        }
+    // Parse steps to JSON
+    string recipeStepsJson = JsonSerializer.Serialize(request.Steps);
 
-        // Parse steps to JSON
-        string recipeStepsJson = JsonSerializer.Serialize(request.Steps);
+    // Bắt đầu giao dịch
+    using var transaction = await _recipesRepository.GetDbContext().Database.BeginTransactionAsync();
 
+    try
+    {
         // Cập nhật recipe
         recipe.RecipeName = request.RecipeName;
-        recipe.CuisineId = cuisine.CuisineId;
+        recipe.CuisineId = request.CuisineId;
         recipe.Meals = request.Meals;
         recipe.RecipeSteps = recipeStepsJson;
         recipe.InstructionVideoLink = request.InstructionVideoLink;
@@ -214,10 +250,13 @@ public class RecipesService : IRecipesService
             {
                 RecipeId = id,
                 IngredientId = ingredientEntity.IngredientId,
-                Ammount = $"{ingredient.Amount} {ingredient.DefaultUnit}"
+                Ammount = ingredient.Amount // Chỉ lưu Amount, không gộp DefaultUnit
             };
             await _servingsRepository.AddAsync(servingEntity);
         }
+
+        // Commit giao dịch
+        await transaction.CommitAsync();
 
         var updatedRecipe = await _recipesRepository.GetAsync(
             r => r.RecipeId == id,
@@ -227,6 +266,12 @@ public class RecipesService : IRecipesService
         response.Steps = ParseRecipeSteps(updatedRecipe.RecipeSteps);
         return response;
     }
+    catch (Exception)
+    {
+        await transaction.RollbackAsync();
+        throw;
+    }
+}
 
     public async Task DeleteRecipeAsync(int id)
     {

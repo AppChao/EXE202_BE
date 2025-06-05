@@ -15,4 +15,5 @@ public class UserProfileResponse
     public string? PhoneNumber { get; set; }
     public int? SubcriptionId  { get; set; }
     public DateTime? EndDate  { get; set; }
+    public int Streak { get; set; }
 }

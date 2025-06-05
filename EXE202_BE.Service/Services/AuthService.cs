@@ -144,12 +144,34 @@ public class AuthService : IAuthService
         
         var userProfile = await _userProfilesRepository.GetAsync( 
             up => up.UserId == user.Id);
+        if (userProfile == null)
+        {
+            throw new Exception("User profile not found. Please create an account");
+        }
 
-        // if (userProfile == null)
-        // {
-        //     throw new Exception("User profile not found. Please create an account");
-        // }
-        
+        // Logic tính streak
+        var today = DateTime.UtcNow.Date;
+        if (userProfile.LastLoginDate == null) // Lần đầu đăng nhập
+        {
+            userProfile.Streak = 1;
+        }
+        else
+        {
+            var lastLogin = userProfile.LastLoginDate.Value.Date;
+            var daysDifference = (today - lastLogin).Days;
+
+            if (daysDifference == 1) // Ngày liên tiếp
+            {
+                userProfile.Streak += 1;
+            }
+            else if (daysDifference > 1) // Không liên tiếp
+            {
+                userProfile.Streak = 1;
+            }
+            // Nếu daysDifference == 0 (đăng nhập trong cùng ngày), không thay đổi Streak
+        }
+        userProfile.LastLoginDate = today;
+        await _userProfilesRepository.UpdateAsync(userProfile);
 
         var claims = new List<Claim>
         {
@@ -163,7 +185,7 @@ public class AuthService : IAuthService
         {
             Token = new JwtSecurityTokenHandler().WriteToken(GenerateJwtSecurityToken(claims)),
             Role = roles.FirstOrDefault(),
-            UPId = 1
+            UPId = 2
         };
     }
 
@@ -186,13 +208,34 @@ public class AuthService : IAuthService
         
         await _userManager.AddToRoleAsync(user, "User");
 
-        // var userProfile = await _userProfilesRepository.GetAsync( 
-        //     up => up.UserId == user.Id);
-        //
-        // if (userProfile == null)
-        // {
-        //     throw new Exception("User profile not found. Please create an account");
-        // }
+        var userProfile = await _userProfilesRepository.GetAsync(up => up.UserId == user.Id);
+        if (userProfile == null)
+        {
+            throw new Exception("User profile not found. Please create an account");
+        }
+
+        // Logic tính streak
+        var today = DateTime.UtcNow.Date;
+        if (userProfile.LastLoginDate == null)
+        {
+            userProfile.Streak = 1;
+        }
+        else
+        {
+            var lastLogin = userProfile.LastLoginDate.Value.Date;
+            var daysDifference = (today - lastLogin).Days;
+
+            if (daysDifference == 1)
+            {
+                userProfile.Streak += 1;
+            }
+            else if (daysDifference > 1)
+            {
+                userProfile.Streak = 1;
+            }
+        }
+        userProfile.LastLoginDate = today;
+        await _userProfilesRepository.UpdateAsync(userProfile);
         
         var roles = await _userManager.GetRolesAsync(user);
         

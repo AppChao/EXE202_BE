@@ -6,7 +6,7 @@ public class RecipeRequest
     public string Meals { get; set; } = string.Empty;
     public int DifficultyEstimation { get; set; }
     public int TimeEstimation { get; set; } = 0; // Format: "X hours Y minutes" or "X minutes"
-    public string Nation { get; set; } = string.Empty;
+    public int CuisineId { get; set; } // Thay Nation bằng CuisineId
     public List<IngredientDetail> Ingredients { get; set; } = new List<IngredientDetail>();
     public string InstructionVideoLink { get; set; } = string.Empty;
     public List<RecipeStep> Steps { get; set; } = new List<RecipeStep>();

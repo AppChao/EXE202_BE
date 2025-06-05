@@ -10,15 +10,13 @@ public class RecipesRepository : GenericRepository<Recipes>, IRecipesRepository
     {
     }
     
-    public async Task<List<Recipes>> GetRecipesByCategoryAsync(string? category)
+    public async Task<List<Recipes>> GetRecipesByCategoryAsync(string? meal)
     {
-        IQueryable<Recipes> query = DbSet
-            .Include(r => r.RecipeMealTypes)
-            .ThenInclude(rmt => rmt.MealCatagorie);
+        IQueryable<Recipes> query = DbSet;
 
-        if (!string.IsNullOrEmpty(category) && category.ToLower() != "all")
+        if (!string.IsNullOrEmpty(meal) && meal.ToLower() != "all")
         {
-            query = query.Where(r => r.RecipeMealTypes.Any(rmt => rmt.MealCatagorie.MealName.ToLower() == category.ToLower()));
+            query = query.Where(r => r.Meals != null && r.Meals.ToLower() == meal.ToLower());
         }
 
         return await query.ToListAsync();
