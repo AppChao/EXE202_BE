@@ -34,7 +34,8 @@ public class MappingProfile : Profile
             .ForMember(dest => dest.SubcriptionId, opt => opt.MapFrom(src => src.SubcriptionId))
             .ForMember(dest => dest.Role, opt => opt.Ignore())
             .ForMember(dest => dest.UserPicture, opt => opt.MapFrom(src => src.UserPicture != null ? src.UserPicture.ToString() : string.Empty))
-            .ForMember(dest => dest.EndDate, opt => opt.MapFrom(src => src.EndDate));
+            .ForMember(dest => dest.EndDate, opt => opt.MapFrom(src => src.EndDate))
+            .ForMember(dest => dest.Streak, opt => opt.MapFrom(src => src.Streak));
 
         CreateMap<UpdateUserProfileRequestDTO, UserProfiles>()
             .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => src.FullName))

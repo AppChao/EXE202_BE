@@ -40,6 +40,8 @@ public partial class UserProfiles
     public DateTime? EndDate { get; set; }
 
     public Uri? UserPicture { get; set; } 
+    public int Streak { get; set; } = 0;
+    public DateTime? LastLoginDate { get; set; }
 
     [Required] public string? UserId { get; set; } = string.Empty;
 
