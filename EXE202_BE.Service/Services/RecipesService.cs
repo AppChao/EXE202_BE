@@ -308,12 +308,22 @@ public async Task<RecipeResponse> UpdateRecipeAsync(int id, RecipeRequest reques
         }
     }
     
-    public async Task<PageListResponse<RecipeHomeResponse>> GetRecipesHomeAsync(string? category, int page = 1, int pageSize = 14)
+    public async Task<PageListResponse<RecipeHomeResponse>> GetRecipesHomeAsync(string? category, string? searchTerm, int page = 1, int pageSize = 14)
     {
         if (page < 1) page = 1;
         if (pageSize < 1) pageSize = 14;
 
         var recipes = await _recipesRepository.GetRecipesByCategoryAsync(category);
+
+        // Thêm logic tìm kiếm dựa trên searchTerm
+        if (!string.IsNullOrEmpty(searchTerm))
+        {
+            searchTerm = searchTerm.ToLower(); // Chuyển thành chữ thường để tìm kiếm không phân biệt hoa thường
+            recipes = recipes
+                .Where(r => r.RecipeName.ToLower().Contains(searchTerm)) // Tìm trong nguyên liệu
+                .ToList();
+        }
+
         var totalCount = recipes.Count;
 
         var paginatedItems = recipes

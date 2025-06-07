@@ -19,6 +19,7 @@ public class PayOSService
     private readonly string _cancelUrl;
     private readonly ILogger<PayOSService> _logger;
     private readonly AppDbContext _dbContext;
+    private const long InitialOrderCode = 17; // Hardcode giá trị khởi đầu
 
     public PayOSService(IConfiguration config, ILogger<PayOSService> logger, AppDbContext dbContext)
     {
@@ -39,7 +40,6 @@ public class PayOSService
         }
         else
         {
-            // Nếu không phải đường dẫn file, coi như là chuỗi JSON
             payosCredJson = payosCredPath;
             _logger.LogInformation("Loaded PayOS credentials from environment variable as JSON string.");
         }
@@ -57,17 +57,19 @@ public class PayOSService
         _logger.LogInformation("PayOSService initialized with ReturnUrl: {ReturnUrl}, CancelUrl: {CancelUrl}", _returnUrl, _cancelUrl);
     }
 
-public async Task<PaymentResponse> CreatePaymentLink(PaymentRequest request, int upId)
+    public async Task<PaymentResponse> CreatePaymentLink(PaymentRequest request, int upId)
     {
         try
         {
             _logger.LogInformation($"Creating payment link for order: {request.OrderCode}, amount: {request.Amount}, upId: {upId}");
 
-            // Tạo orderCode tăng dần
+            // Tạo orderCode tăng dần, bắt đầu từ InitialOrderCode
             var lastTransaction = await _dbContext.PaymentTransactions
                 .OrderByDescending(t => t.OrderCode)
                 .FirstOrDefaultAsync();
-            long newOrderCode = lastTransaction != null ? lastTransaction.OrderCode + 1 : 1;
+            long newOrderCode = lastTransaction != null 
+                ? Math.Max(lastTransaction.OrderCode + 1, InitialOrderCode)
+                : InitialOrderCode;
             request.OrderCode = newOrderCode;
 
             var items = request.Items ?? new List<ItemData>();
@@ -81,7 +83,7 @@ public async Task<PaymentResponse> CreatePaymentLink(PaymentRequest request, int
                 buyerName: request.BuyerName,
                 buyerEmail: request.BuyerEmail,
                 buyerPhone: request.BuyerPhone,
-                expiredAt: (int)(DateTime.UtcNow.AddDays(7) - new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalSeconds // Hết hạn sau 7 ngày
+                expiredAt: (int)(DateTime.UtcNow.AddDays(7) - new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalSeconds
             );
 
             _logger.LogDebug($"Sending payment data to PayOS: {JsonSerializer.Serialize(paymentData)}");
@@ -128,6 +130,7 @@ public async Task<PaymentResponse> CreatePaymentLink(PaymentRequest request, int
             throw new Exception($"Failed to create payment link: {ex.Message}", ex);
         }
     }
+
     public async Task<PaymentLinkInformation> GetPaymentLinkInformation(long orderCode)
     {
         try
