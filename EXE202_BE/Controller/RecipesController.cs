@@ -101,7 +101,7 @@ public class RecipesController : ControllerBase
         [FromQuery] string? category,
         [FromQuery] string? searchTerm,
         [FromQuery] int page = 1,
-        [FromQuery] int pageSize = 14)
+        [FromQuery] int pageSize = 10)
     {
         try
         {
