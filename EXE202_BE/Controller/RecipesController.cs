@@ -99,12 +99,13 @@ public class RecipesController : ControllerBase
     [HttpGet("home")]
     public async Task<IActionResult> GetRecipesHome(
         [FromQuery] string? category,
+        [FromQuery] string? searchTerm,
         [FromQuery] int page = 1,
-        [FromQuery] int pageSize = 14)
+        [FromQuery] int pageSize = 10)
     {
         try
         {
-            var recipes = await _recipesService.GetRecipesHomeAsync(category, page, pageSize);
+            var recipes = await _recipesService.GetRecipesHomeAsync(category, searchTerm, page, pageSize);
             return Ok(recipes);
         }
         catch (Exception ex)
