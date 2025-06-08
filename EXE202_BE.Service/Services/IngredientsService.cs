@@ -32,7 +32,7 @@ public class IngredientsService : IIngredientsService
         Expression<Func<Ingredients, bool>>? filter = null;
         if (!string.IsNullOrWhiteSpace(searchTerm))
         {
-            filter = i => i.IngredientName.Contains(searchTerm, StringComparison.OrdinalIgnoreCase);
+            filter = i => i.IngredientName.ToLower().Contains(searchTerm.ToLower());
         }
 
         var ingredients = await _ingredientsRepository.GetAllAsync(filter);
@@ -86,5 +86,26 @@ public class IngredientsService : IIngredientsService
             HasNextPage = response.HasNextPage,
             HasPreviousPage = response.HasPreviousPage
         };
+    }
+
+    public async Task<List<CommonAllergenResponse>?>? GetCommonAllergensAsync()
+    {
+        var allergens = await _ingredientsRepository.GetAllIngredientsOrderByIconAsync();
+
+        if (allergens == null)
+        {
+            return null;
+        }
+        
+        List<CommonAllergenResponse>? result = new List<CommonAllergenResponse>();
+        foreach (var ingredient in allergens)
+        {
+            if (ingredient.IconLibrary != null && ingredient.IconName != null)
+            {
+                result.Add(_mapper.Map<CommonAllergenResponse>(ingredient));
+            }
+        }
+
+        return result;
     }
 }

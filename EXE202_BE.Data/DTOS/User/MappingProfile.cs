@@ -134,5 +134,13 @@ public class MappingProfile : Profile
         CreateMap<Models.Goals, GoalResponse>()
             .ForMember(dest => dest.GoalId, opt => opt.MapFrom(src => src.GoalId))
             .ForMember(dest => dest.GoalName, opt => opt.MapFrom(src => src.GoalName));
+
+        CreateMap<Models.Ingredients, CommonAllergenResponse>()
+            .ForMember(dest => dest.IngredientId, opt => opt.MapFrom(src => src.IngredientId))
+            .ForMember(dest => dest.IngredientName, opt => opt.MapFrom(src => src.IngredientName))
+            .ForMember(dest => dest.DefaultUnit, opt => opt.MapFrom(src => src.DefaultUnit))
+            .ForMember(dest => dest.IconLibrary, opt => opt.MapFrom(src => src.IconLibrary))
+            .ForMember(dest => dest.IconName, opt => opt.MapFrom(src => src.IconName));
+
     }
 }

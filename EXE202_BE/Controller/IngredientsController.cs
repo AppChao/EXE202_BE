@@ -1,3 +1,4 @@
+using EXE202_BE.Data.DTOS.Ingredient;
 using EXE202_BE.Service.Interface;
 using Microsoft.AspNetCore.Mvc;
 
@@ -59,6 +60,24 @@ public class IngredientsController : ControllerBase
         {
             var ingredients = await _ingredientsService.GetIngredientsByTypeAsync(typeId, searchTerm, page, pageSize);
             return Ok(ingredients);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { Message = "Lấy danh sách nguyên liệu thất bại.", Error = ex.Message });
+        }
+    }
+
+    [HttpGet("common/allergens")]
+    public async Task<IActionResult> GetCommonAllergens()
+    {
+        try
+        {
+            var allergens = await _ingredientsService.GetCommonAllergensAsync()!;
+            if (allergens == null)
+            {
+                return BadRequest(new { Message = "Lấy danh sách nguyên liệu thất bại.", Error = "danh sach null" });
+            }
+            return Ok(allergens);
         }
         catch (Exception ex)
         {

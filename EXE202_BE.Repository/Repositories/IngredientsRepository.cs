@@ -7,8 +7,11 @@ namespace EXE202_BE.Repository.Repositories;
 
 public class IngredientsRepository : GenericRepository<Ingredients>, IIngredientsRepository
 {
+    private readonly AppDbContext _dbContext;
+
     public IngredientsRepository(AppDbContext context) : base(context)
     {
+        _dbContext = context;
     }
     
     public async Task<PageListResponse<Ingredients>> GetIngredientsAsync(int? typeId, string? searchTerm, int page = 1, int pageSize = 20)
@@ -45,5 +48,12 @@ public class IngredientsRepository : GenericRepository<Ingredients>, IIngredient
             HasNextPage = (page * pageSize) < totalCount,
             HasPreviousPage = page > 1
         };
+    }
+
+    public async Task<List<Ingredients>?> GetAllIngredientsOrderByIconAsync()
+    {
+        return await _dbContext.Ingredients
+            .OrderBy(i => i.IconLibrary)
+            .ToListAsync();
     }
 }
