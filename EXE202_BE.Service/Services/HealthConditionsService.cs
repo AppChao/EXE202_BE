@@ -1,21 +1,26 @@
 using AutoMapper;
 using EXE202_BE.Data.DTOS;
+using EXE202_BE.Data.DTOS.Auth;
 using EXE202_BE.Data.Models;
 using EXE202_BE.Repository.Interface;
 using EXE202_BE.Service.Interface;
+using Microsoft.IdentityModel.Tokens;
 
 namespace EXE202_BE.Service.Services;
 
 public class HealthConditionsService : IHealthConditionsService
 {
     private readonly IHealthConditionsRepository _healthConditionRepository;
+    private readonly IPersonalHealthConditionsRepository _personalHealthConditionsRepository;
     private readonly IMapper _mapper;
 
     public HealthConditionsService(
         IHealthConditionsRepository healthConditionRepository,
+        IPersonalHealthConditionsRepository personalHealthConditionsRepository,
         IMapper mapper)
     {
         _healthConditionRepository = healthConditionRepository;
+        _personalHealthConditionsRepository = personalHealthConditionsRepository;
         _mapper = mapper;
     }
 
@@ -38,5 +43,24 @@ public class HealthConditionsService : IHealthConditionsService
             HasNextPage = response.HasNextPage,
             HasPreviousPage = response.HasPreviousPage
         };
+    }
+
+    public async Task<List<PersonalHealthConditions>> CreateHealthConditions(UserProfiles info, SignUpRequest model)
+    {
+        List<PersonalHealthConditions> result = new List<PersonalHealthConditions>();
+        foreach (var item in model.listHConditions)
+        {
+            var newhc = new PersonalHealthConditions
+            {
+                UPId = info.UPId,
+                HealthConditionId = item,
+                Status = "new"
+            };
+
+            await _personalHealthConditionsRepository.AddAsync(newhc);
+            result.Add(newhc);
+        }
+
+        return result;
     }
 }

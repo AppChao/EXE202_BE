@@ -1387,14 +1387,14 @@ namespace EXE202_BE.Data.Migrations
                     b.Property<int>("UPId")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime>("BreakfastTime")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<TimeOnly>("BreakfastTime")
+                        .HasColumnType("time without time zone");
 
-                    b.Property<DateTime>("DinnerTime")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<TimeOnly>("DinnerTime")
+                        .HasColumnType("time without time zone");
 
-                    b.Property<DateTime>("LunchTime")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<TimeOnly>("LunchTime")
+                        .HasColumnType("time without time zone");
 
                     b.HasKey("UPId");
 

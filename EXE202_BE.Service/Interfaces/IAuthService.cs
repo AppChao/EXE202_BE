@@ -15,4 +15,6 @@ public interface IAuthService
     Task<LoginResponse> LoginGoogleAsync(LoginGoogleRequest model);
     
     JwtSecurityToken GenerateJwtSecurityToken(List<Claim> claims);
+
+    Task<SignUpResponse> SignUp(SignUpRequest model);
 }

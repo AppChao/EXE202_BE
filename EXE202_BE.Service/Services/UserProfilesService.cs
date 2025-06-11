@@ -4,6 +4,7 @@ using AutoMapper;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using EXE202_BE.Data.DTOS;
+using EXE202_BE.Data.DTOS.Auth;
 using EXE202_BE.Data.Models;
 using EXE202_BE.Repository.Interface;
 using EXE202_BE.Service.Interface;
@@ -353,5 +354,21 @@ public class UserProfilesService : IUserProfilesService
             await transaction.RollbackAsync();
             throw new Exception($"Failed to update user profile: {ex.Message}", ex);
         }
+    }
+
+    public async Task<UserProfiles> CreateUserProfilesAsync(SignUpRequest model, ModifyIdentityUser modifyIdentityUser)
+    {
+        var newUP = new UserProfiles
+        {
+            GoalId = model.goalId,
+            Weight = model.weight,
+            GoalWeight = model.goalWeight,
+            Height = model.height,
+            Gender = model.gender,
+            Age = model.age,
+            UserId = modifyIdentityUser.Id
+        };
+        
+        return await _userProfilesRepository.AddAsync(newUP);
     }
 }

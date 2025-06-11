@@ -19,6 +19,7 @@ public class DevicesRepository :  GenericRepository<Devices>, IDevicesRepository
         {
             UserId = userId,
             DeviceToken = fcmToken,
+            Platform = "Android"
         };
 
         await _dbContext.AddAsync(deviceToken);

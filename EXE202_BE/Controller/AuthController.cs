@@ -101,4 +101,18 @@ public class AuthController : ControllerBase
             return Unauthorized(new { Message = "Login failed.", Error = ex.Message });
         }    
     }
+
+    [HttpPost("signup")]
+    public async Task<IActionResult> SignUp([FromBody] SignUpRequest model)
+    {
+        try
+        {
+            var response = await _authService.SignUp(model);
+            return Ok(response);
+        }
+        catch (Exception ex)
+        {
+            return Unauthorized(new { Message = "Sign up failed.", Error = ex.Message });
+        }
+    }
 }

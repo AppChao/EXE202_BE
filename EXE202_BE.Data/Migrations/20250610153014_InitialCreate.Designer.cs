@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace EXE202_BE.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250605083054_InitialCreate")]
+    [Migration("20250610153014_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -1390,14 +1390,14 @@ namespace EXE202_BE.Data.Migrations
                     b.Property<int>("UPId")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime>("BreakfastTime")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<TimeOnly>("BreakfastTime")
+                        .HasColumnType("time without time zone");
 
-                    b.Property<DateTime>("DinnerTime")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<TimeOnly>("DinnerTime")
+                        .HasColumnType("time without time zone");
 
-                    b.Property<DateTime>("LunchTime")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<TimeOnly>("LunchTime")
+                        .HasColumnType("time without time zone");
 
                     b.HasKey("UPId");
 
@@ -1853,6 +1853,9 @@ namespace EXE202_BE.Data.Migrations
                     b.Property<double?>("Height")
                         .HasColumnType("double precision");
 
+                    b.Property<DateTime?>("LastLoginDate")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<int?>("LevelId")
                         .HasColumnType("integer");
 
@@ -1861,6 +1864,9 @@ namespace EXE202_BE.Data.Migrations
 
                     b.Property<DateTime?>("StartDate")
                         .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("Streak")
+                        .HasColumnType("integer");
 
                     b.Property<int?>("SubcriptionId")
                         .HasColumnType("integer");

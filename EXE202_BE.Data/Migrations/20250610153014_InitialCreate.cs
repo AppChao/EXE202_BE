@@ -490,6 +490,8 @@ namespace EXE202_BE.Data.Migrations
                     StartDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     EndDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     UserPicture = table.Column<string>(type: "text", nullable: true),
+                    Streak = table.Column<int>(type: "integer", nullable: false),
+                    LastLoginDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     UserId = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
@@ -645,9 +647,9 @@ namespace EXE202_BE.Data.Migrations
                 columns: table => new
                 {
                     UPId = table.Column<int>(type: "integer", nullable: false),
-                    BreakfastTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    LunchTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    DinnerTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    BreakfastTime = table.Column<TimeOnly>(type: "time without time zone", nullable: false),
+                    LunchTime = table.Column<TimeOnly>(type: "time without time zone", nullable: false),
+                    DinnerTime = table.Column<TimeOnly>(type: "time without time zone", nullable: false)
                 },
                 constraints: table =>
                 {

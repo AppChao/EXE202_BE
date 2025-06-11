@@ -24,6 +24,10 @@ public class AuthService : IAuthService
     private readonly IHttpContextAccessor _httpContextAccessor;
     private readonly ILogger _logger;
     private readonly RoleManager<IdentityRole> _roleManager;
+    private readonly IAllergiesService _allergiesService;
+    private readonly IHealthConditionsService _healthConditionsService;
+    private readonly IDevicesRepository _devicesRepository;
+    private readonly IMealScheduledService _mealScheduledService;
     
     public AuthService(
         UserManager<ModifyIdentityUser> userManager,
@@ -31,7 +35,11 @@ public class AuthService : IAuthService
         IUserProfilesService userProfilesService,
         IUserProfilesRepository userProfilesRepository,
         IHttpContextAccessor httpContextAccessor,
-        ILogger<AuthService> logger)
+        ILogger<AuthService> logger
+        , IAllergiesService allergiesService
+        , IHealthConditionsService healthConditionsService
+        , IDevicesRepository devicesRepository
+        , IMealScheduledService mealScheduledService)
     {
         _userManager = userManager;
         _configuration = configuration;
@@ -39,6 +47,10 @@ public class AuthService : IAuthService
         _userProfilesRepository = userProfilesRepository;
         _httpContextAccessor = httpContextAccessor;
         _logger = logger;
+        _allergiesService = allergiesService;
+        _healthConditionsService = healthConditionsService;
+        _devicesRepository = devicesRepository;
+        _mealScheduledService = mealScheduledService;
     }
 
     public async Task<LoginResponse> LoginAsync(LoginRequestDTO model)
@@ -267,5 +279,62 @@ public class AuthService : IAuthService
             signingCredentials: creds);
         
         return token;
+    }
+
+    public async Task<SignUpResponse> SignUp(SignUpRequest model)
+    {
+        var user = await _userManager.FindByEmailAsync(model.email);
+        if (user != null)
+        {
+            throw new Exception("The email address already exists");
+        }
+
+        var newUser = new ModifyIdentityUser()
+        {
+            Email = model.email,
+            UserName = model.email,
+        };
+        
+        var result = await _userManager.CreateAsync(newUser, model.password);
+
+        if (!result.Succeeded)
+        {
+            throw new Exception(string.Join(", ", result.Errors.Select(e => e.Description)));
+        }
+        
+        await _userManager.AddToRoleAsync(newUser, model.role);
+
+        var newUserProfile = await _userProfilesService.CreateUserProfilesAsync(model, newUser);
+
+        if (model.listAllergies != null && model.listAllergies.Any())
+        {
+            await _allergiesService.CreateAllergies(newUserProfile, model);
+        }
+
+        if (model.listHConditions != null && model.listHConditions.Any())
+        { 
+            await _healthConditionsService.CreateHealthConditions(newUserProfile, model);
+        }
+
+        await _devicesRepository.CreateDeviceToken(newUser.Id, model.deviceId);
+        
+        await _mealScheduledService.CreateMealScheduled(newUserProfile.UPId, model);
+
+        var roles = await _userManager.GetRolesAsync(newUser);
+        
+        var claims = new List<Claim>
+        {
+            new Claim(ClaimTypes.NameIdentifier, newUser.Id),
+            new Claim(ClaimTypes.Email, newUser.Email)
+        };
+
+        claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
+        
+        return new SignUpResponse
+        {
+            UPId = newUserProfile.UPId,
+            JWTToken = new JwtSecurityTokenHandler().WriteToken(GenerateJwtSecurityToken(claims)),
+            Role = model.role,
+        };
     }
 }
