@@ -23,6 +23,8 @@ using Serilog.AspNetCore;
 using System;
 using Hangfire;
 using Hangfire.PostgreSql;
+using FirebaseAdmin;
+using Google.Apis.Auth.OAuth2;
 
 namespace EXE202_BE
 {
@@ -59,6 +61,14 @@ namespace EXE202_BE
 
                 var accessToken = await credential.UnderlyingCredential.GetAccessTokenForRequestAsync();
                 Console.WriteLine("Firebase initialized successfully. Access token acquired.");
+                if (FirebaseApp.DefaultInstance == null)
+                {
+                    FirebaseApp.Create(new AppOptions
+                    {
+                        Credential =                     credential = GoogleCredential
+                            .FromFile(firebaseCred)
+                    });
+                }
             }
             catch (Exception ex)
             {

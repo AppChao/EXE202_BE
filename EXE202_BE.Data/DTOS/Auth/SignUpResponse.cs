@@ -2,7 +2,7 @@ namespace EXE202_BE.Data.DTOS.Auth;
 
 public class SignUpResponse
 {
-    public string? JWTToken { get; set; }
+    public string? Token { get; set; }
     
     public int? UPId { get; set; }
 

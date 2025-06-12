@@ -165,7 +165,7 @@ public class NotificationsService : INotificationService
     public async Task SendNotificationAsync(EXE202Notification notification)
     {
         var fcmTokens = await _deviceTokenRepository.GetDeviceToken();
-        if (fcmTokens != null) return;
+        if (fcmTokens == null) return;
         try
         {
             // Create the message payload

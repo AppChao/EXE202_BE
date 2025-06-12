@@ -333,7 +333,7 @@ public class AuthService : IAuthService
         return new SignUpResponse
         {
             UPId = newUserProfile.UPId,
-            JWTToken = new JwtSecurityTokenHandler().WriteToken(GenerateJwtSecurityToken(claims)),
+            Token = new JwtSecurityTokenHandler().WriteToken(GenerateJwtSecurityToken(claims)),
             Role = model.role,
         };
     }
