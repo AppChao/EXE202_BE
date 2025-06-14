@@ -13,6 +13,7 @@ public class RecipeResponse
     public List<IngredientDetail>? Ingredients { get; set; } // Chỉ trả trong GET chi tiết
     public List<RecipeStep>? Steps { get; set; } // Chỉ trả trong GET chi tiết
     public string? RecipeSteps { get; set; } // Chỉ trả trong POST, PUT, string JSON
+    public int? DefaultServing { get; set; } // Thêm DefaultServing
 }
 
 
