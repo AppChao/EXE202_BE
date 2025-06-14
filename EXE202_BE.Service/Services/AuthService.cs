@@ -197,7 +197,7 @@ public class AuthService : IAuthService
         {
             Token = new JwtSecurityTokenHandler().WriteToken(GenerateJwtSecurityToken(claims)),
             Role = roles.FirstOrDefault(),
-            UPId = 2
+            UPId = userProfile.UPId
         };
     }
 

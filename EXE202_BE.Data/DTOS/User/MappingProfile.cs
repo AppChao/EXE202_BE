@@ -88,7 +88,8 @@ public class MappingProfile : Profile
                 DefaultUnit = s.Ingredient.DefaultUnit
             }).ToList()))
             .ForMember(dest => dest.Steps, opt => opt.Ignore())
-            .ForMember(dest => dest.RecipeSteps, opt => opt.MapFrom(src => src.RecipeSteps));
+            .ForMember(dest => dest.RecipeSteps, opt => opt.MapFrom(src => src.RecipeSteps))
+            .ForMember(dest => dest.DefaultServing, opt => opt.MapFrom(src => src.DefaultServing)); // Thêm ánh xạ
 
         CreateMap<Recipes, RecipeHomeResponse>()
             .ForMember(dest => dest.RecipeId, opt => opt.MapFrom(src => src.RecipeId))

@@ -1,5 +1,3 @@
-using EXE202_BE.Data.Models;
-
 namespace EXE202_BE.Data.DTOS.Recipe;
 
 public class RecipeResponse
@@ -15,6 +13,7 @@ public class RecipeResponse
     public List<IngredientDetail>? Ingredients { get; set; } // Chỉ trả trong GET chi tiết
     public List<RecipeStep>? Steps { get; set; } // Chỉ trả trong GET chi tiết
     public string? RecipeSteps { get; set; } // Chỉ trả trong POST, PUT, string JSON
+    public int? DefaultServing { get; set; } // Thêm DefaultServing
     
     public static Recipes FromDictionary(Dictionary<string, string> dict)
     {
