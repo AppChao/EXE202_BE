@@ -1,3 +1,5 @@
+using EXE202_BE.Data.Models;
+
 namespace EXE202_BE.Data.DTOS.Recipe;
 
 public class RecipeResponse
@@ -13,6 +15,32 @@ public class RecipeResponse
     public List<IngredientDetail>? Ingredients { get; set; } // Chỉ trả trong GET chi tiết
     public List<RecipeStep>? Steps { get; set; } // Chỉ trả trong GET chi tiết
     public string? RecipeSteps { get; set; } // Chỉ trả trong POST, PUT, string JSON
+    
+    public static Recipes FromDictionary(Dictionary<string, string> dict)
+    {
+        return new Recipes
+        {
+            RecipeId = int.Parse(dict["RecipeId"]),
+            RecipeName = dict["RecipeName"],
+            Meals = dict["Meals"],
+            RecipeSteps = dict["RecipeSteps"],
+            InstructionVideoLink = dict["InstructionVideoLink"],
+            CuisineId = int.Parse(dict["CuisineId"]),
+            TimeEstimation = int.Parse(dict["TimeEstimation"]),
+            DifficultyEstimation = int.Parse(dict["DifficultyEstimation"]),
+            DefaultServing = int.Parse(dict["DefaultServing"]),
+        };
+    }
+    
+    public static Servings FromServingsDictionary(Dictionary<string, string> dict)
+    {
+        return new Servings
+        {
+            RecipeId = int.Parse(dict["RecipeId"]),
+            IngredientId = int.Parse(dict["IngredientId"]),
+            Ammount = dict["Ammount"],
+        };
+    }
 }
 
 

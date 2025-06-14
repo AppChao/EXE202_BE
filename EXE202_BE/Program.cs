@@ -295,6 +295,8 @@ namespace EXE202_BE
             {
                 await SeedUsers.InitializeAsync(app.Services);
                 await SeedIngredients.InitializeAsync(app.Services);
+                await SeedRecipes.InitializeAsync(app.Services);
+                await SeedServing.InitializeAsync(app.Services);
             }
 
             await app.RunAsync();

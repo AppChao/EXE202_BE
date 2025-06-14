@@ -27,4 +27,19 @@ public class IngredientDto
             IconName = IconName ?? null,
         };
     }
+    
+    public static Ingredients FromDictionary(Dictionary<string, string> dict)
+    {
+        return new Ingredients
+        {
+            IngredientName = dict.ContainsKey("Column 2") ? dict["Column 2"] : "Unknown",
+            IngredientTypeId = int.Parse(dict["Column 8"]),
+            CaloriesPer100g = 0, // default or derive elsewhere
+            DefaultUnit = dict["Column 3"],
+            GramPerUnit = 0,     // default or derive elsewhere
+            IconLibrary = null,
+            IconName = null
+        };
+    }
+
 }

@@ -1,0 +1,5562 @@
+[
+  {
+    "Column 1": "Unique",
+    "Column 2": "Beef bones",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "1",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Beef marrow/knuckle bones",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "2",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Beef brisket (for pho bo)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "3",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Beef chuck (for pho bo)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "4",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Chicken thighs with bone (for pho ga)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "5",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Whole chicken or chicken parts (for pho ga)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "6",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Beef shank",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "7",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Beef brisket",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "8",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Beef oxtail",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "9",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Pork bones",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "10",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Pork hocks",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "11",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Pork blood cake",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "12",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Beef sausage (cha lua)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "13",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Cua đồng (crab)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "?",
+    "Column 6": "",
+    "Column 7": "14",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Crab roe (gạch cua)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "15",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pork ribs or pork hocks",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "16",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Pork shoulder (ground pork)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "17",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Pork blood cake (huyết)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "18",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Dried shrimp",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "19",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pork sausage (chả lụa or chả cua)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "20",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Paddy crab meat",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "21",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Ground pork",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "22",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Pork ribs",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "23",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Ốc bươu (apple snail)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "24",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Cua đồng (paddy crab meat)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "25",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Gạch cua (crab roe)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "26",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Xương lợn (pork bones)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "27",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Da lợn (pork skins)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "28",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Thịt vai heo băm (ground pork shoulder)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "29",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Tôm khô (dried shrimp)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "30",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Huyết lợn (pork blood cake)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "31",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Xương heo (pork bones)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "32",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Xương gà (chicken bones)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "33",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Thịt bò thăn/thịt bò lát mỏng",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "34",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Thịt heo xay (ground pork)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "35",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Bò viên (beef meatballs)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "36",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Mỡ heo băm (pork fat)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "37",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pork neck bones",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "38",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Pork shoulder",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "39",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pork loin",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "40",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pork liver",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "41",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Shrimp (fresh)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "42",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Squid (fresh)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "43",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pâté",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "44",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Vietnamese cold cuts (cha lua/head cheese)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "45",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Grilled pork (thịt nướng)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "46",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Roasted pork belly",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "47",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pork belly",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "48",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Shrimp",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "49",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Shrimp (peeled & deveined)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "50",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Ground pork (optional)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "51",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Vietnamese ham (Chả lụa)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "52",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Shrimp (tôm đất)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "53",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Dried shrimp (tôm khô)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "54",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pork rind (da heo chiên giòn)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "55",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pork belly (thin slices)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "56",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pork liver (dipping sauce)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "Dip sauce mà gram hả ? hay sao v ",
+    "Column 6": "",
+    "Column 7": "57",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Minced pork (dipping sauce)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "58",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Chinese sausage",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "59",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Minced shrimp",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "Này k bt cái hay gram?",
+    "Column 6": "",
+    "Column 7": "60",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Shrimp (peeled deveined)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "61",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Grilled pork slices or pork belly",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "Cái ? T k nghĩ là gram đâu",
+    "Column 6": "",
+    "Column 7": "62",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Shrimp (peeled & chopped)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "63",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Ground pork (for patties)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "64",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pork belly (sliced)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "tsp ?",
+    "Column 6": "",
+    "Column 7": "65",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Pork shoulder (thinly sliced)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "66",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Beef (ribeye or sirloin cubed)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "k bt",
+    "Column 6": "",
+    "Column 7": "67",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pork belly (char siu-style)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "?",
+    "Column 6": "",
+    "Column 7": "68",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pork shoulder or loin",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "69",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Grilled pork chop (sườn nướng)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "70",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pork skin shredded (bì)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "71",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Steamed egg meatloaf (chả trứng)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "72",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Chicken pieces",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "73",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Beef slices",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "74",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Prawns",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "75",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Firm white fish fillets (catfish or snakehead)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "76",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pork belly (skin-on)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "77",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Catfish steaks (or other white-fleshed fish)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "78",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Ground beef",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "79",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Ground pork fat (optional for extra juiciness)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "80",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Catfish steaks",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "81",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Shrimp (optional)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "82",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pork spare ribs",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "83",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pork spare ribs (xương sườn heo)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "84",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Ground pork (thịt heo băm)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "85",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pork spare ribs or bones (optional)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "86",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Shrimp (tôm tươi bóc vỏ và cắt nhỏ)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "87",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Dried shrimp (tôm khô) (optional)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "88",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Shrimp (peeled deveined or shrimp paste balls)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "89",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pork meatballs (moc)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "90",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Dried shrimp (hoặc tôm tươi)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "91",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Ground beef (thịt bò băm)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "92",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Snakehead fish (cá lóc)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "93",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Baby clams (hến)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "94",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Pork shoulder (ground)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "95",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pork fat trimmings (ground)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "96",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pork floss or chicken floss",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "97",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Chinese sausage (lạp xưởng)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "98",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Vietnamese cold cuts (chả lụa/pâté)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "99",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pork floss",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "100",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pork paste (giò sống optional)",
+    "Column 3": "gram",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "101",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Onion",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "102",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Shallots (phở gà optionally)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "103",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Ginger",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "104",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Bean sprouts",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "Cup (1cup ~ 100grams)",
+    "Column 6": "",
+    "Column 7": "105",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Thai basil",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "106",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Cilantro (coriander)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "bunch",
+    "Column 6": "",
+    "Column 7": "107",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Green onions/scallions",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "number",
+    "Column 6": "",
+    "Column 7": "108",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Shallots",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "109",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Lemongrass",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "110",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Garlic",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "111",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Water spinach",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "112",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Banana flower",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "113",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Perilla / Vietnamese coriander",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "114",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Cilantro",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "tbsp (1tbsp = 15ml)",
+    "Column 6": "",
+    "Column 7": "115",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Green onions (scallions)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "116",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Red cabbage (optional)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "Head",
+    "Column 6": "",
+    "Column 7": "117",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Tomato",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "118",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Perilla / Vietnamese balm/mint herbs",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "119",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Red cabbage or cabbage",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "Head",
+    "Column 6": "",
+    "Column 7": "120",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Onion/shallot",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "Má tao bảo nếu cắt nhuyễn thì bả bảo là thìa (spoon)",
+    "Column 6": "",
+    "Column 7": "121",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Daikon",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "122",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Water spinach (rau muống)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "123",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Perilla/Vietnamese balm",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "124",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Mint leaves",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "125",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Cà chua (tomato)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "126",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Hành khô (shallots)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "Hành tím nói mẹ hành tím đi",
+    "Column 6": "",
+    "Column 7": "127",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Tỏi (garlic)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "128",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Gừng (ginger)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "129",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Rau muống (water spinach)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "130",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Hoa chuối (banana flower)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "131",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Giá đỗ (bean sprouts)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "132",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Rau thơm (perilla coriander)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "? mà nếu là perilla thì gram như trên ",
+    "Column 6": "",
+    "Column 7": "133",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Hành lá (green onion)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "134",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Hành tây (onion)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "piece ?",
+    "Column 6": "",
+    "Column 7": "135",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Hành tím (shallots)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "minced thì chắc gram còn nguyên k bt ",
+    "Column 6": "",
+    "Column 7": "136",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Hành lá (scallions)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "như trên ",
+    "Column 6": "",
+    "Column 7": "137",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Ngò rí (cilantro)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "138",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Xà lách hoặc rau sống (lettuce/herbs)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "139",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Yellow onion",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "này khác lol gì vs onion k ?",
+    "Column 6": "",
+    "Column 7": "140",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Daikon (white radish)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "141",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Carrot",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "142",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Garlic chives",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "143",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Chinese celery/coriander",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "144",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Lettuce (southern style)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "145",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pickled carrot and daikon",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "146",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Cucumber slices",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "t tưởng chỉnh là ingre sao còn sliced ở đây nữa",
+    "Column 6": "",
+    "Column 7": "147",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Onion or scallion (green onion)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "148",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Garlic chives (or cilantro)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "149",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Lettuce",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "150",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Perilla leaves",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "151",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Cucumber",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "đcm v mà trên kia còn sliced",
+    "Column 6": "",
+    "Column 7": "152",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Green onions (spring onions)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "153",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Lettuce (leafy greens)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "154",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pickled carrot & daikon (do chua)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "155",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Lettuce or leafy greens",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "156",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Spring onions",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "157",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Lettuce (for wrapping/serving)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "158",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Perilla leaves (for serving)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "159",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Mint leaves (for serving)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "160",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Garlic chives (optional)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "161",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Green peas",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "162",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Carrots",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "163",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Lettuce leaves",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "164",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Carrot (julienned)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "165",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Cucumber (julienned)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "166",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Jicama or kohlrabi (julienned)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "167",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Green onion (scallion)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "168",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Lettuce (for serving)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "169",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Cilantro (for serving)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "170",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Thai basil/mint (for serving)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "171",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pickled green papaya (or carrot kohlrabi)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "172",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Vietnamese coriander (rau răm)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "gram ?",
+    "Column 6": "",
+    "Column 7": "173",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Perilla leaves (tía tô)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "174",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Lemongrass (minced)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "175",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Shallots (minced)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "tsp như trên ?",
+    "Column 6": "",
+    "Column 7": "176",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Garlic (minced)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "tsp như trên ?",
+    "Column 6": "",
+    "Column 7": "177",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Tomato (for salad/serve bed)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "178",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Cucumber (for salad bed)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "179",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Lettuce or watercress (bed)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "180",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Lettuce (shredded)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "181",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Fresh herbs (basil + cilantro + mint + perilla + Vietnamese coriander)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "t k bt là có vụ or luôn đấy",
+    "Column 6": "",
+    "Column 7": "182",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pickled carrot & daikon",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "183",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Tomato slices",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "tsp?",
+    "Column 6": "",
+    "Column 7": "184",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Zucchini",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "185",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Bok choy",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "? deo bt",
+    "Column 6": "",
+    "Column 7": "186",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Broccoli",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "187",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Scallions (garnish)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "188",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Galangal (or ginger)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "189",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Fresh dill",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "190",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Fresh herbs (mint cilantro)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "191",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Scallions (for garnish)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "192",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Yellow onion (optional)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "193",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Green onions (scallions) for garnish",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "194",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Piper lolot/betel leaves",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "195",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Fresh herbs (lettuce + cilantro + mint + cucumber)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "196",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Tomato wedges",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "197",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pineapple chunks",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "198",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Okra",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "199",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Taro stems (elephant ear)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "200",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Rice paddy herb (ngò om)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "201",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Thai basil or cilantro",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "202",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Scallions (green onions)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "203",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Bitter melon (khổ qua)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "204",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Garlic (optional)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "205",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Potatoes",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "206",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Cauliflower (optional)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "207",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Scallions (green onion)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "208",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Chayote (su su)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "209",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Potato (optional)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "210",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Shallot (sliced)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "211",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Green onion/scallion (garnish)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "212",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Cách đỏ (pumpkin)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "213",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Fresh cilantro or rau mùi",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "214",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Bầu (chayote/opo squash)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "215",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Shallots or red onion (hành tím)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "216",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Dill (optional for garnish)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "217",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Mustard greens (cải bẹ xanh)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "218",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Fresh cilantro (garnish)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "219",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Winter melon (bí đao)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "220",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Green onions (hành lá)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "221",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Garlic (tỏi giã)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "222",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Cilantro (mùi ngò)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "223",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Malabar spinach (rau mồng tơi)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "224",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Tomatoes",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "225",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Okra (đậu bắp)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "226",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Taro stems (dọc mùng or bac ha)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "227",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Shallots or purple onion",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "228",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Other herbs (rau răm Thai basil)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "229",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Ginger (julienned)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "230",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Shallots (sliced)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "231",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "White/yellow onion (sliced)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "232",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Rau răm (Vietnamese coriander)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "233",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Carrot or daikon pickled",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "234",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Vietnamese coriander/rau răm (for serving)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "235",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pandan leaves or extract (optional aroma)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "236",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Corn kernels (tách từ bắp)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "237",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pandan leaves or vanilla",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "238",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Corn kernels",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "239",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pandan leaves or pandan extract (for green color)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "240",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Butterfly pea flower or magenta leaf extract (purple)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "241",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Green onions (white & green parts)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "242",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Lemongrass (minced) or garlic",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "243",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Garlic (if using)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "244",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Shallot (if using)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "245",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Lettuce & fresh herbs (mint + perilla + cilantro)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "246",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Lemongrass (minced) (in marinade)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "247",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pickled carrot & daikon (đồ chua)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "248",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Fresh herbs (mint + cilantro + perilla)",
+    "Column 3": "gram",
+    "Column 4": "Vegetables",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "249",
+    "Column 8": "2"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Wood ear mushrooms (nấm mèo)",
+    "Column 3": "gram",
+    "Column 4": "Mushrooms",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "250",
+    "Column 8": "3"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Wood ear or straw mushrooms",
+    "Column 3": "gram",
+    "Column 4": "Mushrooms",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "251",
+    "Column 8": "3"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Wood ear mushrooms",
+    "Column 3": "gram",
+    "Column 4": "Mushrooms",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "252",
+    "Column 8": "3"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Wood ear mushrooms (dried & chopped)",
+    "Column 3": "gram",
+    "Column 4": "Mushrooms",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "253",
+    "Column 8": "3"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Wood ear mushrooms (mộc nhĩ)",
+    "Column 3": "gram",
+    "Column 4": "Mushrooms",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "254",
+    "Column 8": "3"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Star fruit or green mango (serving)",
+    "Column 3": "gram",
+    "Column 4": "Fruits",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "255",
+    "Column 8": "5"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Green mango (firm & unripe)",
+    "Column 3": "gram",
+    "Column 4": "Fruits",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "256",
+    "Column 8": "5"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Grilled bananas (chuối nướng)",
+    "Column 3": "gram",
+    "Column 4": "Fruits",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "257",
+    "Column 8": "5"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Gac fruit aril (gấc)",
+    "Column 3": "gram",
+    "Column 4": "Fruits",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "258",
+    "Column 8": "5"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Ripe mango slices",
+    "Column 3": "gram",
+    "Column 4": "Fruits",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "259",
+    "Column 8": "5"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Rice noodles",
+    "Column 3": "gram",
+    "Column 4": "Carbs & Grains",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "260",
+    "Column 8": "6"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Thick rice vermicelli noodles (Bun)",
+    "Column 3": "gram",
+    "Column 4": "Carbs & Grains",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "261",
+    "Column 8": "6"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Rice vermicelli noodles (bún)",
+    "Column 3": "gram",
+    "Column 4": "Carbs & Grains",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "262",
+    "Column 8": "6"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Rice vermicelli (bún)",
+    "Column 3": "gram",
+    "Column 4": "Carbs & Grains",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "263",
+    "Column 8": "6"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Bún tươi (rice vermicelli)",
+    "Column 3": "gram",
+    "Column 4": "Carbs & Grains",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "264",
+    "Column 8": "6"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Gạo phở khô (dry pho noodles)",
+    "Column 3": "gram",
+    "Column 4": "Carbs & Grains",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "265",
+    "Column 8": "6"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Rice noodles (hu tieu noodles)",
+    "Column 3": "gram",
+    "Column 4": "Carbs & Grains",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "266",
+    "Column 8": "6"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Egg noodles (optional)",
+    "Column 3": "gram",
+    "Column 4": "Carbs & Grains",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "267",
+    "Column 8": "6"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Vietnamese baguette",
+    "Column 3": "gram",
+    "Column 4": "Carbs & Grains",
+    "Column 5": "piece thì sao ?",
+    "Column 6": "",
+    "Column 7": "268",
+    "Column 8": "6"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Rice flour",
+    "Column 3": "gram",
+    "Column 4": "Carbs & Grains",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "269",
+    "Column 8": "6"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Cornstarch",
+    "Column 3": "gram",
+    "Column 4": "Carbs & Grains",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "270",
+    "Column 8": "6"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Tapioca flour",
+    "Column 3": "gram",
+    "Column 4": "Carbs & Grains",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "271",
+    "Column 8": "6"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "All-purpose flour",
+    "Column 3": "gram",
+    "Column 4": "Carbs & Grains",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "272",
+    "Column 8": "6"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Rice vermicelli noodles (bun)",
+    "Column 3": "gram",
+    "Column 4": "Carbs & Grains",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "273",
+    "Column 8": "6"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Bun (rice vermicelli optional side)",
+    "Column 3": "gram",
+    "Column 4": "Carbs & Grains",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "274",
+    "Column 8": "6"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Roasted rice powder",
+    "Column 3": "gram",
+    "Column 4": "Carbs & Grains",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "275",
+    "Column 8": "6"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Rice noodles (lye water-treated)",
+    "Column 3": "gram",
+    "Column 4": "Carbs & Grains",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "276",
+    "Column 8": "6"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Broken rice",
+    "Column 3": "gram",
+    "Column 4": "Carbs & Grains",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "277",
+    "Column 8": "6"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Garlic rice (rice + garlic oil)",
+    "Column 3": "gram",
+    "Column 4": "Carbs & Grains",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "278",
+    "Column 8": "6"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Cornstarch (or roasted rice powder)",
+    "Column 3": "gram",
+    "Column 4": "Carbs & Grains",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "279",
+    "Column 8": "6"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Rice vermicelli (bun) optional side",
+    "Column 3": "gram",
+    "Column 4": "Carbs & Grains",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "280",
+    "Column 8": "6"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Sticky rice (nếp)",
+    "Column 3": "gram",
+    "Column 4": "Carbs & Grains",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "281",
+    "Column 8": "6"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Small tapioca pearls (optional)",
+    "Column 3": "gram",
+    "Column 4": "Carbs & Grains",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "282",
+    "Column 8": "6"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Glutinous rice (sticky rice)",
+    "Column 3": "gram",
+    "Column 4": "Carbs & Grains",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "283",
+    "Column 8": "6"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Rice flour (bột gạo)",
+    "Column 3": "gram",
+    "Column 4": "Carbs & Grains",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "284",
+    "Column 8": "6"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Glutinous rice flour (bột nếp)",
+    "Column 3": "gram",
+    "Column 4": "Carbs & Grains",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "285",
+    "Column 8": "6"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Glutinous rice (gạo nếp)",
+    "Column 3": "gram",
+    "Column 4": "Carbs & Grains",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "286",
+    "Column 8": "6"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Sticky rice (if using separate)",
+    "Column 3": "gram",
+    "Column 4": "Carbs & Grains",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "287",
+    "Column 8": "6"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Bánh hỏi (thin woven rice noodles)",
+    "Column 3": "gram",
+    "Column 4": "Carbs & Grains",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "288",
+    "Column 8": "6"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Dark roast coffee (coarse ground Robusta/Arabica blend)",
+    "Column 3": "gram",
+    "Column 4": "Carbs & Grains",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "289",
+    "Column 8": "6"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Mung beans (dried)",
+    "Column 3": "gram",
+    "Column 4": "Legumes",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "290",
+    "Column 8": "7"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Mung beans (hulled)",
+    "Column 3": "gram",
+    "Column 4": "Legumes",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "291",
+    "Column 8": "7"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Mung beans",
+    "Column 3": "gram",
+    "Column 4": "Legumes",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "292",
+    "Column 8": "7"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Glass noodles (bean thread)",
+    "Column 3": "gram",
+    "Column 4": "Legumes",
+    "Column 5": "piece ?",
+    "Column 6": "",
+    "Column 7": "293",
+    "Column 8": "7"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Winged beans (đậu rồng)",
+    "Column 3": "gram",
+    "Column 4": "Legumes",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "294",
+    "Column 8": "7"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Bean thread noodles (miến/bún tàu)",
+    "Column 3": "gram",
+    "Column 4": "Legumes",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "295",
+    "Column 8": "7"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Green mung beans (đậu xanh cà vỏ)",
+    "Column 3": "gram",
+    "Column 4": "Legumes",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "296",
+    "Column 8": "7"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Yellow mung bean paste",
+    "Column 3": "gram",
+    "Column 4": "Legumes",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "297",
+    "Column 8": "7"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Red beans (adzuki or kidney)",
+    "Column 3": "gram",
+    "Column 4": "Legumes",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "298",
+    "Column 8": "7"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Mung beans (split yellow soaked)",
+    "Column 3": "gram",
+    "Column 4": "Legumes",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "299",
+    "Column 8": "7"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Mung beans (đậu xanh cà vỏ)",
+    "Column 3": "gram",
+    "Column 4": "Legumes",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "300",
+    "Column 8": "7"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Black beans (đậu đen)",
+    "Column 3": "gram",
+    "Column 4": "Legumes",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "301",
+    "Column 8": "7"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Coriander seeds",
+    "Column 3": "gram",
+    "Column 4": "Spices",
+    "Column 5": "tsp (1tsp~2grams)",
+    "Column 6": "",
+    "Column 7": "302",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Fennel seeds",
+    "Column 3": "gram",
+    "Column 4": "Spices",
+    "Column 5": "tsp (1tsp~2grams)",
+    "Column 6": "",
+    "Column 7": "303",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Thai chili/Red chili",
+    "Column 3": "gram",
+    "Column 4": "Spices",
+    "Column 5": "number",
+    "Column 6": "",
+    "Column 7": "304",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Black peppercorns",
+    "Column 3": "gram",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "305",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Ground annatto (red chili powder)",
+    "Column 3": "gram",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "306",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Chili flakes",
+    "Column 3": "gram",
+    "Column 4": "Spices",
+    "Column 5": "tsp (1tsp~2grams)",
+    "Column 6": "",
+    "Column 7": "307",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Chili (fresh or flakes)",
+    "Column 3": "gram",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "308",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Annatto seeds (hạt điều màu)",
+    "Column 3": "gram",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "309",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Ớt tươi/Chili (fresh or flakes)",
+    "Column 3": "gram",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "310",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Ớt tươi/sa tế (chili or chili oil)",
+    "Column 3": "gram",
+    "Column 4": "Spices",
+    "Column 5": "tsp?",
+    "Column 6": "",
+    "Column 7": "311",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Fresh chili (jalapeño or bird’s-eye)",
+    "Column 3": "gram",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "312",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Turmeric powder",
+    "Column 3": "gram",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "313",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Crushed bird's-eye chili",
+    "Column 3": "gram",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "314",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Crushed bird’s-eye chili or chili flakes",
+    "Column 3": "gram",
+    "Column 4": "Spices",
+    "Column 5": "tsp ?",
+    "Column 6": "",
+    "Column 7": "315",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Crushed chili flakes (optional)",
+    "Column 3": "gram",
+    "Column 4": "Spices",
+    "Column 5": "piece ?",
+    "Column 6": "",
+    "Column 7": "316",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Fresh chili (optional)",
+    "Column 3": "gram",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "317",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Bird’s-eye chili (for garnish)",
+    "Column 3": "gram",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "318",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Red chili (optional)",
+    "Column 3": "gram",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "319",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Red pepper flakes (optional)",
+    "Column 3": "gram",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "320",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Five-spice powder (optional)",
+    "Column 3": "gram",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "321",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Chili slices (optional)",
+    "Column 3": "gram",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "322",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Red pepper flakes or chili slices (optional)",
+    "Column 3": "gram",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "323",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Chili slices or bird’s-eye chili",
+    "Column 3": "gram",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "324",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Bird’s-eye chili (fresh or flakes)",
+    "Column 3": "gram",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "325",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Red pepper powder/flakes",
+    "Column 3": "gram",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "326",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pepper flakes or ground pepper",
+    "Column 3": "gram",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "327",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Chili slices or bird’s-eye chili (for sauce)",
+    "Column 3": "gram",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "328",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "White or black sesame seeds",
+    "Column 3": "gram",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "329",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Dried squid",
+    "Column 3": "gram",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "330",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Peanuts (roasted for dipping sauce)",
+    "Column 3": "gram",
+    "Column 4": "Fats & Oils",
+    "Column 5": "?",
+    "Column 6": "",
+    "Column 7": "331",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Sesame seeds (roasted for dipping)",
+    "Column 3": "gram",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "332",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Crushed peanuts (topping)",
+    "Column 3": "gram",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "333",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Crushed peanuts (Toppings)",
+    "Column 3": "gram",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "334",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Butter (optional)",
+    "Column 3": "gram",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "335",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Roasted peanuts (crushed)",
+    "Column 3": "gram",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "336",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Sesame seeds (optional topping)",
+    "Column 3": "gram",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "337",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Crushed roasted peanuts (for topping)",
+    "Column 3": "gram",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "338",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Sesame seeds (optional)",
+    "Column 3": "gram",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "339",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Peanuts (roasted & crushed)",
+    "Column 3": "gram",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "340",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Coconut (shredded optional in filling)",
+    "Column 3": "gram",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "341",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Rock sugar",
+    "Column 3": "gram",
+    "Column 4": "Sweeteners",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "342",
+    "Column 8": "11"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Đường phèn (rock sugar)",
+    "Column 3": "gram",
+    "Column 4": "Sweeteners",
+    "Column 5": "gram ? cục này đéo bh cook đéo bt ",
+    "Column 6": "",
+    "Column 7": "343",
+    "Column 8": "11"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Brown sugar (or granulated)",
+    "Column 3": "gram",
+    "Column 4": "Sweeteners",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "344",
+    "Column 8": "11"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Brown sugar or granulated sugar",
+    "Column 3": "gram",
+    "Column 4": "Sweeteners",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "345",
+    "Column 8": "11"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Honey (optional)",
+    "Column 3": "gram",
+    "Column 4": "Sweeteners",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "346",
+    "Column 8": "11"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Brown sugar (or sugar)",
+    "Column 3": "gram",
+    "Column 4": "Sweeteners",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "347",
+    "Column 8": "11"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "White or brown sugar",
+    "Column 3": "gram",
+    "Column 4": "Sweeteners",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "348",
+    "Column 8": "11"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Brown sugar (or palm sugar)",
+    "Column 3": "gram",
+    "Column 4": "Sweeteners",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "349",
+    "Column 8": "11"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Brown sugar (or white sugar)",
+    "Column 3": "gram",
+    "Column 4": "Sweeteners",
+    "Column 5": "tsp",
+    "Column 6": "",
+    "Column 7": "350",
+    "Column 8": "11"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Palm sugar (or white sugar)",
+    "Column 3": "gram",
+    "Column 4": "Sweeteners",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "351",
+    "Column 8": "11"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "White sugar or granulated sugar",
+    "Column 3": "gram",
+    "Column 4": "Sweeteners",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "352",
+    "Column 8": "11"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "White sugar or palm sugar",
+    "Column 3": "gram",
+    "Column 4": "Sweeteners",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "353",
+    "Column 8": "11"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Rock sugar (crystalline)",
+    "Column 3": "gram",
+    "Column 4": "Sweeteners",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "354",
+    "Column 8": "11"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Sugar (for dough)",
+    "Column 3": "gram",
+    "Column 4": "Sweeteners",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "355",
+    "Column 8": "11"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Sugar (for filling)",
+    "Column 3": "gram",
+    "Column 4": "Sweeteners",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "356",
+    "Column 8": "11"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Sugar (in marinade)",
+    "Column 3": "gram",
+    "Column 4": "Sweeteners",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "357",
+    "Column 8": "11"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Baking powder",
+    "Column 3": "gram",
+    "Column 4": "Others",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "358",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Banana leaves (wrapper)",
+    "Column 3": "gram",
+    "Column 4": "Others",
+    "Column 5": "?",
+    "Column 6": "",
+    "Column 7": "359",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Rice paper wrappers (banh trang)",
+    "Column 3": "gram",
+    "Column 4": "Others",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "360",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Rice paper wrappers",
+    "Column 3": "gram",
+    "Column 4": "Others",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "361",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Cornstarch (or tapioca starch)",
+    "Column 3": "gram",
+    "Column 4": "Others",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "362",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Crispy pork cracklings or fried wonton wrappers",
+    "Column 3": "gram",
+    "Column 4": "Others",
+    "Column 5": "vl cơm tấm của t á ",
+    "Column 6": "",
+    "Column 7": "363",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Tapioca starch (for binding balls)",
+    "Column 3": "gram",
+    "Column 4": "Others",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "364",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Black sesame rice crackers (bánh đa mè)",
+    "Column 3": "gram",
+    "Column 4": "Others",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "365",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Tapioca starch or bột năng",
+    "Column 3": "gram",
+    "Column 4": "Others",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "366",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pandan jelly (agar agar + pandan)",
+    "Column 3": "gram",
+    "Column 4": "Others",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "367",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Crushed ice",
+    "Column 3": "gram",
+    "Column 4": "Others",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "368",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Potato starch (bột bắp) or mashed potato",
+    "Column 3": "gram",
+    "Column 4": "Others",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "369",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Tapioca starch or corn starch",
+    "Column 3": "gram",
+    "Column 4": "Others",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "370",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Ice cubes",
+    "Column 3": "gram",
+    "Column 4": "Others",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "371",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Fish sauce",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "tbsp (1tbsp = 15ml)",
+    "Column 6": "",
+    "Column 7": "372",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Hoisin sauce",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "tbsp",
+    "Column 6": "",
+    "Column 7": "373",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Sriracha sauce",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "tbsp",
+    "Column 6": "",
+    "Column 7": "374",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Vinegar or giấm bỗng",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "375",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Tamarind or giấm bỗng",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "Này là giấm hay là me ???",
+    "Column 6": "",
+    "Column 7": "376",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Giấm bỗng (rice vinegar)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "du me cái ở trên kia là cái đéo gì v ",
+    "Column 6": "",
+    "Column 7": "377",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Nước mắm (fish sauce)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "378",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Tương đen (hoisin sauce)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "379",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Dầu hào (oyster sauce)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "380",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Nước tương (soy sauce)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "381",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Fried shallots",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "hẹ chiên ???",
+    "Column 6": "",
+    "Column 7": "382",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Fried garlic",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "k bt",
+    "Column 6": "",
+    "Column 7": "383",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Sriracha or chili sauce",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "384",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Maggi or soy seasoning sauce",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "385",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Nuoc cham dipping sauce (fish sauce + sugar + lime + garlic + chili)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "chấm mẹ gì v ",
+    "Column 6": "",
+    "Column 7": "386",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Fish sauce dipping (nuoc cham)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "387",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Scallion oil",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "388",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Nước chấm dipping sauce (fish sauce base)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "389",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Scallion oil (mỡ hành)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "390",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Fish sauce dipping sauce (nuoc cham)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "391",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Hoisin sauce (dipping)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "392",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Oyster sauce",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "393",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Soy sauce",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "394",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Sesame oil",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "395",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pretz water for dipping (nước chấm: fish sauce + water + sugar + chili + garlic)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "396",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Peanut dipping sauce (hoisin peanut butter)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "397",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Satay chili sauce (optional)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "398",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Nuoc cham dipping sauce (fish sauce + lime + sugar + chili + garlic)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "399",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Oyster sauce (optional)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "k bt",
+    "Column 6": "",
+    "Column 7": "400",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Crushed garlic (table)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "401",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Scallion oil (green onion infused oil)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "402",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Nuoc cham (dipping sauce)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "403",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Benese scallion oil (mỡ hành)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "404",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Shrimp paste or nuoc cham (dipping sauce)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "405",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Dark soy sauce (or thick soy sauce)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "406",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Soy sauce (or aminos)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "407",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Nuoc mam dipping sauce (fish sauce + lime + sugar + garlic + chili)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "408",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Tamarind concentrate or pulp",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "409",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Fried garlic (topping)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "410",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Tamarind pulp or concentrate",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "411",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Fish sauce (for dressing)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "412",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Orange dipping sauce (sticky rice pork liver pork fish sauce sugar garlic)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "413",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Vanilla extract or vanilla sticks",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "414",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Vanilla extract or pandan extract (tạo mùi/màu)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "415",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Scallion oil (garnish)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "416",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Nước chấm dipping sauce (fish sauce + lime + sugar + garlic + chili)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "417",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Thai sweet chili sauce (optional)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "418",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Fish sauce (in marinade)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "419",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Dark soy sauce (in marinade)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "420",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Caramel color or condensed milk (optional)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "421",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Scallion oil (green onion oil)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "422",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Nuoc cham dipping sauce (fish sauce + lime + sugar + garlic chili)",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "423",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Sweetened condensed milk",
+    "Column 3": "ml",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "424",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Chili oil (vegetable oil + chili blend)",
+    "Column 3": "ml",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "425",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Annatto oil (dầu điều)",
+    "Column 3": "ml",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "426",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Shrimp paste oil (optional)",
+    "Column 3": "ml",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "427",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Dầu ăn (cooking oil)",
+    "Column 3": "ml",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "428",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Dầu điều (annatto oil)",
+    "Column 3": "ml",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "429",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Dầu mè (sesame oil)",
+    "Column 3": "ml",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "430",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Pork lard or cooking oil",
+    "Column 3": "ml",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "431",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Mayonnaise",
+    "Column 3": "ml",
+    "Column 4": "Fats & Oils",
+    "Column 5": "k bt",
+    "Column 6": "",
+    "Column 7": "432",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Coconut milk",
+    "Column 3": "ml",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "433",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Vegetable oil (or coconut oil for frying)",
+    "Column 3": "ml",
+    "Column 4": "Fats & Oils",
+    "Column 5": "?",
+    "Column 6": "",
+    "Column 7": "434",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Vegetable oil (or scallion oil)",
+    "Column 3": "ml",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "435",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Vegetable oil (for pan)",
+    "Column 3": "ml",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "436",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Vegetable oil (for frying)",
+    "Column 3": "ml",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "437",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Milk",
+    "Column 3": "ml",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "438",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Vegetable oil",
+    "Column 3": "ml",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "439",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Cooking oil (for batter)",
+    "Column 3": "ml",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "440",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Annatto oil (or annatto powder in oil)",
+    "Column 3": "ml",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "441",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Vegetable oil (for scallion oil)",
+    "Column 3": "ml",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "442",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Vegetable oil or butter for sauté",
+    "Column 3": "ml",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "443",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Annatto oil (for color)",
+    "Column 3": "ml",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "444",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Oil (vegetable or coconut)",
+    "Column 3": "ml",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "445",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Vegetable oil (for brushing)",
+    "Column 3": "ml",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "446",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Vegetable oil (for sauté)",
+    "Column 3": "ml",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "447",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Neutral oil (vegetable oil)",
+    "Column 3": "ml",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "448",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Vegetable oil (phi tỏi/hành)",
+    "Column 3": "ml",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "449",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Olive oil or vegetable oil",
+    "Column 3": "ml",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "450",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Annatto oil",
+    "Column 3": "ml",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "451",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Vegetable oil (for brushing/frying)",
+    "Column 3": "ml",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "452",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Coconut milk (nước cốt dừa)",
+    "Column 3": "ml",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "453",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Coconut milk sauce (coconut cream + sugar + salt + starch)",
+    "Column 3": "ml",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "454",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Coconut milk (for sauce)",
+    "Column 3": "ml",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "455",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Vegetable oil (for dough)",
+    "Column 3": "ml",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "456",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Vegetable oil (for binding & brushing)",
+    "Column 3": "ml",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "457",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Neutral oil (for frying/grilling)",
+    "Column 3": "ml",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "458",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Vegetable oil (for grilling)",
+    "Column 3": "ml",
+    "Column 4": "Fats & Oils",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "459",
+    "Column 8": "10"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Water (for broth)",
+    "Column 3": "ml",
+    "Column 4": "Others",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "460",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Nước (water for broth)",
+    "Column 3": "ml",
+    "Column 4": "Others",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "461",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Water (broth)",
+    "Column 3": "ml",
+    "Column 4": "Others",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "462",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Water",
+    "Column 3": "ml",
+    "Column 4": "Others",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "463",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Water (dipping broth)",
+    "Column 3": "ml",
+    "Column 4": "Others",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "464",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Chicken broth or water for cooking",
+    "Column 3": "ml",
+    "Column 4": "Others",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "465",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Coconut water (or coconut soda)",
+    "Column 3": "ml",
+    "Column 4": "Others",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "466",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Water (to adjust braising liquid)",
+    "Column 3": "ml",
+    "Column 4": "Others",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "467",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Water (for braising)",
+    "Column 3": "ml",
+    "Column 4": "Others",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "468",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Water (if needed for sauce)",
+    "Column 3": "ml",
+    "Column 4": "Others",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "469",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Water or broth (optional)",
+    "Column 3": "ml",
+    "Column 4": "Others",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "470",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Chicken broth or water",
+    "Column 3": "ml",
+    "Column 4": "Others",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "471",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Water or broth",
+    "Column 3": "ml",
+    "Column 4": "Others",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "472",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Water or chicken broth",
+    "Column 3": "ml",
+    "Column 4": "Others",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "473",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Water (warm for dressing)",
+    "Column 3": "ml",
+    "Column 4": "Others",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "474",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Water (hot)",
+    "Column 3": "ml",
+    "Column 4": "Others",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "475",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Hot water",
+    "Column 3": "ml",
+    "Column 4": "Others",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "476",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Water (for boiling)",
+    "Column 3": "ml",
+    "Column 4": "Others",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "477",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Chili (fresh or paste)",
+    "Column 3": "gram",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "478",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Fertilized duck egg (19–21 days incubated)",
+    "Column 3": "piece",
+    "Column 4": "Meat & Seafood",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "479",
+    "Column 8": "1"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Egg (riêu cua)",
+    "Column 3": "piece",
+    "Column 4": "Eggs & Dairy",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "480",
+    "Column 8": "4"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Eggs (for riêu)",
+    "Column 3": "piece",
+    "Column 4": "Eggs & Dairy",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "481",
+    "Column 8": "4"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Trứng gà (egg for riêu)",
+    "Column 3": "piece",
+    "Column 4": "Eggs & Dairy",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "482",
+    "Column 8": "4"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Quail eggs (optional)",
+    "Column 3": "piece",
+    "Column 4": "Eggs & Dairy",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "483",
+    "Column 8": "4"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Egg",
+    "Column 3": "piece",
+    "Column 4": "Eggs & Dairy",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "484",
+    "Column 8": "4"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Quail egg (or chicken egg)",
+    "Column 3": "piece",
+    "Column 4": "Eggs & Dairy",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "485",
+    "Column 8": "4"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Quail eggs",
+    "Column 3": "piece",
+    "Column 4": "Eggs & Dairy",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "486",
+    "Column 8": "4"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Hard-boiled egg (chicken)",
+    "Column 3": "piece",
+    "Column 4": "Eggs & Dairy",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "487",
+    "Column 8": "4"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Egg (binding)",
+    "Column 3": "piece",
+    "Column 4": "Eggs & Dairy",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "488",
+    "Column 8": "4"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Fried egg (ốp la)",
+    "Column 3": "piece",
+    "Column 4": "Eggs & Dairy",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "489",
+    "Column 8": "4"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Chicken eggs (boiled)",
+    "Column 3": "piece",
+    "Column 4": "Eggs & Dairy",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "490",
+    "Column 8": "4"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Lime",
+    "Column 3": "piece",
+    "Column 4": "Fruits",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "491",
+    "Column 8": "5"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Lime wedges",
+    "Column 3": "piece",
+    "Column 4": "Fruits",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "492",
+    "Column 8": "5"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Lime (for dipping sauce)",
+    "Column 3": "piece",
+    "Column 4": "Fruits",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "493",
+    "Column 8": "5"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Lime or kumquat wedges (for dip)",
+    "Column 3": "piece",
+    "Column 4": "Fruits",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "494",
+    "Column 8": "5"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Star anise",
+    "Column 3": "piece",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "495",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Cinnamon stick",
+    "Column 3": "piece",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "496",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Cloves",
+    "Column 3": "piece",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "497",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Black cardamom",
+    "Column 3": "piece",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "498",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Chicken bouillon cube",
+    "Column 3": "piece",
+    "Column 4": "Flavorings",
+    "Column 5": "Count (piece), Grams (if powder)",
+    "Column 6": "",
+    "Column 7": "499",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Fried tofu",
+    "Column 3": "piece",
+    "Column 4": "Fermented Ingredients",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "500",
+    "Column 8": "12"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Đậu phụ (fried tofu)",
+    "Column 3": "piece",
+    "Column 4": "Fermented Ingredients",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "501",
+    "Column 8": "12"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Instant yeast",
+    "Column 3": "piece",
+    "Column 4": "Others",
+    "Column 5": "Này là gì v đéo bt ",
+    "Column 6": "",
+    "Column 7": "502",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Sugarcane sticks (or lemongrass stalks)",
+    "Column 3": "piece",
+    "Column 4": "Others",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "503",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Tapioca starch (bột năng or bột sắn dây)",
+    "Column 3": "tbsp",
+    "Column 4": "Others",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "504",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Tapioca pearls or cornstarch slurry (for thickening)",
+    "Column 3": "tbsp",
+    "Column 4": "Others",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "505",
+    "Column 8": "13"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Salt",
+    "Column 3": "tsp",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "506",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Black pepper",
+    "Column 3": "tsp",
+    "Column 4": "Spices",
+    "Column 5": "pinch",
+    "Column 6": "",
+    "Column 7": "507",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Muối (salt)",
+    "Column 3": "tsp",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "508",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Tiêu (black pepper)",
+    "Column 3": "tsp",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "509",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Pepper",
+    "Column 3": "tsp",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "510",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Salt (dipping sauce)",
+    "Column 3": "tsp",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "511",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Black pepper (dipping sauce)",
+    "Column 3": "tsp",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "512",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Ground black pepper",
+    "Column 3": "tsp",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "513",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Salt (for dipping sauce)",
+    "Column 3": "tsp",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "514",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Five-spice powder (star anise + cinnamon + pepper + ginger + cloves)",
+    "Column 3": "tsp",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "515",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "White pepper/Ground pepper",
+    "Column 3": "tsp",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "516",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Salt (sparingly for taste)",
+    "Column 3": "tsp",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "517",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Sea salt",
+    "Column 3": "tsp",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "518",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Salt (pinch in filling)",
+    "Column 3": "tsp",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "519",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Ground black or white pepper",
+    "Column 3": "tsp",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "520",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Ground black pepper (in marinade)",
+    "Column 3": "tsp",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "521",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Salt (for dip)",
+    "Column 3": "tsp",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "522",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Black pepper (for dip)",
+    "Column 3": "tsp",
+    "Column 4": "Spices",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "523",
+    "Column 8": "8"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "MSG",
+    "Column 3": "tsp",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "524",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Tomato sauce or ketchup",
+    "Column 3": "tsp",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "525",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Mắm tôm (shrimp paste)",
+    "Column 3": "tsp",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "526",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Mắm ruốc (shrimp paste variant)",
+    "Column 3": "tsp",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "527",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Hạt nêm/bột canh (seasoning powder)",
+    "Column 3": "tsp",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "528",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Bột ngọt (MSG)",
+    "Column 3": "tsp",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "529",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Chicken bouillon powder",
+    "Column 3": "tsp",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "530",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Chicken powder or seasoning powder",
+    "Column 3": "tsp",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "531",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Shrimp paste (dipping)",
+    "Column 3": "tsp",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "532",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Chicken bouillon powder (optional)",
+    "Column 3": "tsp",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "533",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "MSG (optional)",
+    "Column 3": "tsp",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "534",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Chicken bouillon powder or MSG (optional)",
+    "Column 3": "tsp",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "535",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Chicken or mushroom bouillon powder",
+    "Column 3": "tsp",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "536",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Chicken/mushroom bouillon powder",
+    "Column 3": "tsp",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "537",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Chicken bouillon powder or seasoning powder",
+    "Column 3": "tsp",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "538",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Chicken or mushroom bouillon powder (bột nêm)",
+    "Column 3": "tsp",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "539",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "MSG (bột ngọt) (optional)",
+    "Column 3": "tsp",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "540",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Chicken bouillon powder or MSG",
+    "Column 3": "tsp",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "541",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "MSG or chicken bouillon powder (optional)",
+    "Column 3": "tsp",
+    "Column 4": "Flavorings",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "542",
+    "Column 8": "9"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "White sugar/Sugar",
+    "Column 3": "tsp",
+    "Column 4": "Sweeteners",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "543",
+    "Column 8": "11"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Sugar",
+    "Column 3": "tsp",
+    "Column 4": "Sweeteners",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "544",
+    "Column 8": "11"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Sugar/Sweetener (rock sugar or granulated)",
+    "Column 3": "tsp",
+    "Column 4": "Sweeteners",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "545",
+    "Column 8": "11"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Sugar/Sweetener (rock sugar)",
+    "Column 3": "tsp",
+    "Column 4": "Sweeteners",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "546",
+    "Column 8": "11"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Đường (sugar)",
+    "Column 3": "tsp",
+    "Column 4": "Sweeteners",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "547",
+    "Column 8": "11"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "White sugar or rock sugar",
+    "Column 3": "tsp",
+    "Column 4": "Sweeteners",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "548",
+    "Column 8": "11"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "White sugar",
+    "Column 3": "tsp",
+    "Column 4": "Sweeteners",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "549",
+    "Column 8": "11"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Sugar (dipping sauce)",
+    "Column 3": "tsp",
+    "Column 4": "Sweeteners",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "550",
+    "Column 8": "11"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Granulated sugar",
+    "Column 3": "tsp",
+    "Column 4": "Sweeteners",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "551",
+    "Column 8": "11"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Sugar (dressing)",
+    "Column 3": "tsp",
+    "Column 4": "Sweeteners",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "552",
+    "Column 8": "11"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Sugar (granulated or palm)",
+    "Column 3": "tsp",
+    "Column 4": "Sweeteners",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "553",
+    "Column 8": "11"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Shrimp paste",
+    "Column 3": "tsp",
+    "Column 4": "Fermented Ingredients",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "554",
+    "Column 8": "12"
+  },
+  {
+    "Column 1": "Partial Duplicate",
+    "Column 2": "Shrimp paste (mắm ruốc)",
+    "Column 3": "tsp",
+    "Column 4": "Fermented Ingredients",
+    "Column 5": "",
+    "Column 6": "",
+    "Column 7": "555",
+    "Column 8": "12"
+  },
+  {
+    "Column 1": "Unique",
+    "Column 2": "Chicken broth or pork broth",
+    "Column 3": "ml",
+    "Column 4": "Others",
+    "Column 5": "?",
+    "Column 6": "",
+    "Column 7": "556",
+    "Column 8": "13"
+  }
+]

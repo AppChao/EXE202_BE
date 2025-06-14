@@ -21,8 +21,4 @@
     <PackageReference Include="payOS" Version="1.0.9" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="JsonDataFile\" />
-  </ItemGroup>
-
 </Project>

@@ -1,4 +1,4 @@
-using EXE202_BE.Data.DTOS.Ingredient;
+using EXE202_BE.Data.DTOS.Recipe;
 using EXE202_BE.Data.Models;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 namespace EXE202_BE.Data.SeedData
 {
-    public static class SeedIngredients
+    public static class SeedServing
     {
         public static async Task InitializeAsync(IServiceProvider serviceProvider)
         {
@@ -15,7 +15,7 @@ namespace EXE202_BE.Data.SeedData
             var loggerFactory = scope.ServiceProvider.GetRequiredService<ILoggerFactory>();
             var logger = loggerFactory.CreateLogger("SeedIngredients");
 
-            if (context.Ingredients.Any())
+            if (context.Servings.Any())
             {
                 logger.LogInformation("🟡 Ingredients already exist in the database. Skipping seeding.");
                 return;
@@ -33,25 +33,25 @@ namespace EXE202_BE.Data.SeedData
                     return;
                 }
 
-                var jsonFiles = Directory.GetFiles(seedFolder, "Untitled spreadsheet - ingredient.json");
+                var jsonFiles = Directory.GetFiles(seedFolder, "Untitled spreadsheet - Sheet7.json");
 
-                var allIngredients = new List<Ingredients>();
+                var allServings = new List<Servings>();
 
                 foreach (var file in jsonFiles)
                 {
                     var json = await File.ReadAllTextAsync(file);
                     var rawDicts = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(json);
-                    var ingredientDtos = JsonConvert.DeserializeObject<List<IngredientDto>>(json);
+                    var recipesDtos = JsonConvert.DeserializeObject<List<IngredientDto>>(json);
 
                     if (rawDicts != null)
-                        allIngredients.AddRange(rawDicts.Select(dto => IngredientDto.FromDictionary(dto)));
+                        allServings.AddRange(rawDicts.Select(dto => RecipeResponse.FromServingsDictionary(dto)));
                 }
 
-                if (allIngredients.Count > 0)
+                if (allServings.Count > 0)
                 {
-                    await context.Ingredients.AddRangeAsync(allIngredients);
+                    await context.Servings.AddRangeAsync(allServings);
                     await context.SaveChangesAsync();
-                    logger.LogInformation("✅ Seeded {Count} ingredients from {FileCount} file(s).", allIngredients.Count, jsonFiles.Length);
+                    logger.LogInformation("✅ Seeded {Count} ingredients from {FileCount} file(s).", allServings.Count, jsonFiles.Length);
                 }
                 else
                 {
