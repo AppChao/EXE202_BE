@@ -1,3 +1,5 @@
+using EXE202_BE.Data.Models;
+
 namespace EXE202_BE.Data.DTOS.Recipe;
 
 public class RecipeResponse

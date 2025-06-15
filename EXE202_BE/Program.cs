@@ -105,7 +105,14 @@ namespace EXE202_BE
             // Add DbContext
             builder.Services.AddDbContext<AppDbContext>(options =>
                 options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+            
+            // Add logging
+            builder.Services.AddLogging(logging => { logging.AddConsole(); });
 
+            // Thêm đoạn kiểm tra appsettings nhanh
+            var testValue = builder.Configuration.GetSection("TestSetting:TestKey").Value;
+            var logger = LoggerFactory.Create(builder => builder.AddConsole()).CreateLogger("QuickCheck");
+            logger.LogInformation("Test value from appsettings: {TestValue}", testValue ?? "Not found in appsettings");
             // Add Identity
             builder.Services.AddIdentity<ModifyIdentityUser, IdentityRole>(options =>
                 {
@@ -230,10 +237,7 @@ namespace EXE202_BE
                 .MinimumLevel.Information()
                 .WriteTo.Console()
                 .CreateLogger();
-
-            // Add logging
-            builder.Services.AddLogging(logging => { logging.AddConsole(); });
-
+            
             var app = builder.Build();
 
             app.UseCors(x =>
