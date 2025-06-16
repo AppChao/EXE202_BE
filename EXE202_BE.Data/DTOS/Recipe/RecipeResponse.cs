@@ -9,7 +9,7 @@ public class RecipeResponse
     public string Meals { get; set; }
     public int DifficultyEstimation { get; set; }
     public int TimeEstimation { get; set; } // Phút
-    public string Nation { get; set; }
+    public string Region { get; set; }
     public int? CuisineId { get; set; } // Chỉ trả trong GET danh sách, POST, PUT
     public string? InstructionVideoLink { get; set; } // Chỉ trả trong GET chi tiết, POST, PUT
     public List<IngredientDetail>? Ingredients { get; set; } // Chỉ trả trong GET chi tiết
