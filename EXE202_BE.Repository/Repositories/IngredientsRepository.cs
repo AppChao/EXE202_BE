@@ -53,7 +53,8 @@ public class IngredientsRepository : GenericRepository<Ingredients>, IIngredient
     public async Task<List<Ingredients>?> GetAllIngredientsOrderByIconAsync()
     {
         return await _dbContext.Ingredients
-            .OrderBy(i => i.IconLibrary)
+            .OrderBy(r => r.IngredientTypeId)
+            .Take(10)
             .ToListAsync();
     }
 }

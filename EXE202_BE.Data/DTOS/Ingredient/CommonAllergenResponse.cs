@@ -5,6 +5,4 @@ public class CommonAllergenResponse
     public int IngredientId { get; set; }
     public string IngredientName { get; set; } = string.Empty;
     public string DefaultUnit { get; set; } = string.Empty;
-    public string IconLibrary { get; set; } = string.Empty;
-    public string IconName { get; set; } = string.Empty;
 }

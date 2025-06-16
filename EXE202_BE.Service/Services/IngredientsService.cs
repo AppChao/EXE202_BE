@@ -100,10 +100,7 @@ public class IngredientsService : IIngredientsService
         List<CommonAllergenResponse>? result = new List<CommonAllergenResponse>();
         foreach (var ingredient in allergens)
         {
-            if (ingredient.IconLibrary != null && ingredient.IconName != null)
-            {
                 result.Add(_mapper.Map<CommonAllergenResponse>(ingredient));
-            }
         }
 
         return result;

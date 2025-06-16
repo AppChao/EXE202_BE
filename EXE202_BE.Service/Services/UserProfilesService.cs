@@ -113,9 +113,12 @@ public class UserProfilesService : IUserProfilesService
         Expression<Func<UserProfiles, bool>>? filter = null;
         if (!string.IsNullOrWhiteSpace(searchTerm))
         {
-            filter = up => up.FullName.Contains(searchTerm, StringComparison.OrdinalIgnoreCase) ||
-                          up.User.Email.Contains(searchTerm, StringComparison.OrdinalIgnoreCase);
+            var loweredSearchTerm = searchTerm.ToLower();
+
+            filter = up => up.FullName.ToLower().Contains(loweredSearchTerm) ||
+                           up.User.Email.ToLower().Contains(loweredSearchTerm);
         }
+
 
         var userProfiles = await _userProfilesRepository.GetAllAsync(
             filter, "User,Allergies.Ingredient,PersonalHealthConditions.HealthCondition");
