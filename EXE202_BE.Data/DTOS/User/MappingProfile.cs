@@ -78,6 +78,7 @@ public class MappingProfile : Profile
             .ForMember(dest => dest.Meals, opt => opt.MapFrom(src => src.Meals))
             .ForMember(dest => dest.DifficultyEstimation, opt => opt.MapFrom(src => src.DifficultyEstimation))
             .ForMember(dest => dest.TimeEstimation, opt => opt.MapFrom(src => src.TimeEstimation))
+            .ForMember(dest => dest.Nation, opt => opt.MapFrom(src => src.Cuisine.Nation))
             .ForMember(dest => dest.Region, opt => opt.MapFrom(src => src.Cuisine.Region))
             .ForMember(dest => dest.CuisineId, opt => opt.MapFrom(src => src.CuisineId))
             .ForMember(dest => dest.InstructionVideoLink, opt => opt.MapFrom(src => src.InstructionVideoLink))
