@@ -51,9 +51,11 @@ public class RecipesService : IRecipesService
         Expression<Func<Recipes, bool>>? filter = null;
         if (!string.IsNullOrWhiteSpace(searchTerm))
         {
-            filter = r => r.RecipeName.Contains(searchTerm, StringComparison.OrdinalIgnoreCase) ||
-                          r.Meals.Contains(searchTerm, StringComparison.OrdinalIgnoreCase);
+            var loweredTerm = searchTerm.ToLower();
+            filter = r => r.RecipeName.ToLower().Contains(loweredTerm) ||
+                          r.Meals.ToLower().Contains(loweredTerm);
         }
+
 
         var recipes = await _recipesRepository.GetAllAsync(filter, "Cuisine");
 
