@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace EXE202_BE.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250614203438_initial")]
-    partial class initial
+    [Migration("20250616101914_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -1743,6 +1743,26 @@ namespace EXE202_BE.Data.Migrations
                     b.HasKey("SubcriptionId");
 
                     b.ToTable("Subcriptions");
+
+                    b.HasData(
+                        new
+                        {
+                            SubcriptionId = 1,
+                            SubcriptionInfor = "Gói đặc biệt dành cho Admin và Staff",
+                            SubcriptionName = "AdminStaff"
+                        },
+                        new
+                        {
+                            SubcriptionId = 2,
+                            SubcriptionInfor = "Gói VIP 1 với các tính năng cơ bản",
+                            SubcriptionName = "VIP1"
+                        },
+                        new
+                        {
+                            SubcriptionId = 3,
+                            SubcriptionInfor = "Gói VIP 2 với các tính năng cơ bản",
+                            SubcriptionName = "VIP2"
+                        });
                 });
 
             modelBuilder.Entity("EXE202_BE.Data.Models.UserExperiences", b =>

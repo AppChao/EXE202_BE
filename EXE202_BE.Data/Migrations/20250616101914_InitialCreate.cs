@@ -947,6 +947,16 @@ namespace EXE202_BE.Data.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "Subcriptions",
+                columns: new[] { "SubcriptionId", "SubcriptionInfor", "SubcriptionName" },
+                values: new object[,]
+                {
+                    { 1, "Gói đặc biệt dành cho Admin và Staff", "AdminStaff" },
+                    { 2, "Gói VIP 1 với các tính năng cơ bản", "VIP1" },
+                    { 3, "Gói VIP 2 với các tính năng cơ bản", "VIP2" }
+                });
+
+            migrationBuilder.InsertData(
                 table: "UserExperiences",
                 columns: new[] { "ExperienceId", "ExperienceName" },
                 values: new object[,]

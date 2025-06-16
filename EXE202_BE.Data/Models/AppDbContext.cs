@@ -264,6 +264,12 @@ builder.Entity<HealthTagConditions>().HasData(
     new HealthTagConditions { HealthConditionId = 33, HealthTagId = 30 }
     );
 
+    builder.Entity<Subcriptions>().HasData(
+    new Subcriptions {SubcriptionId = 1, SubcriptionName = "AdminStaff",SubcriptionInfor = "Gói đặc biệt dành cho Admin và Staff"},
+    new Subcriptions {SubcriptionId = 2, SubcriptionName = "VIP1",SubcriptionInfor = "Gói VIP 1 với các tính năng cơ bản"},
+    new Subcriptions {SubcriptionId = 3, SubcriptionName = "VIP2",SubcriptionInfor = "Gói VIP 2 với các tính năng cơ bản"}
+        );
+
     builder.Entity<Goals>().HasData(
         new Goals {GoalId = 1, GoalName = "Eat healthy"},
         new Goals {GoalId = 2, GoalName = "Learn how to cook"},
