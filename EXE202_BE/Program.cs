@@ -42,32 +42,28 @@ namespace EXE202_BE
 
                 GoogleCredential credential;
 
-                if (File.Exists(firebaseCred)) // Local: file path
+                // Kiểm tra xem firebaseCred là đường dẫn file (local) hay JSON (Azure)
+                if (File.Exists(firebaseCred)) // Local: đường dẫn file từ environment
                 {
                     credential = GoogleCredential
                         .FromFile(firebaseCred)
                         .CreateScoped("https://www.googleapis.com/auth/firebase.messaging");
-
-                    Console.WriteLine("Loaded Firebase credentials from file: " + firebaseCred);
+                    Console.WriteLine($"Loaded Firebase credentials from file: {firebaseCred}");
                 }
-                else // Cloud env: treat as JSON string
+                else // Azure: treat as JSON string
                 {
                     credential = GoogleCredential
                         .FromJson(firebaseCred)
                         .CreateScoped("https://www.googleapis.com/auth/firebase.messaging");
-
                     Console.WriteLine("Loaded Firebase credentials from JSON environment variable.");
                 }
 
                 var accessToken = await credential.UnderlyingCredential.GetAccessTokenForRequestAsync();
                 Console.WriteLine("Firebase initialized successfully. Access token acquired.");
+
                 if (FirebaseApp.DefaultInstance == null)
                 {
-                    FirebaseApp.Create(new AppOptions
-                    {
-                        Credential =                     credential = GoogleCredential
-                            .FromFile(firebaseCred)
-                    });
+                    FirebaseApp.Create(new AppOptions { Credential = credential });
                 }
             }
             catch (Exception ex)
@@ -81,7 +77,8 @@ namespace EXE202_BE
             if (string.IsNullOrEmpty(cloudinaryUrl))
             {
                 throw new Exception("CLOUDINARY_URL environment variable is not set.");
-            }else if (cloudinaryUrl == string.Empty)
+            }
+            else if (cloudinaryUrl == string.Empty)
             {
                 Console.WriteLine("⚠️ CLOUDINARY_URL is not set. Using dummy Cloudinary instance.");
 
@@ -89,7 +86,6 @@ namespace EXE202_BE
                 var dummyCloudinary = new Cloudinary(dummyAccount);
                 builder.Services.AddSingleton(dummyCloudinary);
             }
-
 
             var uri = new Uri(cloudinaryUrl);
             var userInfo = uri.UserInfo.Split(':');
@@ -105,6 +101,14 @@ namespace EXE202_BE
             // Add DbContext
             builder.Services.AddDbContext<AppDbContext>(options =>
                 options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+            
+            // Add logging
+            builder.Services.AddLogging(logging => { logging.AddConsole(); });
+
+            // Thêm đoạn kiểm tra appsettings nhanh
+            var testValue = builder.Configuration.GetSection("TestSetting:TestKey").Value;
+            var logger = LoggerFactory.Create(builder => builder.AddConsole()).CreateLogger("QuickCheck");
+            logger.LogInformation("Test value from appsettings: {TestValue}", testValue ?? "Not found in appsettings");
 
             // Add Identity
             builder.Services.AddIdentity<ModifyIdentityUser, IdentityRole>(options =>
@@ -230,10 +234,7 @@ namespace EXE202_BE
                 .MinimumLevel.Information()
                 .WriteTo.Console()
                 .CreateLogger();
-
-            // Add logging
-            builder.Services.AddLogging(logging => { logging.AddConsole(); });
-
+            
             var app = builder.Build();
 
             app.UseCors(x =>
