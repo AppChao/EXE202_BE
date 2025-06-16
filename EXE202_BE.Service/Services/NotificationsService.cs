@@ -36,15 +36,16 @@ public class NotificationsService : INotificationService
         string? sortColumn, string? sortOrder, int page = 1,
         int pageSize = 20)
     {
-        var notifications = await _notificationRepository.GetAllAsync(n => n.Status != "Deleted"
-                                                                           && (typeFilter == null ||
-                                                                               n.Type == typeFilter)
-                                                                           && (string.IsNullOrWhiteSpace(searchTerm)
-                                                                               || n.Body.Contains(searchTerm,
-                                                                                   StringComparison.OrdinalIgnoreCase)
-                                                                               || n.Title.Contains(searchTerm,
-                                                                                   StringComparison.OrdinalIgnoreCase))
+        var loweredSearchTerm = searchTerm?.ToLower();
+
+        var notifications = await _notificationRepository.GetAllAsync(n =>
+            n.Status != "Deleted"
+            && (typeFilter == null || n.Type == typeFilter)
+            && (string.IsNullOrWhiteSpace(searchTerm)
+                || n.Body.ToLower().Contains(loweredSearchTerm)
+                || n.Title.ToLower().Contains(loweredSearchTerm))
         );
+
 
 
         if (!string.IsNullOrWhiteSpace(sortColumn))
