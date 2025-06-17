@@ -34,7 +34,7 @@ public static class DependencyInjection
         services.AddTransient<IMealScheduledService, MealScheduledService>();
         // services.AddTransient<IEmailSender<ModifyIdentityUser>, SmtpEmailSender>();
         services.AddTransient<PayOSService>(); 
-        // Tiêm SmtpEmailSender với các dependency
+        // Đăng ký SmtpEmailSender cho ICustomEmailSender (giữ nguyên)
         services.AddTransient<ICustomEmailSender<ModifyIdentityUser>>(provider =>
         {
             return new SmtpEmailSender(
@@ -44,7 +44,17 @@ public static class DependencyInjection
                 provider.GetRequiredService<AppDbContext>()
             );
         });
-        
+
+        // Đăng ký SmtpEmailSender cho IEmailSender (thêm mới)
+        services.AddTransient<IEmailSender<ModifyIdentityUser>>(provider =>
+        {
+            return new SmtpEmailSender(
+                provider.GetRequiredService<IConfiguration>(),
+                provider.GetRequiredService<ILogger<SmtpEmailSender>>(),
+                provider.GetRequiredService<PayOSService>(),
+                provider.GetRequiredService<AppDbContext>()
+            );
+        });
         return services;
     }
 }
