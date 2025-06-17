@@ -22,7 +22,7 @@ public class NotificationsController : ControllerBase
         [FromQuery] string? sortColumn,
         [FromQuery] string? sortOrder,
         [FromQuery] int page = 1,
-        [FromQuery] int pageSize = 20
+        [FromQuery] int pageSize = 10
     )
     {
         try

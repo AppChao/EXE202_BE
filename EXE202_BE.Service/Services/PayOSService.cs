@@ -19,7 +19,7 @@ public class PayOSService
     private readonly string _cancelUrl;
     private readonly ILogger<PayOSService> _logger;
     private readonly AppDbContext _dbContext;
-    private const long InitialOrderCode = 17; // Hardcode giá trị khởi đầu
+    private const long InitialOrderCode = 20; // Hardcode giá trị khởi đầu
 
     public PayOSService(IConfiguration config, ILogger<PayOSService> logger, AppDbContext dbContext)
     {
