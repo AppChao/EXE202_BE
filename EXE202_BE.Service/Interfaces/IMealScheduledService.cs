@@ -6,4 +6,6 @@ namespace EXE202_BE.Service.Interface;
 public interface IMealScheduledService
 {
     Task<MealScheduled> CreateMealScheduled(int UPId,SignUpRequest model);
+
+    Task<MealScheduled?> GetMealScheduleByUPId(int UPId);
 }

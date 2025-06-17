@@ -206,18 +206,7 @@ public class AuthService : IAuthService
         var payload = await GoogleJsonWebSignature.ValidateAsync(model.idToken);
 
         var user = await _userManager.FindByEmailAsync(payload.Email);
-
-        if (user == null)
-        {
-            user = new ModifyIdentityUser()
-            {
-                UserName = payload.Email,
-                Email = payload.Email,
-                EmailConfirmed = true
-            };
-            await _userManager.CreateAsync(user);
-        }
-        
+        if (user == null) throw new Exception("The email does not exists.");
         await _userManager.AddToRoleAsync(user, "User");
 
         var userProfile = await _userProfilesRepository.GetAsync(up => up.UserId == user.Id);
@@ -263,7 +252,7 @@ public class AuthService : IAuthService
         {
             Token = new JwtSecurityTokenHandler().WriteToken(GenerateJwtSecurityToken(claims)),
             Role = roles.FirstOrDefault(),
-            UPId = 1
+            UPId = userProfile.UPId
         };    
     }
 

@@ -2,6 +2,7 @@ using EXE202_BE.Data.DTOS.Auth;
 using EXE202_BE.Data.Models;
 using EXE202_BE.Repository.Interface;
 using EXE202_BE.Service.Interface;
+using Microsoft.EntityFrameworkCore;
 
 namespace EXE202_BE.Service.Services;
 
@@ -28,5 +29,10 @@ public class MealScheduledService : IMealScheduledService
         await _mealScheduledRepository.AddAsync(ms);
         
         return ms;
+    }
+
+    public async Task<MealScheduled?> GetMealScheduleByUPId(int UPId)
+    {
+        return await _mealScheduledRepository.GetDbContext().MealScheduled.FirstOrDefaultAsync(m => m.UPId == UPId);
     }
 }
