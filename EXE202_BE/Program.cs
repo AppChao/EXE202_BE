@@ -246,14 +246,13 @@ namespace EXE202_BE
             // Configure middleware pipeline
             app.UseCors("AllowAll");
 
-            if (app.Environment.IsDevelopment())
+    
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
             {
-                app.UseSwagger();
-                app.UseSwaggerUI(c =>
-                {
-                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "EXE202_BE API v1");
-                });
-            }
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "EXE202_BE API v1");
+            });
+            
 
             // Thêm Hangfire Dashboard
             app.UseHangfireDashboard("/hangfire");
