@@ -191,7 +191,7 @@ public class NotificationsService : INotificationService
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error sending notification: {ex.Message} at {DateTime.UtcNow.AddHours(7)}");
+            Console.WriteLine($"\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nError sending notification: {ex.Message} at {DateTime.UtcNow.AddHours(7)}\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n");
             notification.Status = "Failed";
             await _notificationRepository.UpdateAsync(notification);
         }

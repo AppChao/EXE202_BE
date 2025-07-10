@@ -32,6 +32,20 @@ public class RecipesController : ControllerBase
         }
     }
 
+    [HttpGet("random")]
+    public async Task<IActionResult> GetRandomRecipes()
+    {
+        try
+        {
+            var rcipe = await _recipesService.GetRandom();
+            return Ok(rcipe);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { Message = "An error occurred while retrieving recipe.", Error = ex.Message });
+        }
+    }
+
     [HttpGet("{id}")]
     public async Task<IActionResult> GetRecipeById(int id)
     {

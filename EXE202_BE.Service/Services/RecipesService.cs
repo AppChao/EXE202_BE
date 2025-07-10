@@ -346,6 +346,18 @@ public async Task<RecipeResponse> UpdateRecipeAsync(int id, RecipeRequest reques
         };
     }
 
+    public async Task<List<RecipeResponse>> GetRandom()
+    {
+        var a = await _recipesRepository.GetRanDom();
+        List<RecipeResponse> recipes = new List<RecipeResponse>();
+        foreach (var b in a)
+        {
+            recipes.Add(_mapper.Map<RecipeResponse>(b));
+        }
+
+        return recipes;
+    }
+
     /*public async Task DeleteRecipeAsync(int id)
     {
         var recipe = await _recipesRepository.GetAsync(r => r.RecipeId == id);

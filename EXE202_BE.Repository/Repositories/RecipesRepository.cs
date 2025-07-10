@@ -6,8 +6,10 @@ namespace EXE202_BE.Repository.Repositories;
 
 public class RecipesRepository : GenericRepository<Recipes>, IRecipesRepository
 {
+    private readonly AppDbContext _context;
     public RecipesRepository(AppDbContext context) : base(context)
     {
+        _context = context;
     }
     
     public async Task<List<Recipes>> GetRecipesByCategoryAsync(string? meal)
@@ -20,5 +22,10 @@ public class RecipesRepository : GenericRepository<Recipes>, IRecipesRepository
         }
 
         return await query.ToListAsync();
+    }
+
+    public async Task<List<Recipes>> GetRanDom()
+    {
+        return await _context.Recipes.Take(3).ToListAsync();
     }
 }

@@ -6,4 +6,5 @@ public interface IRecipesRepository : IGenericRepository<Recipes>
 {
     // Add custom methods here
     Task<List<Recipes>> GetRecipesByCategoryAsync(string? category);
+    Task<List<Recipes>> GetRanDom();
 }

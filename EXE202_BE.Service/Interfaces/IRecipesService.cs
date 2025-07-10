@@ -13,4 +13,5 @@ public interface IRecipesService
     Task<RecipeResponse> UpdateRecipeAsync(int id, RecipeRequest request);
     Task DeleteRecipeAsync(int id);
     Task<PageListResponse<RecipeHomeResponse>> GetRecipesHomeAsync(string? category, string? searchTerm, int page = 1, int pageSize = 14);
+    Task<List<RecipeResponse>> GetRandom();
 }
