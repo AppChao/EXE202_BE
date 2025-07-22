@@ -15,6 +15,18 @@ public class DevicesRepository :  GenericRepository<Devices>, IDevicesRepository
 
     public async Task<bool> CreateDeviceToken(string userId, string fcmToken)
     {
+        var existDevice = await _dbContext.Devices.FirstOrDefaultAsync(a => a.UserId == userId);
+        if (existDevice != null)
+        {
+            if (existDevice.DeviceToken != fcmToken)
+            {
+                _dbContext.Devices.Remove(existDevice);
+                await _dbContext.SaveChangesAsync();
+            } else if (existDevice.DeviceToken == fcmToken)
+            {
+                return true;
+            }
+        }
         var deviceToken = new Devices
         {
             UserId = userId,
@@ -26,7 +38,7 @@ public class DevicesRepository :  GenericRepository<Devices>, IDevicesRepository
         return await _dbContext.SaveChangesAsync() > 0;
     }
     
-    public async Task<Devices?> GetDeviceToken()
+    public async Task<List<Devices>?> GetDeviceToken()
     {
         var tokens = await _dbContext.Devices
             .Where(d => d.DeviceToken != null)
@@ -38,6 +50,6 @@ public class DevicesRepository :  GenericRepository<Devices>, IDevicesRepository
             return null;
         }
 
-        return tokens[0]; // or use First() if not empty
+        return tokens; // or use First() if not empty
     }
 }

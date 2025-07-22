@@ -18,6 +18,8 @@ public partial class Recipes
     public string? InstructionVideoLink { get; set; }  =  string.Empty;
 
     public string? RecipeName { get; set; }  =  string.Empty;
+    
+    public string? picture { get; set; } =   string.Empty;
 
     //Minutes
     public int TimeEstimation  { get; set; }

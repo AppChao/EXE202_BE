@@ -166,22 +166,27 @@ public class NotificationsService : INotificationService
     public async Task SendNotificationAsync(EXE202Notification notification)
     {
         var fcmTokens = await _deviceTokenRepository.GetDeviceToken();
+        List<string> tokens = new List<string>();
+        foreach (var device in fcmTokens)
+        {
+            tokens.Add(device.DeviceToken);
+        }
         if (fcmTokens == null) return;
         try
         {
             // Create the message payload
-            var message = new Message
+            var message = new MulticastMessage()
             {
                 Notification = new FCMNotification
                 {
                     Title = notification.Title,
                     Body = notification.Body,
                 },
-                Token = fcmTokens.DeviceToken // Sending to multiple device tokens
+                Tokens = tokens // Sending to multiple device tokens
             };
 
             // Send the notification
-            var response = await FirebaseMessaging.DefaultInstance.SendAsync(message);
+            var response = await FirebaseMessaging.DefaultInstance.SendEachForMulticastAsync(message);
 
             Console.WriteLine($"FCM Response: {response} messages were sent successfully.");
             Console.WriteLine($"FCM Notification Sent at {DateTime.UtcNow.AddHours(7)}");

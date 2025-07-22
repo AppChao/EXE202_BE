@@ -39,16 +39,26 @@ namespace EXE202_BE
                 var firebaseCred = Environment.GetEnvironmentVariable("FIREBASE_CREDENTIALS");
                 if (string.IsNullOrEmpty(firebaseCred))
                     throw new ArgumentNullException("FIREBASE_CREDENTIALS", "Environment variable is not set.");
+                
+                var tbfirebaseCred = Environment.GetEnvironmentVariable("FIREBASE_CREDENTIALS_TB");
+                if (string.IsNullOrEmpty(tbfirebaseCred))
+                    throw new ArgumentNullException("FIREBASE_CREDENTIALS_TB", "Environment variable is not set.");
 
                 GoogleCredential credential;
+                GoogleCredential tbcredential;
 
                 // Kiểm tra xem firebaseCred là đường dẫn file (local) hay JSON (Azure)
-                if (File.Exists(firebaseCred)) // Local: đường dẫn file từ environment
+                if (File.Exists(firebaseCred) && File.Exists(tbfirebaseCred)) // Local: đường dẫn file từ environment
                 {
                     credential = GoogleCredential
                         .FromFile(firebaseCred)
                         .CreateScoped("https://www.googleapis.com/auth/firebase.messaging");
                     Console.WriteLine($"Loaded Firebase credentials from file: {firebaseCred}");
+                    
+                    tbcredential = GoogleCredential
+                        .FromFile(tbfirebaseCred)
+                        .CreateScoped("https://www.googleapis.com/auth/firebase.messaging");
+                    Console.WriteLine($"Loaded Firebase credentials from file: {tbfirebaseCred}");
                 }
                 else // Azure: treat as JSON string
                 {
@@ -56,15 +66,29 @@ namespace EXE202_BE
                         .FromJson(firebaseCred)
                         .CreateScoped("https://www.googleapis.com/auth/firebase.messaging");
                     Console.WriteLine("Loaded Firebase credentials from JSON environment variable.");
+                    
+                    tbcredential = GoogleCredential
+                        .FromFile(tbfirebaseCred)
+                        .CreateScoped("https://www.googleapis.com/auth/firebase.messaging");
+                    Console.WriteLine($"Loaded Firebase credentials from file: {tbfirebaseCred}");
                 }
 
                 var accessToken = await credential.UnderlyingCredential.GetAccessTokenForRequestAsync();
+                var tbaccessToken = await tbcredential.UnderlyingCredential.GetAccessTokenForRequestAsync();
+
                 Console.WriteLine("Firebase initialized successfully. Access token acquired.");
 
                 if (FirebaseApp.DefaultInstance == null)
                 {
                     FirebaseApp.Create(new AppOptions { Credential = credential });
                 }
+                
+                builder.Services.AddSingleton(new FirebaseCredentialProvider
+                {
+                    MessagingCredential = credential,
+                    StorageCredential = tbcredential
+                });
+
             }
             catch (Exception ex)
             {

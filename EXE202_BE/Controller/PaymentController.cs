@@ -169,6 +169,20 @@ public class PaymentController : ControllerBase
         }
     }
 
+    [HttpGet("info/user/{upid}")]
+    public async Task<IActionResult> GetPaymentInfoByUPId(int upid)
+    {
+        try
+        {
+            return Ok( await _payOSService.GetPaymentTransactionByUPId(upid));
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, $"Lỗi khi lấy thông tin thanh toán cho order: {upid}");
+            return StatusCode(500, new { message = "Lỗi khi lấy thông tin thanh toán." });
+        }
+    }
+
     [HttpPost("cancel/{orderCode}")]
     public async Task<IActionResult> CancelPayment(long orderCode, [FromBody] string cancellationReason = null)
     {

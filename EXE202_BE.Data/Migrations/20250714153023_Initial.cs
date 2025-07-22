@@ -9,7 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace EXE202_BE.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -377,6 +377,7 @@ namespace EXE202_BE.Data.Migrations
                     RecipeSteps = table.Column<string>(type: "text", nullable: true),
                     InstructionVideoLink = table.Column<string>(type: "text", nullable: true),
                     RecipeName = table.Column<string>(type: "text", nullable: true),
+                    picture = table.Column<string>(type: "text", nullable: true),
                     TimeEstimation = table.Column<int>(type: "integer", nullable: false),
                     DifficultyEstimation = table.Column<double>(type: "double precision", nullable: false),
                     DefaultServing = table.Column<int>(type: "integer", nullable: true)

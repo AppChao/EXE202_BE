@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace EXE202_BE.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250616101914_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20250714153023_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -1695,6 +1695,9 @@ namespace EXE202_BE.Data.Migrations
 
                     b.Property<int>("TimeEstimation")
                         .HasColumnType("integer");
+
+                    b.Property<string>("picture")
+                        .HasColumnType("text");
 
                     b.HasKey("RecipeId");
 

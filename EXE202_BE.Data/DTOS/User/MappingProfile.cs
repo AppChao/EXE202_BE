@@ -98,7 +98,7 @@ public class MappingProfile : Profile
             .ForMember(dest => dest.TimeEstimation, opt => opt.MapFrom(src => src.TimeEstimation))
             .ForMember(dest => dest.DifficultyEstimation, opt => opt.MapFrom(src => src.DifficultyEstimation))
             .ForMember(dest => dest.MealName, opt => opt.MapFrom(src => src.Meals ?? string.Empty))
-            .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => string.Empty));
+            .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.picture));
 
         CreateMap<IngredientTypes, IngredientTypeResponse>()
             .ForMember(dest => dest.IngredientTypeId, opt => opt.MapFrom(src => src.IngredientTypeId))

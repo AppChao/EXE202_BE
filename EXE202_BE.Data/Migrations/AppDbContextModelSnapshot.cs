@@ -1693,6 +1693,9 @@ namespace EXE202_BE.Data.Migrations
                     b.Property<int>("TimeEstimation")
                         .HasColumnType("integer");
 
+                    b.Property<string>("picture")
+                        .HasColumnType("text");
+
                     b.HasKey("RecipeId");
 
                     b.HasIndex("CuisineId");

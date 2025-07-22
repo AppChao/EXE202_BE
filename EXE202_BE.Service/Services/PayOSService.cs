@@ -178,6 +178,19 @@ public class PayOSService
             throw new Exception($"Failed to verify webhook data: {ex.Message}");
         }
     }
+
+    public async Task<List<PaymentHistory>> GetPaymentTransactionByUPId(int upId)
+    {
+        var result = await _dbContext.PaymentTransactions.Where(p => p.UPId == upId).ToListAsync();
+        List<PaymentHistory> paymentHistory = new List<PaymentHistory>();
+
+        foreach (var ph in result)
+        {
+            paymentHistory.Add(new PaymentHistory {Description = ph.Description, Amount = ph.Amount, Status = ph.Status, CreatedAt = ph.CreatedAt});
+        }
+        
+        return paymentHistory;
+    }
 }
 
 public class PayOSCredentials

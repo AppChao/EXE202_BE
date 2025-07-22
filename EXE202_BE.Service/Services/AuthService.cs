@@ -161,6 +161,8 @@ public class AuthService : IAuthService
             throw new Exception("User profile not found. Please create an account");
         }
 
+        await _devicesRepository.CreateDeviceToken(user.Id, model.deviceToken);
+
         // Logic tính streak
         var today = DateTime.UtcNow.Date;
         if (userProfile.LastLoginDate == null) // Lần đầu đăng nhập
@@ -214,6 +216,8 @@ public class AuthService : IAuthService
         {
             throw new Exception("User profile not found. Please create an account");
         }
+
+        await _devicesRepository.CreateDeviceToken(user.Id, model.deviceToken);
 
         // Logic tính streak
         var today = DateTime.UtcNow.Date;
