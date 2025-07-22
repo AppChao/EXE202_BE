@@ -68,9 +68,9 @@ namespace EXE202_BE
                     Console.WriteLine("Loaded Firebase credentials from JSON environment variable.");
                     
                     tbcredential = GoogleCredential
-                        .FromFile(tbfirebaseCred)
+                        .FromJson(tbfirebaseCred) // Sửa: Dùng FromJson thay vì FromFile
                         .CreateScoped("https://www.googleapis.com/auth/firebase.messaging");
-                    Console.WriteLine($"Loaded Firebase credentials from file: {tbfirebaseCred}");
+                    Console.WriteLine("Loaded Firebase credentials from JSON environment variable.");
                 }
 
                 var accessToken = await credential.UnderlyingCredential.GetAccessTokenForRequestAsync();
@@ -88,7 +88,6 @@ namespace EXE202_BE
                     MessagingCredential = credential,
                     StorageCredential = tbcredential
                 });
-
             }
             catch (Exception ex)
             {
