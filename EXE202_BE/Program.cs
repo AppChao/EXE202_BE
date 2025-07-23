@@ -127,6 +127,9 @@ namespace EXE202_BE
             
             // Add logging
             builder.Services.AddLogging(logging => { logging.AddConsole(); });
+            
+            // Thêm IHttpClientFactory để hỗ trợ SimplifiedAuthController
+            builder.Services.AddHttpClient();
 
             // Thêm đoạn kiểm tra appsettings nhanh
             var testValue = builder.Configuration.GetSection("TestSetting:TestKey").Value;
